@@ -1,0 +1,379 @@
+{
+  "$schema": "https://opencode.ai/config.json",
+  "default_agent": "orchestrateur",
+  "agent": {
+    "orchestrateur": {
+      "description": "Orchestrateur racine — point d'entrée, commandes transverses, orientation vers les orchestrateurs de genre.",
+      "mode": "primary",
+      "model": "opencode/deepseek-v4-flash-free",
+      "permission": {
+        "read": "allow",
+        "edit": "allow",
+        "bash": "allow",
+        "task": "allow"
+      }
+    },
+    "orchestrateur-roman": {
+      "description": "Orchestrateur roman — gère un projet de roman de A à Z (pré-flight, écriture, édition, finalisation).",
+      "mode": "primary",
+      "model": "opencode/deepseek-v4-flash-free",
+      "permission": {
+        "read": "allow",
+        "edit": "allow",
+        "bash": "allow",
+        "task": "allow"
+      }
+    },
+    "orchestrateur-poesie": {
+      "description": "Orchestrateur poésie — gère un recueil de poésie de A à Z (pré-flight, écriture, édition, finalisation).",
+      "mode": "primary",
+      "model": "opencode/deepseek-v4-flash-free",
+      "permission": {
+        "read": "allow",
+        "edit": "allow",
+        "bash": "allow",
+        "task": "allow"
+      }
+    },
+    "ecrivain-roman": {
+      "description": "Écrivain créatif qui rédige les chapitres du roman selon sa personnalité littéraire.",
+      "mode": "subagent",
+      "model": "opencode/deepseek-v4-flash-free",
+      "permission": {
+        "edit": "allow",
+        "read": "allow",
+        "bash": "deny",
+        "task": "deny"
+      }
+    },
+    "editeur-roman": {
+      "description": "Éditeur/relecteur strict qui vérifie la qualité, la cohérence et le respect des contraintes.",
+      "mode": "subagent",
+      "model": "opencode/deepseek-v4-flash-free",
+      "permission": {
+        "edit": "allow",
+        "read": "allow",
+        "bash": "deny",
+        "task": "deny"
+      }
+    },
+    "scribe": {
+      "description": "Scribe observateur du processus d'écriture. Capture les éléments remarquables pour capitalisation future.",
+      "mode": "subagent",
+      "model": "opencode/deepseek-v4-flash-free",
+      "permission": {
+        "edit": "allow",
+        "read": "allow",
+        "bash": "deny",
+        "task": "deny"
+      }
+    },
+    "ecrivain-poesie": {
+      "description": "Poète créatif qui rédige les poèmes d'un recueil selon les instructions de l'orchestrateur.",
+      "mode": "subagent",
+      "model": "opencode/deepseek-v4-flash-free",
+      "permission": {
+        "edit": "allow",
+        "read": "allow",
+        "bash": "deny",
+        "task": "deny"
+      }
+    },
+    "ecrivain-theatre": {
+      "description": "Auteur de théâtre qui rédige les scènes selon les instructions de l'orchestrateur.",
+      "mode": "subagent",
+      "model": "opencode/deepseek-v4-flash-free",
+      "permission": {
+        "edit": "allow",
+        "read": "allow",
+        "bash": "deny",
+        "task": "deny"
+      }
+    },
+    "editeur-theatre": {
+      "description": "Éditeur de théâtre — évalue didascalies, dialogues, rythme, sous-texte, personnages.",
+      "mode": "subagent",
+      "model": "opencode/deepseek-v4-flash-free",
+      "permission": {
+        "edit": "allow",
+        "read": "allow",
+        "bash": "deny",
+        "task": "deny"
+      }
+    },
+    "ecrivain-essai": {
+      "description": "Essayiste qui rédige les textes d'essai selon les instructions de l'orchestrateur.",
+      "mode": "subagent",
+      "model": "opencode/deepseek-v4-flash-free",
+      "permission": {
+        "edit": "allow",
+        "read": "allow",
+        "bash": "deny",
+        "task": "deny"
+      }
+    },
+    "editeur-essai": {
+      "description": "Éditeur d'essai — évalue voix, ancrage, structure, rythme, digression, chute.",
+      "mode": "subagent",
+      "model": "opencode/deepseek-v4-flash-free",
+      "permission": {
+        "edit": "allow",
+        "read": "allow",
+        "bash": "deny",
+        "task": "deny"
+      }
+    },
+    "ecrivain-nouvelle": {
+      "description": "Nouvelliste qui rédige les nouvelles selon les instructions de l'orchestrateur.",
+      "mode": "subagent",
+      "model": "opencode/deepseek-v4-flash-free",
+      "permission": {
+        "edit": "allow",
+        "read": "allow",
+        "bash": "deny",
+        "task": "deny"
+      }
+    },
+    "editeur-nouvelle": {
+      "description": "Éditeur de nouvelle — évalue concentration, chute, personnage, rythme, économie, cohérence.",
+      "mode": "subagent",
+      "model": "opencode/deepseek-v4-flash-free",
+      "permission": {
+        "edit": "allow",
+        "read": "allow",
+        "bash": "deny",
+        "task": "deny"
+      }
+    },
+    "editeur-poesie-traditionnelle": {
+      "description": "Éditeur spécialisé en poésie traditionnelle — évalue rythme, rime, forme, images, cohérence.",
+      "mode": "subagent",
+      "model": "opencode/deepseek-v4-flash-free",
+      "permission": {
+        "edit": "allow",
+        "read": "allow",
+        "bash": "deny",
+        "task": "deny"
+      }
+    },
+    "editeur-poesie-contemporaine": {
+      "description": "Éditeur spécialisé en poésie contemporaine — évalue musicalité, images, émotion, économie, variation.",
+      "mode": "subagent",
+      "model": "opencode/deepseek-v4-flash-free",
+      "permission": {
+        "edit": "allow",
+        "read": "allow",
+        "bash": "deny",
+        "task": "deny"
+      }
+    },
+    "auditeur": {
+      "description": "Auditeur de cohérence globale — vérifie la cohérence narrative, stylistique et thématique d'un projet complet en fin de parcours.",
+      "mode": "subagent",
+      "model": "opencode/deepseek-v4-flash-free",
+      "permission": {
+        "edit": "allow",
+        "read": "allow",
+        "bash": "deny",
+        "task": "deny"
+      }
+    },
+    "agent-style": {
+      "description": "Agent-style — analyse les échantillons utilisateur et les notes du scribe pour en extraire des signatures stylistiques et alimenter les skills.",
+      "mode": "subagent",
+      "model": "opencode/deepseek-v4-flash-free",
+      "permission": {
+        "edit": "allow",
+        "read": "allow",
+        "bash": "deny",
+        "task": "deny"
+      }
+    },
+    "skill-manager": {
+      "description": "Agent de maintenance des skills — conformité au template, qualité, REX, cohérence.",
+      "mode": "subagent",
+      "model": "opencode/deepseek-v4-flash-free",
+      "permission": {
+        "read": "allow",
+        "edit": "allow",
+        "bash": "deny",
+        "task": "deny"
+      }
+    },
+    "orchestrateur-theatre": {
+      "description": "Orchestrateur théâtre — gère un projet de pièce de théâtre de A à Z.",
+      "mode": "primary",
+      "model": "opencode/deepseek-v4-flash-free",
+      "permission": {
+        "read": "allow",
+        "edit": "allow",
+        "bash": "allow",
+        "task": "allow"
+      }
+    },
+    "orchestrateur-essai": {
+      "description": "Orchestrateur essai — gère un projet d'essai de A à Z.",
+      "mode": "primary",
+      "model": "opencode/deepseek-v4-flash-free",
+      "permission": {
+        "read": "allow",
+        "edit": "allow",
+        "bash": "allow",
+        "task": "allow"
+      }
+    },
+    "orchestrateur-nouvelle": {
+      "description": "Orchestrateur nouvelle — gère un recueil de nouvelles de A à Z.",
+      "mode": "primary",
+      "model": "opencode/deepseek-v4-flash-free",
+      "permission": {
+        "read": "allow",
+        "edit": "allow",
+        "bash": "allow",
+        "task": "allow"
+      }
+    },
+    "orchestrateur-texte-mobile": {
+      "description": "Orchestrateur texte mobile — gère un recueil de textes courts (flash, micro, vignette) de A à Z.",
+      "mode": "primary",
+      "model": "opencode/deepseek-v4-flash-free",
+      "permission": {
+        "read": "allow",
+        "edit": "allow",
+        "bash": "allow",
+        "task": "allow"
+      }
+    },
+    "ecrivain-texte-mobile": {
+      "description": "Écrivain de textes courts — flash fiction, micro-nouvelle, vignette.",
+      "mode": "subagent",
+      "model": "opencode/deepseek-v4-flash-free",
+      "permission": {
+        "edit": "allow",
+        "read": "allow",
+        "bash": "deny",
+        "task": "deny"
+      }
+    },
+    "editeur-texte-mobile": {
+      "description": "Éditeur de textes courts — évalue concentration, chute, intensité, économie, atmosphère.",
+      "mode": "subagent",
+      "model": "opencode/deepseek-v4-flash-free",
+      "permission": {
+        "edit": "allow",
+        "read": "allow",
+        "bash": "deny",
+        "task": "deny"
+      }
+    },
+    "orchestrateur-universitaire": {
+      "description": "Orchestrateur universitaire — gère un mémoire, une thèse ou un article académique de A à Z.",
+      "mode": "primary",
+      "model": "opencode/deepseek-v4-flash-free",
+      "permission": {
+        "read": "allow",
+        "edit": "allow",
+        "bash": "allow",
+        "task": "allow"
+      }
+    },
+    "ecrivain-universitaire": {
+      "description": "Rédacteur académique — mémoire, thèse, article. Rigoureux, clair, structuré.",
+      "mode": "subagent",
+      "model": "opencode/deepseek-v4-flash-free",
+      "permission": {
+        "edit": "allow",
+        "read": "allow",
+        "bash": "deny",
+        "task": "deny"
+      }
+    },
+    "editeur-universitaire": {
+      "description": "Éditeur académique — évalue rigueur argumentative, clarté, citations, structure, style formel.",
+      "mode": "subagent",
+      "model": "opencode/deepseek-v4-flash-free",
+      "permission": {
+        "edit": "allow",
+        "read": "allow",
+        "bash": "deny",
+        "task": "deny"
+      }
+    }
+  },
+  "skills": {
+    "paths": [".opencode/skills"]
+  },
+  "command": {
+    "nouveau-roman": {
+      "description": "Démarre un nouveau projet de roman avec l'idée fournie.",
+      "template": "Je veux écrire un nouveau roman : {{input}}",
+      "agent": "orchestrateur-roman"
+    },
+    "nouveau-recueil": {
+      "description": "Démarre un nouveau projet de recueil de poésie avec l'idée fournie.",
+      "template": "Je veux écrire un nouveau recueil de poésie : {{input}}",
+      "agent": "orchestrateur-poesie"
+    },
+    "nouveau-theatre": {
+      "description": "Démarre un nouveau projet de pièce de théâtre avec l'idée fournie.",
+      "template": "Je veux écrire une pièce de théâtre : {{input}}",
+      "agent": "orchestrateur-theatre"
+    },
+    "nouveau-essai": {
+      "description": "Démarre un nouveau projet d'essai avec l'idée fournie.",
+      "template": "Je veux écrire un essai : {{input}}",
+      "agent": "orchestrateur-essai"
+    },
+    "nouveau-nouvelle": {
+      "description": "Démarre un nouveau projet de nouvelle avec l'idée fournie.",
+      "template": "Je veux écrire une nouvelle : {{input}}",
+      "agent": "orchestrateur-nouvelle"
+    },
+    "nouveau-texte-mobile": {
+      "description": "Démarre un recueil de textes courts (flash, micro, vignette) avec l'idée fournie.",
+      "template": "Je veux écrire un recueil de textes courts : {{input}}",
+      "agent": "orchestrateur-texte-mobile"
+    },
+    "nouveau-universitaire": {
+      "description": "Démarre un mémoire, une thèse ou un article académique avec le sujet fourni.",
+      "template": "Je veux écrire un mémoire / une thèse sur : {{input}}",
+      "agent": "orchestrateur-universitaire"
+    },
+    "statut": {
+      "description": "Affiche l'avancement du roman ou recueil en cours.",
+      "template": "Quel est l'état d'avancement du projet actuel ? Consulte la bible dans les dossiers projets/romans/ ou projets/poesie/ (cherche le dossier du projet en cours) et résume la progression.",
+      "agent": "orchestrateur"
+    },
+    "relire": {
+      "description": "Force une relecture d'un chapitre ou poème existant.",
+      "template": "Relis l'unité {{input}} (chapitre `chapitre-NN` pour un roman, section `section-NN` pour un recueil) en utilisant l'agent éditeur approprié, puis applique la boucle relecture/correction si nécessaire.",
+      "agent": "orchestrateur"
+    },
+    "trier-notes": {
+      "description": "Affiche les notes du scribe pour tri utilisateur et classification dans knowledge/notes/.",
+      "template": "Affiche les notes accumulées dans les observations du projet actuel, permets à l'utilisateur de trier, et classe les éléments conservés dans knowledge/notes/.",
+      "agent": "orchestrateur"
+    },
+    "rex": {
+      "description": "Déclenche la boucle REX de fin de projet — collecte les retours des agents, capitalise dans les skills, trie les notes du scribe.",
+      "template": "Exécute la procédure REX complète : collecte les retours de l'écrivain, de l'éditeur et du scribe ; génère le fichier rex.md depuis le template knowledge/rex-template.md ; appelle agent-style pour amender les skills (obligatoire) ; trie les notes du scribe.",
+      "agent": "orchestrateur"
+    },
+    "amender-skills": {
+      "description": "Lance agent-style sur le projet courant — consolide propositions-skills.md, amende les skills, met à jour knowledge/style.md.",
+      "template": "Lance la procédure d'amendement des skills pour le projet actuel : lis [Projet]/notes/propositions-skills.md et [Projet]/notes/observations.md, appelle agent-style pour consolider les propositions et appliquer les changements aux skills concernés. Mets à jour knowledge/style.md et knowledge/analyse-style-utilisateur.md si nécessaire. Confirme chaque modification avec l'utilisateur avant de l'appliquer.",
+      "agent": "orchestrateur"
+    },
+    "verifier-skills": {
+      "description": "Lance un audit de conformité de tous les skills — template, REX, cohérence, qualité, alertes.",
+      "template": "Lance l'agent skill-manager pour auditer l'ensemble des skills du projet : compare chaque SKILL.md au TEMPLATE-SKILL.md, vérifie les REX blocks, détecte les menaces (obsolescence, saturation, contradictions, doublons, liens cassés, déviance template) et produit un rapport dans skill-audits/rapport-conformite.md avec alertes priorisées.",
+      "agent": "orchestrateur"
+    },
+    "rex-skill-manager": {
+      "description": "Déclenche le REX skill-manager en fin de projet — bilan des skills utilisés, menaces, recommandations.",
+      "template": "Appelle l'agent skill-manager pour produire un REX de fin de cycle sur le projet courant : analyse les skills utilisés pendant le projet, met à jour leurs REX blocks, détecte les menaces émergentes, et rédige [Projet]/notes/rex-skill-manager.md.",
+      "agent": "orchestrateur"
+    }
+  },
+  "instructions": ["AGENTS.md"]
+}

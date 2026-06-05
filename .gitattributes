@@ -1,0 +1,6 @@
+# Normalise les fins de ligne : le dépôt reste en LF, peu importe l'OS d'édition.
+# Évite le bruit « LF will be replaced by CRLF » dans les diffs sous Windows.
+* text=auto eol=lf
+
+# Fichiers binaires — jamais de conversion de fins de ligne.
+*.pdf binary

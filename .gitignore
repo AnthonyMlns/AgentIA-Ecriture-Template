@@ -1,0 +1,16 @@
+# Système
+Thumbs.db
+.DS_Store
+Desktop.ini
+*.tmp
+*.log
+
+# Node (opencode internals)
+node_modules/
+
+# Environnement
+.env
+.env.local
+
+# Claude Code local settings
+**/.claude/
