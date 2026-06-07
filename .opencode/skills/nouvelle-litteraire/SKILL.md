@@ -7,7 +7,7 @@ maturité: testé
 # Skill — Nouvelle littéraire
 
 > L'art du récit court : concentration, chute, effet unique, ellipse active.
-> Mis à jour le 02/06/2026 — Création initiale depuis le template.
+> Mis à jour le 07/06/2026 — Enrichissement via REX Station-Service Désert (8 techniques + section recueils).
 
 ## Principes
 
@@ -29,7 +29,24 @@ Techniques disponibles, jamais obligatoires — le nouvelliste pioche selon les 
 - **Boucle temporelle** : la nouvelle peut se terminer là où elle a commencé — même lieu, même geste, même lumière — mais le sens a changé. La répétition dit le parcours sans le résumer.
 - **Chute par le détail** : un détail anodin en apparence, placé dans les dernières lignes, qui fait basculer le sens de tout ce qui précède. La chute n'a pas besoin d'être spectaculaire — elle doit être juste.
 - **Test de relecture** : relire la nouvelle après la chute. Si on a envie de la relire immédiatement, la chute fonctionne. Si on passe à autre chose, la chute est ornementale.
+- **Chute par objet-écrit** : placer la chute dans un document découvert (carnet, lettre, note, journal). L'objet doit exister matériellement dans le récit avant la chute — le lecteur doit pouvoir l'imaginer, le toucher par la description. La révélation se fait en deux temps : découverte de l'objet, puis lecture de son contenu. Le contenu doit recontextualiser les événements sans les annuler. Variante — objet-révélation visuelle : l'objet lui-même peut être la chute sans contenu écrit (photo, dessin, traces physiques).
+- **Polyvalence interprétative** : la chute peut offrir plusieurs lectures valides — par exemple surnaturelle, psychologique et réaliste — sans en privilégier aucune. Chaque interprétation doit être soutenue par des indices dans le texte, et aucune ne doit être invalidée par la suite. L'ambivalence est une force : elle invite le lecteur à une relecture active.
+- **Détail planté tôt, mobilisé tard** : introduire un élément (objet, détail visuel, son) dans la première moitié du récit comme simple description d'ambiance, puis le réactiver dans la chute comme indice ou miroir thématique. Le détail doit passer inaperçu en première lecture — il n'est significatif qu'après la chute.
+- **Gradation ternaire avec resserrement spatial** : trois événements qui escaladent par nature (objet → son/signe → présence) ET par distance spatiale (loin → adjacent → immédiat). Chaque palier rapproche la menace sans jamais la montrer clairement. Technique particulièrement adaptée au suspense et à l'horreur suggérée.
+- **Inaction comme climax** : le moment de tension maximale peut être un non-acte. Le personnage commence à agir, puis s'arrête. L'inaction qui s'ensuit est irréversible. Plus l'inaction se prolonge, plus la tension monte — jusqu'au point où agir n'a plus de sens. Variante : l'inaction peut être motivée par la fatigue, la peur, ou l'épuisement moral.
+- **Chute anti-thétique** : la chute révèle non pas un fait nouveau, mais une version alternative des faits déjà présentés. Le récit établit une version A (donnée comme vraie), puis la chute livre une version B qui la contredit. Le texte ne tranche pas entre les deux versions. Précaution : ne pas faire de la version A un mensonge trop évident — le récit doit la présenter comme une vérité plausible que le protagoniste croit sincèrement.
+- **Dialogue en trois temps** : condenser l'échange décisif en trois répliques ou fragments. La forme ternaire crée une progression naturelle : (1) ouverture/appel/question, (2) réponse/inquiétude/refus, (3) reconnaissance/acceptation/silence. Chaque réplique pèse plus que dix lignes de dialogue.
 - **Blanc typographique** : dans une nouvelle très courte, le blanc entre deux sections peut remplacer une transition narrative. Le lecteur comble le vide.
+
+## Techniques pour recueils de nouvelles
+
+Le recueil de nouvelles pose un problème de cohésion : les récits sont indépendants mais partagent un univers, un lieu ou un thème. Les techniques suivantes aident à créer une unité sans contraindre chaque récit.
+
+- **Détail-partagé** : planter dans un récit un détail (date, objet, nom, événement mentionné en passant) qui sera repris comme élément central dans un autre récit. Le détail doit fonctionner dans son récit d'origine comme simple élément d'ambiance — il n'est pas un cliffhanger ni une promesse.
+- **Polyvalence du décor** : le même lieu vu par des personnages différents, dans des récits différents, avec des registres émotionnels opposés. Le lieu n'a pas d'identité fixe — il devient ce que le personnage projette sur lui. Précaution : l'état matériel du lieu doit rester cohérent entre les récits.
+- **Temporalité flottante** : les récits se déroulent à la même époque contemporaine sans être synchronisés. Le lecteur peut supposer qu'ils sont simultanés, ou légèrement décalés.
+- **Cohésion par le registre lumineux** : chaque récit peut avoir un traitement de lumière différent (nuit, crépuscule, aube, bougie) qui correspond à son registre émotionnel. La variation de la lumière dit que le lieu change selon l'histoire qu'il porte.
+- **Variation temporelle d'un même type d'objet** : le même type d'objet (photo, lettre, carnet) peut apparaître dans plusieurs récits avec une temporalité différente — vestige du passé dans l'un, créé dans le présent comme vestige anticipé dans l'autre.
 
 ## Références
 
@@ -50,5 +67,8 @@ Techniques disponibles, jamais obligatoires — le nouvelliste pioche selon les 
 <!-- REX — Skill créé le 02/06/2026. Testé sur *Route de Tarente* (5 récits, recueil complet).
 Sources : roadmap v6.0, technique de chute identifiée dans l'analyse-style-utilisateur.
 Amendé le 04/06/2026 — ajout techniques recueil (chiasme, alternance Je/Il/Carnet, boucle temporelle).
+Amendé le 07/06/2026 — Station-Service Désert (recueil 3 récits).
+Ajouts : Chute par objet-écrit, Polyvalence interprétative, Détail planté tôt mobilisé tard, Gradation ternaire avec resserrement spatial, Inaction comme climax, Chute anti-thétique, Dialogue en trois temps, section « Techniques pour recueils de nouvelles ».
+Sources : propositions skills + REX du projet Station-Service Désert.
 Maturité : testé (éprouvé sur projet complet).
 -->
