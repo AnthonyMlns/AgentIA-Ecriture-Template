@@ -1,4 +1,175 @@
-﻿# Signature stylistique de l'auteur
+# Knowledge Style — Guide stylistique (tous genres)
 
-> Squelette à personnaliser avec vos échantillons.
-> Lancer /nouveau-roman → l'orchestrateur ouvre un projet vierge.
+> Signature stylistique de l'auteur et principes de prose applicables à tous les projets.
+> Mise à jour : 07/06/2026
+> Source principale : `analyse-style-utilisateur.md` + REX transversal v7.0 (6 projets consolidés).
+> Nouvelles techniques transversales (section 6) : issues de la capitalisation de Pluralités, Un été, Stoïcisme-Minimalisme, Route de Tarente, Station-Service Désert, Koltès — Spiritualité.
+
+Pour les techniques spécifiques à un genre, consulter :
+- `style-poesie.md` — boîte à outils poétique
+- `.opencode/skills/roman-*/SKILL.md` — techniques propres à chaque genre romanesque
+
+---
+
+## La signature de l'auteur
+
+Voix masculine, première personne, ancrée dans le réel sensible. Le narrateur observe le monde avec une précision clinique qui trahit son état intérieur sans jamais le nommer. La voix oscille entre retenue et échappées lyriques. Les objets sont nommés avec exactitude. Les émotions sont des gestes, des lumières, des silences. Jamais d'abstraction.
+
+Ces marqueurs sont présents dans les échantillons (roman et poésie). Ils définissent la voix indépendamment du genre.
+
+---
+
+## 1. Rythme signature
+
+Le mouvement central : **accumulation → coupe nette**.
+
+1. Une ou deux phrases/lignes longues qui accumulent des détails (virgules, incises, subordonnées)
+2. Une phrase courte — parfois un mot seul — qui tranche
+3. Un silence typographique (alinéa, blanc)
+
+**Intervalle typique :** 2-3 phrases longues (30-60 mots) → 1 mot seul ou phrase courte (3-10 mots) → alinéa.
+
+> *"Le paysage, la fin du jour sous les yeux, tout cela était une promesse que l'on nous faisait ; et il y a certaines choses que l'on sait être des promesses qui ne seront pas tenues. Jamais."*
+
+Ce n'est pas décoratif : le mot seul porte le poids de tout ce qui précède. S'applique au roman comme à la poésie.
+
+---
+
+## 2. Prose
+
+- **Sobre et précise** : phrases amples mais pas trop longues. Éviter la surcharge adjectivale.
+- **Poétique par petites touches** : une métaphore ou une image forte par scène/poème, pas plus. Ne pas forcer.
+- **Les silences comptent** : les non-dits, les gestes, les regards sont parfois plus éloquents que les dialogues.
+- **Répétitions voulues** : un motif récurrent (lumière, eau, objet, feu, horizon) peut traverser un projet sans être martelé.
+- **Refrain-mot** : un mot seul peut revenir 2-3 fois à des moments-clés d'un poème ou d'un chapitre, sans être annoncé. Son poids grandit à chaque retour.
+- **Hybridation générique** : roman, poésie, théâtre peuvent s'interpénétrer dans un même texte. Ce n'est pas une erreur — c'est une signature de l'auteur.
+
+---
+
+## 3. Images et figures
+
+- **Comparaison** : rare et mesurée — arrive quand l'image est trop forte pour passer autrement.
+- **Métaphore développée** : travaillée sur 2-3 phrases, ou pas utilisée. Jamais posée puis abandonnée.
+- **Glissement concret → abstrait** : partir d'un objet ou d'un fait précis (un banc, une lumière, une rue) et glisser vers une vérité générale sans transition explicite. L'objet est le tremplin.
+- **Sentence / aphorisme** : utilisée à des moments-clés — elle résume ce que la scène/le poème a construit.
+- **Élans lyriques** : ils arrivent après un passage sobre, comme une respiration gagnée. Jamais décoratifs. Maximum un par page/poème.
+
+---
+
+## 4. Voix
+
+- **Alternance je / on** : le "je" domine, mais le "on" arrive pour universaliser discrètement — quand ce que vit le narrateur est vrai pour tout le monde. Ne pas forcer.
+- **Auto-correction** : *"Pas vraiment du sommeil — plutôt cet état intermédiaire"* — la pensée qui se reprend. Crée une impression de parole intérieure vivante.
+- **Attenuation des affirmations** : utiliser des modalisateurs (« peut-être », « sans doute », « implicitement », « en un sens ») pour éviter la voix trop affirmative. La certitude tue la prose.
+- **Liaison par le deux-points** : privilégier le deux-points au tiret cadratin pour lier deux propositions. Le deux-points crée une équivalence logique ; le tiret crée une rupture théâtrale. L'essai (et plus largement la prose) avance par enchaînements, pas par bonds.
+- **Questions non résolues** : posées, jamais répondues. Elles flottent. Elles pèsent plus que si elles avaient une réponse.
+- **Marqueurs de doute** : *"Je ne sais pas"*, *"Peut-être"*, *"Ou plutôt"* — une voix qui cherche, qui n'affirme jamais sans une once de doute.
+- **Précision des objets** : jamais génériques. Nommer avec exactitude : marque, couleur, matière, état.
+- **Lumière active** : jamais décorative — elle révèle l'état du sujet ou du lieu.
+
+---
+
+## 5. Pièges à éviter (tous genres)
+- ✗ **Emphase** : "Il ressentit une vague d'émotion indescriptible" — montrer, pas nommer
+- ✗ **Clichés** : trouver une formulation personnelle ou supprimer
+- ✗ **Adverbes inutiles** : laisser le contexte porter l'émotion
+- ✗ **Info-dump** : ne pas déverser des informations d'un coup — les distiller dans l'action
+- ✗ **Répétitions lexicales involontaires** : varier les verbes, les constructions
+- ✗ **Certitude systématique** : une voix qui affirme tout sonne faux — le doute la rend humaine
+- ✗ **Incise décorative** : toute digression qui ne retourne pas au centre de la pensée doit être coupée, même si elle est intéressante en elle-même
+- ✗ **Chute rhétorique** : une question ou un appel au lecteur en fin de texte risque de sonner comme une leçon — préférer une image qui continue de travailler en silence
+
+---
+
+## 6. Techniques transversales (capitalisées par projet)
+
+Ces 8 techniques sont issues de la capitalisation des 6 premiers projets du pipeline. Elles sont applicables à plusieurs genres (roman, essai, nouvelle, universitaire).
+
+### T1 — L'objet-personnage
+**Source :** Un été, Pluralités
+**Applicable à :** roman, nouvelle, essai
+
+Un objet doté d'un arc narratif complet : introduction, développement, résolution. Il n'est pas un symbole — il vit avec les personnages, il a une présence physique (poids, odeur, texture, son) et une mémoire (usure, trace, évolution).
+
+**Règle :** 1-2 par projet maximum.
+
+**Exemples :** la 964 et le Kodak (Un été), les toiles de Nino et les deux téléphones (Pluralités).
+
+### T2 — La chute par objet-écrit
+**Source :** Station-Service Désert, Route de Tarente
+**Applicable à :** nouvelle, roman, essai
+
+Un document (carnet, photo, lettre) révèle la vérité dans les dernières lignes. L'objet-écrit doit avoir été introduit AVANT la chute, sans que son rôle de révélateur soit annoncé.
+
+**Règle :** la chute doit offrir un récit alternatif de ce qui précède, sans invalider la première lecture.
+
+**Variantes documentées :** texte manuscrit (R01), photo argentique (R02), image numérique (R03).
+
+### T3 — L'auto-corrosion
+**Source :** Stoïcisme-Minimalisme, échantillons utilisateur
+**Applicable à :** essai, roman
+
+Le narrateur mine sa propre autorité en écrivant — il se contredit, se reprend, avoue ses limites. 4 variantes : **directe** (« je me trompe peut-être »), **différée** (un chapitre contredit le précédent), **disséminée** (le doute est réparti dans tout le texte), **meta** (le narrateur commente son propre processus d'écriture).
+
+**Règle :** max 2-3 occurrences par chapitre. Ne pas transformer le doute en tic.
+
+### T4 — Le chapitre miroir / la boucle temporelle
+**Source :** Un été, Route de Tarente
+**Applicable à :** roman, nouvelle
+
+Ouverture et clôture construites sur les mêmes gestes, les mêmes objets, les mêmes lieux — mais inversés dans le sens, le poids et l'émotion. Le lecteur reconnaît les gestes mais sent qu'ils ne sont plus les mêmes.
+
+**Règle :** le miroir doit être invisible au premier degré. Les gestes parlent seuls — ne pas les annoncer.
+
+**Exemple :** A1 vs C2 dans Un été — les mêmes portiques, le même bac gris, le même hublot, mais la bague enlevée vs la bague disparue.
+
+### T5 — L'insert hybride
+**Source :** Un été, Route de Tarente, Pluralités
+**Applicable à :** tous genres
+
+Insertion d'une forme différente (lettre, carnet, photo, fragments, poème, document) dans le flux narratif. Chaque insert doit avoir une fonction narrative claire — révéler quelque chose que le récit ne peut pas révéler autrement.
+
+**4 formes documentées (Un été) :**
+1. **Lettre** (italique, registre distinct, voix passée)
+2. **Carnet de bord** (prose fragmentée, phrases sans verbe)
+3. **Photo décrite** (métatextualité, mise en abyme)
+4. **Fragments de l'autre point de vue** (sans syntaxe, pensées brutes)
+
+### T6 — La scène de seuil
+**Source :** tous les projets
+**Applicable à :** tous genres
+
+Un lieu de transit (aéroport, gare, frontière, parking) comme charnière narrative entre deux mondes. Le personnage n'en ressort pas indemne — il y entre différent, il en sort changé.
+
+**Règle :** la transformation peut être infime (un geste, un silence) mais elle doit être perceptible. La scène de seuil est un moment de bascule silencieux.
+
+### T7 — Le mot seul en cascade
+**Source :** Un été, Pluralités
+**Applicable à :** tous genres (surtout roman, poésie)
+
+Trois mots seuls en succession rapide, chacun reprenant le précédent avec un ajout. Crée une intensification par accumulation.
+
+**Règle :** max 1 cascade par section. Préparée par un silence ou une accumulation avant.
+
+**Exemple :** « C'était un mensonge. Le premier mensonge de la journée. Et c'était le plus beau. » (Un été, B3)
+
+### T8 — La structure en trois blocs A/B/C
+**Source :** Un été
+**Applicable à :** roman, essai, nouvelle (extension possible)
+
+Avant (A) / Pendant (B) / Après (C). Le bloc A installe, le bloc B est le corps du récit, le bloc C est le retour — ce qui reste. Crée un effet de parenthèse : le bloc B est une suspension du temps.
+
+**Extension :** applicable à l'essai (thèse / développement / retour) et à la nouvelle (avant l'événement / l'événement / après l'événement).
+
+---
+
+## 7. Tics involontaires (à surveiller)
+
+| Tic | Fréquence dans les échantillons |
+|---|---|
+| *"Un peu"* / *"un petit peu"* | Fréquent — modérateur systématique, affaiblit parfois |
+| *"Quelque chose de"* + adjectif | Fréquent — tic syntaxique, surveiller la densité |
+| *"Comme si"* | Modéré — pas un problème, mais à ne pas accumuler |
+| *"C'est"* en début de phrase | Récurrent — signature plus que tic, mais surveiller |
+
+Ces tics font partie de la voix. L'éditeur doit veiller à ce qu'ils ne deviennent pas des béquilles.

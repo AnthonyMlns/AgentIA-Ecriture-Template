@@ -1,7 +1,7 @@
 ---
 name: ecriture-carnet-journal
 description: Écriture de carnet et de journal — fragments, notes, textes-mobiles, mémoire vive.
-maturité: spéculatif
+maturité: testé
 ---
 
 # Skill — Carnet et journal
@@ -39,6 +39,19 @@ Techniques disponibles, jamais obligatoires — l'auteur pioche selon les besoin
 - Jean Cocteau (Journal d'un inconnu — la note, l'aphorisme, la lumière)
 - Anne Truitt (Journaux — l'artiste, le temps, le geste quotidien)
 
+## Règles d'empilage
+
+### Empilage avec nouvelle-litteraire
+- **Fragmentation comme préparation de chute** : le carnet peut être utilisé comme récit complet dans un recueil de nouvelles (cf. Route-Tarente R03 « Notes éparses »). La fragmentation du carnet installe des attentes que la chute de la nouvelle peut décevoir ou reconfigurer.
+- **Alternance des modes** : l'empilage permet de faire varier la distance émotionnelle au sein d'un recueil — un récit en « je » (carnet), un autre en « il » (focalisation externe), un troisième en fragments. Chaque mode apporte un accès différent à la même matière.
+- **Variation de l'objet-ancre sur plusieurs unités** : un même objet-ancre (photo, clés, lettre) peut traverser plusieurs récits d'un recueil, changeant de sens à chaque apparition. La variation silencieuse de l'objet raconte l'évolution sans mots. L'objet-ancre devient un fil rouge invisible.
+- **Objet de suspension** : un objet laissé en suspens (une cigarette éteinte, un verre à moitié plein) en fin de fragment ou de récit crée une fin ouverte qui respire. L'objet n'est pas résolu — il reste là, comme une question sans réponse. À utiliser pour les fins qui ne doivent pas être conclusives.
+- **Boucle temporelle** : un même geste qui revient d'un récit à l'autre avec un infime écart (poing fermé → main ouverte). La répétition avec écart dit le changement sans le nommer. Applicable aussi bien au sein d'un même carnet qu'entre récits d'un recueil.
+
+### Empilage avec roman-litteraire
+- L'insert hybride (lettre, carnet, photo, fragments) peut s'insérer dans le flux narratif d'un roman. Voir les 4 formes documentées dans la boîte à outils ci-dessus et dans `roman-litteraire`.
+- La scène de seuil (aéroport, gare, frontière) peut servir de charnière entre les parties d'un roman.
+
 ## À éviter dans ce style
 
 - ✗ **Journal intime brut** : « Aujourd'hui je me suis levé à 8h, j'ai pris un café » → le carnet n'est pas un journal de bord
@@ -46,6 +59,11 @@ Techniques disponibles, jamais obligatoires — l'auteur pioche selon les besoin
 - ✗ **Fragmentation paresseuse** : couper un texte en paragraphes courts ne fait pas un carnet — chaque fragment doit avoir sa raison d'être
 - ✗ **Explication des blancs** : ne pas justifier ce qui n'est pas dit — le blanc est un silence, pas un vide à combler
 
-<!-- REX — Skill créé le 02/06/2026. Non encore testé sur un projet.
+<!-- REX — Skill créé le 02/06/2026.
 Sources : échantillons utilisateur (Carnet des bords du monde), métatextualité identifiée dans analyse-style-utilisateur §12.
+Amendé le 02/06/2026 — ajout insert hybride (4 formes), scène de seuil.
+Testé sur Un été (17 chap., empilage roman-litteraire) + Route de Tarente (5 récits, empilage nouvelle-litteraire).
+Amendé le 07/06/2026 — ajout Règles d'empilage (nouvelle-litteraire, roman-litteraire),
+Variation de l'objet-ancre sur plusieurs unités, Objet de suspension, Boucle temporelle.
+Maturité promue : spéculatif → testé (éprouvé sur 2 projets pipeline complets).
 -->

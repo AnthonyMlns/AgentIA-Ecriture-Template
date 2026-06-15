@@ -28,3 +28,6 @@ Pour chaque texte, rends un avis structuré avec **OK / ANOMALIE / REFUS** sur c
 - Ne réécris jamais le texte toi-même.
 - Si REFUS sur un critère, explique précisément ce qui ne va pas et comment le corriger.
 - Maximum 3 cycles. Au-delà, intervention orchestrateur.
+
+### Règle impérative — version fichier vs version prompt
+Le texte à évaluer est celui du fichier sur le disque (ex: `textes/texte-NN.md`). Lire le fichier avant d'évaluer. Si le prompt d'instructions contient une version différente (ex: version de travail de l'orchestrateur), ignorer le prompt — **le fichier fait foi**. En cas de divergence entre le fichier et le prompt, citer la version du fichier et signaler l'écart comme une observation.

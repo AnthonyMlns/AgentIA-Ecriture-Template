@@ -48,6 +48,15 @@ Le recueil de nouvelles pose un problème de cohésion : les récits sont indép
 - **Cohésion par le registre lumineux** : chaque récit peut avoir un traitement de lumière différent (nuit, crépuscule, aube, bougie) qui correspond à son registre émotionnel. La variation de la lumière dit que le lieu change selon l'histoire qu'il porte.
 - **Variation temporelle d'un même type d'objet** : le même type d'objet (photo, lettre, carnet) peut apparaître dans plusieurs récits avec une temporalité différente — vestige du passé dans l'un, créé dans le présent comme vestige anticipé dans l'autre.
 
+## Règles d'empilage
+
+### Empilage avec ecriture-carnet-journal
+- **Fragmentation comme mode narratif** : dans un recueil, un récit peut adopter le mode carnet (fragments, prose heurtée, notes, dates-seuils) sans perdre l'unité d'effet de la nouvelle. Le carnet n'est pas un brouillon — c'est une forme finie qui crée un type de profondeur différent par ses blancs et ses silences.
+- **Chiasme de recueil** : deux récits construits en miroir — même lieu, mêmes détails, deux consciences qui ne se croisent pas. Le chiasme crée une structure de recueil puissante sans recourir à l'intrigue commune. Exemple : Route de Tarente R01 ↔ R02 (lui part la nuit, elle arrive à l'aube ; il laisse, elle trouve les mêmes objets).
+- **Boucle temporelle inter-récits** : un même geste qui revient d'un récit à l'autre avec un infime écart (poing fermé → main ouverte). Le geste identique à des moments différents dit le changement sans le nommer. Technique complémentaire au chiasme : le chiasme met en miroir, la boucle temporelle montre l'évolution.
+- **Alternance des modes narratifs (Je / Il / Carnet)** : varier la distance émotionnelle au sein du recueil. Chaque mode apporte un accès différent à la même matière — le « je » pour l'intime, le « il » pour le distancié, le carnet pour le fragmentaire.
+- **Objet-ancre transversal** : un objet simple (photo, clés, lettre) peut traverser plusieurs récits, changé de sens à chaque apparition sans que le texte le signale. L'objet devient un fil rouge que seul le lecteur du recueil complet perçoit.
+
 ## Références
 
 - Edgar Allan Poe (La Chute de la maison Usher, Double Assassinat dans la rue Morgue — l'unité d'effet, la théorie de la nouvelle)
@@ -70,5 +79,9 @@ Amendé le 04/06/2026 — ajout techniques recueil (chiasme, alternance Je/Il/Ca
 Amendé le 07/06/2026 — Station-Service Désert (recueil 3 récits).
 Ajouts : Chute par objet-écrit, Polyvalence interprétative, Détail planté tôt mobilisé tard, Gradation ternaire avec resserrement spatial, Inaction comme climax, Chute anti-thétique, Dialogue en trois temps, section « Techniques pour recueils de nouvelles ».
 Sources : propositions skills + REX du projet Station-Service Désert.
-Maturité : testé (éprouvé sur projet complet).
+
+Amendé le 07/06/2026 (REX transversal v7.0) — ajout section « Règles d'empilage avec ecriture-carnet-journal »
+(Chiasme de recueil, Boucle temporelle inter-récits, Alternance Je/Il/Carnet, Objet-ancre transversal).
+Source : REX Route de Tarente (analyse-style propositions #7, #8, #9) + REX transversal pattern #2 (empilage).
+Maturité : testé (éprouvé sur 2 projets recueil complets : Route-Tarente + Station-Service Désert).
 -->

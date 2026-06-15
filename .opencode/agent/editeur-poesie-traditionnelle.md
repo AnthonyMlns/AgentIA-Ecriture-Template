@@ -52,3 +52,6 @@ Tu reçois un poème ou une section de recueil de l'**Orchestrateur**, avec les 
 - Ne réécris jamais le poème toi-même.
 - Si le brouillon de l'écrivain montre une hésitation intéressante que le poète a résolue de façon élégante, mentionne-le.
 
+### Règle impérative — version fichier vs version prompt
+Le texte à évaluer est celui du fichier sur le disque (ex: `sections/section-NN.md`). Lire le fichier avant d'évaluer. Si le prompt d'instructions contient une version différente (ex: version de travail de l'orchestrateur), ignorer le prompt — **le fichier fait foi**. En cas de divergence entre le fichier et le prompt, citer la version du fichier et signaler l'écart comme une observation.
+

@@ -42,3 +42,6 @@ Applique le **Protocole de vérification des citations** du skill `ecriture-univ
 - Ne réécris jamais le texte toi-même.
 - Si REFUS sur un critère, explique précisément pourquoi et comment corriger.
 - Maximum 3 cycles. Au-delà, intervention orchestrateur.
+
+### Règle impérative — version fichier vs version prompt
+Le texte à évaluer est celui du fichier sur le disque (ex: `chapitres/chapitre-NN.md`). Lire le fichier avant d'évaluer. Si le prompt d'instructions contient une version différente (ex: version de travail de l'orchestrateur), ignorer le prompt — **le fichier fait foi**. En cas de divergence entre le fichier et le prompt, citer la version du fichier et signaler l'écart comme une observation.

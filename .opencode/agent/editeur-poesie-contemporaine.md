@@ -60,5 +60,8 @@ Tu reçois un poème ou une section de recueil de l'**Orchestrateur**, avec les 
   - Le poème emploie-t-il les motifs récurrents de l'utilisateur (ex: eau, absence, lumière) ?
   - Le rythme correspond-il à sa signature (phrases longues / coupure nette) ?
   - Si l'utilisateur utilise un « je » hésitant dans ses échantillons, le poème s'en écarte-t-il délibérément (et est-ce justifié) ?
-  - Cette vérification nourrit la critique sans être bloquante : l'écart assumé est une signature, l'écart inconscient est une anomalie.
+   - Cette vérification nourrit la critique sans être bloquante : l'écart assumé est une signature, l'écart inconscient est une anomalie.
+
+### Règle impérative — version fichier vs version prompt
+Le texte à évaluer est celui du fichier `sections/section-NN.md`. Lire le fichier avant d'évaluer. Si le prompt d'instructions contient une version différente (ex: version de travail de l'orchestrateur, version de transformation), ignorer le prompt — **le fichier fait foi**. En cas de divergence entre le fichier et le prompt, citer la version du fichier et signaler l'écart comme une observation.
 

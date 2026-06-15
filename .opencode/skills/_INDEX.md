@@ -18,7 +18,7 @@
 
 | Skill | Description | Statut |
 |---|---|---|
-| `poesie-contemporaine` | Vers libres, écriture moderne, influences actuelles | ✅ Actif |
+| `poesie-contemporaine` | Vers libres, écriture moderne, influences actuelles | ✅ Actif (compacté v7.0, 15 outils) |
 | `poesie-classique` | Sonnets, alexandrins, formes fixes, tradition française | ✅ Actif |
 | `poesie-prose` | Poème en prose — inspiration Rimbaud, Illuminations | ✅ Actif |
 | `poesie-symbolique` | Poésie symbolique — Rimbaud, Verhaeren, Mallarmé, fin XIXe | ✅ Actif |
@@ -53,8 +53,9 @@
 | Skill | Description | Statut |
 |---|---|---|
 | `ecriture-hybride` | Mélange roman/poésie/théâtre/essai dans un même texte | ✅ Actif |
-| `ecriture-carnet-journal` | Fragments, notes, textes-mobiles, mémoire vive | ✅ Actif |
+| `ecriture-carnet-journal` | Fragments, notes, textes-mobiles, mémoire vive | ✅ Actif (promu testé v7.0) |
 | `ecriture-epique` | Registre épique — souffle, accumulation, héros, fresque, mythe | ✅ Actif |
+| `composition-recueil` | Composition de recueil multi-textes — anaphore, écho, progression en croix, condensation | ✅ Nouveau (v7.0, dédoublement poesie-contemporaine) |
 
 ---
 
@@ -62,4 +63,4 @@
 
 Si un skill a été mentionné dans un projet mais n'apparaît pas dans ce dossier, il faut le créer ou archiver la référence.
 
-*Dernière mise à jour : 02/06/2026*
+*Dernière mise à jour : 07/06/2026 — ajout composition-recueil, compactage poesie-contemporaine (15 outils), roman-litteraire (14 outils), promotions maturité (nouvelle-litteraire testé, ecriture-carnet-journal testé, roman-romance ancré)*

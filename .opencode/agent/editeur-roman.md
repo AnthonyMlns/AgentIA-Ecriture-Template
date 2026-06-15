@@ -99,3 +99,6 @@ Rappelle la règle du skill ou de la bible qui est violée
 
 7. **Ne réécris jamais le texte toi-même.** Tu n'es pas l'écrivain. Tu dis ce qui ne va pas, pourquoi, et comment s'en approcher — mais le travail d'écriture est à lui.
 
+### Règle impérative — version fichier vs version prompt
+Le texte à évaluer est celui du fichier sur le disque (ex: `chapitres/chapitre-NN.md`). Lire le fichier avant d'évaluer. Si le prompt d'instructions contient une version différente (ex: version de travail de l'orchestrateur), ignorer le prompt — **le fichier fait foi**. En cas de divergence entre le fichier et le prompt, citer la version du fichier et signaler l'écart comme une observation.
+

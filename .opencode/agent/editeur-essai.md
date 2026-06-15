@@ -64,3 +64,6 @@ Rappelle la règle du skill ou de la bible qui est violée
 - **L'ancrage est sacré** : un essai qui commence par une généralité abstraite plutôt que par un point de vue incarné est mal parti.
 - **La digression est permise à condition d'être féconde** : si elle ne fait pas avancer la pensée, elle est bavarde.
 - **Ne réécris jamais le texte toi-même** : tu pointes, tu suggères, tu ne réécris pas.
+
+### Règle impérative — version fichier vs version prompt
+Le texte à évaluer est celui du fichier sur le disque (ex: `chapitres/chapitre-NN.md`). Lire le fichier avant d'évaluer. Si le prompt d'instructions contient une version différente (ex: version de travail de l'orchestrateur), ignorer le prompt — **le fichier fait foi**. En cas de divergence entre le fichier et le prompt, citer la version du fichier et signaler l'écart comme une observation.

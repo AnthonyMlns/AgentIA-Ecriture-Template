@@ -118,7 +118,7 @@ AgentIATest/
   # === PROJETS ===
   projets/
     romans/
-      Mon-Roman/               # Structure de référence pour tout roman
+      Pluralites-Roman/        # Structure de référence pour tout roman
         bible.md
         bd-connaissances.md
         chapitres/
@@ -360,6 +360,8 @@ Exemples de combinaisons valides :
 - `roman-romance` + `roman-litteraire` — romance à ambitions littéraires
 - `flash-fiction` + `vignette-prose` — mix de formes pour un recueil texte-mobile
 - `ecriture-universitaire` + `ecriture-essai-litteraire` — mémoire au croisement de la recherche et de la littérature
+
+---
 
 ## Commandes
 

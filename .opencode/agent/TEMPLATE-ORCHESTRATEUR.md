@@ -104,7 +104,18 @@ Documente dans `[Projet]/bd-connaissances.md`, section `## Contraintes utilisate
 ## REX (ajouté en fin de projet)
 ```
 
-4. Passer aux contraintes pré-flight avec l'utilisateur.
+4. Créer le journal de bord pipeline — `notes/pipeline-log.md` :
+
+   Copier depuis `knowledge/pipeline-log-template.md` :
+
+   ```markdown
+   # Pipeline — [Titre du projet]
+   ...
+   ```
+
+   Remplir la première ligne (Initialisation) avec la date du jour. Mettre à jour après chaque étape du pipeline (écriture, édition, scribe, validation, etc.). Le journal sert de fil conducteur pour l'orchestrateur et de point de reprise après interruption.
+
+5. Passer aux contraintes pré-flight avec l'utilisateur.
 
 ---
 
@@ -117,6 +128,17 @@ Documente dans `[Projet]/bd-connaissances.md`, section `## Contraintes utilisate
 5. **Décision** :
    - Refus → retour étape 2 avec retours précis. Maximum [N] cycles par unité.
    - Validation → marquer dans bible, informer l'utilisateur ([X/Y] terminées), passer à la suivante.
+
+**Avant l'écriture de chaque [UNITÉ] (préparation obligatoire) :**
+
+0. **Validation structurelle** — vérifier que la structure du projet est saine avant d'écrire :
+   - Le dossier `projets/[genre]/[Titre]/` existe-t-il ? → sinon, le créer
+   - Les sous-dossiers `[dossier-unités]/`, `notes/`, `versions/` existent-ils ? → sinon, les créer
+   - Le fichier `notes/pipeline-log.md` existe-t-il ? → sinon, le créer depuis le template
+   - Le fichier correspondant à l'unité à écrire n'existe pas encore ? → si oui, ne pas écraser sans confirmation
+1. **Chemin absolu** — transmettre à l'écrivain et à l'éditeur le chemin complet du projet, pas seulement le nom.
+2. **Bulletin d'alerte** — depuis les observations du scribe de l'unité précédente, extraire les alertes [CRITIQUE] et [MAJEUR]. L'écrivain confirme dans son brouillon.
+3. **Agent-style à mi-parcours** — après la moitié des unités, déclencher `agent-style` pour une analyse à chaud. Ne pas attendre le REX final.
 
 ---
 
@@ -131,6 +153,13 @@ Documente dans `[Projet]/bd-connaissances.md`, section `## Contraintes utilisate
 
 **Procédure :** appeler `agent-style` (multi-skill si empilage) → appliquer → informer → tracer → baseline pour rétroaction.
 
+**Suivi pipeline :**
+- Mettre à jour `notes/pipeline-log.md` après chaque étape (écriture, édition, scribe, validation, décision).
+
+**Parallélisation possible :**
+- Le scribe et la validation utilisateur peuvent fonctionner en parallèle.
+- Ne pas paralléliser écriture et édition d'une même unité.
+
 ---
 
 ## 4. Règles d'or
@@ -142,20 +171,28 @@ Documente dans `[Projet]/bd-connaissances.md`, section `## Contraintes utilisate
 - Informe l'utilisateur après chaque cycle validé.
 - [PLACEHOLDER — règles spécifiques au genre]
 
+### Transmettre le chemin absolu
+Transmettre systématiquement le chemin complet du projet aux sous-agents (écrivain, éditeur, scribe). Ne pas transmettre seulement le nom — les sous-agents créent leur propre répertoire s'ils reçoivent un nom seul.
+
 ---
 
 ## 5. Workflow de finalisation
 
 Quand toutes les [unités] sont validées :
 
-1. **REX** — remplir `[Projet]/notes/rex.md` depuis `knowledge/rex-template.md`, amender les skills
+> **Pipeline log :** mettre à jour `notes/pipeline-log.md` après chaque étape ci-dessous.
+
+1. **REX** — remplir `[Projet]/notes/rex.md` depuis `knowledge/rex-template.md`, amender les skills.
+   > **Parallélisation :** le triage (étape 2) et la relecture utilisateur (étape 3) peuvent se dérouler en parallèle.
 2. **Triage** — classer les observations scribe dans `knowledge/notes/`
 3. **Relecture utilisateur** — attendre validation avant de continuer
 4. **Audit** — appeler `auditeur` sur le projet complet
 5. **Corrections** — appliquer et vérifier les impacts transverses
 6. [PLACEHOLDER — étapes genre-spécifiques]
-7. **Livrables** — générer les PDFs dans `[Projet]/notes/` et `[Projet]/versions/`
+7. **Génération PDF** — convertir les textes validés en PDF dans `[Projet]/notes/` et `[Projet]/versions/`
 8. **Validation finale** — annoncer le projet terminé à l'utilisateur
+
+**Cleanup :** conserver `notes/pipeline-log.md`, `notes/observations.md` et `notes/rex.md` dans le dossier du projet. Les fichiers de travail (brouillons, avis éditeur) peuvent être archivés dans `versions/`.
 
 ---
 

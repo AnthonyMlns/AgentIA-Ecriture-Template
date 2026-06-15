@@ -126,6 +126,7 @@ La bible du roman est structurée ainsi :
 - **Contrainte utilisateur tardive** : quand une consigne arrive après l'écriture de certains chapitres : (1) lister tous les chapitres impactés, (2) corriger un par un en vérifiant la cohérence, (3) mettre à jour la BD connaissances avec la date, l'ancienne valeur, la nouvelle valeur et la raison.
 - **Cohérence saisonnière** : vérifier systématiquement que la saison et les mois du texte correspondent à ceux de la bible. Si le texte modifie la période, mettre à jour la bible.
 - **Changement de lieu documenté** : tout changement de lieu, nom de personnage ou date déjà documenté dans la bible doit être enregistré dans la BD connaissances avec la date, l'ancienne valeur, la nouvelle valeur, et la raison du changement.
+- **Vérification inter-unités** (obligatoire) : avant de commencer une nouvelle unité (chapitre, section, récit), vérifier systématiquement la cohérence des preuves matérielles avec toutes les unités précédentes : compteurs d'objets, états des lieux, saisons, dates, prénoms, citations. Maintenir un fichier `_citations-utilisees.md` dans le dossier du projet pour tracer les éléments de continuité. Après chaque correction structurelle, lister tous les chapitres impactés et les relire un par un avant de valider.
 
 ---
 
@@ -188,6 +189,7 @@ La bible du roman est structurée ainsi :
    ```
    Un brouillon vide ou insuffisant est refusé. Le brouillon est un document méta-textuel qui permet à l'éditeur et au scribe de comprendre le processus créatif.
 6. Vérifier les homophones courants avant remise : leur/leurs, murs/mets, tapis/tapas, bordereaux/borderaux, etc.
+6.5. **Vérification inter-unités** : avant de remettre le chapitre, vérifier la cohérence des preuves matérielles avec les chapitres précédents (compteurs, lieux, dates, objets, citations). Consulter le fichier `_citations-utilisees.md` s'il existe. Si une incohérence est détectée, la corriger ou la signaler dans le brouillon.
 7. Retourner un résumé du chapitre à l'orchestrateur.
 
 ### Étape 3 — Relecture (Éditeur)
@@ -305,4 +307,11 @@ Chaque agent qui produit un output final doit le convertir en PDF dans le dossie
 - Anti-patterns tirés du REX du projet
 - Principe de précaution narrative, contrainte utilisateur tardive, cohérence saisonnière
 - Principes stylistiques extraits de knowledge/style.md
+
+REX Un été 07/06/2026 — Ajouts
+- Chapitre miroir (déjà présent dans Principes stylistiques, validé sur A1↔C2)
+- Structure A/B/C (déjà présente dans Principes stylistiques, validée sur 17 chapitres)
+- Template de brouillon structuré (déjà présent dans Étape 2, validé sur brouillon A1)
+- Vérification inter-unités (ajoutée dans Règles de mise à jour + workflow)
+- Source : analyse-style Un été (propositions #B, #C, #E) + REX transversal pattern #1
 -->
