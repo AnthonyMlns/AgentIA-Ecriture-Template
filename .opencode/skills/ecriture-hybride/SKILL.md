@@ -1,7 +1,7 @@
 ---
 name: ecriture-hybride
 description: Écriture hybride — mélange roman/poésie/théâtre/essai dans un même texte.
-maturité: spéculatif
+maturité: testé
 ---
 
 # Skill — Écriture hybride
@@ -45,6 +45,13 @@ Techniques disponibles, jamais obligatoires — l'auteur pioche selon les besoin
 - ✗ **Surenchère formelle** : un paragraphe en vers, le suivant en prose, puis en théâtre, puis en liste → le lecteur sature
 - ✗ **Pacte rompu** : une séquence en prose réaliste suivie d'un passage fantastique sans justification → cohérence interne avant tout
 
-<!-- REX — Skill créé le 02/06/2026. Non encore testé sur un projet.
+<!-- REX — Skill créé le 02/06/2026.
 Sources : analyse-style-utilisateur §12 (signature hybridation identifiée), échantillons Je Pacadis, Provisoire.
+
+REX — 18/06/2026 — Le Dernier des Romantiques
+Projet : recueil de 5 textes mobiles (flash-fiction + vignette-prose + micro-nouvelle)
+Skills actifs : ecriture-hybride + flash-fiction + vignette-prose + micro-nouvelle + ecriture-carnet-journal + composition-recueil
+Ce qui a fonctionné : l'empilage avec les skills de formats courts — l'hybridation est restée en arrière-plan, laissant les contraintes de format primer. Le principe de changement non signalé (à éviter) a été respecté : l'hybridation était principalement dans le registre (introspectif-retenu) et le brouillon-réflexif (dialogue avec le pipeline, cf. artefacts #008, #030). Le tiret suspendu (« je sais que — ») a été utilisé comme marque d'indicible dans T01.
+Ce qui a été appris : l'hybridation discrète (registre plus que forme) est une modalité fonctionnelle du skill — elle n'a pas besoin de changement de genre explicite pour opérer. L'empilage avec des skills de formats courts ne produit pas de conflit d'intersection car les domaines sont disjoints (structure narrative vs. hybridation générique).
+Maturité : promu de spéculatif à testé (1 projet pipeline complet, 5 textes).
 -->

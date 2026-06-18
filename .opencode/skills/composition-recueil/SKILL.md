@@ -31,7 +31,7 @@ Techniques disponibles, jamais obligatoires — le compositeur pioche selon les 
 - **Anaphore de section** : un syntagme ouvre plusieurs poèmes/récits successifs en progression. La répétition n'est pas un tic — c'est la structure. Crée une insistance rythmique et thématique. Utilisable aussi entre sections d'un recueil pour créer un écho à distance.
 
 - **Écho lexical entre textes** : un mot ou syntagme repris d'un poème/récit à l'autre dans une même section crée un fil rouge. Un seul écho par section maximum. *Extension inter-sections* : un syntagme repris à distance d'au moins une section crée un fil de recueil.
-  > *Variante — écho textuel large* : un vers entier ou une image complète peut être repris d'un poème à l'autre, pas seulement un mot ou syntagme. La première occurrence pose l'image, la seconde la varie par le contexte. Le lecteur reconnaît la phrase mais le sens a changé — c'est la répétition qui crée la mesure du chemin parcouru. Usage : un écho large par recueil maximum (ne pas cumuler avec un écho lexical dans la même section). L'écart entre les deux occurrences doit être d'au moins un poème intermédiaire. Signalé explicitement dans le brouillon pour éviter l'auto-plagiat.
+  > *Variante — écho textuel large* : un vers entier ou une image complète peut être repris d'un poème à l'autre, pas seulement un mot ou syntagme. La première occurrence pose l'image, la seconde la varie par le contexte. Le lecteur reconnaît la phrase mais le sens a changé — c'est la répétition qui crée la mesure du chemin parcouru. Usage : un écho large par recueil maximum (ne pas cumuler avec un écho lexical dans la même section). L'écart entre les deux occurrences doit être d'au moins un texte intermédiaire. Signalé explicitement dans le brouillon pour éviter l'auto-plagiat. *Extension — absence comme écho* : l'absence délibérée de l'écho dans le texte de clôture peut être aussi porteuse que sa présence. Le lecteur qui a reconnu le fil rouge attend la reprise — ne pas la donner crée un manque qui dit la fin de la boucle.
 
 - **Diptyque de lieu autorisé** : un même lieu traité plusieurs fois si le regard change (angle, personne, temporalité). La répétition devient approfondissement, pas redite. Applicable aux nouvelles et aux poèmes.
 
@@ -54,6 +54,12 @@ Techniques disponibles, jamais obligatoires — le compositeur pioche selon les 
 
 - **Réserve lyrique** : une section ou un ensemble de poèmes peut faire le choix d'une retenue absolue pour préparer le contraste avec une section ultérieure qui déploiera le registre lyrique. La réserve n'est pas une absence — c'est une accumulation de tension qui sera libérée plus tard. Le contraste différé est plus puissant qu'un contraste localisé dans un même poème.
 
+- **Arc de progression (conservation → destruction)** : disposer les textes d'un recueil en séquence d'intensité croissante, du geste le plus retenu au plus radical. Exemple : conservation passive → conservation active → annulation → effacement → destruction. Chaque texte doit occuper une position nécessaire dans la séquence — aucun ne pourrait être déplacé sans casser l'arc. L'arc peut se lire comme une colonne vertébrale invisible que le lecteur perçoit sans qu'elle soit nommée. Applicable aux recueils de textes courts, nouvelles et poésie.
+
+- **Coda en rupture** : le texte de clôture peut rompre délibérément les motifs établis dans les textes précédents pour signifier que la boucle est fermée. La rupture doit être préparée et justifiée — elle n'est pas un abandon de structure mais un geste architectural qui dit « ce cycle est fini, un autre commence ». Techniques de rupture possibles : absence d'un motif attendu (ellipse auditive absente, geste retenu subverti en abandon), changement de medium (périssable après du persistant), dilution de la structure (sons ambiants non organisés après des paires structurées). Condition : au moins 3 occurrences du motif doivent avoir été établies avant la rupture, sinon le lecteur ne perçoit pas l'écart.
+
+- **Diglossie medium (anglais/digital ≠ français/analogique)** : dans un recueil où les textes alternent entre supports numériques et analogiques, le choix de la langue (titre, termes techniques) peut devenir un marqueur de registre. L'anglais crée une distance froide adaptée aux textes numériques (écran, messages, fragments). Le français ancre l'intimité des textes analogiques (papier, encre, gestes de la main). La diglossie n'a pas besoin d'être expliquée — elle agit par contraste entre les textes. Le code peut se complexifier au fil du recueil (français + numérique : interaction intime via medium froid). Ne pas hésiter à documenter les exceptions dans les brouillons.
+
 ---
 
 ## À éviter
@@ -74,6 +80,15 @@ Techniques disponibles, jamais obligatoires — le compositeur pioche selon les 
 
 ---
 
+## REX — Le Dernier des Romantiques (Textes Mobiles #01)
+
+- **Date** : 18/06/2026
+- **Projet** : Le Dernier des Romantiques — recueil de 5 textes mobiles
+- **Skills actifs** : composition-recueil + flash-fiction + vignette-prose + micro-nouvelle + ecriture-carnet-journal + ecriture-hybride
+- **Ce qui a fonctionné** : l'arc de progression conservation→destruction (T01 remisage → T05 destruction) a donné sa colonne vertébrale au recueil. La coda en rupture (T05 rompt les motifs établis sur 4 textes) validée comme geste de clôture. L'écho textuel large (« je pense encore à toi » à travers 3 mediums) a créé un fil rouge sans être expliqué. La diglossie medium (anglais Drafts vs français La lettre dans le tiroir) a structuré le recueil par contraste. La variation transversale du geste retenu a créé un arc silencieux (poser→suspendre→glisser→verrouiller→abandonner).
+- **Ce qui a été appris** : l'arc de progression est une technique de composition pour recueils de formats courts. La coda en rupture nécessite ≥3 occurrences du motif avant rupture pour que l'écart soit perceptible. L'absence d'écho en clôture peut être aussi porteuse que sa présence. La diglossie medium supporte la complexification si documentée dans les brouillons.
+- **Maturité** : déjà testé (inchangé).
+
 ## REX — Preuves de Vie (Carnets #04)
 
 - **Date** : 15/06/2026
@@ -83,7 +98,14 @@ Techniques disponibles, jamais obligatoires — le compositeur pioche selon les 
 - **Ce qui a été appris** : l'arc pronominal de recueil est une technique de composition distincte qui mérite son propre outil. Le solo de section (un seul poème pour toute une section) nécessite d'étendre la fourchette de pièce respiration.
 - **Maturité** : promu de `ancré` à `testé` — 2 cycles complets d'utilisation sur projet pipeline.
 
-<!-- CHANGELOG — compact
+<!-- REX — 18/06/2026 — Le Dernier des Romantiques
+Projet : recueil de 5 textes mobiles (flash-fiction + vignette-prose + micro-nouvelle)
+Skills actifs : composition-recueil + flash-fiction + vignette-prose + micro-nouvelle + ecriture-carnet-journal + ecriture-hybride
+Ce qui a fonctionné : l'arc de progression conservation→destruction (T01 remisage → T05 destruction par le serveur) a donné sa colonne vertébrale au recueil. La coda en rupture (T05 rompt les motifs #006, #007, #011 établis sur 4 textes) a été validée comme geste de clôture. L'écho textuel large (« je pense encore à toi » à travers 3 mediums : écrit→pensé→reçu) a créé un fil rouge transversal. La diglossie medium (anglais « Drafts » vs français « La lettre dans le tiroir ») a structuré le recueil sans être expliquée. La variation transversale du geste retenu (poser→suspendre→glisser→verrouiller→abandonner) a créé un arc silencieux.
+Ce qui a été appris : l'arc de progression (conservation→destruction) est une technique de composition applicable aux recueils de textes courts. La coda en rupture nécessite un minimum de 3 occurrences du motif avant la rupture pour que l'écart soit perceptible. L'absence d'écho dans le texte de clôture peut être aussi porteuse que l'écho lui-même. La diglossie medium peut se complexifier au fil du recueil sans perdre le lecteur si les exceptions sont documentées.
+Maturité : déjà testé (inchangé).
+
+CHANGELOG — compact
 | Date | Projet | Impact | Outils |
 |---|---|---|---|
 | 07/06 | REX transversal v7.0 | Création par dédoublement de poesie-contemporaine | 7 outils |
@@ -91,4 +113,4 @@ Techniques disponibles, jamais obligatoires — le compositeur pioche selon les 
 | 15/06 | Audit lisibilité (agent-style) | +1 principe (Arc multi), +2 outils (Arc section, Réserve lyrique) depuis poesie-contemporaine | 9→12 outils |
 | 15/06 | Sans-Sommeil (Carnets #03) | +1 variante (Écho textuel large) sous Écho lexical | 12 outils (inchangé) |
 | 15/06 | Preuves de Vie (Carnets #04) | +1 outil (Arc pronominal de recueil), extension Pièce respiration (solo section 20-30v) | 12→13 outils |
--->
+| 18/06 | Le Dernier des Romantiques | +3 outils (Arc de progression, Coda en rupture, Diglossie medium), extension Écho textuel large (absence significative) | 13→15 outils |

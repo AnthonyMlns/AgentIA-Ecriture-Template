@@ -1,0 +1,9 @@
+{
+  "name": "agentia-ecriture",
+  "version": "1.0.0",
+  "description": "Pipeline d'écriture assistée par IA orchestré par des agents spécialisés via OpenCode.",
+  "scripts": {
+    "start": "node interface/server.js",
+    "dev": "node --watch interface/server.js"
+  }
+}

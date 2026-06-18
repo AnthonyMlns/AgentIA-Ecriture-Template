@@ -1,0 +1,15 @@
+{
+  "name": "agentia-ecriture-interface",
+  "version": "1.0.0",
+  "description": "Interface web pour AgentIA-Ecriture — tableau de bord, navigation et visualisation des projets d'écriture assistée par IA.",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node --watch server.js"
+  },
+  "dependencies": {
+    "express": "^4.18.2",
+    "marked": "^12.0.0",
+    "multer": "2.2.0"
+  }
+}

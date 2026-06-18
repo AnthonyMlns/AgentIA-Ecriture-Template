@@ -1,7 +1,7 @@
 ---
 name: flash-fiction
 description: Flash fiction — récit très court (<1000 mots), chute, intensité, économie maximale.
-maturité: spéculatif
+maturité: testé
 ---
 
 # Skill — Flash Fiction
@@ -32,6 +32,8 @@ Techniques disponibles, jamais obligatoires — l'écrivain pioche selon les bes
 - **La boucle** : le texte se termine sur le même mot, la même image, ou la même situation qu'au début — mais le sens a changé.
 - **Le titre comme indice** : le titre fait partie du récit. Il peut en être la clé. Le lire après le texte en change le sens.
 - **L'ellipse radicale** : sauter ce qui est implicite. Le lecteur comble les blancs. Lui faire confiance.
+- **Le geste retenu (ni A, ni B)** : pour la chute, éviter la solution binaire attendue (envoyer/effacer, partir/rester, dire/taire). Chercher un troisième geste, plus concret et plus ambigu, qui est un *remisage* : l'objet n'est ni activé ni détruit, mais rangé, caché, préservé. Poser l'objet face contre le bois plutôt que l'éteindre ; le remettre dans sa poche plutôt que le déchirer. Le geste retenu a plus de poids que l'action évidente — il dit le renoncement sans le déclarer. *Variation longue* : dans un recueil, le geste peut évoluer d'un texte à l'autre (poser → suspendre → glisser → verrouiller → abandonner), créant un arc silencieux.
+- **Les deux sons (ellipse auditive)** : deux détails sonores (un proche + un lointain) suffisent à créer une atmosphère complète. Le son proche ancre dans l'intimité de la scène ; le son lointain rappelle que le monde continue, indifférent. Placer les sons juste après un moment émotionnel pour ancrer le récit dans le réel. Maximum deux blocs sonores en tout — un bloc peut contenir plusieurs sous-sons s'ils forment un seul événement (ex : une sonnerie téléphonique = 3 sonneries + déclic + bip = un seul bloc « l'appel »). Les sons doivent changer à chaque texte pour maintenir l'impression de scènes uniques. La rupture délibérée du motif peut être aussi signifiante que sa répétition (effet de coda).
 
 ---
 
@@ -55,4 +57,11 @@ Techniques disponibles, jamais obligatoires — l'écrivain pioche selon les bes
 ---
 
 <!-- REX — Création initiale 02/06/2026
+
+REX — 18/06/2026 — Le Dernier des Romantiques
+Projet : recueil de 5 textes mobiles (flash-fiction + vignette-prose + micro-nouvelle)
+Skills actifs : flash-fiction + vignette-prose + micro-nouvelle + ecriture-carnet-journal + ecriture-hybride + composition-recueil
+Ce qui a fonctionné : le geste retenu (chute par remisage) validé sur 5/5 textes ; l'ellipse auditive (2 sons) validée sur 4/5 textes (rupture volontaire en T05 comme coda) ; l'heure comme métronome (3h17→3h22, T01) ; la structure en érosion des fragments (brouillons qui se réduisent, T01). L'empilage avec ecriture-carnet-journal et ecriture-hybride a enrichi le registre introspectif-retenu.
+Ce qui a été appris : le geste retenu est un mécanisme de chute applicable à tous les formats courts — il évite la binarité dramatique et crée une ambiguïté durable. L'ellipse auditive (proche + lointain) est une technique d'ancrage sensoriel particulièrement adaptée à l'économie de la flash-fiction.
+Maturité : promu de spéculatif à testé (1 projet pipeline complet, 5 textes).
 -->

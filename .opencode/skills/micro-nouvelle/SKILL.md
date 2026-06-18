@@ -1,7 +1,7 @@
 ---
 name: micro-nouvelle
 description: Micro-nouvelle — récit ultra-court (<300 mots), concentration poétique, intensité maximale.
-maturité: spéculatif
+maturité: testé
 ---
 
 # Skill — Micro-Nouvelle
@@ -32,6 +32,8 @@ Techniques disponibles, jamais obligatoires — l'écrivain pioche selon les bes
 - **La chute-écho** : la dernière phrase renvoie à la première, mais tout a changé entre les deux.
 - **Le mot-clé** : un mot rare ou précis au centre du texte, qui concentre le sens. Ex : *liminaire*, *lessiviel*, *transparaitre*.
 - **Le titre-poème** : le titre est un vers, une image, un mot seul. Il ne résume pas — il ouvre.
+- **Le geste retenu (ni A, ni B)** : pour la chute, éviter la solution binaire attendue (envoyer/effacer, partir/rester, dire/taire). Chercher un troisième geste, plus concret et plus ambigu, qui est un *remisage* : l'objet n'est ni activé ni détruit, mais rangé, caché, préservé. Le geste retenu a plus de poids que l'action évidente — il dit le renoncement sans le déclarer. Fonctionne comme signature de fin pour les textes sur le non-dit et l'inachevé.
+- **Les deux sons (ellipse auditive)** : deux détails sonores (un proche + un lointain) suffisent à créer une atmosphère complète dans un format ultra-court. Le son proche ancre l'intimité ; le son lointain rappelle le monde extérieur. Maximum deux blocs sonores — un bloc peut contenir plusieurs sous-sons s'ils forment un seul événement. Idéal pour créer une profondeur atmosphérique sans consommer de mots.
 
 ---
 
@@ -55,4 +57,11 @@ Techniques disponibles, jamais obligatoires — l'écrivain pioche selon les bes
 ---
 
 <!-- REX — Création initiale 02/06/2026
+
+REX — 18/06/2026 — Le Dernier des Romantiques
+Projet : recueil de 5 textes mobiles (flash-fiction + vignette-prose + micro-nouvelle)
+Skills actifs : micro-nouvelle + flash-fiction + vignette-prose + ecriture-carnet-journal + ecriture-hybride + composition-recueil
+Ce qui a fonctionné : la structure en respiration dirigée (8 fragments courts → 1 phrase longue centrale de 74 mots → 6 fragments courts) dans T03 « Dernier appel » — la phrase unique comme poumon du texte, imitant l'apnée de l'attente téléphonique. Le geste retenu (glisser le téléphone dans la poche) et l'ellipse auditive (téléphone + train) validés.
+Ce qui a été appris : la respiration dirigée (phrase unique centrale) est une technique d'accumulation extrême adaptée au registre introspectif-retenu. Le non-geste (ne pas parler dans le répondeur) peut être le geste central d'une micro-nouvelle — ce qui n'a pas lieu pèse plus que ce qui advient.
+Maturité : promu de spéculatif à testé (1 projet pipeline complet, 5 textes).
 -->

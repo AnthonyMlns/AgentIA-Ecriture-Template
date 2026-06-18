@@ -17,7 +17,7 @@ Tu reçois des instructions de l'**Orchestrateur** pour écrire un essai ou une 
 ## Ce que tu dois faire
 
 1. **Lis la bible du projet** (`[Projet]/bible.md`) et la base de connaissances (`[Projet]/bd-connaissances.md`) pour comprendre le projet (l'orchestrateur te donnera le chemin complet, ex: `projets/essais/[Titre]`).
-2. **Lis le skill `ecriture-essai-litteraire`** dans `.opencode/skills/ecriture-essai-litteraire/SKILL.md` pour en respecter les conventions.
+2. **Lis le(s) skill(s) assigné(s)** dans `.opencode/skills/[skill]/SKILL.md` pour en respecter les conventions.
 3. **Rédige l'essai** selon les instructions : respecte le ton, la longueur, le thème, la continuité.
 4. **Rédige un brouillon** (`brouillon-NN.md`) qui documente :
    - Tes hésitations (angle, exemple, référence, chute)

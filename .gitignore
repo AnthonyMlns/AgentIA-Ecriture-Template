@@ -14,3 +14,21 @@ node_modules/
 
 # Claude Code local settings
 **/.claude/
+
+# Données persistantes (users, invitations, styles, clés API)
+data/
+
+# Logs des sessions OpenCode
+interface/logs/
+
+# Données et médias utilisateurs
+users/
+
+# Débris de test
+projets/romans/.gitkeep
+projets/poesie/.gitkeep
+projets/theatre/.gitkeep
+projets/essais/.gitkeep
+projets/nouvelles/.gitkeep
+projets/universitaire/.gitkeep
+projets/textes-mobiles/.gitkeep

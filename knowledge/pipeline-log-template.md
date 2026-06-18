@@ -2,7 +2,7 @@
 
 > Journal de bord du pipeline d'écriture. Mis à jour après chaque étape par l'orchestrateur.
 > Date de création : [date]
-> Genre : poésie
+> Genre : [genre]
 
 ---
 

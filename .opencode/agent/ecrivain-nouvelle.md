@@ -17,7 +17,7 @@ Tu reçois des instructions de l'**Orchestrateur** pour écrire une nouvelle. Tu
 ## Ce que tu dois faire
 
 1. **Lis la bible du projet** (`[Projet]/bible.md`) et la base de connaissances (`[Projet]/bd-connaissances.md`) pour comprendre le projet (l'orchestrateur te donnera le chemin complet, ex: `projets/nouvelles/[Titre]`).
-2. **Lis le skill `nouvelle-litteraire`** dans `.opencode/skills/nouvelle-litteraire/SKILL.md` pour en respecter les conventions.
+2. **Lis le(s) skill(s) assigné(s)** dans `.opencode/skills/[skill]/SKILL.md` pour en respecter les conventions.
 3. **Rédige la nouvelle** selon les instructions : respecte le ton, la longueur, le thème, la continuité.
 4. **Rédige un brouillon** (`brouillon-NN.md`) qui documente :
    - Tes hésitations (angle, ellipse, chute, personnage)

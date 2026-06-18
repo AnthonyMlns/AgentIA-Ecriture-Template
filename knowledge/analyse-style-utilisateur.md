@@ -9,7 +9,7 @@
 - `echantillons/Provisoire – Essai de pièce.md` — analyse partielle, scènes 1-2 (31/05/2026)
 - `echantillons/Carnet des bords du monde.pdf`, `echantillons/Poèmes revue.pdf`, `echantillons/Essai – Écrire de la poésie aujourd'hui.pages` — non lisibles (format binaire)
 
-**Dernière mise à jour** : 04/06/2026 — agent-style (analyse écarts Bouclier-Achille)
+**Dernière mise à jour** : 18/06/2026 — agent-style (analyse projet Le Dernier des Romantiques)
 
 ---
 
@@ -246,6 +246,9 @@ Ces marqueurs sont présents dans TOUS les échantillons. Ils devraient être in
 - **Feu comme destruction-renaissance** : isotopie nouvelle, présente dans le registre lyrique-cosmique
 - **Horizon comme aspiration** : limite inaccessible qui structure le désir
 - **Ruines comme persistance** : ce qui tient encore debout malgré tout
+- **Geste retenu (ni A, ni B)** : éviter la binarité dramatique — le troisième geste (remiser sans détruire) est plus puissant que l'action évidente
+- **Ellipse du contenu** : montrer le geste de lecture/écriture sans révéler le contenu — trois degrés (partielle, totale, radicale)
+- **Deux sons pour une atmosphère** : un son proche + un son lointain suffisent à créer un monde entier
 
 ---
 
@@ -322,3 +325,35 @@ Une liste de 6-10 éléments qui déborde : *"Aux dunes... aux longues plages...
 #### Proposition #14 — Clarifier hybridation roman/théâtre
 - **Action** : Ajouter dans "Principes"
 - **Description** : L'écriture peut intégrer des séquences théâtrales (didascalies, noms en majuscules) dans un roman en prose. C'est un choix formel, pas une erreur.
+
+---
+
+## 14. Nouvelles signatures découvertes — Projet Le Dernier des Romantiques (18/06/2026)
+
+Le projet « Le Dernier des Romantiques » (recueil de 5 textes mobiles, registre introspectif-retenu) a révélé plusieurs signatures qui étendent la voix de l'auteur :
+
+### Nouvelles techniques (applicables à tous les genres)
+
+1. **Le geste retenu (ni A, ni B)** — le troisième geste, plus concret et plus ambigu, qui est un remisage plutôt qu'une action binaire. Progression possible dans un recueil : poser → suspendre → glisser → verrouiller → abandonner.
+2. **L'ellipse auditive (deux sons)** — un son proche (intime/mécanique) + un son lointain (vivant/extérieur) suffisent à créer une atmosphère complète sans description. Placement stratégique après un moment émotionnel.
+3. **La séquence gestuelle pure** — structurer un texte exclusivement par des actions physiques, zéro émotion nommée, zéro psychologie. Le non-geste (ne pas faire) peut être le geste le plus important.
+4. **L'ellipse du contenu en trois degrés** — partielle (fragments visibles), totale (aucun mot révélé), radicale (support détruit avant lecture). Peut servir d'arc de progression dans un recueil.
+5. **La respiration dirigée (phrase unique centrale)** — dans un texte court, bâtir le rythme autour d'une seule phrase longue en position centrale (⅓ fragments courts → ⅓ phrase unique → ⅓ fragments courts). Technique d'accumulation extrême adaptée à l'attente et la suspension.
+6. **La diglossie medium (anglais/digital ≠ français/analogique)** — le choix de la langue comme marqueur de registre entre numérique et analogique. L'anglais crée une distance froide ; le français ancre l'intimité.
+7. **L'heure comme métronome** — ouvrir sur l'heure seule (ex: « 3 h 17. ») crée un huis clos temporel immédiat. Les intervalles (3h17 → 3h22) racontent l'écoulement sans le dire.
+
+### Motifs de composition de recueil (capitalisés dans `composition-recueil`)
+
+- **Arc de progression** : séquence conservation → annulation → effacement → destruction.
+- **Coda en rupture** : le texte de clôture rompt les motifs établis pour signifier la fin de la boucle.
+- **Écho textuel large** : une phrase traverse trois mediums (écrit → pensé → reçu), faisant le tour complet de la communication. L'absence de l'écho dans le texte final est aussi porteuse que sa présence.
+- **Variation transversale** : un même motif (geste retenu) évolue d'un texte à l'autre dans un recueil, créant un arc silencieux.
+
+### Confirmations de la signature
+
+Le projet confirme les trois piliers de la signature utilisateur établis dans les échantillons initiaux :
+- **Incarnation sensorielle** : respecté dans 100% des textes
+- **Émotion par le geste** : respecté dans 100% des textes
+- **Ellipse et non-dit** : respecté dans 100% des textes, avec une radicalisation croissante
+
+Le rythme signature « accumulation → coupe nette » reste la base rythmique commune, avec des variations maîtrisées : cycles multiples (T01, T02, T05), cycle unique central (T03), haché permanent (T04).

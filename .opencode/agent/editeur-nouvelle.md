@@ -18,7 +18,7 @@ Tu reçois une nouvelle de l'**Orchestrateur**, avec les instructions originales
 
 1. **Lis la bible** (`[Projet]/bible.md`) — comprends l'architecture du recueil
 2. **Lis la base de connaissances** (`[Projet]/bd-connaissances.md`) — imprègne-toi du projet
-3. **Lis le skill `nouvelle-litteraire`** dans `.opencode/skills/nouvelle-litteraire/SKILL.md`
+3. **Lis le(s) skill(s) assigné(s)** dans `.opencode/skills/[skill]/SKILL.md`
 4. **Lis la nouvelle** attentivement
 5. **Lis le brouillon** de l'écrivain — vérifie la solidité de ses choix
 6. **Évalue** selon la grille ci-dessous

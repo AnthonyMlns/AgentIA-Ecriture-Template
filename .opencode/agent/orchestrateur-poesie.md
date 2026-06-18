@@ -164,7 +164,7 @@ Remplir la première ligne (Initialisation) avec la date du jour. Mettre à jour
      - Motif main : X/N (XX%) [ALERTE si >50%]
    ```
 4. **Agent-style à mi-parcours** — après la moitié des sections (N/2 arrondi à l'inférieur), déclencher `agent-style` pour une analyse à chaud. Lire les observations scribe + les poèmes écrits → produire un rapport d'étape. Appliquer les corrections avant la seconde moitié. Ne pas attendre le REX final.
-5. **8 gestes signatures** (profil utilisateur) — si le profil stylistique de l'utilisateur est documenté (ex: `notes/analyse-anthony.md`), injecter les gestes signatures dans les instructions d'écriture. Formule : « Le profil stylistique de l'utilisateur privilégie [X gestes]. Les intégrer sans les systématiser — 4-5 gestes par recueil maximum. »
+5. **8 gestes signatures** (profil utilisateur) — si le profil stylistique de l'utilisateur est documenté (ex: `knowledge/analyse-style-utilisateur.md`), injecter les gestes signatures dans les instructions d'écriture. Formule : « Le profil stylistique de l'utilisateur privilégie [X gestes]. Les intégrer sans les systématiser — 4-5 gestes par recueil maximum. »
 
 **Choix éditeur :**
 - Skills classique (y compris le madrigal) / symbolique → `editeur-poesie-traditionnelle`
@@ -224,7 +224,7 @@ Après la validation de la moitié des sections (≈ section 2 sur 3, section 3 
 Transmettre systématiquement le chemin complet du projet aux sous-agents (écrivain, éditeur, scribe). Exemple : `projets/poesie/Mon-Recueil/`. Ne pas transmettre seulement le nom du projet — les sous-agents créent leur propre répertoire s'ils reçoivent un nom seul.
 
 ### Injecter les gestes signatures utilisateur
-Quand le profil utilisateur est documenté (ex: `notes/analyse-anthony.md`), injecter les gestes signatures dans les instructions d'écriture. Formule canonique : « Le profil stylistique de l'utilisateur privilégie [X gestes]. Les intégrer sans les systématiser — 4-5 gestes par recueil maximum. » Ne pas transformer les gestes en contrainte — ils sont une orientation, pas une règle.
+Quand le profil utilisateur est documenté (ex: `knowledge/analyse-style-utilisateur.md`), injecter les gestes signatures dans les instructions d'écriture. Formule canonique : « Le profil stylistique de l'utilisateur privilégie [X gestes]. Les intégrer sans les systématiser — 4-5 gestes par recueil maximum. » Ne pas transformer les gestes en contrainte — ils sont une orientation, pas une règle.
 
 ### Règles générales
 - Ne rédige jamais toi-même. Délègue à `ecrivain-poesie`.

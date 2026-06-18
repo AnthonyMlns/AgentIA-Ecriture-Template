@@ -153,7 +153,47 @@ Trois mots seuls en succession rapide, chacun reprenant le précédent avec un a
 
 **Exemple :** « C'était un mensonge. Le premier mensonge de la journée. Et c'était le plus beau. » (Un été, B3)
 
-### T8 — La structure en trois blocs A/B/C
+### T8 — Le geste retenu (ni A, ni B)
+**Source :** Le Dernier des Romantiques (textes mobiles)
+**Applicable à :** tous genres (surtout textes courts, nouvelles, vignettes)
+
+Pour la chute ou le point de bascule, éviter la solution binaire attendue (envoyer/effacer, partir/rester, dire/taire). Chercher un troisième geste, plus concret et plus ambigu, qui est un *remisage* : l'objet n'est ni activé ni détruit, mais rangé, caché, préservé. Le geste retenu a plus de poids que l'action évidente — il dit le renoncement sans le déclarer.
+
+**Règle :** peut évoluer en variation longue dans un recueil (poser → suspendre → glisser → verrouiller → abandonner).
+
+**Exemples :** poser le téléphone écran contre le bois (Dernier des Romantiques, T01) ; remettre la lettre dans la poche puis suspendre le manteau dans l'ombre du placard (T02) ; glisser le téléphone dans la poche (T03).
+
+### T9 — La séquence gestuelle comme structure
+**Source :** Le Dernier des Romantiques (textes mobiles)
+**Applicable à :** textes courts, vignettes, micro-nouvelles
+
+Structurer un texte par une séquence d'actions physiques sans aucune émotion nommée ni psychologie explicite. Chaque geste porte l'affect par sa précision et son soin. Le lecteur infère l'émotion à travers la manipulation des objets.
+
+**Règle :** zéro mot émotionnel. Chaque étape émotionnelle est logée dans un geste. Le non-geste (ne pas faire, ne pas dire) peut être le geste le plus important du texte.
+
+**Exemple :** T02 (8 gestes : rencontrer → tirer → ouvrir → descendre → replier → glisser → remettre → suspendre).
+
+### T10 — L'ellipse auditive (deux sons)
+**Source :** Le Dernier des Romantiques (textes mobiles)
+**Applicable à :** tous genres (surtout formats courts)
+
+Deux détails sonores suffisent à créer une atmosphère complète : un son proche (intime, mécanique, domestique) + un son lointain (vivant, extérieur). Le son proche ancre dans l'intimité de la scène ; le son lointain rappelle que le monde continue, indifférent.
+
+**Règle :** maximum deux blocs sonores. Un bloc peut contenir plusieurs sous-sons s'ils forment un seul événement. Placer les sons juste après un moment émotionnel pour ancrer le récit dans le réel.
+
+**Exemple :** radiateur qui claque (proche) + chien qui aboie très loin (lointain) — T01.
+
+### T11 — L'ellipse du contenu
+**Source :** Le Dernier des Romantiques (textes mobiles)
+**Applicable à :** tous genres
+
+Montrer le geste de lecture/écriture sans jamais révéler le contenu du message. Le lecteur projette son propre texte dans le blanc.
+
+**Règle :** trois degrés — (1) *ellipse partielle* : quelques fragments visibles ; (2) *ellipse totale* : aucun mot révélé, on ne voit que les yeux qui descendent les lignes ; (3) *ellipse radicale* : le support est détruit avant d'avoir été lu.
+
+**Exemple :** T02 (ellipse totale : « ses yeux descendent les lignes » — aucun mot de la lettre).
+
+### T12 — La structure en trois blocs A/B/C
 **Source :** Un été
 **Applicable à :** roman, essai, nouvelle (extension possible)
 
