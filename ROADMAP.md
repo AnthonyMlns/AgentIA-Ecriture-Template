@@ -63,6 +63,44 @@
 
 ---
 
+## Étape 0.6 — Répondre aux questions du pré-flight (dialogue interactif)
+
+> Régression connue depuis le fix de lancement (`stdin: 'ignore'`). Les
+> orchestrateurs posent des questions en phase pré-flight, mais on ne peut plus
+> y répondre : `sendInput()` écrivait dans `proc.stdin`, désormais fermé.
+
+**Pourquoi `sendInput` ne marche plus :** garder un stdin en pipe ouvert empêche
+opencode de flusher sa sortie JSON (cf. fix). Il faut donc abandonner stdin et
+passer par la **reprise de session** d'opencode.
+
+**Approche — `opencode run --session <id>` :** chaque réponse utilisateur =
+une nouvelle invocation qui reprend la session existante (pas de process en
+attente).
+
+```
+1. /run lance opencode → on capture le vrai sessionID opencode (champ
+   event.sessionID, ex. ses_122b9f9a...) — distinct du sessionId du bridge.
+2. L'agent pose une question puis s'arrête (step_finish reason=stop) → le run
+   se termine proprement. Le front affiche déjà la barre de saisie (app.js:748).
+3. L'utilisateur répond → POST /input { sessionId, text }.
+4. Le backend relance : opencode run --session <sessionID> --format json "<text>"
+   et re-streame les events.
+```
+
+### Ce qu'il faut coder
+
+| # | Fichier | Ce que ça fait |
+|---|---|---|
+| 0.6.1 | `opencode-bridge.js` | Extraire/mémoriser `event.sessionID` (le vrai ID opencode) |
+| 0.6.2 | `opencode-bridge.js` | Remplacer `sendInput()` (stdin) par `continueSession(id, text)` → `runCommand` avec `--session` |
+| 0.6.3 | `server.js` | `/api/opencode/input` renvoie un flux SSE (comme `/run`) au lieu de `{success}` |
+| 0.6.4 | `app.js` | Rebrancher la barre de saisie sur ce nouveau flux (plomberie déjà en place) |
+
+**Bonus :** la session vivant côté opencode, le dialogue survit à un redémarrage
+du serveur. À traiter en même temps que S3 (auth sur `/input`).
+
+---
+
 ## Étape 1 — Quotas & BYOK (immédiat, ~2 jours)
 
 Permettre à 10-15 beta-testeurs d'utiliser la plateforme sans risque financier.
