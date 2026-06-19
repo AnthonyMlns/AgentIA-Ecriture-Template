@@ -80,9 +80,11 @@
     </a>
   </template>
 
-  <!-- Markdown (marked) + sanitization XSS (DOMPurify, S5) -->
-  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/dompurify@3/dist/purify.min.js"></script>
+  <!-- Markdown (marked) + sanitization XSS (DOMPurify, S5). Servis en LOCAL (S17) :
+       un contrôle de sécurité ne doit pas dépendre d'un CDN tiers (blocage réseau /
+       offline => sanitizer absent). Voir public/vendor/. -->
+  <script src="vendor/marked.min.js"></script>
+  <script src="vendor/purify.min.js"></script>
   <script src="app.js"></script>
 </body>
 </html>

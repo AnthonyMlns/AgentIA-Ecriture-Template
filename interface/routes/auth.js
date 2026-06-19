@@ -15,6 +15,14 @@ const authLimiter = rateLimit({
   message: { error: 'Trop de tentatives. Réessayez dans quelques minutes.' },
 });
 
+// S15 (défense en profondeur) : le nom est rendu côté admin. On l'échappe au
+// point d'injection (app.js), mais on borne aussi la donnée stockée : pas de
+// chevrons, longueur limitée. Le vrai rempart XSS reste escHtml() côté front.
+function cleanName(name) {
+  if (typeof name !== 'string') return '';
+  return name.replace(/[<>]/g, '').trim().slice(0, 80);
+}
+
 // ─── POST /api/auth/register ──────────────────────────────────────────────
 // Body: { email, name, password, inviteCode }
 router.post('/register', authLimiter, (req, res) => {
@@ -47,7 +55,7 @@ router.post('/register', authLimiter, (req, res) => {
   }
 
   // Créer l'utilisateur
-  const user = auth.createUser({ email, name: name || email.split('@')[0], password });
+  const user = auth.createUser({ email, name: cleanName(name) || email.split('@')[0], password });
 
   // Consommer le code d'invitation si utilisé
   if (effectiveCode) {
@@ -122,7 +130,7 @@ router.put('/me', auth.authMiddleware, (req, res) => {
   const idx = users.findIndex(u => u.id === req.user.id);
   if (idx === -1) return res.status(404).json({ error: 'Utilisateur introuvable.' });
 
-  if (name) users[idx].name = name;
+  if (name) users[idx].name = cleanName(name);
   if (newPassword) {
     if (!currentPassword || !auth.verifyPassword(currentPassword, users[idx].salt, users[idx].passwordHash)) {
       return res.status(400).json({ error: 'Mot de passe actuel incorrect.' });

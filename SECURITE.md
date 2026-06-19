@@ -23,6 +23,10 @@
   `auth.authMiddleware` ajouté sur : `POST /opencode/run`, `POST /opencode/input`, `GET /logs` + `/logs/:slug`, `POST .../continue`, `POST .../finalize`. Le front envoie le Bearer token sur ces appels (y compris le fetch SSE).
   ⏳ **Restent en lecture publique** (hors scope immédiat, voir S6) : `GET /api/projets/...`, `/api/knowledge/...`, `/api/echantillons`, `/api/skills`. À gater si l'app n'est pas censée exposer le contenu sans login.
 
+- [x] **15. XSS stocké via `name`/`email` dans le panneau admin** — `interface/public/app.js` ✅ **Corrigé** (revue du 19/06/2026)
+  ~~`renderAdmin` injectait `u.name`/`u.email` bruts dans `innerHTML` sans échappement ; un utilisateur pouvait fixer son `name` à une charge XSS qui s'exécutait dans la session de l'admin → prise de contrôle.~~
+  Corrigé : échappement au point d'injection (`escHtml(u.name || u.email)`, `escHtml(u.email)`, `escHtml(u.role)`) + bornage côté serveur (`cleanName` : retrait des `<>`, max 80 car.) dans `register` et `PUT /me`. (CSP stricte = défense en profondeur encore différée, cf. S10.)
+
 ---
 
 ## 🟠 Élevé — à corriger avant d'ouvrir à des utilisateurs tiers
@@ -50,13 +54,19 @@
 - [ ] **12. HMAC du token non vérifié** (`findSession` = comparaison de chaîne) — ⏳ **différé** : l'activer invaliderait les sessions existantes (tokens signés avec l'ancien secret) → déconnexion. Faible valeur (tokens déjà aléatoires + stockés côté serveur).
 - [x] **13. Comparaisons non constant-time** ✅ **Corrigé** — `crypto.timingSafeEqual` dans `verifyPassword`.
 - [ ] **14. `fileFilter` par extension uniquement** — ⏳ **différé** : vérification par magic bytes (nécessite une lib type `file-type`). Risque faible.
+- [x] **16. Propriété des sessions OpenCode (IDOR)** — `opencode-bridge.js` + `server.js` ✅ **Corrigé** (revue du 19/06/2026)
+  `POST /api/opencode/input` ne vérifiait que l'**existence** de la session (`hasSession`), pas son **propriétaire** : tout utilisateur authentifié pouvait reprendre/injecter dans la session d'un autre et lire son flux SSE. Ajout d'une map `sessionOwners` (bridgeSessionId → userId) renseignée au lancement (`/run` passe `userId`), et d'un garde `ownsSession(sessionId, req.user.id)` sur `/input` (404 si non-propriétaire, pour ne pas révéler l'existence). Sans effet en local mono-utilisateur.
+- [x] **17. DOMPurify : dépendance CDN + fail-open** — `index.html` + `app.js` ✅ **Corrigé** (revue du 19/06/2026)
+  marked + DOMPurify étaient chargés depuis un **CDN tiers** et `renderMarkdown` retombait sur le **HTML brut** si DOMPurify était absent (sanitizer KO en cas de blocage réseau/offline → S5 contournée silencieusement). Corrigé : libs **vendorisées en local** (`public/vendor/`, dépendance npm `dompurify`) et `renderMarkdown` désormais **fail-closed** (si marked/DOMPurify manquent → texte échappé via `escHtml`, jamais de HTML brut).
 
 ---
 
 ## État
 
-- ✅ **Faits :** 1, 2, 3 (🔴) · 4, 5, 6, 7 (🟠) · 8, 9, 10, 13 (🟡)
+- ✅ **Faits :** 1, 2, 3 (🔴) · 4, 5, 6, 7, 15, 16, 17 (🟠) · 8, 9, 10, 13 (🟡)
 - ⏳ **Différés (faible risque / invasif) :** 11 (cookie httpOnly), 12 (HMAC token), 14 (magic bytes)
 
-Il ne reste aucun bloquant. Les 3 points différés sont du durcissement optionnel,
-à faire avant une ouverture publique large mais non requis pour une beta restreinte.
+**Plus aucun bloquant.** Les correctifs de la revue du 19/06/2026 (S15 XSS admin, S16
+propriété des sessions, S17 DOMPurify local/fail-closed) sont faits. Restent 3 points de
+durcissement optionnels (S11/S12/S14) avant une ouverture publique large, non requis pour
+une beta restreinte.

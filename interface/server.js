@@ -477,7 +477,7 @@ app.get('/api/config', (req, res) => {
 // OpenCode Bridge — endpoint SSE
 // ---------------------------------------------------------------------------
 
-const { runCommand, continueSession, hasSession, buildMessage, GENRE_AGENTS, SKILLS_BY_GENRE, listLogs, getLog } = require('./opencode-bridge');
+const { runCommand, continueSession, hasSession, ownsSession, buildMessage, GENRE_AGENTS, SKILLS_BY_GENRE, listLogs, getLog } = require('./opencode-bridge');
 
 // ─── Helper commun : streamer un emitter (runCommand/continueSession) en SSE ──
 function streamSSE(req, res, result, meta = {}) {
@@ -555,7 +555,9 @@ app.post('/api/opencode/input', auth.authMiddleware, (req, res) => {
   if (!sessionId || !text) {
     return res.status(400).json({ error: 'Les champs sessionId et text sont requis.' });
   }
-  if (!hasSession(sessionId)) {
+  // S16 : 404 si la session est inconnue OU n'appartient pas à l'appelant
+  // (même réponse dans les deux cas : ne pas révéler l'existence d'une session tierce).
+  if (!hasSession(sessionId) || !ownsSession(sessionId, req.user.id)) {
     return res.status(404).json({ error: 'Session introuvable ou expirée.' });
   }
 
@@ -590,7 +592,7 @@ app.post('/api/opencode/run', auth.authMiddleware, (req, res) => {
   // Lancer depuis ROOT pour que les agents .opencode/agent/ soient trouvés.
   let result;
   try {
-    result = runCommand(mapping.agent, message, { command: mapping.command });
+    result = runCommand(mapping.agent, message, { command: mapping.command, userId: req.user.id });
   } catch (err) {
     return res.status(500).json({ error: `Erreur au lancement : ${err.message}` });
   }

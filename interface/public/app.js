@@ -74,9 +74,15 @@ function authHeaders() {
 
 // Rendu Markdown sécurisé (S5) : marked produit le HTML, DOMPurify le nettoie
 // avant insertion (le contenu vient de fichiers/uploads, donc non fiable).
+// S17 : FAIL-CLOSED. Si DOMPurify n'est pas chargé (lib absente), on ne renvoie
+// JAMAIS le HTML brut — on échappe le Markdown source en texte. Mieux vaut un
+// rendu dégradé qu'une faille XSS silencieuse.
 function renderMarkdown(md) {
-  const html = marked.parse(md || '');
-  return (typeof DOMPurify !== 'undefined') ? DOMPurify.sanitize(html) : html;
+  if (typeof DOMPurify === 'undefined' || typeof marked === 'undefined') {
+    console.error('[securite] marked/DOMPurify indisponible — rendu en texte échappé (fail-closed).');
+    return escHtml(md || '');
+  }
+  return DOMPurify.sanitize(marked.parse(md || ''));
 }
 
 // ─── État global ───
@@ -1883,10 +1889,10 @@ async function renderAdmin(container) {
               ${users.map(u => `
                 <div class="admin-list-item">
                   <div>
-                    <strong>${u.name || u.email}</strong>
-                    <span style="font-size:11px;color:var(--text-muted);display:block">${u.email}</span>
+                    <strong>${escHtml(u.name || u.email)}</strong>
+                    <span style="font-size:11px;color:var(--text-muted);display:block">${escHtml(u.email)}</span>
                   </div>
-                  <span style="font-size:11px;padding:2px 8px;border-radius:4px;background:${u.role === 'admin' ? 'var(--warning)' : 'var(--bg-hover)'};color:${u.role === 'admin' ? '#000' : 'var(--text-secondary)'}">${u.role}</span>
+                  <span style="font-size:11px;padding:2px 8px;border-radius:4px;background:${u.role === 'admin' ? 'var(--warning)' : 'var(--bg-hover)'};color:${u.role === 'admin' ? '#000' : 'var(--text-secondary)'}">${escHtml(u.role)}</span>
                 </div>
               `).join('')}
             </div>

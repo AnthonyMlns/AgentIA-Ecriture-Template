@@ -57,9 +57,12 @@
 | ~~S9~~ | ✅ Fait | `express.json({ limit: '1mb' })` | `interface/server.js` |
 | ~~S10~~ | ✅ Fait* | `helmet` (CSP différée — onclick inline) | `interface/server.js` |
 | ~~S13~~ | ✅ Fait | `timingSafeEqual` (verifyPassword) | `interface/auth.js` |
+| ~~S15~~ | ✅ Fait | XSS stocké `name`/`email` panneau admin → `escHtml` + `cleanName` | `interface/public/app.js` |
+| ~~S16~~ | ✅ Fait | Propriété des sessions OpenCode (IDOR) → `ownsSession` | `opencode-bridge.js` + `server.js` |
+| ~~S17~~ | ✅ Fait | DOMPurify vendorisé en local + `renderMarkdown` fail-closed | `index.html` + `app.js` |
 | S11/S12/S14 | ⏳ Différé | cookie httpOnly, HMAC token, magic bytes (faible risque / invasif) | — |
 
-**État :** tous les bloquants 🔴 + tout le 🟠 + l'essentiel du 🟡 sont faits. Restent 3 points de durcissement optionnels (S11/S12/S14) avant une ouverture publique large.
+**État :** S1-S10, S13, S15-S17 faits (dont la revue du 19/06/2026). Plus aucun bloquant. Restent 3 durcissements optionnels (S11/S12/S14) avant ouverture publique large.
 
 ---
 

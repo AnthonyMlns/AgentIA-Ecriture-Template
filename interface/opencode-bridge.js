@@ -24,6 +24,12 @@ const sessions = new Map();
 // question du pré-flight) via `opencode run --session <id>`.
 const opencodeSessions = new Map();
 
+// S16 : propriété des sessions. bridgeSessionId → userId. Permet de refuser la
+// reprise (/api/opencode/input) d'une session qui n'appartient pas à l'appelant
+// (sinon n'importe quel utilisateur authentifié pourrait injecter un message
+// et lire le flux d'un autre). Renseigné au lancement (/run) via opts.userId.
+const sessionOwners = new Map();
+
 // ---------------------------------------------------------------------------
 // Trouver le binaire opencode.exe
 // ---------------------------------------------------------------------------
@@ -152,6 +158,9 @@ function runCommand(agent, message, opts = {}) {
   // On peut réutiliser un bridgeSessionId (reprise de session) pour garder une
   // identité stable côté front à travers les tours de dialogue.
   const sessionId = opts.bridgeSessionId || `ses_${Date.now()}_${Math.random().toString(36).slice(2, 8)}`;
+  // S16 : mémoriser le propriétaire dès le lancement (ne pas écraser à la reprise,
+  // où opts.userId n'est pas repassé — continueSession conserve le bridgeSessionId).
+  if (opts.userId && !sessionOwners.has(sessionId)) sessionOwners.set(sessionId, opts.userId);
   const logNonce = Math.random().toString(36).slice(2, 6); // évite l'écrasement du log à la reprise
   const sessionLog = {
     id: sessionId,
@@ -352,4 +361,14 @@ function hasSession(bridgeSessionId) {
   return opencodeSessions.has(bridgeSessionId);
 }
 
-module.exports = { runCommand, continueSession, hasSession, buildMessage, sessions, GENRE_AGENTS, SKILLS_BY_GENRE, listLogs, getLog, _binPath: OPENCODE_BIN };
+/**
+ * S16 : la session appartient-elle à cet utilisateur ?
+ * Renvoie false si la session est inconnue OU si elle a un autre propriétaire.
+ * (Si aucun propriétaire n'a été enregistré — session sans userId — on refuse
+ * aussi : pas d'accès par défaut.)
+ */
+function ownsSession(bridgeSessionId, userId) {
+  return !!userId && sessionOwners.get(bridgeSessionId) === userId;
+}
+
+module.exports = { runCommand, continueSession, hasSession, ownsSession, buildMessage, sessions, GENRE_AGENTS, SKILLS_BY_GENRE, listLogs, getLog, _binPath: OPENCODE_BIN };
