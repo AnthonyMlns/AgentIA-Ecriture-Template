@@ -148,7 +148,11 @@ function buildMessage(genre, { titre, synopsis, contraintes, personnages, skills
  *   'close'  → (exitCode)
  */
 function runCommand(agent, message, opts = {}) {
-  const timeout = opts.timeout || 600000;
+  // Fenêtre d'INACTIVITÉ avant interruption (réarmée à chaque event opencode),
+  // et NON un plafond global : un recueil multi-sections peut durer longtemps
+  // tant qu'il progresse — on ne coupe que sur un vrai silence (~10 min par
+  // défaut, ≈ « 10 min par section »). Surchargeable via OPENCODE_IDLE_TIMEOUT_MS.
+  const idleTimeout = opts.timeout || parseInt(process.env.OPENCODE_IDLE_TIMEOUT_MS, 10) || 600000;
   const commandName = opts.command || null;
   const resumeId = opts.resumeSessionId || null;   // reprise d'une session opencode
   const cwd = opts.cwd || ROOT;
@@ -217,20 +221,29 @@ function runCommand(agent, message, opts = {}) {
   // Enregistrer la session pour permettre l'envoi d'input utilisateur
   sessions.set(sessionId, { proc, emitter, startTime: Date.now() });
 
+  // Watchdog d'inactivité : réarmé à chaque sortie d'opencode (cf. armWatchdog()
+  // dans les handlers stdout/stderr). Ne déclenche que si le process reste muet
+  // `idleTimeout` ms d'affilée.
   let timedOut = false;
-  const timer = setTimeout(() => {
-    timedOut = true;
-    try { proc.kill('SIGTERM'); } catch {}
-    const err = new Error(`Timeout dépassé (${timeout / 1000}s)`);
-    sessionLog.status = 'timeout';
-    sessionLog.error = err.message;
-    saveLog();
-    emitter.emit('error', err);
-  }, timeout);
+  let timer = null;
+  const armWatchdog = () => {
+    if (timer) clearTimeout(timer);
+    timer = setTimeout(() => {
+      timedOut = true;
+      try { proc.kill('SIGTERM'); } catch {}
+      const err = new Error(`Aucune activité depuis ${idleTimeout / 1000}s — session interrompue.`);
+      sessionLog.status = 'timeout';
+      sessionLog.error = err.message;
+      saveLog();
+      emitter.emit('error', err);
+    }, idleTimeout);
+  };
+  armWatchdog();
 
   // Parse stdout — chaque ligne est un event JSON
   let buffer = '';
   proc.stdout.on('data', (chunk) => {
+    armWatchdog(); // activité → on repousse l'échéance d'inactivité
     buffer += chunk.toString();
     const lines = buffer.split('\n');
     buffer = lines.pop();
@@ -252,6 +265,7 @@ function runCommand(agent, message, opts = {}) {
   // stderr → on le forwarde (contient parfois des infos utiles)
   let stderrBuffer = '';
   proc.stderr.on('data', (chunk) => {
+    armWatchdog(); // l'activité stderr compte aussi comme « vivant »
     stderrBuffer += chunk.toString();
     emitter.emit('stderr', chunk.toString());
   });

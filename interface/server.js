@@ -493,13 +493,19 @@ function streamSSE(req, res, result, meta = {}) {
   res.flushHeaders();
 
   let closed = false;
+  let heartbeat = null;
   function writeData(json) {
     if (closed) return;
     res.write(`data: ${json}\n\n`);
     if (typeof res.flush === 'function') res.flush();
     else if (res.socket && res.socket.writable) res.socket.write('');
   }
-  const safeEnd = () => { if (!closed) { closed = true; try { res.end(); } catch {} } };
+  const safeEnd = () => {
+    if (closed) return;
+    closed = true;
+    if (heartbeat) { clearInterval(heartbeat); heartbeat = null; }
+    try { res.end(); } catch {}
+  };
 
   emitter.on('event', (event) => {
     if (closed) return;
@@ -538,7 +544,18 @@ function streamSSE(req, res, result, meta = {}) {
     safeEnd();
     abort();
   });
-  req.setTimeout(600000); // 10 min
+
+  // Heartbeat : commentaire SSE (`:`) ignoré par le parseur client, mais qui
+  // garde le socket actif (anti-fermeture proxy / inactivité) pendant qu'opencode
+  // « réfléchit » entre deux sections.
+  heartbeat = setInterval(() => {
+    if (closed) return;
+    try { res.write(': keepalive\n\n'); if (typeof res.flush === 'function') res.flush(); } catch {}
+  }, 20000);
+
+  // Plus de plafond global de 10 min sur la requête : la durée de vie est gérée
+  // par le watchdog d'INACTIVITÉ du bridge (réarmé à chaque event). 0 = désactivé.
+  req.setTimeout(0);
 }
 
 // Metadata pour le frontend

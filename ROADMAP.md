@@ -108,6 +108,25 @@ du serveur. À traiter en même temps que S3 (auth sur `/input`).
 
 ---
 
+## Étape 0.7 — Génération longue (recueils multi-sections)
+
+> Contexte : un recueil de 5 poèmes générés en un seul run dépassait le plafond
+> fixe de 10 min et était coupé en plein 2ᵉ poème (socket SSE fermé → abort).
+
+**✅ Fait — timeout d'inactivité au lieu d'un plafond global :**
+- `opencode-bridge.js` : watchdog **réarmé à chaque event** opencode (`armWatchdog`).
+  Ne coupe que sur un silence réel (~10 min, ≈ « 10 min par section »).
+  Surchargeable via `OPENCODE_IDLE_TIMEOUT_MS`.
+- `server.js` : **heartbeat SSE** (`: keepalive` toutes les 20 s) + `req.setTimeout(0)`
+  → plus de fermeture du socket à 10 min ; la durée de vie suit le watchdog.
+
+**⏳ À faire (plus robuste, option B) — génération incrémentale :** l'orchestrateur
+produit **une section par run**, le front enchaîne automatiquement. Supprime les
+connexions SSE très longues (fragiles derrière un proxy / en prod) et affiche chaque
+poème dès qu'il est prêt. Cousin de l'Étape 0.6 (reprise de session).
+
+---
+
 ## Étape 1 — Quotas & BYOK (immédiat, ~2 jours)
 
 Permettre à 10-15 beta-testeurs d'utiliser la plateforme sans risque financier.
