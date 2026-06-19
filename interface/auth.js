@@ -424,14 +424,26 @@ function initAuth() {
   ensureDataDir();
   const users = loadUsers();
   if (users.length === 0) {
-    // Create default admin
-    const admin = createUser({
-      email: 'admin@agentia.local',
-      name: 'Admin',
-      password: 'admin',
-      role: 'admin'
-    });
-    console.error('[auth] Premier utilisateur créé : admin@agentia.local / mot de passe : admin');
+    // Sécurité (S1) : ne JAMAIS créer un admin avec un mot de passe en dur.
+    // Le mot de passe vient de ADMIN_PASSWORD (env/.env). À défaut, on en
+    // génère un aléatoire affiché UNE seule fois dans la console.
+    const email = (process.env.ADMIN_EMAIL || 'admin@agentia.local').toLowerCase();
+    let password = process.env.ADMIN_PASSWORD;
+    const generated = !password;
+    if (generated) password = crypto.randomBytes(12).toString('base64url');
+
+    const admin = createUser({ email, name: 'Admin', password, role: 'admin' });
+
+    if (generated) {
+      const bar = '═'.repeat(64);
+      console.error(bar);
+      console.error(`[auth] Compte admin créé : ${email}`);
+      console.error(`[auth] MOT DE PASSE GÉNÉRÉ (affiché une seule fois) : ${password}`);
+      console.error('[auth] Notez-le, ou définissez ADMIN_PASSWORD dans .env avant le 1er démarrage.');
+      console.error(bar);
+    } else {
+      console.error(`[auth] Compte admin créé : ${email} (mot de passe depuis ADMIN_PASSWORD)`);
+    }
 
     // Migrer les données existantes
     migrateExistingData(admin.id);

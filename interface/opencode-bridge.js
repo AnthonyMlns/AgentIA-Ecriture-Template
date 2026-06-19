@@ -16,8 +16,13 @@ if (!fs.existsSync(LOGS_DIR)) {
   fs.mkdirSync(LOGS_DIR, { recursive: true });
 }
 
-// Sessions actives — permet l'envoi d'input utilisateur au processus
+// Sessions actives (processus en cours) — usage interne.
 const sessions = new Map();
+
+// Mapping bridgeSessionId → vrai sessionID opencode. Persiste APRÈS la fin du
+// process : c'est ce qui permet de reprendre la session (répondre à une
+// question du pré-flight) via `opencode run --session <id>`.
+const opencodeSessions = new Map();
 
 // ---------------------------------------------------------------------------
 // Trouver le binaire opencode.exe
@@ -139,11 +144,15 @@ function buildMessage(genre, { titre, synopsis, contraintes, personnages, skills
 function runCommand(agent, message, opts = {}) {
   const timeout = opts.timeout || 600000;
   const commandName = opts.command || null;
+  const resumeId = opts.resumeSessionId || null;   // reprise d'une session opencode
   const cwd = opts.cwd || ROOT;
   const emitter = new EventEmitter();
 
   // --- Session log ---
-  const sessionId = `ses_${Date.now()}_${Math.random().toString(36).slice(2, 8)}`;
+  // On peut réutiliser un bridgeSessionId (reprise de session) pour garder une
+  // identité stable côté front à travers les tours de dialogue.
+  const sessionId = opts.bridgeSessionId || `ses_${Date.now()}_${Math.random().toString(36).slice(2, 8)}`;
+  const logNonce = Math.random().toString(36).slice(2, 6); // évite l'écrasement du log à la reprise
   const sessionLog = {
     id: sessionId,
     timestamp: new Date().toISOString(),
@@ -160,7 +169,7 @@ function runCommand(agent, message, opts = {}) {
 
   function saveLog() {
     sessionLog.duration = Date.now() - startTime;
-    const slug = `${new Date().toISOString().slice(0, 10)}-${sessionId.slice(-8)}`;
+    const slug = `${new Date().toISOString().slice(0, 10)}-${sessionId.slice(-8)}-${logNonce}`;
     const filePath = path.join(LOGS_DIR, `${slug}.json`);
     try {
       fs.writeFileSync(filePath, JSON.stringify(sessionLog, null, 2), 'utf-8');
@@ -168,12 +177,16 @@ function runCommand(agent, message, opts = {}) {
   }
 
   // --- Construire les arguments ---
-  // On utilise --command pour que le template opencode.json soit appliqué.
-  // Le message (buildMessage) est l'input du template.
-  // spawn + shell:false fonctionnait AVANT les modifs — on y revient.
-  const args = ['run', '--format', 'json', '--agent', agent];
-  if (commandName) {
-    args.push('--command', commandName);
+  const args = ['run', '--format', 'json'];
+  if (resumeId) {
+    // Reprise : on ne repasse PAS --agent/--command, le contexte (agent,
+    // historique) est déjà porté par la session opencode existante.
+    args.push('--session', resumeId);
+  } else {
+    // Nouveau projet : --command applique le template opencode.json, le message
+    // (buildMessage) en est l'input.
+    args.push('--agent', agent);
+    if (commandName) args.push('--command', commandName);
   }
   args.push(message);
 
@@ -217,6 +230,8 @@ function runCommand(agent, message, opts = {}) {
       if (!trimmed) continue;
       try {
         const event = JSON.parse(trimmed);
+        // Mémoriser le vrai sessionID opencode → permet la reprise de session.
+        if (event && event.sessionID) opencodeSessions.set(sessionId, event.sessionID);
         sessionLog.events.push(event);
         emitter.emit('event', event);
       } catch {
@@ -315,23 +330,26 @@ function getLog(slug) {
   }
 }
 
-// ─── Envoi d'input utilisateur à une session active ────────────────────────
+// ─── Reprise de session : répondre à une question du pré-flight ────────────
 
 /**
- * Envoie du texte sur stdin d'un processus OpenCode actif
- * @param {string} sessionId — l'ID de session retourné par runCommand
- * @param {string} text — le texte à envoyer (terminé par un retour à la ligne)
- * @returns {boolean} true si envoyé, false si session introuvable
+ * Reprend une session opencode existante avec un nouveau message utilisateur.
+ * Remplace l'ancien sendInput() (stdin), devenu inopérant avec stdio:'ignore'.
+ * Relance `opencode run --session <id>` et streame les events comme runCommand.
+ * @param {string} bridgeSessionId — l'ID renvoyé par runCommand (meta.sessionId)
+ * @param {string} text — la réponse de l'utilisateur
+ * @returns {{emitter,abort,proc,sessionId}|null} null si la session est inconnue
  */
-function sendInput(sessionId, text) {
-  const session = sessions.get(sessionId);
-  if (!session) return false;
-  try {
-    session.proc.stdin.write(text + '\n');
-    return true;
-  } catch {
-    return false;
-  }
+function continueSession(bridgeSessionId, text, opts = {}) {
+  const opencodeId = opencodeSessions.get(bridgeSessionId);
+  if (!opencodeId) return null;
+  // On réutilise le bridgeSessionId pour garder une identité stable côté front.
+  return runCommand(null, text, { ...opts, resumeSessionId: opencodeId, bridgeSessionId });
 }
 
-module.exports = { runCommand, buildMessage, sendInput, sessions, GENRE_AGENTS, SKILLS_BY_GENRE, listLogs, getLog, _binPath: OPENCODE_BIN };
+/** Indique si une session opencode reprenable est connue pour cet ID bridge. */
+function hasSession(bridgeSessionId) {
+  return opencodeSessions.has(bridgeSessionId);
+}
+
+module.exports = { runCommand, continueSession, hasSession, buildMessage, sessions, GENRE_AGENTS, SKILLS_BY_GENRE, listLogs, getLog, _binPath: OPENCODE_BIN };

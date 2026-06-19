@@ -659,18 +659,91 @@ async function renderNouveauProjet(container) {
 
   let abortController = null;
   let currentSessionId = null;
+  let currentGenre = null;
+  let currentTitre = null;
   const terminalInput = document.getElementById('terminal-input');
   const btnTerminalSend = document.getElementById('btn-terminal-send');
   const terminalInputBar = document.getElementById('terminal-input-bar');
 
-  // Envoi de réponse utilisateur
-  function sendUserInput(text) {
+  // Callbacks SSE partagés entre le lancement initial (/run) et les réponses
+  // au pré-flight (/input) : les deux flux ont exactement le même format.
+  const streamCallbacks = {
+    onEvent: (evt) => {
+      appendTerminalEvent(terminalOutput, evt);
+      // L'agent s'arrête (fin de tour) → on propose de répondre.
+      if (evt.type === 'step_finish' && (evt.reason === 'stop' || evt.part?.reason === 'stop')) {
+        terminalInputBar.style.display = 'flex';
+        terminalInput.focus();
+        terminalStatus.textContent = '⏳ en attente de votre réponse…';
+      }
+    },
+    onMeta: (meta) => {
+      if (meta.agent) {
+        terminalOutput.innerHTML += `<div class="term-line term-meta">🧠 Agent : ${meta.agent} · Commande : ${meta.command}</div>`;
+      }
+      currentSessionId = meta.sessionId || currentSessionId;
+      terminalStatus.textContent = '⏳ en cours…';
+      scrollTerminal();
+    },
+    onError: (msg) => {
+      terminalOutput.innerHTML += `<div class="term-line term-error">❌ ${msg}</div>`;
+      terminalStatus.textContent = '❌ erreur';
+      terminalStatus.className = 'terminal-status error';
+      terminalInputBar.style.display = 'none';
+      terminalFooter.style.display = '';
+      btnLancer.style.display = 'inline-flex';
+      btnAnnuler.style.display = 'none';
+      scrollTerminal();
+    },
+    onDone: (result) => {
+      if (result.success) {
+        terminalOutput.innerHTML += `<div class="term-line term-success">✅ Étape terminée.</div>`;
+        terminalStatus.textContent = '✅ terminé';
+        terminalStatus.className = 'terminal-status success';
+        btnSucces.style.display = 'inline-flex';
+        btnSucces.dataset.genre = currentGenre;
+        btnSucces.dataset.projet = currentTitre;
+      } else {
+        terminalOutput.innerHTML += `<div class="term-line term-error">❌ Échec (code ${result.exitCode})</div>`;
+        terminalStatus.textContent = '❌ échec';
+        terminalStatus.className = 'terminal-status error';
+      }
+      terminalFooter.style.display = '';
+      btnLancer.style.display = 'inline-flex';
+      btnAnnuler.style.display = 'none';
+      // On garde la barre de saisie disponible : le run se termine à chaque
+      // tour, mais l'agent a pu poser une question de pré-flight. L'utilisateur
+      // peut répondre pour poursuivre le dialogue via /input.
+      if (currentSessionId && result.success) {
+        terminalInputBar.style.display = 'flex';
+      }
+      scrollTerminal();
+      chargerDonnees();
+    }
+  };
+
+  // Envoi de réponse utilisateur — reprend la session opencode via /input (SSE).
+  async function sendUserInput(text) {
     if (!currentSessionId) return;
-    fetch('/api/opencode/input', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ sessionId: currentSessionId, text })
-    }).catch(err => console.error('Erreur envoi input:', err));
+    terminalInputBar.style.display = 'none';
+    terminalStatus.textContent = '⏳ en cours…';
+    terminalStatus.className = 'terminal-status running';
+    try {
+      const response = await fetch('/api/opencode/input', {
+        method: 'POST',
+        headers: { ...authHeaders(), 'Content-Type': 'application/json' },
+        body: JSON.stringify({ sessionId: currentSessionId, text })
+      });
+      if (!response.ok) {
+        let msg = `HTTP ${response.status}`;
+        try { const e = await response.json(); if (e.error) msg = e.error; } catch {}
+        streamCallbacks.onError(msg);
+        return;
+      }
+      listenSSE(response, streamCallbacks);
+    } catch (err) {
+      streamCallbacks.onError(err.message);
+    }
   }
 
   terminalInput.addEventListener('keydown', (e) => {
@@ -708,6 +781,11 @@ async function renderNouveauProjet(container) {
 
     if (!genre || !titre) return;
 
+    // Mémoriser pour la navigation + les tours de dialogue (/input)
+    currentGenre = genre;
+    currentTitre = titre;
+    currentSessionId = null;
+
     // Afficher le terminal
     terminalSection.style.display = '';
     terminalOutput.innerHTML = '';
@@ -724,13 +802,15 @@ async function renderNouveauProjet(container) {
     try {
       const response = await fetch('/api/opencode/run', {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
+        headers: { ...authHeaders(), 'Content-Type': 'application/json' },
         body: JSON.stringify({ genre, titre, synopsis, contraintes, personnages, skills, nbUnites, registre, filRouge }),
         signal: abortController.signal,
       });
 
       if (!response.ok) {
-        terminalOutput.innerHTML += `<div class="term-line term-error">❌ Erreur HTTP ${response.status}</div>`;
+        let msg = `Erreur HTTP ${response.status}`;
+        try { const e = await response.json(); if (e.error) msg = e.error; } catch {}
+        terminalOutput.innerHTML += `<div class="term-line term-error">❌ ${escHtml(msg)}</div>`;
         terminalStatus.textContent = '❌ échec';
         terminalStatus.className = 'terminal-status error';
         terminalFooter.style.display = '';
@@ -740,57 +820,7 @@ async function renderNouveauProjet(container) {
         return;
       }
 
-      listenSSE(response, {
-        onEvent: (evt) => {
-          appendTerminalEvent(terminalOutput, evt);
-          // Si l'agent semble poser une question (step_finish avec reason stop),
-          // on montre la barre de saisie
-          if (evt.type === 'step_finish' && (evt.reason === 'stop' || evt.part?.reason === 'stop')) {
-            terminalInputBar.style.display = 'flex';
-            terminalInput.focus();
-            terminalStatus.textContent = '⏳ en attente de votre réponse…';
-          }
-        },
-        onMeta: (meta) => {
-          terminalOutput.innerHTML += `<div class="term-line term-meta">🧠 Agent : ${meta.agent} · Commande : ${meta.command}</div>`;
-          currentSessionId = meta.sessionId || null;
-          terminalStatus.textContent = '⏳ en cours…';
-          scrollTerminal();
-        },
-        onError: (msg) => {
-          terminalOutput.innerHTML += `<div class="term-line term-error">❌ ${msg}</div>`;
-          terminalStatus.textContent = '❌ erreur';
-          terminalStatus.className = 'terminal-status error';
-          terminalInputBar.style.display = 'none';
-          terminalFooter.style.display = '';
-          btnLancer.style.display = 'inline-flex';
-          btnAnnuler.style.display = 'none';
-          scrollTerminal();
-        },
-        onDone: (result) => {
-          terminalInputBar.style.display = 'none';
-          if (result.success) {
-            terminalOutput.innerHTML += `<div class="term-line term-success">✅ Projet créé avec succès !</div>`;
-            terminalStatus.textContent = '✅ terminé';
-            terminalStatus.className = 'terminal-status success';
-            // Activer le bouton "Voir le projet"
-            btnSucces.style.display = 'inline-flex';
-            // Stocker le projet créé pour navigation
-            btnSucces.dataset.genre = genre;
-            btnSucces.dataset.projet = titre;
-          } else {
-            terminalOutput.innerHTML += `<div class="term-line term-error">❌ Le projet n'a pas pu être créé (code ${result.exitCode})</div>`;
-            terminalStatus.textContent = '❌ échec';
-            terminalStatus.className = 'terminal-status error';
-          }
-          terminalFooter.style.display = '';
-          btnLancer.style.display = 'inline-flex';
-          btnAnnuler.style.display = 'none';
-          scrollTerminal();
-          // Rafraîchir les données en arrière-plan
-          chargerDonnees();
-        }
-      });
+      listenSSE(response, streamCallbacks);
     } catch (err) {
       if (err.name === 'AbortError') {
         terminalOutput.innerHTML += `<div class="term-line term-warning">⏹ Commande annulée</div>`;

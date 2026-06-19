@@ -10,23 +10,18 @@
 
 ## 🔴 Critique — bloquant avant toute mise en ligne
 
-- [ ] **1. Compte admin par défaut `admin` / `admin`** — `interface/auth.js:428-434`
-  Au premier démarrage, `admin@agentia.local` / `admin` (rôle `admin`) est créé automatiquement. Template public → prise de contrôle totale immédiate.
-  → Forcer un mot de passe via variable d'env, ou bloquer le login tant que le mot de passe par défaut n'a pas été changé.
+- [x] **1. Compte admin par défaut `admin` / `admin`** — `interface/auth.js` ✅ **Corrigé**
+  ~~Au premier démarrage, `admin@agentia.local` / `admin` (rôle `admin`) est créé automatiquement.~~
+  Désormais : mot de passe lu depuis `ADMIN_PASSWORD` (env/.env) ; à défaut, généré aléatoirement et affiché **une seule fois** dans la console. Plus aucun mot de passe en dur.
+  ⚠️ **Installations existantes** : l'admin `admin/admin` déjà créé n'est PAS modifié rétroactivement — changer son mot de passe via le profil, ou supprimer `data/users.json` pour régénérer.
 
-- [ ] **2. Injection de commande shell** — `interface/server.js:685`
-  ```js
-  execSync(`"${pandocPath}" "${mdPath}" -o "${pdfPath}" --pdf-engine=pdfhtml 2>&1`)
-  ```
-  `nom` (segment d'URL) est interpolé dans une commande shell. Un nom de projet contenant `"` `;` `$()` `` ` `` permet l'exécution de commandes arbitraires sur l'hôte.
-  → Utiliser `execFileSync(pandocPath, [mdPath, '-o', pdfPath, ...])` (pas de shell).
+- [x] **2. Injection de commande shell** — `interface/server.js` (`/finalize`) ✅ **Corrigé**
+  ~~`execSync` interpolait `nom` (segment d'URL) dans une commande shell → exécution arbitraire.~~
+  Remplacé par `execFileSync(pandocBin, [mdPath, '-o', pdfPath, '--pdf-engine=pdfhtml'])` — pas de shell, donc plus d'injection possible via le nom de projet.
 
-- [ ] **3. Endpoints sensibles SANS authentification** — `interface/server.js:275-286`
-  Le middleware `/api` est en *auth optionnelle* : sans token, la requête passe quand même. Sont donc publics :
-  - `POST /api/opencode/run` → lance des processus `opencode` (consomme les crédits API, écrit des fichiers), sans contrôle ni quota
-  - `POST /api/opencode/input` → injecte du texte dans le stdin de sessions actives
-  - `GET /api/projets/...`, `/api/knowledge/...`, `/api/logs/...` → lecture de tout le contenu et des logs de sessions
-  → Appliquer `auth.authMiddleware` sur ces routes (a minima `opencode/run|input` et `logs`).
+- [x] **3. Endpoints sensibles SANS authentification** — `interface/server.js` ✅ **Partiellement corrigé**
+  `auth.authMiddleware` ajouté sur : `POST /opencode/run`, `POST /opencode/input`, `GET /logs` + `/logs/:slug`, `POST .../continue`, `POST .../finalize`. Le front envoie le Bearer token sur ces appels (y compris le fetch SSE).
+  ⏳ **Restent en lecture publique** (hors scope immédiat, voir S6) : `GET /api/projets/...`, `/api/knowledge/...`, `/api/echantillons`, `/api/skills`. À gater si l'app n'est pas censée exposer le contenu sans login.
 
 ---
 

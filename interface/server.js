@@ -451,7 +451,69 @@ app.get('/api/config', (req, res) => {
 // OpenCode Bridge — endpoint SSE
 // ---------------------------------------------------------------------------
 
-const { runCommand, buildMessage, sendInput, sessions, GENRE_AGENTS, SKILLS_BY_GENRE, listLogs, getLog } = require('./opencode-bridge');
+const { runCommand, continueSession, hasSession, buildMessage, GENRE_AGENTS, SKILLS_BY_GENRE, listLogs, getLog } = require('./opencode-bridge');
+
+// ─── Helper commun : streamer un emitter (runCommand/continueSession) en SSE ──
+function streamSSE(req, res, result, meta = {}) {
+  const { emitter, abort, sessionId } = result;
+
+  res.writeHead(200, {
+    'Content-Type': 'text/event-stream',
+    'Cache-Control': 'no-cache',
+    'Connection': 'keep-alive',
+    'X-Accel-Buffering': 'no',
+  });
+  if (res.socket) res.socket.setNoDelay(true);
+  res.flushHeaders();
+
+  let closed = false;
+  function writeData(json) {
+    if (closed) return;
+    res.write(`data: ${json}\n\n`);
+    if (typeof res.flush === 'function') res.flush();
+    else if (res.socket && res.socket.writable) res.socket.write('');
+  }
+  const safeEnd = () => { if (!closed) { closed = true; try { res.end(); } catch {} } };
+
+  emitter.on('event', (event) => {
+    if (closed) return;
+    const raw = JSON.stringify(event);
+    if (raw.length < 30000) writeData(raw);
+  });
+  emitter.on('stderr', (text) => {
+    if (closed) return;
+    for (const line of text.split('\n').filter(l => l.trim())) {
+      writeData(JSON.stringify({ type: 'stderr', text: line.slice(0, 500) }));
+    }
+  });
+  emitter.on('error', (err) => {
+    if (closed) return;
+    writeData(JSON.stringify({ type: 'error', message: err.message }));
+    writeData(JSON.stringify({ type: 'done', success: false, exitCode: -1 }));
+    safeEnd();
+  });
+  emitter.on('close', (code) => {
+    if (closed) return;
+    writeData(JSON.stringify({ type: 'done', success: code === 0, exitCode: code }));
+    if (code !== 0) {
+      writeData(JSON.stringify({ type: 'error', message: `Processus terminé avec le code ${code}` }));
+    }
+    safeEnd();
+  });
+
+  // Meta APRÈS avoir attaché les listeners (évite la race condition).
+  writeData(JSON.stringify({ type: 'meta', ...meta, sessionId }));
+
+  // Déconnexion client : écouter 'close' sur res (la réponse), PAS sur req.
+  // req (body POST consommé par express.json) émet 'close' immédiatement sous
+  // Node 18+, ce qui couperait le SSE et tuerait opencode juste après le meta.
+  res.on('close', () => {
+    try { emitter.removeAllListeners(); } catch {}
+    safeEnd();
+    abort();
+  });
+  req.setTimeout(600000); // 10 min
+}
 
 // Metadata pour le frontend
 app.get('/api/opencode/meta', (req, res) => {
@@ -461,21 +523,31 @@ app.get('/api/opencode/meta', (req, res) => {
   });
 });
 
-// Envoyer une réponse utilisateur à une session OpenCode active
-app.post('/api/opencode/input', (req, res) => {
+// Répondre à une question du pré-flight — reprend la session opencode (SSE)
+app.post('/api/opencode/input', auth.authMiddleware, (req, res) => {
   const { sessionId, text } = req.body;
   if (!sessionId || !text) {
     return res.status(400).json({ error: 'Les champs sessionId et text sont requis.' });
   }
-  const ok = sendInput(sessionId, text);
-  if (!ok) {
-    return res.status(404).json({ error: 'Session introuvable ou terminée.' });
+  if (!hasSession(sessionId)) {
+    return res.status(404).json({ error: 'Session introuvable ou expirée.' });
   }
-  res.json({ success: true, message: 'Réponse envoyée.' });
+
+  let result;
+  try {
+    result = continueSession(sessionId, text);
+  } catch (err) {
+    return res.status(500).json({ error: `Erreur à la reprise : ${err.message}` });
+  }
+  if (!result) {
+    return res.status(404).json({ error: 'Session introuvable ou expirée.' });
+  }
+
+  streamSSE(req, res, result, { kind: 'continue' });
 });
 
 // Lancer une commande OpenCode — réponse en SSE
-app.post('/api/opencode/run', (req, res) => {
+app.post('/api/opencode/run', auth.authMiddleware, (req, res) => {
   const { genre, titre, synopsis, contraintes, personnages, skills, nbUnites, registre, filRouge } = req.body;
 
   if (!genre || !titre) {
@@ -489,119 +561,27 @@ app.post('/api/opencode/run', (req, res) => {
 
   const message = buildMessage(genre, { titre, synopsis, contraintes, personnages, skills, nbUnites, registre, filRouge });
 
-  // Headers SSE + forcer flush immédiat
-  res.writeHead(200, {
-    'Content-Type': 'text/event-stream',
-    'Cache-Control': 'no-cache',
-    'Connection': 'keep-alive',
-    'X-Accel-Buffering': 'no',
-  });
-  // Désactiver l'algorithme de Nagle et flusher les headers immédiatement
-  if (res.socket) res.socket.setNoDelay(true);
-  res.flushHeaders();
-
-  // Helper : envoyer un event data: et forcer le flush
-  function writeData(json) {
-    res.write(`data: ${json}\n\n`);
-    // Forcer le flush du buffer HTTP (évite le buffering d'Express/Node)
-    if (typeof res.flush === 'function') res.flush();
-    else if (res.socket && res.socket.writable) res.socket.write('');
-  }
-
-  // ── Variables de fermeture (déclarées avant tout, pour éviter le TDZ) ──
-  let closed = false;
-  const safeEnd = () => { if (!closed) { closed = true; try { res.end(); } catch {} console.error('[server] res.end()'); } };
-
-  // ── Lancer OpenCode ──
-  let emitter, abort;
-  let sessionId = null;
+  // Lancer depuis ROOT pour que les agents .opencode/agent/ soient trouvés.
+  let result;
   try {
-    // Lancer depuis ROOT (nécessaire pour que les agents .opencode/agent/
-    // soient trouvés par opencode run). Le projet sera créé dans
-    // projets/{genre}/{Titre}/ via le chemin relatif du message.
-    // Le flag --command est passé pour que le template opencode.json
-    // s'applique et que le parsing Windows des messages multi-lignes
-    // fonctionne.
-    const opts = { command: mapping.command };
-    const result = runCommand(mapping.agent, message, opts);
-    emitter = result.emitter;
-    abort = result.abort;
-    sessionId = result.sessionId;
-    console.error(`[server] runCommand OK, sessionId=${result.sessionId}, proc=${result.proc.pid}`);
+    result = runCommand(mapping.agent, message, { command: mapping.command });
   } catch (err) {
-    console.error(`[server] runCommand ERROR: ${err.message}`);
-    try {
-      writeData(JSON.stringify({ type: 'error', message: `Erreur au lancement : ${err.message}` }));
-      writeData(JSON.stringify({ type: 'done', success: false }));
-    } catch {}
-    safeEnd();
-    return;
+    return res.status(500).json({ error: `Erreur au lancement : ${err.message}` });
   }
 
-  // ── Attacher les listeners AVANT d'envoyer le meta (évite la race condition) ──
-  emitter.on('event', (event) => {
-    if (closed) return;
-    const raw = JSON.stringify(event);
-    if (raw.length < 30000) writeData(raw);
-  });
-
-  emitter.on('stderr', (text) => {
-    if (closed) return;
-    const lines = text.split('\n').filter(l => l.trim());
-    for (const line of lines) {
-      writeData(JSON.stringify({ type: 'stderr', text: line.slice(0, 500) }));
-    }
-  });
-
-  emitter.on('error', (err) => {
-    console.error(`[server] onError: ${err.message}`);
-    if (closed) return;
-    writeData(JSON.stringify({ type: 'error', message: err.message }));
-    writeData(JSON.stringify({ type: 'done', success: false, exitCode: -1 }));
-    safeEnd();
-  });
-
-  emitter.on('close', (code) => {
-    console.error(`[server] onClose: code=${code}`);
-    if (closed) return;
-    writeData(JSON.stringify({ type: 'done', success: code === 0, exitCode: code }));
-    if (code !== 0) {
-      writeData(JSON.stringify({ type: 'error', message: `Processus terminé avec le code ${code}` }));
-    }
-    safeEnd();
-  });
-
-  // ── Meta event APRÈS les listeners ──
-  writeData(JSON.stringify({ type: 'meta', agent: mapping.agent, command: mapping.command, titre, genre, sessionId }));
-
-  // Nettoyage si le client se déconnecte.
-  // IMPORTANT : écouter 'close' sur res (la réponse/socket), PAS sur req.
-  // req est le flux du body POST ; consommé par express.json(), il émet 'close'
-  // immédiatement (sous Node 18+/24), ce qui coupait le SSE juste après le meta
-  // et tuait opencode (abort) avant tout event. res 'close' ne se déclenche
-  // qu'à la vraie déconnexion du client.
-  res.on('close', () => {
-    try {
-      emitter.removeAllListeners();
-    } catch {}
-    safeEnd();
-    abort();
-  });
-
-  // Timeout : fermer proprement si le processus ne répond pas
-  req.setTimeout(600000); // 10 min
+  streamSSE(req, res, result, { agent: mapping.agent, command: mapping.command, titre, genre });
 });
 
 // ---------------------------------------------------------------------------
 // Logs des sessions OpenCode
 // ---------------------------------------------------------------------------
 
-app.get('/api/logs', (req, res) => {
+app.get('/api/logs', auth.authMiddleware, (req, res) => {
   const limit = parseInt(req.query.limit) || 50;
   res.json(listLogs(limit));
 });
 
-app.get('/api/logs/:slug', (req, res) => {
+app.get('/api/logs/:slug', auth.authMiddleware, (req, res) => {
   const log = getLog(req.params.slug);
   if (!log) return res.status(404).json({ error: 'Log introuvable' });
   res.json(log);
@@ -610,7 +590,7 @@ app.get('/api/logs/:slug', (req, res) => {
 // ─── Continuer un projet bloqué ──────────────────────────────────────────────
 // POST /api/projets/:genre/:nom/continue
 // Body: { registre, filRouge } — réponses pré-flight optionnelles
-app.post('/api/projets/:genre/:nom/continue', (req, res) => {
+app.post('/api/projets/:genre/:nom/continue', auth.authMiddleware, (req, res) => {
   const { genre, nom } = req.params;
   const projetsBase = userProjets(req);
   if (!projetExists(genre, nom, projetsBase)) {
@@ -643,7 +623,7 @@ app.post('/api/projets/:genre/:nom/continue', (req, res) => {
 
 // ─── Finaliser un projet ─────────────────────────────────────────────────────
 // POST /api/projets/:genre/:nom/finalize
-app.post('/api/projets/:genre/:nom/finalize', async (req, res) => {
+app.post('/api/projets/:genre/:nom/finalize', auth.authMiddleware, async (req, res) => {
   const { genre, nom } = req.params;
   const projetsBase = userProjets(req);
   if (!projetExists(genre, nom, projetsBase)) {
@@ -680,14 +660,21 @@ app.post('/api/projets/:genre/:nom/finalize', async (req, res) => {
   }
 
   // 2. Essayer de générer un PDF
-  const pandocPath = path.join(process.env.LOCALAPPDATA || '', 'Pandoc', 'pandoc.exe');
-  if (fs.existsSync(pandocPath) || require('child_process').spawnSync('where', ['pandoc']).status === 0) {
+  // Sécurité (S2) : execFileSync avec un tableau d'arguments — PAS de shell,
+  // donc le nom de projet (`nom`, segment d'URL) ne peut pas injecter de
+  // commande même s'il contient " ; $() ` & etc.
+  const { execFileSync, spawnSync } = require('child_process');
+  const localPandoc = path.join(process.env.LOCALAPPDATA || '', 'Pandoc', 'pandoc.exe');
+  let pandocBin = null;
+  if (fs.existsSync(localPandoc)) pandocBin = localPandoc;
+  else if (spawnSync('where', ['pandoc']).status === 0) pandocBin = 'pandoc';
+
+  if (pandocBin) {
     const pdfPath = path.join(versionsDir, `${nom}.pdf`);
     const mdPath = path.join(versionsDir, `${nom}-complet.md`);
     if (fs.existsSync(mdPath)) {
       try {
-        const { execSync } = require('child_process');
-        execSync(`"${pandocPath}" "${mdPath}" -o "${pdfPath}" --pdf-engine=pdfhtml 2>&1`, { timeout: 30000 });
+        execFileSync(pandocBin, [mdPath, '-o', pdfPath, '--pdf-engine=pdfhtml'], { timeout: 30000 });
         if (fs.existsSync(pdfPath)) {
           results.push({ step: 'pdf', file: `${nom}.pdf`, status: 'ok' });
         } else {

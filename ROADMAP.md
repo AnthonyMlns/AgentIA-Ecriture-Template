@@ -46,9 +46,9 @@
 
 | # | Sévérité | Faille | Fichier |
 |---|---|---|---|
-| S1 | 🔴 Critique | Admin par défaut `admin`/`admin` créé au boot | `interface/auth.js:428` |
-| S2 | 🔴 Critique | Injection shell via `nom` dans `execSync` | `interface/server.js:685` |
-| S3 | 🔴 Critique | Endpoints sensibles sans authentification | `interface/server.js:275` |
+| ~~S1~~ | ✅ Fait | ~~Admin par défaut `admin`/`admin`~~ → mot de passe env/généré | `interface/auth.js` |
+| ~~S2~~ | ✅ Fait | ~~Injection shell via `nom`~~ → `execFileSync` (sans shell) | `interface/server.js` |
+| ~~S3~~ | ✅ Fait* | ~~Endpoints sans auth~~ → authMiddleware sur run/input/logs/continue/finalize | `interface/server.js` |
 | S4 | 🟠 Élevé | Secrets régénérés à chaque restart (clés API perdues) | `interface/auth.js:18, 211` |
 | S5 | 🟠 Élevé | XSS stocké via Markdown (`marked` + `innerHTML`) | `interface/public/app.js:1256+` |
 | S6 | 🟠 Élevé | Path traversal sur `genre`/`nom` | `interface/server.js:323` |
@@ -63,11 +63,15 @@
 
 ---
 
-## Étape 0.6 — Répondre aux questions du pré-flight (dialogue interactif)
+## Étape 0.6 — Répondre aux questions du pré-flight (dialogue interactif) ✅ FAIT
 
-> Régression connue depuis le fix de lancement (`stdin: 'ignore'`). Les
-> orchestrateurs posent des questions en phase pré-flight, mais on ne peut plus
-> y répondre : `sendInput()` écrivait dans `proc.stdin`, désormais fermé.
+> ✅ Implémenté et vérifié end-to-end : `/run` capture le sessionID opencode,
+> `/input` reprend la session via `--session` et streame la suite (même
+> sessionId conservé côté front à travers les tours).
+>
+> Contexte : régression depuis le fix de lancement (`stdin: 'ignore'`). Les
+> orchestrateurs posent des questions en phase pré-flight, mais `sendInput()`
+> écrivait dans `proc.stdin`, désormais fermé.
 
 **Pourquoi `sendInput` ne marche plus :** garder un stdin en pipe ouvert empêche
 opencode de flusher sa sortie JSON (cf. fix). Il faut donc abandonner stdin et
