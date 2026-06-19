@@ -142,6 +142,129 @@ const UNIT_PATTERNS = {
   textes:       /^texte[-_\s]*(\d+)/i
 };
 
+const UNIT_FILE_PREFIX = {
+  romans: 'chapitre',
+  poesie: 'section',
+  theatre: 'scene',
+  essais: 'chapitre',
+  nouvelles: 'recit',
+  'textes-mobiles': 'texte',
+  universitaire: 'chapitre'
+};
+
+const REVIEW_FILE_PREFIX = {
+  romans: 'avis-editeur-ch',
+  poesie: 'avis-editeur-section-',
+  theatre: 'avis-editeur-sc',
+  essais: 'avis-editeur-ch',
+  nouvelles: 'avis-editeur-r',
+  'textes-mobiles': 'avis-editeur-t',
+  universitaire: 'avis-editeur-ch'
+};
+
+function hasAnyFile(dir, candidates) {
+  return candidates.some(f => fs.existsSync(path.join(dir, f)));
+}
+
+function artifactCandidates(genre, num) {
+  const unitPrefix = UNIT_FILE_PREFIX[genre] || 'section';
+  const reviewPrefix = REVIEW_FILE_PREFIX[genre] || 'avis-editeur-section-';
+  return {
+    content: [`${unitPrefix}-${num}.md`],
+    draft: [`brouillon-${num}.md`],
+    review: [`${reviewPrefix}${num}.md`, `${reviewPrefix.replace(/-$/, '')}-${num}.md`],
+  };
+}
+
+function detectRecoveryState(genre, nom, basePath) {
+  const base = path.join(basePath || GLOBAL_PROJETS, genre, nom);
+  const bible = lireFichier(path.join(base, 'bible.md')) || '';
+  const unitDirName = UNIT_DIRS[genre] || 'chapitres';
+  const unitDir = path.join(base, unitDirName);
+  const versionsDir = path.join(base, 'versions');
+  const notesDir = path.join(base, 'notes');
+  const finalExists = fs.existsSync(versionsDir) && fs.readdirSync(versionsDir).some(f => /(?:^|-)final\.md$/i.test(f));
+  const total = extraireTotalUnites(bible, unitDirName);
+  const unitPrefix = UNIT_FILE_PREFIX[genre] || 'section';
+
+  if (finalExists) {
+    return { status: 'complete', label: 'Projet terminé', nextAction: null, expectedFiles: [], missingFiles: [] };
+  }
+  if (!fs.existsSync(unitDir)) {
+    return {
+      status: 'needs_writing',
+      label: `Reprendre à : écriture ${unitPrefix} 01`,
+      nextAction: 'write',
+      unit: '01',
+      expectedFiles: [`${unitDirName}/${unitPrefix}-01.md`, `${unitDirName}/brouillon-01.md`],
+      missingFiles: [`${unitDirName}/${unitPrefix}-01.md`, `${unitDirName}/brouillon-01.md`],
+    };
+  }
+
+  const files = fs.readdirSync(unitDir).filter(f => !f.startsWith('.'));
+  const pattern = UNIT_PATTERNS[unitDirName] || /^section[-_\s]*(\d+)/i;
+  const nums = files
+    .map(f => {
+      const m = f.match(pattern);
+      return m ? parseInt(m[1], 10) : null;
+    })
+    .filter(n => Number.isInteger(n))
+    .sort((a, b) => a - b);
+  const maxWritten = nums.length ? Math.max(...nums) : 0;
+
+  for (let n = 1; n <= maxWritten; n++) {
+    const num = String(n).padStart(2, '0');
+    const candidates = artifactCandidates(genre, num);
+    const expected = [
+      `${unitDirName}/${candidates.content[0]}`,
+      `${unitDirName}/${candidates.draft[0]}`,
+      `${unitDirName}/${candidates.review[0]}`,
+    ];
+    if (!hasAnyFile(unitDir, candidates.content) || !hasAnyFile(unitDir, candidates.draft)) {
+      return {
+        status: 'partial_failure',
+        label: `Reprendre à : écriture ${unitPrefix} ${num}`,
+        nextAction: 'write',
+        unit: num,
+        expectedFiles: expected.slice(0, 2),
+        missingFiles: expected.slice(0, 2).filter(f => !fs.existsSync(path.join(base, f))),
+      };
+    }
+    if (!hasAnyFile(unitDir, candidates.review)) {
+      return {
+        status: 'partial_failure',
+        label: `Reprendre à : relecture ${unitPrefix} ${num}`,
+        nextAction: 'review',
+        unit: num,
+        expectedFiles: [expected[2]],
+        missingFiles: [expected[2]],
+      };
+    }
+  }
+
+  if (total && maxWritten < total) {
+    const next = String(maxWritten + 1).padStart(2, '0');
+    return {
+      status: 'needs_writing',
+      label: `Reprendre à : écriture ${unitPrefix} ${next}`,
+      nextAction: 'write',
+      unit: next,
+      expectedFiles: [`${unitDirName}/${unitPrefix}-${next}.md`, `${unitDirName}/brouillon-${next}.md`],
+      missingFiles: [`${unitDirName}/${unitPrefix}-${next}.md`, `${unitDirName}/brouillon-${next}.md`],
+    };
+  }
+
+  const observations = lireFichier(path.join(notesDir, 'observations.md')) || '';
+  return {
+    status: 'ready_to_finalize',
+    label: observations ? 'Toutes les unités semblent écrites et relues' : 'Reprendre à : scribe / finalisation',
+    nextAction: observations ? 'finalize' : 'scribe',
+    unit: maxWritten ? String(maxWritten).padStart(2, '0') : null,
+    expectedFiles: observations ? [] : ['notes/observations.md'],
+    missingFiles: observations ? [] : ['notes/observations.md'],
+  };
+}
+
 /**
  * Détermine le nombre d'unités cible d'un projet, de façon tolérante au format
  * de la bible (les agents ne produisent pas tous la ligne canonique). Essais
@@ -358,7 +481,8 @@ app.get('/api/projets/:genre/:nom/structure', (req, res) => {
   const bible = lireFichier(path.join(projetsBase, genre, nom, 'bible.md'));
   const bd = lireFichier(path.join(projetsBase, genre, nom, 'bd-connaissances.md'));
   const progression = calculerProgression(genre, nom, projetsBase);
-  res.json({ nom, genre, bible, bdConnaissances: bd, structure: struct, progression });
+  const recovery = detectRecoveryState(genre, nom, projetsBase);
+  res.json({ nom, genre, bible, bdConnaissances: bd, structure: struct, progression, recovery });
 });
 
 // --- Lecture d'un fichier quelconque ---
@@ -478,6 +602,14 @@ app.get('/api/projets/:genre/:nom/progression', (req, res) => {
   res.json(prog);
 });
 
+// --- Diagnostic de reprise : artefacts attendus/manquants ---
+app.get('/api/projets/:genre/:nom/recovery', (req, res) => {
+  const { genre, nom } = req.params;
+  const projetsBase = userProjets(req);
+  if (!projetExists(genre, nom, projetsBase)) return res.status(404).json({ error: 'Projet introuvable' });
+  res.json(detectRecoveryState(genre, nom, projetsBase));
+});
+
 // --- Configuration / metadata du projet ---
 app.get('/api/config', (req, res) => {
   const agents = [];
@@ -515,10 +647,18 @@ function streamSSE(req, res, result, meta = {}) {
   res.flushHeaders();
 
   let closed = false;
+  let completed = false;
   let heartbeat = null;
   function writeData(json) {
     if (closed) return;
     res.write(`data: ${json}\n\n`);
+    if (typeof res.flush === 'function') res.flush();
+    else if (res.socket && res.socket.writable) res.socket.write('');
+  }
+  function writeEvent(eventName, payload) {
+    if (closed) return;
+    res.write(`event: ${eventName}\n`);
+    res.write(`data: ${JSON.stringify(payload)}\n\n`);
     if (typeof res.flush === 'function') res.flush();
     else if (res.socket && res.socket.writable) res.socket.write('');
   }
@@ -542,21 +682,27 @@ function streamSSE(req, res, result, meta = {}) {
   });
   emitter.on('error', (err) => {
     if (closed) return;
-    writeData(JSON.stringify({ type: 'error', message: err.message }));
-    writeData(JSON.stringify({ type: 'done', success: false, exitCode: -1 }));
+    completed = true;
+    const isIdleTimeout = /Aucune activit[ée]/i.test(err.message || '');
+    const status = isIdleTimeout ? 'timeout_idle' : 'done_error';
+    writeEvent(status, { type: status, message: err.message, success: false, exitCode: -1, status });
+    writeEvent('error', { type: 'error', message: err.message, status });
+    writeEvent('done_error', { type: 'done_error', success: false, exitCode: -1, status });
     safeEnd();
   });
   emitter.on('close', (code) => {
     if (closed) return;
-    writeData(JSON.stringify({ type: 'done', success: code === 0, exitCode: code }));
+    completed = true;
+    const status = code === 0 ? 'done_success' : 'done_error';
+    writeEvent(status, { type: status, success: code === 0, exitCode: code, status });
     if (code !== 0) {
-      writeData(JSON.stringify({ type: 'error', message: `Processus terminé avec le code ${code}` }));
+      writeEvent('error', { type: 'error', message: `Processus terminé avec le code ${code}` });
     }
     safeEnd();
   });
 
   // Meta APRÈS avoir attaché les listeners (évite la race condition).
-  writeData(JSON.stringify({ type: 'meta', ...meta, sessionId }));
+  writeEvent('meta', { type: 'meta', ...meta, sessionId });
 
   // Déconnexion client : écouter 'close' sur res (la réponse), PAS sur req.
   // req (body POST consommé par express.json) émet 'close' immédiatement sous
@@ -564,7 +710,7 @@ function streamSSE(req, res, result, meta = {}) {
   res.on('close', () => {
     try { emitter.removeAllListeners(); } catch {}
     safeEnd();
-    abort();
+    if (!completed) abort();
   });
 
   // Heartbeat : commentaire SSE (`:`) ignoré par le parseur client, mais qui
@@ -663,7 +809,8 @@ app.post('/api/projets/:genre/:nom/continue', auth.authMiddleware, (req, res) =>
   if (!projetExists(genre, nom, projetsBase)) {
     return res.status(404).json({ error: 'Projet introuvable.' });
   }
-  const { registre, filRouge } = req.body;
+  const { registre, filRouge, action, unit } = req.body;
+  const recovery = detectRecoveryState(genre, nom, projetsBase);
 
   // Construire le message de continuation
   const bible = lireFichier(path.join(projetsBase, genre, nom, 'bible.md')) || '';
@@ -672,7 +819,18 @@ app.post('/api/projets/:genre/:nom/continue', auth.authMiddleware, (req, res) =>
   let message = `Continue le projet "${nom}" (${genre}).\n\nProjet actuel :\n${concept}\n\n`;
   if (registre) message += `Registre : ${registre}\n`;
   if (filRouge) message += `Fil rouge : ${filRouge}\n`;
-  message += `\nReprends le travail là où le projet s'est arrêté. Vérifie la bible et les fichiers existants, puis continue la boucle d'écriture.`;
+  if (action || recovery.nextAction) {
+    const targetAction = action || recovery.nextAction;
+    const targetUnit = unit || recovery.unit || '';
+    message += `Reprise ciblée : ${targetAction}${targetUnit ? ` unité ${targetUnit}` : ''}.\n`;
+    if (recovery.missingFiles && recovery.missingFiles.length) {
+      message += `Fichiers manquants détectés : ${recovery.missingFiles.join(', ')}.\n`;
+    }
+    if (recovery.expectedFiles && recovery.expectedFiles.length) {
+      message += `Artefacts attendus à produire/vérifier : ${recovery.expectedFiles.join(', ')}.\n`;
+    }
+  }
+  message += `\nReprends le travail là où le projet s'est arrêté. Vérifie la bible et les fichiers existants, puis continue uniquement l'étape nécessaire avant de passer à la suivante.`;
 
   // Lancer OpenCode
   const mapping = GENRE_AGENTS[genre];
@@ -680,7 +838,7 @@ app.post('/api/projets/:genre/:nom/continue', auth.authMiddleware, (req, res) =>
 
   let result;
   try {
-    result = runCommand(mapping.agent, message, { userId: req.user.id });
+    result = runCommand(mapping.agent, message, { userId: req.user.id, expectedFiles: recovery.expectedFiles || [] });
   } catch (err) {
     return res.status(500).json({ error: `Erreur au lancement : ${err.message}` });
   }

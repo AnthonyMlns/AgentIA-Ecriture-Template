@@ -393,12 +393,18 @@ function listenSSE(response, { onEvent, onMeta, onError, onDone }) {
 
   function dispatchEvent(payload, eventType) {
     try {
+      if (typeof payload === 'string') {
+        try { payload = JSON.parse(payload); } catch {}
+      }
       if (eventType === 'meta') { if (onMeta) onMeta(payload); return; }
       if (eventType === 'error') { if (onError) onError(payload.message || 'Erreur inconnue'); return; }
-      if (eventType === 'done') { if (onDone) onDone(payload); return; }
+      if (eventType === 'done' || eventType === 'done_success' || eventType === 'done_error' || eventType === 'timeout_idle') {
+        if (onDone) onDone(payload);
+        return;
+      }
       if (eventType === 'stderr') return;
       if (payload && typeof payload === 'object') {
-        if (payload.type === 'done' || payload.type === 'close') { if (onDone) onDone(payload); return; }
+        if (payload.type === 'done' || payload.type === 'done_success' || payload.type === 'done_error' || payload.type === 'timeout_idle' || payload.type === 'close') { if (onDone) onDone(payload); return; }
         if (payload.type === 'error') { if (onError) onError(payload.message || 'Erreur'); return; }
         if (payload.type === 'stderr') return;
         if (payload.type === 'meta') { if (onMeta) onMeta(payload); return; }
@@ -710,7 +716,8 @@ async function renderNouveauProjet(container) {
     },
     onDone: (result) => {
       if (result.success) {
-        terminalOutput.innerHTML += `<div class="term-line term-success">✅ Étape terminée.</div>`;
+        const label = result.status === 'done_success' ? 'Étape terminée.' : 'Étape terminée.';
+        terminalOutput.innerHTML += `<div class="term-line term-success">✅ ${label}</div>`;
         terminalStatus.textContent = '✅ terminé';
         terminalStatus.className = 'terminal-status success';
         btnSucces.style.display = 'inline-flex';
@@ -948,6 +955,11 @@ function appendTerminalEvent(container, evt) {
       container.innerHTML += `<div class="term-line term-tool-result">${time} ✔ Résultat reçu</div>`;
       break;
     }
+    case 'pipeline_warning': {
+      const msg = evt.text || evt.message || 'Alerte pipeline';
+      container.innerHTML += `<div class="term-line term-warning">${time} ⚠️ ${escHtml(msg)}</div>`;
+      break;
+    }
     case 'step_finish': {
       const reason = evt.part?.reason || evt.reason || '';
       const tokens = evt.part?.tokens || evt.tokens || {};
@@ -1123,6 +1135,7 @@ async function renderProjet(container, genre, projet) {
     }
 
     const prog = data.progression || {};
+    const recovery = data.recovery || null;
     const total = prog.total || 0;
     const ecrits = prog.ecrits || 0;
     const valides = prog.valides || 0;
@@ -1144,6 +1157,19 @@ async function renderProjet(container, genre, projet) {
           ${ecrits > 0 ? `<button class="btn-action finalize-btn" data-genre="${genre}" data-projet="${projet}">📦 Finaliser le projet</button>` : ''}
         </div>
         <div id="action-result" style="margin-top:8px;font-size:13px;color:var(--text-secondary)"></div>
+      </div>
+    ` : '';
+
+    const recoveryHtml = recovery && !['complete', 'ready_to_finalize'].includes(recovery.status) ? `
+      <div class="projet-section" style="border-left:3px solid var(--warning);">
+        <div class="projet-section-title">⚠️ Reprise détectée</div>
+        <div class="projet-section-content">
+          <div style="margin-bottom:8px">${escHtml(recovery.label || 'Étape à reprendre')}</div>
+          ${recovery.missingFiles?.length ? `<div style="font-size:12px;color:var(--text-muted);margin-bottom:10px">Manquants : ${recovery.missingFiles.map(escHtml).join(', ')}</div>` : ''}
+          <button class="btn-action recovery-btn" data-action="${escHtml(recovery.nextAction || '')}" data-unit="${escHtml(recovery.unit || '')}">
+            ▶ ${escHtml(recovery.label || 'Reprendre')}
+          </button>
+        </div>
       </div>
     ` : '';
 
@@ -1212,6 +1238,7 @@ async function renderProjet(container, genre, projet) {
         <span class="genre-tag">${getGenreLabel(genre)}</span>
         ${skillsHtml}
         ${progressHtml}
+        ${recoveryHtml}
         ${unitesHtml}
         <div class="projet-sections">
           ${fichiersRacine ? `<div class="projet-section">
@@ -1226,10 +1253,10 @@ async function renderProjet(container, genre, projet) {
     // ─── Boutons d'action ──────────────────────────────────────────────────
     const resultEl = document.getElementById('action-result');
 
-    // Continue l'écriture — streamé en direct (SSE), comme /run.
-    document.querySelector('.continue-btn')?.addEventListener('click', async (e) => {
+    async function runContinue(e, payload = {}) {
       const btn = e.currentTarget;
-      const restoreBtn = () => { btn.disabled = false; btn.textContent = '▶ Continuer l\'écriture'; };
+      const originalText = btn.textContent;
+      const restoreBtn = () => { btn.disabled = false; btn.textContent = originalText; };
       btn.disabled = true;
       btn.textContent = '⏳ Reprise…';
       if (resultEl) {
@@ -1245,7 +1272,7 @@ async function renderProjet(container, genre, projet) {
         const response = await fetch(`/api/projets/${genre}/${projet}/continue`, {
           method: 'POST',
           headers: { ...authHeaders(), 'Content-Type': 'application/json' },
-          body: JSON.stringify({})
+          body: JSON.stringify(payload)
         });
         if (!response.ok) {
           let msg = `HTTP ${response.status}`;
@@ -1264,6 +1291,17 @@ async function renderProjet(container, genre, projet) {
               : `❌ Échec (code ${r.exitCode})`);
             scrollOut();
             restoreBtn();
+            if (r.success) {
+              fetchJSON(`${API_BASE}/projets/${genre}/${projet}/recovery`).then(rec => {
+                if (rec && rec.status && !['complete', 'ready_to_finalize'].includes(rec.status)) {
+                  setStatus(`⚠️ ${rec.label || 'Étape incomplète'}`);
+                  if (outEl && rec.missingFiles?.length) {
+                    outEl.innerHTML += `<div class="term-line term-warning">⚠️ Artefacts manquants : ${rec.missingFiles.map(escHtml).join(', ')}</div>`;
+                    scrollOut();
+                  }
+                }
+              }).catch(() => {});
+            }
             chargerDonnees(); // rafraîchit les compteurs globaux sans effacer le log
           }
         });
@@ -1271,6 +1309,17 @@ async function renderProjet(container, genre, projet) {
         setStatus(`❌ ${err.message}`);
         restoreBtn();
       }
+    }
+
+    // Continue l'écriture — streamé en direct (SSE), comme /run.
+    document.querySelector('.continue-btn')?.addEventListener('click', (e) => runContinue(e, {}));
+
+    // Reprise ciblée depuis l'état d'artefacts détecté.
+    document.querySelector('.recovery-btn')?.addEventListener('click', (e) => {
+      runContinue(e, {
+        action: e.currentTarget.dataset.action || recovery?.nextAction,
+        unit: e.currentTarget.dataset.unit || recovery?.unit,
+      });
     });
 
     // Finaliser le projet
@@ -1990,6 +2039,14 @@ async function renderAdmin(container) {
 
 // ─── LOGS ───
 
+function statusIconForLog(status) {
+  if (status === 'success' || status === 'done_success') return '✅';
+  if (status === 'error' || status === 'done_error') return '❌';
+  if (status === 'cancelled' || status === 'cancelled_by_user') return '⏹';
+  if (status === 'timeout' || status === 'timeout_idle') return '⌛';
+  return '⏳';
+}
+
 async function renderLogs(container) {
   try {
     const logs = await fetchJSON(`${API_BASE}/logs?limit=100`);
@@ -2017,7 +2074,7 @@ async function renderLogs(container) {
             const dateStr = date.toLocaleDateString();
             const timeStr = date.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
             const durationStr = log.duration ? `${(log.duration / 1000).toFixed(0)}s` : '—';
-            const statusIcon = log.status === 'success' ? '✅' : log.status === 'error' ? '❌' : log.status === 'cancelled' ? '⏹' : '⏳';
+            const statusIcon = statusIconForLog(log.status);
             const agentLabel = log.agent || '—';
             return `<div class="log-item" data-slug="${log.slug}">
               <div class="log-item-header">
@@ -2028,6 +2085,9 @@ async function renderLogs(container) {
                 <span class="log-events-count">${log.eventCount} events</span>
               </div>
               <div class="log-message">${escHtml(log.message || '')}</div>
+              ${log.currentSubagent ? `<div class="log-message">Sous-agent : ${escHtml(log.currentSubagent.type)} · ${escHtml(log.currentSubagent.status || 'en cours')}</div>` : ''}
+              ${log.currentStep ? `<div class="log-message">Étape : ${escHtml(log.currentStep)}</div>` : ''}
+              ${log.warningCount ? `<div class="log-error">⚠️ ${log.warningCount} alerte${log.warningCount > 1 ? 's' : ''} pipeline</div>` : ''}
               ${log.error ? `<div class="log-error">${escHtml(log.error)}</div>` : ''}
             </div>`;
           }).join('')}
@@ -2053,7 +2113,7 @@ async function renderLogDetail(container, slug) {
     if (!log) { container.innerHTML = '<div class="error-state">Log introuvable</div>'; return; }
 
     const date = new Date(log.timestamp);
-    const statusIcon = log.status === 'success' ? '✅' : log.status === 'error' ? '❌' : log.status === 'cancelled' ? '⏹' : '⏳';
+    const statusIcon = statusIconForLog(log.status);
     const durationStr = log.duration ? `${(log.duration / 1000).toFixed(1)}s` : '—';
 
     // Reconstruire le terminal (même rendu que le live)
@@ -2091,6 +2151,11 @@ async function renderLogDetail(container, slug) {
         case 'tool_result':
           terminalHtml += `<div class="term-line term-tool-result">${time} ✔ Résultat reçu</div>`;
           break;
+        case 'pipeline_warning': {
+          const msg = evt.text || evt.message || 'Alerte pipeline';
+          terminalHtml += `<div class="term-line term-warning">${time} ⚠️ ${escHtml(msg)}</div>`;
+          break;
+        }
         case 'step_finish': {
           const tokens = evt.part?.tokens || evt.tokens || {};
           const total = tokens.total || 0;
@@ -2131,6 +2196,17 @@ async function renderLogDetail(container, slug) {
           <div class="projet-section-content" style="color:var(--danger)">${escHtml(log.error)}</div>
         </div>` : ''}
 
+        <div class="projet-section">
+          <div class="projet-section-title">État technique</div>
+          <div class="projet-section-content">
+            <div>Étape courante : <code>${escHtml(log.currentStep || '—')}</code></div>
+            <div>Sous-agent : <code>${escHtml(log.currentSubagent?.type || '—')}</code>${log.currentSubagent?.status ? ` · ${escHtml(log.currentSubagent.status)}` : ''}</div>
+            <div>Dernier event : <code>${escHtml(log.lastEventAt || '—')}</code></div>
+            ${log.expectedFiles?.length ? `<div>Artefacts attendus : ${log.expectedFiles.map(escHtml).join(', ')}</div>` : ''}
+            ${log.warnings?.length ? `<div style="color:var(--warning)">Alertes : ${log.warnings.map(w => escHtml(w.text || w.warningType)).join(' · ')}</div>` : ''}
+          </div>
+        </div>
+
         <div class="terminal-section" style="margin-top:0;">
           <div class="terminal-header">
             <h3>🧠 Session OpenCode</h3>
@@ -2162,7 +2238,7 @@ async function renderRecentActivity(container) {
             const date = new Date(log.timestamp);
             const dateStr = date.toLocaleDateString();
             const timeStr = date.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
-            const statusIcon = log.status === 'success' ? '✅' : log.status === 'error' ? '❌' : log.status === 'cancelled' ? '⏹' : '⏳';
+            const statusIcon = statusIconForLog(log.status);
             const agentLabel = (log.agent || '').replace('orchestrateur-', '');
             return `<div class="log-item" data-slug="${log.slug}" onclick="afficherVue('logs')" style="cursor:pointer;">
               <div class="log-item-header">

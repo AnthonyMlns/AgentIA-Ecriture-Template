@@ -169,24 +169,40 @@ function runCommand(agent, message, opts = {}) {
   const sessionLog = {
     id: sessionId,
     timestamp: new Date().toISOString(),
+    userId: opts.userId || sessionOwners.get(sessionId) || null,
+    bridgeSessionId: sessionId,
+    opencodeSessionId: null,
     agent,
     command: commandName,
     message: message.slice(0, 500),
     status: 'running',
+    lastEventAt: null,
+    currentStep: null,
+    currentSubagent: null,
+    expectedFiles: opts.expectedFiles || [],
+    warnings: [],
     duration: 0,
     events: [],
     exitCode: null,
     error: null,
   };
   const startTime = Date.now();
+  const slug = `${new Date().toISOString().slice(0, 10)}-${sessionId.slice(-8)}-${logNonce}`;
+  const filePath = path.join(LOGS_DIR, `${slug}.json`);
+  let lastCheckpointAt = 0;
 
   function saveLog() {
     sessionLog.duration = Date.now() - startTime;
-    const slug = `${new Date().toISOString().slice(0, 10)}-${sessionId.slice(-8)}-${logNonce}`;
-    const filePath = path.join(LOGS_DIR, `${slug}.json`);
     try {
       fs.writeFileSync(filePath, JSON.stringify(sessionLog, null, 2), 'utf-8');
     } catch {}
+  }
+
+  function checkpoint(force = false) {
+    const now = Date.now();
+    if (!force && now - lastCheckpointAt < 5000) return;
+    lastCheckpointAt = now;
+    saveLog();
   }
 
   // --- Construire les arguments ---
@@ -232,7 +248,7 @@ function runCommand(agent, message, opts = {}) {
       timedOut = true;
       try { proc.kill('SIGTERM'); } catch {}
       const err = new Error(`Aucune activité depuis ${idleTimeout / 1000}s — session interrompue.`);
-      sessionLog.status = 'timeout';
+      sessionLog.status = 'timeout_idle';
       sessionLog.error = err.message;
       saveLog();
       emitter.emit('error', err);
@@ -253,8 +269,46 @@ function runCommand(agent, message, opts = {}) {
       try {
         const event = JSON.parse(trimmed);
         // Mémoriser le vrai sessionID opencode → permet la reprise de session.
-        if (event && event.sessionID) opencodeSessions.set(sessionId, event.sessionID);
+        if (event && event.sessionID) {
+          opencodeSessions.set(sessionId, event.sessionID);
+          sessionLog.opencodeSessionId = event.sessionID;
+        }
+        sessionLog.lastEventAt = new Date().toISOString();
+        if (event.type === 'step_start') sessionLog.currentStep = 'step_start';
+        else if (event.type === 'step_finish') sessionLog.currentStep = 'step_finish';
+        else if (event.type === 'tool_use' && event.part && event.part.tool) {
+          sessionLog.currentStep = `tool:${event.part.tool}`;
+          const input = event.part.state && event.part.state.input ? event.part.state.input : {};
+          const stateStatus = event.part.state ? event.part.state.status : null;
+          if (event.part.tool === 'task' && input.subagent_type) {
+            sessionLog.currentSubagent = {
+              type: input.subagent_type,
+              description: input.description || '',
+              status: stateStatus || 'running',
+              updatedAt: sessionLog.lastEventAt,
+            };
+          }
+          const filePath = input.filePath || input.path || '';
+          const isOrchestrator = typeof agent === 'string' && agent.startsWith('orchestrateur');
+          const isProductionWrite = /[\\\/](sections|chapitres|scenes|recits|textes)[\\\/](section|chapitre|scene|recit|texte|brouillon)-\d+\.md$/i.test(filePath);
+          const isWriteTool = ['write', 'edit', 'multiedit'].includes(String(event.part.tool).toLowerCase());
+          if (isOrchestrator && isWriteTool && isProductionWrite) {
+            const warning = {
+              type: 'pipeline_warning',
+              warningType: 'role_bypass',
+              text: `Règle pipeline contournée : ${agent} écrit directement ${path.basename(filePath)}.`,
+              filePath,
+              timestamp: Date.now(),
+            };
+            sessionLog.warnings.push(warning);
+            sessionLog.events.push(warning);
+            emitter.emit('event', warning);
+          }
+        } else if (event.type) {
+          sessionLog.currentStep = event.type;
+        }
         sessionLog.events.push(event);
+        checkpoint(false);
         emitter.emit('event', event);
       } catch {
         if (trimmed.length > 2) emitter.emit('stderr', trimmed);
@@ -267,6 +321,9 @@ function runCommand(agent, message, opts = {}) {
   proc.stderr.on('data', (chunk) => {
     armWatchdog(); // l'activité stderr compte aussi comme « vivant »
     stderrBuffer += chunk.toString();
+    sessionLog.lastEventAt = new Date().toISOString();
+    sessionLog.currentStep = 'stderr';
+    checkpoint(false);
     emitter.emit('stderr', chunk.toString());
   });
 
@@ -274,7 +331,7 @@ function runCommand(agent, message, opts = {}) {
     clearTimeout(timer);
     sessionLog.status = 'error';
     sessionLog.error = `${err.message}. Stderr: ${stderrBuffer.slice(0, 300)}`;
-    saveLog();
+    checkpoint(true);
     emitter.emit('error', err);
   });
 
@@ -289,16 +346,19 @@ function runCommand(agent, message, opts = {}) {
         sessionLog.status = 'error';
         sessionLog.error = `Code ${code}. Stderr: ${stderrBuffer.slice(0, 300)}`;
       }
-      saveLog();
+      checkpoint(true);
       emitter.emit('close', code);
     }
   });
 
   const abort = () => {
+    if (sessionLog.status === 'success' || sessionLog.status === 'error' || sessionLog.status === 'timeout_idle') {
+      return;
+    }
     clearTimeout(timer);
-    sessionLog.status = 'cancelled';
+    sessionLog.status = 'cancelled_by_user';
     sessionLog.error = 'Annulé par l\'utilisateur';
-    saveLog();
+    checkpoint(true);
     try { proc.kill('SIGTERM'); } catch {}
     setTimeout(() => {
       try { proc.kill('SIGKILL'); } catch {}
@@ -335,6 +395,11 @@ function listLogs(limit = 50) {
         exitCode: data.exitCode,
         message: data.message ? data.message.slice(0, 120) : '',
         eventCount: (data.events || []).length,
+        lastEventAt: data.lastEventAt,
+        currentStep: data.currentStep,
+        currentSubagent: data.currentSubagent,
+        expectedFiles: data.expectedFiles || [],
+        warningCount: (data.warnings || []).length,
         error: data.error,
       };
     } catch {
