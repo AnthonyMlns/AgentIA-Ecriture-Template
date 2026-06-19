@@ -21,10 +21,12 @@ const SKILLS = path.join(ROOT, '.opencode', 'skills');
 const ECHANTILLONS = path.join(ROOT, 'echantillons');
 const AGENTS_DIR = path.join(ROOT, '.opencode', 'agent');
 
-// ─── Helper : résoudre le chemin projet selon l'utilisateur ────────────────
+// ─── Helper : résoudre le chemin projet ────────────────────────────────────
+// Tous les projets sont dans projets/ (global) pour que les agents opencode
+// puissent y accéder (cwd = ROOT). Le répertoire user-specific n'est pas
+// utilisé pour les projets — uniquement pour les échantillons et uploads.
 function userProjets(req) {
-  if (req.user) return path.join(auth.userDir(req.user.id), 'projets');
-  return GLOBAL_PROJETS; // fallback pour les routes non-auth (legacy)
+  return GLOBAL_PROJETS;
 }
 
 function userEchantillons(req) {
