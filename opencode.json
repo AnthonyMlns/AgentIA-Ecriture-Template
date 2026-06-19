@@ -179,7 +179,7 @@
       }
     },
     "agent-style": {
-      "description": "Agent-style — analyse les échantillons utilisateur et les notes du scribe pour en extraire des signatures stylistiques et alimenter les skills.",
+      "description": "Agent-style — analyse les échantillons utilisateur, génère les skills-voix personnalisés, consolide les propositions du scribe.",
       "mode": "subagent",
       "model": "opencode/deepseek-v4-flash-free",
       "permission": {
@@ -342,6 +342,11 @@
     "statut": {
       "description": "Affiche l'avancement du roman ou recueil en cours.",
       "template": "Quel est l'état d'avancement du projet actuel ? Consulte la bible dans les dossiers projets/romans/ ou projets/poesie/ (cherche le dossier du projet en cours) et résume la progression.",
+      "agent": "orchestrateur"
+    },
+    "analyser-voix": {
+      "description": "Analyse les échantillons utilisateur et génère un skill-voix personnalisé dans .opencode/skills/voix/.",
+      "template": "Lance l'analyse stylistique des échantillons dans echantillons/ : appelle agent-style pour produire knowledge/analyse-style-utilisateur.md et générer un skill-voix dans .opencode/skills/voix/voix-[pseudo]/SKILL.md à partir de TEMPLATE-SKILL-VOIX.md.",
       "agent": "orchestrateur"
     },
     "relire": {

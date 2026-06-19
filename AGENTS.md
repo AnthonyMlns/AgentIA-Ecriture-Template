@@ -261,31 +261,77 @@ AgentIATest/
       ecrivain-universitaire.md
       editeur-universitaire.md
     skills/
-      ecriture-romanesque/
-      roman-espionnage/
-      roman-romance/
-      roman-litteraire/
-      poesie-contemporaine/
-      poesie-prose/
-      poesie-symbolique/
-      poesie-classique/
-      poesie-lyrique/
-      poesie-engagee/
-      poesie-madrigal-contemporain/
-      ecriture-theatrale/
-      ecriture-essai-litteraire/
-      nouvelle-litteraire/
-      ecriture-hybride/
-      ecriture-carnet-journal/
-      ecriture-epique/
-      flash-fiction/
-      micro-nouvelle/
-      vignette-prose/
-      ecriture-universitaire/
-      TEMPLATE-SKILL.md               # Template pour tout nouveau skill
+      _INDEX.md                      # Index des skills par catégorie
+      TEMPLATE-SKILL.md              # Template pour tout nouveau skill
+      TEMPLATE-SKILL-VOIX.md         # Template pour les voix générées par agent-style
+      formes/                        # Contraintes structurelles neutres
+        ecriture-romanesque/
+        ecriture-theatrale/
+        ecriture-essai-litteraire/
+        ecriture-universitaire/
+        ecriture-hybride/
+        ecriture-carnet-journal/
+        ecriture-epique/
+        nouvelle-litteraire/
+        flash-fiction/
+        micro-nouvelle/
+        vignette-prose/
+        composition-recueil/
+      influences/                    # Voix de départ (starter packs esthétiques)
+        poesie-contemporaine/
+        poesie-classique/
+        poesie-prose/
+        poesie-symbolique/
+        poesie-lyrique/
+        poesie-engagee/
+        poesie-madrigal-contemporain/
+        roman-espionnage/
+        roman-romance/
+        roman-litteraire/
+      voix/                          # Voix utilisateur générées par agent-style
+        voix-neutre/                 # Défaut — aucun présupposé esthétique
+        # voix-utilisateur/          # Généré par agent-style à partir des échantillons
   knowledge/
     comptage-syllabique.md            # Guide factorisé (e muet, diérèse, vérification)
 ```
+
+## Architecture des skills — Formes / Influences / Voix
+
+Les skills sont organisés en **trois catégories** qui correspondent à des rôles distincts dans le pipeline :
+
+### Catégories
+
+| Catégorie | Dossier | Rôle | Exemples |
+|---|---|---|---|
+| **Formes** | `formes/` | Contraintes structurelles et règles de genre — neutres, pas d'esthétique | `sonnet`, `nouvelle-litteraire`, `ecriture-theatrale` |
+| **Influences** | `influences/` | Voix de départ — propositions esthétiques que l'utilisateur peut choisir ou non | `poesie-symbolique`, `roman-espionnage` |
+| **Voix** | `voix/` | Voix personnelle — générée par `agent-style` à partir des échantillons utilisateur | `voix-neutre` (défaut), `voix-milan` (généré) |
+
+### Comment ça s'assemble
+
+Pour un projet donné, l'orchestrateur empile :
+
+```
+[1 ou plusieurs Formes] + [voix-neutre ou voix-générée] + [0 ou plusieurs Influences]
+```
+
+Exemple concret :
+```
+Formes : ecriture-poesie + composition-recueil
+Voix   : voix-neutre (car pas encore d'échantillons)
+Influences : poesie-contemporaine (choisi par l'utilisateur comme starter)
+```
+
+### Workflow d'amorçage (nouveau projet)
+
+1. **L'orchestrateur vérifie** si l'utilisateur a des échantillons dans `echantillons/`
+2. **Si oui** → propose de lancer `agent-style` pour générer un skill-voix personnalisé (`voix-utilisateur`) dans `voix/`, en utilisant `TEMPLATE-SKILL-VOIX.md`
+3. **Si non** → utilise `voix-neutre` comme voix par défaut
+4. **Propose des influences** : "Souhaites-tu partir d'une influence littéraire ?" (liste des skills dans `influences/`)
+5. **Sélectionne le(s) skill(s) forme(s)** adapté(s) au genre du projet
+6. **Valide l'empilage** avec l'utilisateur avant de démarrer l'écriture
+
+À chaque **REX de fin de projet**, `agent-style` enrichit le skill-voix avec les nouvelles signatures découvertes. La voix s'affine à chaque cycle.
 
 ## Workflow d'écriture (par chapitre / section)
 
@@ -335,31 +381,46 @@ Chaque SKILL.md porte dans son frontmatter un champ `maturité` qui indique le d
 
 Règles :
 - Tout nouveau skill (copié depuis `TEMPLATE-SKILL.md`) naît `spéculatif`.
+- Tout nouveau skill-voix (copié depuis `TEMPLATE-SKILL-VOIX.md`) naît `spéculatif`, promu `ancré` dès le premier REX de projet qui l'utilise, puis `testé` après un second projet.
 - La promotion `spéculatif → ancré → testé` se fait au REX (`agent-style` / `skill-manager` met à jour le champ en même temps que le bloc REX).
 - **L'orchestrateur avertit l'utilisateur** quand il s'apprête à lancer un projet sur un skill `spéculatif` : « Le skill X n'a jamais été éprouvé sur un projet complet. Continuer, ou choisir un skill `testé` proche ? »
+- `voix-neutre` naît `testé` — c'est la base la plus éprouvée du système.
+- Les skills `formes/` et `influences/` suivent la même échelle de maturité. Les `influences/` sont généralement `testé` (éprouvées sur des projets réels) mais le statut peut varier.
 
 ## Empilage des skills
 
-Plusieurs skills peuvent s'appliquer à un même projet. L'orchestrateur les transmet à l'écrivain/poète dans ses instructions :
+Plusieurs skills peuvent s'appliquer à un même projet. L'architecte est la suivante :
 
 ```
-Skills actifs : roman-espionnage + roman-litteraire
-- roman-espionnage : ambiance Le Carré, tension, dialogues elliptiques
-- roman-litteraire : profondeur psychologique, prose soignée
+[Formes] + [Voix] + [Influences]
+```
+
+Exemple :
+```
+Formes : ecriture-poesie + composition-recueil
+Voix   : voix-neutre
+Influences : poesie-contemporaine + poesie-symbolique
+```
+
+L'orchestrateur les transmet à l'écrivain/poète dans ses instructions :
+
+```
+Skills actifs :
+- Formes : ecriture-poesie (contraintes du vers, ponctuation rythmique)
+- Voix : voix-milan (phrase longue / coup de ciseau, précision des objets, lumière active)
+- Influences : roman-litteraire (profondeur psychologique, prose soignée)
 ```
 
 Règles d'empilage :
 - L'écrivain/poète lit les SKILL.md de **tous** les skills actifs avant de rédiger.
-- En cas de conflit entre deux principes, le **premier skill listé est prioritaire**.
-- L'éditeur applique les critères pertinents des deux skills (union des grilles).
+- En cas de conflit, l'ordre de priorité est : **Voix > Formes > Influences**. La voix personnelle a le dernier mot.
+- L'éditeur applique les critères pertinents de tous les skills — union des grilles, avec priorité aux critères de la voix.
 - Le scribe note quel skill a dominé et pourquoi.
 
 Exemples de combinaisons valides :
-- `roman-espionnage` + `roman-litteraire` — espionnage avec profondeur psychologique
-- `poesie-contemporaine` + `poesie-prose` — vers libres avec passages en prose
-- `roman-romance` + `roman-litteraire` — romance à ambitions littéraires
-- `flash-fiction` + `vignette-prose` — mix de formes pour un recueil texte-mobile
-- `ecriture-universitaire` + `ecriture-essai-litteraire` — mémoire au croisement de la recherche et de la littérature
+- `ecriture-romanesque` + `voix-neutre` + `roman-espionnage` — roman d'espionnage sans présupposé stylistique
+- `ecriture-poesie` + `voix-milan` + `poesie-contemporaine` + `poesie-symbolique` — poésie avec voix personnelle, enrichie de deux influences
+- `flash-fiction` + `vignette-prose` + `voix-neutre` — mix de formes, voix à émerger
 
 ---
 
@@ -374,6 +435,7 @@ Exemples de combinaisons valides :
 | `/nouveau-nouvelle <idée>` | `orchestrateur-nouvelle` | Démarre un nouveau recueil de nouvelles |
 | `/nouveau-texte-mobile <idée>` | `orchestrateur-texte-mobile` | Démarre un recueil de textes courts (flash/micro/vignette) |
 | `/nouveau-universitaire <sujet>` | `orchestrateur-universitaire` | Démarre un mémoire / thèse / article académique |
+| `/analyser-voix` | `orchestrateur` | Analyse les échantillons utilisateur et génère un skill-voix personnalisé |
 | `/statut` | `orchestrateur` | Affiche l'avancement du projet en cours |
 | `/relire <chapitre\|section>` | `orchestrateur` | Force une relecture |
 | `/trier-notes` | `orchestrateur` | Trie les notes du scribe dans knowledge/notes/ |
