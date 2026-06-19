@@ -1,7 +1,7 @@
 ﻿# Roadmap — AgentIA-Ecriture
 
 > De l'outil local à la beta whitelist.
-> Dernière mise à jour : 18/06/2026
+> Dernière mise à jour : 19/06/2026
 
 ---
 

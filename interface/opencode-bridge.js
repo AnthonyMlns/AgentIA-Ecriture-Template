@@ -165,25 +165,33 @@ function runCommand(agent, message, opts = {}) {
     } catch {}
   }
 
-  // --- Construire la ligne de commande ---
-  // Node.js spawn + shell:false échoue sur Windows à passer correctement
-  // les arguments à opencode.exe (exitCode null, ~42ms).
-  // On utilise cmd.exe /c avec une ligne de commande manuelle.
-  //
-  // Ex: cmd /c "cd /d root && opencode.exe run --format json --agent X "message""
-  //
-  // Le message (buildMessage) est passé entre guillemets. Les " internes
-  // sont doublés pour cmd.exe (""), puis restitués correctement par
-  // CommandLineToArgvW dans opencode.exe.
+  // --- Lancer opencode via .bat temporaire ---
+  // Node.js spawn + shell:false échoue sur Windows à passer les arguments
+  // à opencode.exe (exitCode null). Un fichier .bat résout le problème
+  // car cmd.exe gère correctement les chemins avec espaces et guillemets.
+  const batFile = path.join(
+    require('os').tmpdir(),
+    `oc_run_${Date.now()}_${Math.random().toString(36).slice(2, 6)}.bat`
+  );
   const escapedMsg = message.replace(/"/g, '""');
-  const cmdLine = `cd /d "${cwd}" && "${OPENCODE_BIN}" run --format json --agent ${agent}${commandName ? ` --command ${commandName}` : ''} "${escapedMsg}"`;
+  const batLines = [
+    '@echo off',
+    `cd /d "${cwd}"`,
+    `"${OPENCODE_BIN}" run --format json --agent ${agent}${commandName ? ` --command ${commandName}` : ''} "${escapedMsg}"`,
+  ];
+  fs.writeFileSync(batFile, batLines.join('\r\n'), 'utf-8');
 
-  const proc = spawn('cmd.exe', ['/c', cmdLine], {
+  const proc = spawn('cmd.exe', ['/c', batFile], {
     cwd: cwd,
     shell: false,
     env: { ...process.env, OPENCODE_CLI_QUIET: '1' },
     stdio: ['pipe', 'pipe', 'pipe'],
   });
+
+  // Nettoyer le .bat après exécution
+  const rmBat = () => { try { fs.unlinkSync(batFile); } catch {} };
+  proc.on('close', rmBat);
+  proc.on('error', rmBat);
 
   // Enregistrer la session pour permettre l'envoi d'input utilisateur
   sessions.set(sessionId, { proc, emitter, startTime: Date.now() });
