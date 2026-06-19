@@ -1,26 +1,36 @@
 ---
 name: Bug Report
-about: Signaler un problème
-title: ''
-labels: bug
+about: Report a problem to help us improve
+title: 'fix(scope): '
+labels: bug, needs-triage
 assignees: ''
+projects: ''
 ---
 
-### Comportement actuel
+### Current behavior
 
 /
 
-### Comportement attendu
+### Expected behavior
 
 /
 
-### Étapes pour reproduire
+### Steps to reproduce
 
 1.
 2.
 3.
 
-### Environnement
+### Logs / Screenshots
 
-- OS :
-- Version du projet :
+(optional — paste logs or attach screenshots)
+
+### Environment
+
+- OS:
+- Version (from README or CHANGELOG):
+- Commit hash:
+
+### Additional context
+
+(optional — anything else that might help)

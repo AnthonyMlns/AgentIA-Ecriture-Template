@@ -1,0 +1,19 @@
+# Default owners for everything
+* @AnthonyMlns
+
+# Agents and skills (core pipeline)
+.opencode/ @AnthonyMlns
+
+# Interface (Node/Express web dashboard)
+interface/ @AnthonyMlns
+
+# Knowledge base (shared references)
+knowledge/ @AnthonyMlns
+
+# Documentation
+README.md @AnthonyMlns
+AGENTS.md @AnthonyMlns
+ROADMAP.md @AnthonyMlns
+CHANGELOG.md @AnthonyMlns
+CONTRIBUTING.md @AnthonyMlns
+SECURITE.md @AnthonyMlns

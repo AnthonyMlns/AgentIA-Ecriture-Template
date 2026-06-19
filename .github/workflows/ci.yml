@@ -1,0 +1,40 @@
+name: CI
+
+on:
+  pull_request:
+    branches: [ main ]
+  push:
+    branches: [ main ]
+
+jobs:
+  commit-lint:
+    name: Check commit messages
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Lint commits
+        uses: wagoid/commitlint-github-action@v5
+        with:
+          configFile: ''
+
+  branch-name:
+    name: Check branch naming
+    runs-on: ubuntu-latest
+    steps:
+      - name: Validate branch name
+        run: |
+          BRANCH="${{ github.head_ref }}"
+          if [[ -z "$BRANCH" ]]; then
+            echo "Push to main — skipping branch check"
+            exit 0
+          fi
+          if [[ "$BRANCH" =~ ^(feature|fix|docs|hotfix|release|spike)/ ]]; then
+            echo "✓ Branch name OK: $BRANCH"
+          else
+            echo "✗ Branch name should follow convention: feature/*, fix/*, docs/*, hotfix/*, release/*, spike/*"
+            echo "  Got: $BRANCH"
+            exit 1
+          fi

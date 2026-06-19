@@ -1,20 +1,28 @@
 ---
 name: User Story
-about: Suggestion de fonctionnalité
-title: ''
-labels: enhancement
+about: Suggest a feature
+title: 'feat(scope): '
+labels: enhancement, needs-triage
 assignees: ''
+projects: ''
 ---
 
-**En tant que** rôle,
-**Je veux** action,
-**Afin de** bénéfice.
+**As a** role,
+**I want** action/feature,
+**So that** benefit/value.
 
-### Critères d'acceptation
+### Acceptance criteria
 
-- [ ] Critère 1
-- [ ] Critère 2
+- [ ] Criterion 1
+- [ ] Criterion 2
 
-### Notes techniques
+### Technical notes
 
 /
+
+### Definition of Done
+
+- [ ] Code written and committed
+- [ ] Tests pass (if applicable)
+- [ ] Documentation updated
+- [ ] PR reviewed and merged

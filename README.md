@@ -1,6 +1,10 @@
 # AgentIA-Ecriture — Template
 
+[![version](https://img.shields.io/badge/version-0.4--dev-blue.svg)](CHANGELOG.md)
 [![Conventional Commits](https://img.shields.io/badge/Conventional%20Commits-1.0.0-yellow.svg)](https://conventionalcommits.org)
+[![license](https://img.shields.io/badge/license-MIT-green.svg)](LICENSE)
+
+> 📖 [Roadmap](ROADMAP.md) • 🐛 [Signaler un bug](https://github.com/AnthonyMlns/AgentIA-Ecriture-Template/issues/new?template=bug-report.md) • 📦 [Changelog](CHANGELOG.md)
 
 Pipeline d'écriture assistée par IA orchestré par des agents spécialisés via **OpenCode**. Romans, recueils de poésie, essais, théâtre, nouvelles, textes courts (flash/micro/vignette) et mémoires/thèses.
 
@@ -123,12 +127,25 @@ projets/[genre]/[Titre]/
    - `/nouveau-essai <idée>` pour un essai
    - etc.
 
+## Contribuer
+
+Les contributions sont les bienvenues ! Voici comment procéder :
+
+1. **Ouvrez une issue** — décrivez votre proposition (bug, fonctionnalité, documentation)
+2. **Forkez** le dépôt et créez une branche : `feature/ma-fonctionnalite`
+3. **Committez** en [Conventional Commits](https://www.conventionalcommits.org/) (anglais, impératif)
+4. **Ouvrez une Pull Request** vers `main` — référencez l'issue dans la description
+
+Voir [`CONTRIBUTING.md`](CONTRIBUTING.md) pour les détails (conventions de commits, branches, PR, etc.).
+
 ## Roadmap du template
 
 | Version | Contenu |
 |---|---|
-| **v8.0** | Template initial — 22 skills, 7 genres, pipeline complet avec journal de bord, validation structurelle, parallélisation, PDF automatique |
+| **v0.4** | Template initial — 22 skills, 7 genres, pipeline complet avec journal de bord, validation structurelle, parallélisation, PDF automatique |
+
+La roadmap détaillée (étapes, blocages, planning) est dans [`ROADMAP.md`](ROADMAP.md).
 
 ---
 
-Projet sous licence MIT — Libre d'utilisation, de modification et de distribution.
+Projet sous [licence MIT](LICENSE) — Libre d'utilisation, de modification et de distribution.
