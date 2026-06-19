@@ -574,8 +574,13 @@ app.post('/api/opencode/run', (req, res) => {
   // ── Meta event APRÈS les listeners ──
   writeData(JSON.stringify({ type: 'meta', agent: mapping.agent, command: mapping.command, titre, genre, sessionId }));
 
-  // Nettoyage si le client se déconnecte
-  req.on('close', () => {
+  // Nettoyage si le client se déconnecte.
+  // IMPORTANT : écouter 'close' sur res (la réponse/socket), PAS sur req.
+  // req est le flux du body POST ; consommé par express.json(), il émet 'close'
+  // immédiatement (sous Node 18+/24), ce qui coupait le SSE juste après le meta
+  // et tuait opencode (abort) avant tout event. res 'close' ne se déclenche
+  // qu'à la vraie déconnexion du client.
+  res.on('close', () => {
     try {
       emitter.removeAllListeners();
     } catch {}

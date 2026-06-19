@@ -81,8 +81,8 @@ const SKILLS_BY_GENRE = {
 function buildMessage(genre, { titre, synopsis, contraintes, personnages, skills, nbUnites, registre, filRouge }) {
   const parts = [];
 
-  // Titre
-  let header = `Titre : "${titre}"`;
+  // Titre (sans guillemets — cmd.exe ne gère pas les "" dans les arguments)
+  let header = `Titre : ${titre}`;
   if (synopsis && synopsis.trim()) {
     header += ` — Synopsis : ${synopsis.trim().replace(/\n/g, ' ')}`;
   }
@@ -114,7 +114,9 @@ function buildMessage(genre, { titre, synopsis, contraintes, personnages, skills
     parts.push(`Personnages : ${pList}`);
   }
 
-  return parts.join(' | ');
+  // Attention : ne pas utiliser | comme séparateur — cmd.exe interprète
+  // le pipe même entre guillemets, ce qui casse la ligne de commande.
+  return parts.join(' — ');
 }
 
 // ---------------------------------------------------------------------------
@@ -165,33 +167,30 @@ function runCommand(agent, message, opts = {}) {
     } catch {}
   }
 
-  // --- Lancer opencode via .bat temporaire ---
-  // Node.js spawn + shell:false échoue sur Windows à passer les arguments
-  // à opencode.exe (exitCode null). Un fichier .bat résout le problème
-  // car cmd.exe gère correctement les chemins avec espaces et guillemets.
-  const batFile = path.join(
-    require('os').tmpdir(),
-    `oc_run_${Date.now()}_${Math.random().toString(36).slice(2, 6)}.bat`
-  );
-  const escapedMsg = message.replace(/"/g, '""');
-  const batLines = [
-    '@echo off',
-    `cd /d "${cwd}"`,
-    `"${OPENCODE_BIN}" run --format json --agent ${agent}${commandName ? ` --command ${commandName}` : ''} "${escapedMsg}"`,
-  ];
-  fs.writeFileSync(batFile, batLines.join('\r\n'), 'utf-8');
+  // --- Construire les arguments ---
+  // On utilise --command pour que le template opencode.json soit appliqué.
+  // Le message (buildMessage) est l'input du template.
+  // spawn + shell:false fonctionnait AVANT les modifs — on y revient.
+  const args = ['run', '--format', 'json', '--agent', agent];
+  if (commandName) {
+    args.push('--command', commandName);
+  }
+  args.push(message);
 
-  const proc = spawn('cmd.exe', ['/c', batFile], {
+  // IMPORTANT (Windows) : stdin DOIT être 'ignore', pas 'pipe'.
+  // Avec un stdin en pipe ouvert et jamais fermé, le runtime Bun d'opencode
+  // reste en attente et ne flushe JAMAIS sa sortie JSON sur stdout → le bridge
+  // ne reçoit aucun event et l'UI semble figée ("rien ne se passe"). Un stdin
+  // fermé (EOF immédiat) débloque le streaming des events.
+  // Conséquence : sendInput() (réponses interactives via /api/opencode/input)
+  // est inopérant tant qu'on est sur ce transport — à retravailler via le mode
+  // serveur d'opencode (--attach) si le dialogue mid-session devient nécessaire.
+  const proc = spawn(OPENCODE_BIN, args, {
     cwd: cwd,
     shell: false,
     env: { ...process.env, OPENCODE_CLI_QUIET: '1' },
-    stdio: ['pipe', 'pipe', 'pipe'],
+    stdio: ['ignore', 'pipe', 'pipe'],
   });
-
-  // Nettoyer le .bat après exécution
-  const rmBat = () => { try { fs.unlinkSync(batFile); } catch {} };
-  proc.on('close', rmBat);
-  proc.on('error', rmBat);
 
   // Enregistrer la session pour permettre l'envoi d'input utilisateur
   sessions.set(sessionId, { proc, emitter, startTime: Date.now() });
