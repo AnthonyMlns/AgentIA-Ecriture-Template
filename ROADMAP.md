@@ -27,6 +27,42 @@
 
 ---
 
+## Étape 0.5 — Sécurité (BLOQUANT avant toute mise en ligne)
+
+> Audit du 19/06/2026 — détail complet et références fichiers dans [`SECURITE.md`](SECURITE.md).
+> L'app est aujourd'hui prévue pour un usage **local mono-utilisateur**. Ces correctifs sont
+> indispensables avant tout déploiement ou ouverture à des testeurs.
+
+```
+┌─ Avant de pousser quoi que ce soit en ligne ────────┐
+│ 🔴 Bloquants absolus                                │
+│  1. Compte admin par défaut admin/admin             │
+│  2. Injection de commande shell (execSync /finalize)│
+│  3. Endpoints opencode/run, input, logs sans auth   │
+└────────────────────────────────────────────────────┘
+```
+
+### À corriger
+
+| # | Sévérité | Faille | Fichier |
+|---|---|---|---|
+| S1 | 🔴 Critique | Admin par défaut `admin`/`admin` créé au boot | `interface/auth.js:428` |
+| S2 | 🔴 Critique | Injection shell via `nom` dans `execSync` | `interface/server.js:685` |
+| S3 | 🔴 Critique | Endpoints sensibles sans authentification | `interface/server.js:275` |
+| S4 | 🟠 Élevé | Secrets régénérés à chaque restart (clés API perdues) | `interface/auth.js:18, 211` |
+| S5 | 🟠 Élevé | XSS stocké via Markdown (`marked` + `innerHTML`) | `interface/public/app.js:1256+` |
+| S6 | 🟠 Élevé | Path traversal sur `genre`/`nom` | `interface/server.js:323` |
+| S7 | 🟠 Élevé | Upload `.svg` servi inline (XSS) | `interface/routes/files.js:38` |
+| S8 | 🟡 Moyen | Pas de rate-limiting sur `/login` | `interface/routes/auth.js` |
+| S9 | 🟡 Moyen | `express.json()` sans limite de taille (DoS) | `interface/server.js:266` |
+| S10 | 🟡 Moyen | Pas d'en-têtes de sécurité (helmet/CORS) | `interface/server.js` |
+| S11 | 🟡 Moyen | Token en `localStorage`, sessions en clair | `interface/auth.js` / front |
+| S12-14 | 🟡 Moyen | HMAC token inutilisé, compare non constant-time, filtre upload par extension | `interface/auth.js`, `files.js` |
+
+**Ordre :** S1-S3 avant tout déploiement → S4-S7 avant d'inviter des testeurs → S8-S14 avant la prod.
+
+---
+
 ## Étape 1 — Quotas & BYOK (immédiat, ~2 jours)
 
 Permettre à 10-15 beta-testeurs d'utiliser la plateforme sans risque financier.
@@ -147,6 +183,7 @@ Juin 2026            Juillet 2026          Août 2026
 
 ## Synthèse — Ce que tu fais maintenant
 
+0. **D'abord** — tu corriges les failles bloquantes S1-S3 (Etape 0.5, voir `SECURITE.md`) avant d'exposer l'app
 1. **Aujourd'hui** — tu codes les quotas et le BYOK (Etape 1)
 2. **Cette semaine** — tu invites 10-15 personnes sur ton serveur local ou un petit VPS
 3. **Pendant la beta** — tu regardes ce qui casse, ce qui plaît, ce qui coûte
