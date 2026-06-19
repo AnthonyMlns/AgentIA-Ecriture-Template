@@ -49,17 +49,17 @@
 | ~~S1~~ | ✅ Fait | ~~Admin par défaut `admin`/`admin`~~ → mot de passe env/généré | `interface/auth.js` |
 | ~~S2~~ | ✅ Fait | ~~Injection shell via `nom`~~ → `execFileSync` (sans shell) | `interface/server.js` |
 | ~~S3~~ | ✅ Fait* | ~~Endpoints sans auth~~ → authMiddleware sur run/input/logs/continue/finalize | `interface/server.js` |
-| S4 | 🟠 Élevé | Secrets régénérés à chaque restart (clés API perdues) | `interface/auth.js:18, 211` |
-| S5 | 🟠 Élevé | XSS stocké via Markdown (`marked` + `innerHTML`) | `interface/public/app.js:1256+` |
-| S6 | 🟠 Élevé | Path traversal sur `genre`/`nom` | `interface/server.js:323` |
-| S7 | 🟠 Élevé | Upload `.svg` servi inline (XSS) | `interface/routes/files.js:38` |
-| S8 | 🟡 Moyen | Pas de rate-limiting sur `/login` | `interface/routes/auth.js` |
-| S9 | 🟡 Moyen | `express.json()` sans limite de taille (DoS) | `interface/server.js:266` |
-| S10 | 🟡 Moyen | Pas d'en-têtes de sécurité (helmet/CORS) | `interface/server.js` |
-| S11 | 🟡 Moyen | Token en `localStorage`, sessions en clair | `interface/auth.js` / front |
-| S12-14 | 🟡 Moyen | HMAC token inutilisé, compare non constant-time, filtre upload par extension | `interface/auth.js`, `files.js` |
+| ~~S4~~ | ✅ Fait | Secrets persistés (env/`data/`) + clé SHA-256 | `interface/auth.js` |
+| ~~S5~~ | ✅ Fait | XSS Markdown → DOMPurify (`renderMarkdown`) | `app.js` + `index.html` |
+| ~~S6~~ | ✅ Fait | Path traversal (`app.param`) + auth requise sur `/api` | `interface/server.js` |
+| ~~S7~~ | ✅ Fait | `.svg` retiré + `nosniff` sur `/view` | `interface/routes/files.js` |
+| ~~S8~~ | ✅ Fait | rate-limit `/login`+`/register` (express-rate-limit) | `interface/routes/auth.js` |
+| ~~S9~~ | ✅ Fait | `express.json({ limit: '1mb' })` | `interface/server.js` |
+| ~~S10~~ | ✅ Fait* | `helmet` (CSP différée — onclick inline) | `interface/server.js` |
+| ~~S13~~ | ✅ Fait | `timingSafeEqual` (verifyPassword) | `interface/auth.js` |
+| S11/S12/S14 | ⏳ Différé | cookie httpOnly, HMAC token, magic bytes (faible risque / invasif) | — |
 
-**Ordre :** S1-S3 avant tout déploiement → S4-S7 avant d'inviter des testeurs → S8-S14 avant la prod.
+**État :** tous les bloquants 🔴 + tout le 🟠 + l'essentiel du 🟡 sont faits. Restent 3 points de durcissement optionnels (S11/S12/S14) avant une ouverture publique large.
 
 ---
 

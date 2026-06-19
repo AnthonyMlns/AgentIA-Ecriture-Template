@@ -72,6 +72,13 @@ function authHeaders() {
   return token ? { 'Authorization': `Bearer ${token}` } : {};
 }
 
+// Rendu Markdown sécurisé (S5) : marked produit le HTML, DOMPurify le nettoie
+// avant insertion (le contenu vient de fichiers/uploads, donc non fiable).
+function renderMarkdown(md) {
+  const html = marked.parse(md || '');
+  return (typeof DOMPurify !== 'undefined') ? DOMPurify.sanitize(html) : html;
+}
+
 // ─── État global ───
 const state = {
   view: 'dashboard',
@@ -1283,7 +1290,7 @@ async function lireFichier(relPath, title) {
     const genre = state.genre;
     const projet = state.projet;
     const data = await fetchJSON(`${API_BASE}/projets/${genre}/${projet}/fichier?path=${encodeURIComponent(relPath)}`);
-    const html = marked.parse(data.contenu || '*[fichier vide]*');
+    const html = renderMarkdown(data.contenu || '*[fichier vide]*');
 
     content.innerHTML = `
       <div class="markdown-reader">
@@ -1330,7 +1337,7 @@ async function lireSkill(nom) {
 
   try {
     const data = await fetchJSON(`${API_BASE}/skills/${encodeURIComponent(nom)}`);
-    const html = marked.parse(data.contenu || '*[vide]*');
+    const html = renderMarkdown(data.contenu || '*[vide]*');
 
     content.innerHTML = `
       <div class="markdown-reader">
@@ -1396,7 +1403,7 @@ async function lireFichierKnowledge(path, title) {
 
   try {
     const data = await fetchJSON(`${API_BASE}/knowledge/fichier?path=${encodeURIComponent(path)}`);
-    const html = marked.parse(data.contenu || '*[vide]*');
+    const html = renderMarkdown(data.contenu || '*[vide]*');
 
     content.innerHTML = `
       <div class="markdown-reader">

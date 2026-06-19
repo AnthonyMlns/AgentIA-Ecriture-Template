@@ -35,7 +35,9 @@ const upload = multer({
   storage,
   limits: { fileSize: 20 * 1024 * 1024 }, // 20 MB max
   fileFilter: (req, file, cb) => {
-    const allowed = ['.md', '.txt', '.pdf', '.docx', '.doc', '.jpg', '.jpeg', '.png', '.gif', '.webp', '.svg', '.json', '.yaml', '.yml'];
+    // S7 : .svg retiré — un SVG peut contenir du <script> et serait servi
+    // inline par /view → XSS stocké.
+    const allowed = ['.md', '.txt', '.pdf', '.docx', '.doc', '.jpg', '.jpeg', '.png', '.gif', '.webp', '.json', '.yaml', '.yml'];
     const ext = path.extname(file.originalname).toLowerCase();
     if (allowed.includes(ext)) return cb(null, true);
     cb(new Error(`Format non supporté : ${ext}. Formats autorisés : ${allowed.join(', ')}`));
@@ -118,6 +120,9 @@ router.get('/view/:category/:filename', auth.authMiddleware, (req, res) => {
   if (textExts.includes(ext)) {
     res.json({ content: fs.readFileSync(filePath, 'utf-8'), type: 'text' });
   } else {
+    // S7 : empêcher le navigateur de "sniffer" un type HTML/script depuis un
+    // fichier binaire servi inline.
+    res.setHeader('X-Content-Type-Options', 'nosniff');
     res.sendFile(filePath);
   }
 });

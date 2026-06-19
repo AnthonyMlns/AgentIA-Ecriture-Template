@@ -15,7 +15,21 @@ const WHITELIST_FILE = path.join(DATA_DIR, 'whitelist.json');
 const STYLES_FILE = path.join(DATA_DIR, 'styles.json');
 const APIKEYS_FILE = path.join(DATA_DIR, 'apikeys.json');
 
-const TOKEN_SECRET = crypto.randomBytes(32).toString('hex');
+// Sécurité (S4) : secrets chargés depuis l'env, sinon générés UNE fois et
+// persistés dans data/ (gitignored). Évite la régénération à chaque
+// redémarrage — sinon toutes les sessions sont invalidées et les clés API
+// chiffrées deviennent indéchiffrables.
+function loadOrCreateSecret(envName, fileName, bytes) {
+  if (process.env[envName]) return process.env[envName];
+  ensureDataDir();
+  const fp = path.join(DATA_DIR, fileName);
+  try { if (fs.existsSync(fp)) return fs.readFileSync(fp, 'utf-8').trim(); } catch {}
+  const secret = crypto.randomBytes(bytes).toString('hex');
+  try { fs.writeFileSync(fp, secret, 'utf-8'); } catch {}
+  return secret;
+}
+
+const TOKEN_SECRET = loadOrCreateSecret('TOKEN_SECRET', 'token.secret', 32);
 
 // ─── Helpers ─────────────────────────────────────────────────────────────────
 
@@ -44,7 +58,9 @@ function hashPassword(password) {
 
 function verifyPassword(password, salt, hash) {
   const derived = crypto.scryptSync(password, salt, 64).toString('hex');
-  return derived === hash;
+  // S13 : comparaison à temps constant (anti-timing attack).
+  if (typeof hash !== 'string' || derived.length !== hash.length) return false;
+  return crypto.timingSafeEqual(Buffer.from(derived), Buffer.from(hash));
 }
 
 // ─── Token management (HMAC-based, no external lib) ─────────────────────────
@@ -208,7 +224,12 @@ function setUserStyle(userId, style) {
 
 // ─── API Keys utilisateur ─────────────────────────────────────────────────
 
-const ENCRYPTION_KEY = crypto.randomBytes(32).toString('hex').slice(0, 32);
+// Clé dérivée en 32 octets (aes-256-cbc) via SHA-256, depuis un secret
+// persistant (S4). Les anciennes clés API (apikeys.json) étaient de toute façon
+// indéchiffrables, la clé changeant à chaque redémarrage.
+const ENCRYPTION_KEY = crypto.createHash('sha256')
+  .update(loadOrCreateSecret('ENCRYPTION_KEY', 'encryption.key', 32))
+  .digest();
 
 function encrypt(text) {
   const iv = crypto.randomBytes(16);

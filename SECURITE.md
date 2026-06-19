@@ -27,41 +27,36 @@
 
 ## 🟠 Élevé — à corriger avant d'ouvrir à des utilisateurs tiers
 
-- [ ] **4. Secrets régénérés à chaque redémarrage** — `auth.js:18` et `auth.js:211`
-  `TOKEN_SECRET` et `ENCRYPTION_KEY` sont des `crypto.randomBytes(...)` recréés à chaque boot, non issus de l'environnement. Effets : sessions invalidées à chaque restart, et surtout **les clés API utilisateurs chiffrées deviennent indéchiffrables** après redémarrage (`getApiKey` → `null`). De plus `ENCRYPTION_KEY = randomBytes(32).toString('hex').slice(0,32)` n'a que ~128 bits d'entropie, et AES‑CBC est utilisé sans authentification (préférer AES‑GCM).
-  → Charger ces secrets depuis `process.env` / `.env`.
+- [x] **4. Secrets régénérés à chaque redémarrage** — `auth.js` ✅ **Corrigé**
+  Secrets chargés depuis l'env (`TOKEN_SECRET`, `ENCRYPTION_KEY`), sinon générés **une fois** et persistés dans `data/` (gitignored). Clé de chiffrement dérivée en 32 octets via SHA-256. Vérifié : round-trip de déchiffrement OK, secret identique entre deux process (persiste across restarts). *(AES-GCM au lieu de CBC : amélioration future, non bloquante.)*
 
-- [ ] **5. XSS stocké via Markdown** — `interface/public/app.js:1256, 1303, 1369`
-  ```js
-  const html = marked.parse(data.contenu); el.innerHTML = html;
-  ```
-  `marked` v12 ne sanitize plus par défaut ; le HTML brut passe tel quel. Le contenu vient de fichiers projet, knowledge et **uploads utilisateurs**. En multi-utilisateurs, le contenu d'un utilisateur (ou la sortie d'un agent) s'exécute dans le navigateur d'un autre → vol du token (stocké côté client).
-  → Passer la sortie dans DOMPurify avant `innerHTML`.
+- [x] **5. XSS stocké via Markdown** — `interface/public/app.js` + `index.html` ✅ **Corrigé**
+  DOMPurify chargé dans `index.html` ; helper `renderMarkdown()` passe la sortie de `marked.parse` dans `DOMPurify.sanitize` avant `innerHTML` (3 emplacements).
 
-- [ ] **6. Path traversal sur `genre`/`nom`** — `server.js:323-326` (et endpoints similaires)
-  La protection anti-traversal recalcule `base` à partir des paramètres `genre`/`nom` eux-mêmes non filtrés ; une remontée via ces segments n'est pas détectée. Couplé à l'absence d'auth (point 3), élargit la surface de lecture de fichiers.
-  → Valider `genre` contre la liste blanche `GENRES` et rejeter tout `nom` contenant `.` / séparateurs.
+- [x] **6. Path traversal sur `genre`/`nom`** — `server.js` ✅ **Corrigé**
+  `app.param('genre')` valide contre la whitelist `GENRES` (→ 400), `app.param('nom')` rejette les séparateurs/`..` (→ 400). De plus, **toutes les lectures `/api` exigent désormais un token** (auth optionnelle → requise ; `/api/auth` reste public). Vérifié : 401 sans token, 200 avec, genre invalide → 400.
 
-- [ ] **7. Upload `.svg` servi inline** — `routes/files.js:38` + `:121` (`res.sendFile`)
-  Le SVG est autorisé et renvoyé tel quel par `/view` → un SVG contenant `<script>` s'exécute dans le contexte du site (XSS stocké).
-  → Retirer `.svg`, ou forcer `Content-Disposition: attachment` + `Content-Type` non-HTML.
+- [x] **7. Upload `.svg` servi inline** — `routes/files.js` ✅ **Corrigé**
+  `.svg` retiré des extensions autorisées ; `X-Content-Type-Options: nosniff` ajouté sur `/view`.
 
 ---
 
 ## 🟡 Moyen — durcissement avant prod
 
-- [ ] **8. Pas de rate-limiting / anti-brute-force** sur `/api/auth/login`, pas de verrouillage de compte → `express-rate-limit`.
-- [ ] **9. `express.json()` sans limite de taille** (`server.js:266`) → DoS par gros payload ; ajouter `{ limit: '1mb' }`.
-- [ ] **10. Aucun en-tête de sécurité** (pas de `helmet`), pas de politique CORS explicite.
-- [ ] **11. Token Bearer** vraisemblablement en `localStorage` (exfiltrable par XSS) ; envisager cookie `httpOnly`+`Secure`. Sessions stockées en clair sur disque.
-- [ ] **12. `verifyToken` (HMAC) jamais utilisé** pour valider : `findSession` ne fait qu'une comparaison de chaîne. Défense en profondeur manquante (les tokens restent aléatoires, donc acceptable mais à durcir).
-- [ ] **13. Comparaisons non constant-time** (`verifyPassword` `===`, `auth.js:47`) → timing attack mineur ; `crypto.timingSafeEqual`.
-- [ ] **14. `fileFilter` par extension uniquement** (`routes/files.js`) — pas de vérification du contenu réel (magic bytes).
+- [x] **8. Rate-limiting / anti-brute-force** sur `/api/auth/login` + `/register` ✅ **Corrigé** — `express-rate-limit` (20 essais / 15 min / IP). Vérifié : en-têtes `RateLimit-*` présents.
+- [x] **9. `express.json()` sans limite de taille** ✅ **Corrigé** — `{ limit: '1mb' }`.
+- [x] **10. En-têtes de sécurité** ✅ **Corrigé** — `helmet` activé (X-Frame-Options, nosniff, Referrer-Policy…). ⏳ **CSP désactivée** pour l'instant (le front utilise des `onclick`/styles inline ; activer une CSP stricte nécessite de les externaliser).
+- [ ] **11. Token Bearer en `localStorage`** (exfiltrable par XSS) — ⏳ **différé** : migration vers cookie `httpOnly`+`Secure` invasive (modifie tout le flux auth + SSE). Risque réduit par S5 (XSS sanitizé).
+- [ ] **12. HMAC du token non vérifié** (`findSession` = comparaison de chaîne) — ⏳ **différé** : l'activer invaliderait les sessions existantes (tokens signés avec l'ancien secret) → déconnexion. Faible valeur (tokens déjà aléatoires + stockés côté serveur).
+- [x] **13. Comparaisons non constant-time** ✅ **Corrigé** — `crypto.timingSafeEqual` dans `verifyPassword`.
+- [ ] **14. `fileFilter` par extension uniquement** — ⏳ **différé** : vérification par magic bytes (nécessite une lib type `file-type`). Risque faible.
 
 ---
 
-## Ordre de correction recommandé
+## État
 
-1. **Avant le moindre déploiement :** points 1, 2, 3.
-2. **Avant d'inviter des beta-testeurs :** points 4, 5, 6, 7.
-3. **Avant ouverture plus large / prod :** points 8 à 14.
+- ✅ **Faits :** 1, 2, 3 (🔴) · 4, 5, 6, 7 (🟠) · 8, 9, 10, 13 (🟡)
+- ⏳ **Différés (faible risque / invasif) :** 11 (cookie httpOnly), 12 (HMAC token), 14 (magic bytes)
+
+Il ne reste aucun bloquant. Les 3 points différés sont du durcissement optionnel,
+à faire avant une ouverture publique large mais non requis pour une beta restreinte.

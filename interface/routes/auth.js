@@ -3,10 +3,21 @@
 const express = require('express');
 const router = express.Router();
 const auth = require('../auth');
+const rateLimit = require('express-rate-limit');
+
+// S8 : anti-brute-force sur l'authentification. Généreux pour ne pas gêner un
+// usage local légitime (20 tentatives / 15 min / IP).
+const authLimiter = rateLimit({
+  windowMs: 15 * 60 * 1000,
+  max: 20,
+  standardHeaders: true,
+  legacyHeaders: false,
+  message: { error: 'Trop de tentatives. Réessayez dans quelques minutes.' },
+});
 
 // ─── POST /api/auth/register ──────────────────────────────────────────────
 // Body: { email, name, password, inviteCode }
-router.post('/register', (req, res) => {
+router.post('/register', authLimiter, (req, res) => {
   const { email, name, password, inviteCode } = req.body;
 
   if (!email || !password) {
@@ -56,7 +67,7 @@ router.post('/register', (req, res) => {
 
 // ─── POST /api/auth/login ─────────────────────────────────────────────────
 // Body: { email, password }
-router.post('/login', (req, res) => {
+router.post('/login', authLimiter, (req, res) => {
   const { email, password } = req.body;
 
   if (!email || !password) {

@@ -2,9 +2,16 @@ const express = require('express');
 const fs = require('fs');
 const path = require('path');
 const { marked } = require('marked');
+const helmet = require('helmet');
 
 const app = express();
 const PORT = process.env.PORT || 3737;
+
+// S10 : en-têtes de sécurité. CSP désactivée pour l'instant car le front
+// utilise des handlers inline (onclick) et des styles inline ; l'activer
+// nécessiterait de les externaliser (à faire plus tard). On garde quand même
+// X-Frame-Options, X-Content-Type-Options, Referrer-Policy, etc.
+app.use(helmet({ contentSecurityPolicy: false }));
 
 // ─── Auth ──────────────────────────────────────────────────────────────────
 const auth = require('./auth');
@@ -263,15 +270,33 @@ function calculerProgression(genre, nom, basePath) {
 // API REST
 // ---------------------------------------------------------------------------
 
-app.use(express.json());
+app.use(express.json({ limit: '1mb' })); // S9 : borne la taille du body (anti-DoS)
 app.use(express.static(path.join(__dirname, 'public')));
 
-// ─── Routes d'auth et fichiers ────────────────────────────────────────────
+// ─── Routes d'auth et fichiers (montées AVANT le gate : login/register publics)
 app.use('/api/auth', authRoutes);
 app.use('/api/files', fileRoutes);
 
-// ─── Middleware d'auth optionnelle ─────────────────────────────────────────
-// Si un token valide est fourni, on attache req.user. Sinon, on laisse passer.
+// ─── Sécurité (S6) : validation des paramètres de route genre/nom ───────────
+// Empêche le path traversal via les segments d'URL (ex. nom = "..").
+app.param('genre', (req, res, next, val) => {
+  if (!GENRES.some(g => g.slug === val)) {
+    return res.status(400).json({ error: 'Genre invalide.' });
+  }
+  next();
+});
+app.param('nom', (req, res, next, val) => {
+  if (typeof val !== 'string' || !val || /[\/\\]|\.\./.test(val)) {
+    return res.status(400).json({ error: 'Nom de projet invalide.' });
+  }
+  next();
+});
+
+// ─── Sécurité (S6/S3) : authentification REQUISE sur tout /api ──────────────
+// (sauf /api/auth et /api/files, montés avant ce middleware). Avant, l'auth
+// était optionnelle → toutes les lectures (projets, knowledge…) étaient
+// publiques. Le front envoie toujours le Bearer token, donc le local n'est
+// pas impacté.
 app.use('/api', (req, res, next) => {
   const authHeader = req.headers.authorization;
   if (authHeader && authHeader.startsWith('Bearer ')) {
@@ -280,9 +305,10 @@ app.use('/api', (req, res, next) => {
     if (session) {
       req.user = auth.findUserById(session.userId);
       req.userToken = token;
+      return next();
     }
   }
-  next();
+  return res.status(401).json({ error: 'Authentification requise' });
 });
 
 // --- Liste des genres + projets (avec progression) ---
