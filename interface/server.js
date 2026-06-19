@@ -514,9 +514,11 @@ app.post('/api/opencode/run', (req, res) => {
   let emitter, abort;
   let sessionId = null;
   try {
-    // Lancer depuis le dossier de l'utilisateur (pour que les projets atterrissent dans users/{id}/projets/)
-    const opts = { command: mapping.command };
-    if (req.user) opts.cwd = auth.userDir(req.user.id);
+    // Toujours lancer depuis ROOT (racine du projet) pour que les agents
+    // définis dans .opencode/agent/ soient trouvés par opencode run.
+    // Le projet est créé dans projets/{genre}/{Titre}/ grâce au chemin
+    // relatif transmis dans le message via buildMessage().
+    const opts = {};
     const result = runCommand(mapping.agent, message, opts);
     emitter = result.emitter;
     abort = result.abort;
@@ -622,8 +624,7 @@ app.post('/api/projets/:genre/:nom/continue', (req, res) => {
 
   let result;
   try {
-    const opts = { command: mapping.command };
-    result = runCommand(mapping.agent, message, opts);
+    result = runCommand(mapping.agent, message, {});
   } catch (err) {
     return res.status(500).json({ error: `Erreur au lancement : ${err.message}` });
   }

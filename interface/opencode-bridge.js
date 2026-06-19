@@ -69,25 +69,35 @@ const SKILLS_BY_GENRE = {
 };
 
 // ---------------------------------------------------------------------------
-// Construire le message selon le genre
+// Préfixes de message par genre (correspondent aux templates opencode.json)
+// On les utilise directement au lieu du flag --command pour éviter la
+// redondance et garder le contrôle du format exact du message.
+// ---------------------------------------------------------------------------
+
+const COMMAND_PREFIXES = {
+  romans:          'Je veux écrire un nouveau roman',
+  poesie:          'Je veux écrire un nouveau recueil de poésie',
+  theatre:         'Je veux écrire une pièce de théâtre',
+  essais:          'Je veux écrire un essai',
+  nouvelles:       'Je veux écrire une nouvelle',
+  'textes-mobiles': 'Je veux écrire un recueil de textes courts',
+  universitaire:   'Je veux écrire un mémoire / une thèse sur',
+};
+
+// ---------------------------------------------------------------------------
+// Construire le message selon le genre — format lisible par l'orchestrateur
 // ---------------------------------------------------------------------------
 
 function buildMessage(genre, { titre, synopsis, contraintes, personnages, skills, nbUnites, registre, filRouge }) {
+  const prefix = COMMAND_PREFIXES[genre] || 'Je veux écrire un nouveau projet';
   const lines = [
-    `Titre : "${titre}"`,
-    '',
-    'Synopsis :',
-    synopsis || 'À définir.',
+    `${prefix} : "${titre}"`,
     '',
   ];
 
-  if (registre && registre.trim()) {
-    lines.push(`Registre d'écriture : ${registre.trim()}`);
-    lines.push('');
-  }
-
-  if (filRouge && filRouge.trim()) {
-    lines.push(`Fil rouge : ${filRouge.trim()}`);
+  if (synopsis && synopsis.trim()) {
+    lines.push('Synopsis :');
+    lines.push(synopsis.trim());
     lines.push('');
   }
 
@@ -109,6 +119,16 @@ function buildMessage(genre, { titre, synopsis, contraintes, personnages, skills
 
   if (skills && skills.length > 0) {
     lines.push(`Skills actifs : ${skills.join(', ')}`);
+    lines.push('');
+  }
+
+  if (registre && registre.trim()) {
+    lines.push(`Registre d'écriture : ${registre.trim()}`);
+    lines.push('');
+  }
+
+  if (filRouge && filRouge.trim()) {
+    lines.push(`Fil rouge : ${filRouge.trim()}`);
     lines.push('');
   }
 
@@ -169,13 +189,11 @@ function runCommand(agent, message, opts = {}) {
   }
 
   // --- Construire les arguments ---
-  // On utilise --command pour que le template de la commande soit appliqué
-  // Ex: opencode run --format json --agent orchestrateur-roman --command nouveau-roman "message"
-  const args = ['run', '--format', 'json', '--agent', agent];
-  if (commandName) {
-    args.push('--command', commandName);
-  }
-  args.push(message);
+  // On n'utilise PAS --command : le message (buildMessage) contient déjà
+  // le préfixe naturel (ex: "Je veux écrire un nouveau roman : ...").
+  // Cela évite la redondance et garde le contrôle du format exact.
+  // Ex: opencode run --format json --agent orchestrateur-roman "message"
+  const args = ['run', '--format', 'json', '--agent', agent, message];
 
   // Écrire le message dans un fichier temporaire pour les logs (optionnel, déjà fait)
   // Spawn sans shell pour éviter les problèmes de quoting
