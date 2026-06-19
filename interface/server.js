@@ -514,11 +514,13 @@ app.post('/api/opencode/run', (req, res) => {
   let emitter, abort;
   let sessionId = null;
   try {
-    // Toujours lancer depuis ROOT (racine du projet) pour que les agents
-    // définis dans .opencode/agent/ soient trouvés par opencode run.
-    // Le projet est créé dans projets/{genre}/{Titre}/ grâce au chemin
-    // relatif transmis dans le message via buildMessage().
-    const opts = {};
+    // Lancer depuis ROOT (nécessaire pour que les agents .opencode/agent/
+    // soient trouvés par opencode run). Le projet sera créé dans
+    // projets/{genre}/{Titre}/ via le chemin relatif du message.
+    // Le flag --command est passé pour que le template opencode.json
+    // s'applique et que le parsing Windows des messages multi-lignes
+    // fonctionne.
+    const opts = { command: mapping.command };
     const result = runCommand(mapping.agent, message, opts);
     emitter = result.emitter;
     abort = result.abort;
