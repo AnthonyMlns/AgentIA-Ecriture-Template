@@ -1226,29 +1226,51 @@ async function renderProjet(container, genre, projet) {
     // ─── Boutons d'action ──────────────────────────────────────────────────
     const resultEl = document.getElementById('action-result');
 
-    // Continue l'écriture
+    // Continue l'écriture — streamé en direct (SSE), comme /run.
     document.querySelector('.continue-btn')?.addEventListener('click', async (e) => {
       const btn = e.currentTarget;
+      const restoreBtn = () => { btn.disabled = false; btn.textContent = '▶ Continuer l\'écriture'; };
       btn.disabled = true;
-      btn.textContent = '⏳ Relance…';
-      if (resultEl) resultEl.textContent = 'Relance du projet…';
+      btn.textContent = '⏳ Reprise…';
+      if (resultEl) {
+        resultEl.innerHTML = `
+          <div class="continue-status" style="margin-bottom:6px">⏳ Reprise du projet…</div>
+          <div class="continue-stream" style="max-height:320px;overflow:auto;background:var(--bg-code,#0d1117);border-radius:6px;padding:10px;font-size:12px;line-height:1.5"></div>`;
+      }
+      const statusEl = resultEl?.querySelector('.continue-status');
+      const outEl = resultEl?.querySelector('.continue-stream');
+      const setStatus = (txt) => { if (statusEl) statusEl.textContent = txt; };
+      const scrollOut = () => { if (outEl) outEl.scrollTop = outEl.scrollHeight; };
       try {
-        const resp = await fetch(`/api/projets/${genre}/${projet}/continue`, {
+        const response = await fetch(`/api/projets/${genre}/${projet}/continue`, {
           method: 'POST',
           headers: { ...authHeaders(), 'Content-Type': 'application/json' },
           body: JSON.stringify({})
         });
-        const data = await resp.json();
-        if (data.success) {
-          if (resultEl) resultEl.innerHTML = `✅ Projet relancé (session ${data.sessionId?.slice(-8) || ''}). Vérifie les logs.`;
-        } else {
-          if (resultEl) resultEl.textContent = `❌ ${data.error || 'Erreur'}`;
+        if (!response.ok) {
+          let msg = `HTTP ${response.status}`;
+          try { const er = await response.json(); if (er.error) msg = er.error; } catch {}
+          setStatus(`❌ ${msg}`);
+          restoreBtn();
+          return;
         }
+        listenSSE(response, {
+          onMeta: () => setStatus('⏳ en cours…'),
+          onEvent: (evt) => { if (outEl) appendTerminalEvent(outEl, evt); scrollOut(); },
+          onError: (m) => { setStatus(`❌ ${m}`); restoreBtn(); },
+          onDone: (r) => {
+            setStatus(r.success
+              ? '✅ Reprise terminée. Recharge le projet pour voir la progression à jour.'
+              : `❌ Échec (code ${r.exitCode})`);
+            scrollOut();
+            restoreBtn();
+            chargerDonnees(); // rafraîchit les compteurs globaux sans effacer le log
+          }
+        });
       } catch (err) {
-        if (resultEl) resultEl.textContent = `❌ ${err.message}`;
+        setStatus(`❌ ${err.message}`);
+        restoreBtn();
       }
-      btn.disabled = false;
-      btn.textContent = '▶ Continuer l\'écriture';
     });
 
     // Finaliser le projet

@@ -143,6 +143,29 @@ const UNIT_PATTERNS = {
 };
 
 /**
+ * Détermine le nombre d'unités cible d'un projet, de façon tolérante au format
+ * de la bible (les agents ne produisent pas tous la ligne canonique). Essais
+ * successifs, du plus fiable au plus permissif.
+ */
+function extraireTotalUnites(bible, unitDir) {
+  // 1. Format canonique : « Nombre de sections (cible) : 5 »
+  let m = bible.match(/Nombre\s+(?:total\s+)?(?:de\s+)?\w+\s*\(cible\)\s*:\s*(\d+)/i);
+  if (m) return parseInt(m[1]);
+
+  // 2. Tournure libre : « Recueil de 5 poèmes », « 12 chapitres », « 3 textes »…
+  m = bible.match(/(\d+)\s+(?:poèmes?|poemes?|sections?|chapitres?|textes?|nouvelles?|actes?|scènes?|scenes?|essais?)/i);
+  if (m) return parseInt(m[1]);
+
+  // 3. Dernier recours : plus grand numéro d'unité planifié dans la bible
+  //    (ex. « Section 05 » → 5). Le mot-unité dérive du dossier du genre.
+  const unitWord = { sections: 'section', chapitres: 'chapitre', textes: 'texte' }[unitDir] || 'section';
+  const re = new RegExp(`${unitWord}[-_\\s]*0*(\\d+)`, 'gi');
+  let max = 0, mm;
+  while ((mm = re.exec(bible)) !== null) max = Math.max(max, parseInt(mm[1]));
+  return max;
+}
+
+/**
  * Calcule la progression complète d'un projet à partir de sa bible et de ses fichiers
  */
 function calculerProgression(genre, nom, basePath) {
@@ -153,9 +176,8 @@ function calculerProgression(genre, nom, basePath) {
   const unitDir = UNIT_DIRS[genre] || 'chapitres';
   const unitPattern = UNIT_PATTERNS[unitDir];
 
-  // 1. Extraire le nombre total d'unités depuis la bible
-  const totalMatch = bible.match(/Nombre\s+(?:total\s+)?(?:de\s+)?(\w+)\s*\(cible\)\s*:\s*(\d+)/i);
-  const total = totalMatch ? parseInt(totalMatch[2]) : 0;
+  // 1. Extraire le nombre total d'unités depuis la bible (tolérant au format)
+  const total = extraireTotalUnites(bible, unitDir);
 
   // 2. Extraire les skills actifs
   const skills = [];
@@ -658,12 +680,13 @@ app.post('/api/projets/:genre/:nom/continue', auth.authMiddleware, (req, res) =>
 
   let result;
   try {
-    result = runCommand(mapping.agent, message, {});
+    result = runCommand(mapping.agent, message, { userId: req.user.id });
   } catch (err) {
     return res.status(500).json({ error: `Erreur au lancement : ${err.message}` });
   }
 
-  res.json({ success: true, sessionId: result.sessionId, message: 'Projet relancé.' });
+  // Streamé en SSE (comme /run) pour afficher la reprise en direct dans l'UI.
+  streamSSE(req, res, result, { kind: 'continue', agent: mapping.agent, genre, titre: nom });
 });
 
 // ─── Finaliser un projet ─────────────────────────────────────────────────────
