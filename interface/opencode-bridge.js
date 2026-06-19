@@ -69,60 +69,52 @@ const SKILLS_BY_GENRE = {
 };
 
 // ---------------------------------------------------------------------------
-// Construire le message selon le genre
+// Construire le message (une seule ligne !)
 // Le flag --command applique le template opencode.json (ex: "Je veux écrire
-// un nouveau roman : {{input}}"). buildMessage produit donc le {{input}}.
+// un nouveau roman : {{input}}"). Le message est le {{input}}.
+//
+// IMPORTANT : le message tient sur UNE SEULE LIGNE car spawn avec shell:false
+// sur Windows ne supporte pas les retours à la ligne dans les arguments
+// (exitCode null, crash ~42ms). Les sections sont séparées par " | ".
 // ---------------------------------------------------------------------------
 
 function buildMessage(genre, { titre, synopsis, contraintes, personnages, skills, nbUnites, registre, filRouge }) {
-  const lines = [
-    `Titre : "${titre}"`,
-    '',
-  ];
+  const parts = [];
 
+  // Titre
+  let header = `Titre : "${titre}"`;
   if (synopsis && synopsis.trim()) {
-    lines.push('Synopsis :');
-    lines.push(synopsis.trim());
-    lines.push('');
+    header += ` — Synopsis : ${synopsis.trim().replace(/\n/g, ' ')}`;
   }
-
-  if (contraintes && contraintes.trim()) {
-    lines.push('Contraintes :');
-    for (const c of contraintes.split('\n').filter(l => l.trim())) {
-      lines.push(`- ${c.trim()}`);
-    }
-    lines.push('');
-  }
-
-  if (personnages && personnages.trim()) {
-    lines.push('Personnages principaux :');
-    for (const p of personnages.split('\n').filter(l => l.trim())) {
-      lines.push(`- ${p.trim()}`);
-    }
-    lines.push('');
-  }
+  parts.push(header);
 
   if (skills && skills.length > 0) {
-    lines.push(`Skills actifs : ${skills.join(', ')}`);
-    lines.push('');
+    parts.push(`Skills actifs : ${skills.join(', ')}`);
   }
 
   if (registre && registre.trim()) {
-    lines.push(`Registre d'écriture : ${registre.trim()}`);
-    lines.push('');
+    parts.push(`Registre : ${registre.trim()}`);
   }
 
   if (filRouge && filRouge.trim()) {
-    lines.push(`Fil rouge : ${filRouge.trim()}`);
-    lines.push('');
+    parts.push(`Fil rouge : ${filRouge.trim()}`);
   }
 
   if (nbUnites && parseInt(nbUnites) > 0) {
-    lines.push(`Nombre d'unités cible : ${nbUnites}`);
-    lines.push('');
+    parts.push(`Unités : ${nbUnites}`);
   }
 
-  return lines.join('\n');
+  if (contraintes && contraintes.trim()) {
+    const cList = contraintes.split('\n').filter(l => l.trim()).map(l => l.trim()).join(' ; ');
+    parts.push(`Contraintes : ${cList}`);
+  }
+
+  if (personnages && personnages.trim()) {
+    const pList = personnages.split('\n').filter(l => l.trim()).map(l => l.trim()).join(' ; ');
+    parts.push(`Personnages : ${pList}`);
+  }
+
+  return parts.join(' | ');
 }
 
 // ---------------------------------------------------------------------------
@@ -173,19 +165,20 @@ function runCommand(agent, message, opts = {}) {
     } catch {}
   }
 
-  // --- Construire les arguments ---
-  // On utilise --command pour que le template opencode.json soit appliqué.
-  // Le template ajoute le préfixe naturel (ex: "Je veux écrire un nouveau
-  // roman : {{input}}") — buildMessage produit donc le {{input}}.
-  // Le --command est nécessaire pour que le parsing Windows fonctionne
-  // avec les messages multi-lignes (guillemets + \n).
-  const args = ['run', '--format', 'json', '--agent', agent];
-  if (commandName) {
-    args.push('--command', commandName);
-  }
-  args.push(message);
+  // --- Construire la ligne de commande ---
+  // Node.js spawn + shell:false échoue sur Windows à passer correctement
+  // les arguments à opencode.exe (exitCode null, ~42ms).
+  // On utilise cmd.exe /c avec une ligne de commande manuelle.
+  //
+  // Ex: cmd /c "cd /d root && opencode.exe run --format json --agent X "message""
+  //
+  // Le message (buildMessage) est passé entre guillemets. Les " internes
+  // sont doublés pour cmd.exe (""), puis restitués correctement par
+  // CommandLineToArgvW dans opencode.exe.
+  const escapedMsg = message.replace(/"/g, '""');
+  const cmdLine = `cd /d "${cwd}" && "${OPENCODE_BIN}" run --format json --agent ${agent}${commandName ? ` --command ${commandName}` : ''} "${escapedMsg}"`;
 
-  const proc = spawn(OPENCODE_BIN, args, {
+  const proc = spawn('cmd.exe', ['/c', cmdLine], {
     cwd: cwd,
     shell: false,
     env: { ...process.env, OPENCODE_CLI_QUIET: '1' },
