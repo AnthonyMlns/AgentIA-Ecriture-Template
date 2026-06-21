@@ -127,6 +127,165 @@ poème dès qu'il est prêt. Cousin de l'Étape 0.6 (reprise de session).
 
 ---
 
+## Étape 0.8 — Onboarding / calibration de l'écriture au premier lancement
+
+> À faire **avant** d'ouvrir à des testeurs. Sans ça, l'utilisateur arrive sur une app vide,
+> sans savoir quoi faire ni comment l'app connaît son style.
+
+**Problème aujourd'hui :** l'app démarre sans échantillons, sans voix, sans aucune
+configuration utilisateur. L'utilisateur doit deviner qu'il faut :
+1. Déposer des textes dans `echantillons/`
+2. Lancer `/analyser-voix` (via OpenCode, pas via l'interface)
+3. Configurer son style dans les réglages
+
+Rien n'est guidé, rien n'est automatique.
+
+### Flow d'onboarding souhaité
+
+```
+Arrivée → Login → Écran de bienvenue → 1. Déposer des échantillons
+→ 2. Analyser sa voix → 3. Définir ses préférences → 4. Lancer un projet
+```
+
+### Écran de bienvenue (post-login si premier projet)
+
+| Étape | Interface | Ce qui se passe |
+|---|---|---|
+| **1. Dépôt d'échantillons** | Zone de drop + upload multi-fichiers (`.md`, `.txt`) | L'utilisateur glisse ses textes existants (ou une page de son carnet, un vieux poème, une nouvelle). L'interface les stocke dans `echantillons/`. |
+| **2. Analyse de la voix** | Bouton « Analyser mon style » → spinner + résultat | Appelle `agent-style` via `/api/opencode/run`. Produit `knowledge/analyse-style-utilisateur.md` + un skill-voix dans `.opencode/skills/voix/`. L'UI affiche un résumé des signatures découvertes. |
+| **3. Calibration fine** | Sliders + sélecteurs (registre, longueur, précision, émotion) + fil rouge | Reprend les réglages existants (page Settings) mais les présente comme une étape obligatoire, pas comme une page cachée. |
+| **4. Choix d'une influence** | Sélecteur de skills influence + mini-description | L'utilisateur peut partir d'une influence littéraire (poésie symbolique, roman d'espionnage…) ou continuer en voix neutre. |
+| **5. Premier projet** | Formulaire simplifié « Nouveau projet » pré-rempli avec ses choix | L'empilage (voix + influence + forme) est déjà configuré. L'utilisateur n'a plus qu'à donner un titre. |
+
+### Checkbox « Sauter l'onboarding »
+
+Un bouton « Je connais l'outil, passer » à l'écran de bienvenue pour les utilisateurs
+qui reviennent. Visible seulement si un projet existe déjà.
+
+### Stockage du statut d'onboarding
+
+```
+data/onboarding.json
+{
+  "userId": "...",
+  "completed": true,         // false tant que les 5 étapes ne sont pas faites
+  "echantillonsImportes": true,
+  "voixAnalysee": true,
+  "calibrationFaite": true,
+  "influenceChoisie": false,  // optionnel — peut être sauté
+  "premierProjetLance": false
+}
+```
+
+Quand `completed === false` au login → rediriger vers l'écran d'onboarding au lieu du dashboard.
+
+### Ce qu'il faut coder
+
+| # | Fichier | Ce que ça fait |
+|---|---|---|
+| 0.8.1 | `interface/routes/onboarding.js` | CRUD du statut d'onboarding + endpoint pour lancer l'analyse de voix |
+| 0.8.2 | `interface/public/onboarding.html` (ou vue SPA dans app.js) | Écran de bienvenue en 5 étapes |
+| 0.8.3 | `app.js` | Route `/onboarding` + logique de redirection si `completed === false` |
+| 0.8.4 | `server.js` | Vérifier le statut d'onboarding au login, renvoyer dans la réponse `/auth/me` |
+| 0.8.5 | `agent-style` | (Déjà existant) — l'UI appelle `/api/opencode/run` avec la bonne commande |
+
+---
+
+## Étape 0.9 — Garde-fous éditoriaux (modération des contenus)
+
+> **Obligatoire avant ouverture à quiconque.** Sans ça, un utilisateur peut générer
+> n'importe quel contenu via le pipeline — pornographique, raciste, antisémite,
+> négationniste, appel à la haine — et tu en es civilement responsable en tant
+> qu'hébergeur / éditeur de la plateforme (loi LCEN en France, section 230 aux US).
+
+**Problème :** le pipeline d'écriture n'a aucune conscience éthique. Les skills
+d'influence contiennent des références à des auteurs (Césaire, Artaud) mais
+rien n'empêche un utilisateur de demander un « roman de propagande nazie »
+ou un « recueil de poésie pédopornographique ». L'IA générera probablement
+un refus (les modèles OpenAI/Anthropic/DeepSeek ont leur propre guardrails),
+mais on ne peut pas s'y fier — et juridiquement, la plateforme est en première ligne.
+
+### Principes
+
+1. **Pas de censure esthétique** — un roman peut être noir, violent, explicite.
+   La distinction n'est pas sur le ton ou le genre, mais sur la **finalité** :
+   apologie, incitation, diffusion de contenus illicites.
+2. **Transparence** — l'utilisateur sait pourquoi son projet est refusé.
+3. **Droit à l'erreur** — un faux positif est réversible (humain dans la boucle).
+
+### Ce qu'il faut coder
+
+#### Filtrage au lancement du projet
+
+Quand l'utilisateur envoie le formulaire "Nouveau projet" (titre + synopsis),
+une vérification automatique avant de transmettre à OpenCode :
+
+| # | Fichier | Ce que ça fait |
+|---|---|---|
+| 0.9.1 | `interface/server.js` | Nouveau middleware `POST /api/projets/check-content` — analyse le titre + synopsis + contraintes, renvoie `{ allowed: true/false, reason: "..." }` |
+| 0.9.2 | `interface/public/app.js` | Bloque l'envoi du formulaire si le check échoue, affiche un message clair |
+| 0.9.3 | `interface/moderation.js` (nouveau) | Moteur de modération — liste noire de mots-clés, patterns, catégories |
+
+#### Moteur de modération (`moderation.js`)
+
+Deux couches :
+
+**Couche 1 — Liste noire (rapide, automatique)**
+Mots et expressions interdits dans le titre, le synopsis, les contraintes :
+- Pédopornographie / mineurs
+- Apologie du nazisme, fascisme, génocide
+- Négationnisme (révisionnisme historique)
+- Incitation à la haine raciale, religieuse, homophobe
+- Terrorisme
+- Violences sexuelles explicites sans contexte littéraire
+
+```js
+const BLOCKED_PATTERNS = [
+  /pédophile|pédocriminalité|mineur[es]?\s*sexuel/i,
+  /nazi|hitler|ss\s*[a-z]|négationnisme|révisionnisme/i,
+  /génocide\s*(juif|arménien|tutsie)/i,
+  /race\s*(supérieure|inférieure)|pur\s*ethnique/i,
+  /apologie\s*du\s*(terrorisme|fascisme|nazisme)/i,
+  // etc.
+];
+```
+
+**Couche 2 — Appel à un modèle de modération (précision)**
+Pour les cas limites : envoyer le synopsis à un petit modèle peu coûteux
+(DeepSeek Flash) avec un prompt de classification :
+```
+Classifie ce synopsis de projet d'écriture. Réponds UNIQUEMENT par un JSON :
+{"allowed": true/false, "reason": "...", "category": "..."}
+Catégories interdites : pornographie, pédopornographie, apologie du nazisme,
+racisme, antisémitisme, négationnisme, terrorisme, incitation à la haine.
+Si le projet est un roman noir, érotique, ou violent MAIS dans un cadre
+littéraire (pas de l'apologie), réponds allowed: true.
+```
+
+#### Pas de censure préventive sur les fichiers échantillons
+
+Les échantillons déposés par l'utilisateur (`echantillons/`) ne sont **pas**
+modérés — ce sont ses textes personnels. La modération s'applique uniquement
+**au lancement d'un projet** (titre + synopsis + contraintes), parce que c'est
+là que la plateforme devient active dans la génération.
+
+#### Journalisation
+
+Tout refus est loggé dans `data/moderation-logs.json` avec :
+- `userId`, `timestamp`, `titre`, `synopsis` (tronqué)
+- `raison`, `couche` (liste noire / modèle)
+- `action` : `bloqué` / `signalé`
+
+L'admin peut consulter les logs de modération dans le dashboard admin.
+
+#### Droit de recours
+
+Si l'utilisateur pense que son projet a été injustement bloqué :
+- Bouton « Signaler un faux positif » → notification à l'admin
+- L'admin peut ajouter une exception (whitelist de projet) ou ajuster les règles
+
+---
+
 ## Étape 1 — Quotas & BYOK (immédiat, ~2 jours)
 
 Permettre à 10-15 beta-testeurs d'utiliser la plateforme sans risque financier.
