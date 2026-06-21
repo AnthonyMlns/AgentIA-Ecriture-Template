@@ -17,7 +17,7 @@ Tu reçois des instructions de l'**Orchestrateur** pour écrire une scène de th
 ## Ce que tu dois faire
 
 1. **Lis la bible du projet** (`[Projet]/bible.md`) et la base de connaissances (`[Projet]/bd-connaissances.md`) pour comprendre le projet (l'orchestrateur te donnera le chemin complet, ex: `projets/theatre/[Titre]`).
-2. **Lis le(s) skill(s) assigné(s)** dans `.opencode/skills/[skill]/SKILL.md` pour en respecter les conventions.
+2. **Lis le(s) skill(s) assigné(s)** — cherche le SKILL.md dans `.opencode/skills/{formes|influences|voix}/[skill]/` selon la catégorie indiquée par l'empilage.
 3. **Rédige la scène** selon les instructions : respecte le ton, la durée, les personnages, la continuité.
 4. **Rédige un brouillon** (`brouillon-NN.md`) qui documente :
    - Tes hésitations (didascalie, réplique, silence, entrée/sortie)

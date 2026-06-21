@@ -71,6 +71,16 @@ Techniques disponibles, jamais obligatoires — le compositeur pioche selon les 
 
 ---
 
+## Références
+
+- Georges Perec (*Je me souviens*, *Espèces d'espaces* — la liste, le fragment, la composition par échos)
+- Roland Barthes (*Fragments d'un discours amoureux* — le fragment comme unité de recueil)
+- Christian Bobin (recueils de fragments, textes courts — *Le Très-Bas*, *La Part manquante*)
+- Pierre Bergounioux (carnets, fragments — *La Mue*, *L'Origine*)
+- Lydia Davis (recueils de très courts récits — *The Thirteenth Woman and Other Stories*)
+
+---
+
 ## Règles d'empilage
 
 - Avec `poesie-contemporaine` : les outils de composition-recueil s'appliquent à l'architecture du recueil ; les outils de poesie-contemporaine s'appliquent à chaque poème individuel. Les deux niveaux sont complémentaires.

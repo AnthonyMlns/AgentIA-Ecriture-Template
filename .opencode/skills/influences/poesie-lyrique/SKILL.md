@@ -16,9 +16,8 @@ maturité: ancré
 - **Nature comme miroir** : le paysage est un état d'âme. La pluie est tristesse, le printemps est renaissance.
 - **Élégie** : plainte amoureuse ou mélancolie existentielle — sans tomber dans le pathos.
 - **Ode** : célébration d'un être, d'un lieu, d'un instant — élan enthousiaste.
-- **Réserve lyrique** : une section ou un ensemble de poèmes peut faire le choix d'une retenue absolue (0 envolée lyrique) pour préparer le contraste avec une section ultérieure qui déploiera le registre lyrique. La réserve n'est pas une absence — c'est une accumulation de tension qui sera libérée plus tard. Le contraste différé entre sections est plus puissant qu'un contraste localisé.
-- **Arc de section par contraste de chute** : dans un recueil multi-sections, les chutes des sections peuvent se répondre par contraste (fermeture absolue → adresse ouverte → alternative suspendue) pour créer un arc émotionnel global.
 - **Variété des images** : un motif lyrique (feu, nuit, eau) ne doit pas saturer un recueil. La retenue lyrique passe aussi par la variété des images convoquées — le lyrisme n'est pas une répétition mais un crescendo d'images distinctes.
+- **Voir aussi** `composition-recueil` pour les techniques de réserve lyrique et d'arc de section par contraste de chute, qui sont communes à toute composition de recueil.
 
 ## Boîte à outils du poète lyrique
 

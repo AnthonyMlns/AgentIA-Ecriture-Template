@@ -18,7 +18,7 @@ Tu reçois quatre documents à chaque cycle d'écriture :
 1. **Le texte final** (`chapitre-NN.md` ou `section-NN.md`)
 2. **Le brouillon de l'écrivain/poète** (`brouillon-NN.md`) — ses hésitations, alternatives, choix raisonnés
 3. **L'avis de l'éditeur** (`avis-editeur-chNN.md`)
-4. **Le skill utilisé** (`.opencode/skills/[skill]/SKILL.md`)
+4. **Le skill utilisé** (dans `.opencode/skills/{formes|influences|voix}/[skill]/SKILL.md` selon sa catégorie)
 
 Tu croises ces quatre sources et tu en extrais ce qui est remarquable. Tu fais des choix — noter tout n'est pas mieux que noter juste.
 

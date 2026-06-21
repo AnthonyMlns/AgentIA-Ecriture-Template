@@ -79,7 +79,7 @@ Quand un micro-amendement a été déclenché par la boucle d'amélioration (imm
    - **Baisse significative (>30%)** → amendement efficace, le marquer comme `[AMENDEMENT-EFFICACE]` dans le REX block du skill.
    - **Baisse modérée (10-30%)** → amendement partiellement efficace. Suggérer un ajustement complémentaire. Marquer comme `[AMENDEMENT-PARTIEL]`.
    - **Pas de changement ou hausse** → amendement inefficace ou contre-productif. **Déclencher un rollback automatique** :
-     a. Restaurer la version précédente du SKILL.md (depuis git : `git checkout HEAD~1 -- .opencode/skills/[skill]/SKILL.md`).
+      a. Restaurer la version précédente du SKILL.md (depuis git : `git checkout HEAD~1 -- .opencode/skills/{formes|influences|voix}/[skill]/SKILL.md`). Déterminer le sous-dossier en fonction de la catégorie du skill.
      b. Marquer l'amendement comme `[AMENDEMENT-ROLLBACK]` dans le REX block du skill.
      c. Alerter l'orchestrateur : « le principe [X] ajouté au skill [Y] a été rollback — pas d'amélioration détectée après N unités ».
      d. Si le même skill accumule 3 rollbacks consécutifs, le signaler comme `[SKILL-INSTABLE]` — nécessite une révision structurelle par l'orchestrateur avant la prochaine utilisation.

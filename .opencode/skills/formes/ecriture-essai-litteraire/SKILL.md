@@ -7,64 +7,50 @@ maturité: testé
 # Skill — Essai littéraire
 
 > Prose d'idées poétique, voix qui pense à voix haute, pensée en mouvement.
-> Mis à jour le 07/06/2026 — Boîte à outils enrichie (alternance de tons, tutoiement contextuel, suggestion par le vide, nuance autorité du doute, précision vs universalité, métaphore filée transversale).
+> Mis à jour le 21/06/2026 — Enrichissement massif de la boîte à outils (projet *S'accorder*, 7 unités) : 10 nouvelles variantes d'ancrage et de chute ouverte, 4 nouveaux dispositifs de composition longue-distance, 3 extensions des outils existants (suggestion par le vide, métaphore filée, auto-corrosion), consolidation des techniques émergentes.
 
-## Principes
+## Principes (8)
 
-- **Voix d'essayiste** : le « je » qui pense à voix haute. L'essai littéraire n'est pas un article académique — c'est une pensée en mouvement, qui se cherche, se reprend, se contredit.
-- **Prose d'idées poétique** : l'essai peut être lyrique sans être imprécis. Les images, les métaphores, les aphorismes portent l'argument autant que la logique.
-- **Structure en spirale** : revenir plusieurs fois sur une même idée, de plus en plus profondément, sans linéarité démonstrative.
-- **Ancrage sensible** : partir d'un objet concret, d'un lieu, d'un geste — et dérouler la pensée. L'essai ne part pas d'une thèse mais d'une perception.
-  **Précision vs universalité** : l'ancrage sensible préfère les objets précis (marque, couleur, matière). Mais quand le propos vise l'universel (le téléphone de tout le monde, pas le mien), le générique est un choix légitime. Règle : plus l'objet est central dans l'argument, plus il gagne à être générique pour permettre la projection du lecteur. Plus il est périphérique, plus il gagne à être précis pour créer l'effet de réel.
-- **Autorité du doute** : la certitude tue l'essai. Le « je ne sais pas », le « peut-être », le « ou plutôt » sont des marques de rigueur, pas de faiblesse. Le « je ne sais pas » peut devenir un **marqueur structurel** : trois occurrences qui scandent le chapitre (doute initial → ignorance en cours de route → question finale) créent un arc de pensée sans fermeture.
-  **Variante — Atténuation des affirmations** : quand l'essayiste formule une affirmation forte, vérifier si elle peut être modulée (« peut-être », « sans doute », « en un sens », « implicitement », « me semble-t-il »). L'utilisation de modalisateurs n'est pas une faiblesse — c'est la marque d'une pensée qui se cherche. Les passages les plus rhétoriques sont souvent ceux qui résistent le moins à une relecture : les atténuer, c'est les rendre plus vrais.
-  **Nuance contextuelle — Autorité du doute adaptée au type de chapitre** : les modalisateurs ("je ne sais pas", "peut-être", "du moins") sont des marques de rigueur dans les chapitres d'exploration ou de questionnement. Dans un chapitre de constat (description d'un phénomène, d'une situation), le narrateur peut légitimement adopter un ton plus affirmatif sans trahir la voix d'essayiste — il décrit ce qu'il voit, pas ce qu'il en déduit. Le doute doit réapparaître dès que la pensée passe de l'observation à l'interprétation.
-- **Économie référentielle** : ne pas dépasser 3 références nouvelles (auteurs, œuvres, concepts nommés) par chapitre. Au-delà, le lecteur perd le fil de la voix subjective. Chaque référence doit être intégrée au flux et servir la progression de la pensée, pas être posée comme autorité. Si une 4e référence est nécessaire, lui dédier un développement plus long ou la reporter au chapitre suivant.
-  Complément — **Distinction objet d'étude / référence d'autorité** : les œuvres, auteurs ou concepts qui sont les objets mêmes de l'analyse ne comptent pas dans le comptage — ils sont le sujet de l'essai, pas des autorités convoquées pour l'étayer. La limite de 3 s'applique aux citations d'autorité (philosophes, critiques, théoriciens) invoquées pour appuyer un argument. Règle intuitive : si l'essai porte sur Homère, citer Homère n'est pas une référence — c'est un objet d'étude. Citer Auerbach pour parler d'Homère, en revanche, est une référence d'autorité.
-  Complément — **Humilité de la citation** : ne pas « sur-référencer » pour éviter le ton du « trop sachant ». Une citation n'est pas un gage d'autorité — c'est un outil de la pensée, un appui ponctuel, pas une preuve. Si la citation n'est pas utile à l'argument (elle ne fait que décorer ou impressionner), la supprimer. La voix personnelle de l'essayiste doit rester au premier plan, les références en second plan. Règle intuitive : si le lecteur oublie qui a dit quoi mais retient l'idée, la citation a bien servi.
-- **Le lecteur comme interlocuteur** : l'essai s'adresse à quelqu'un. Le tutoiement, la question rhétorique, l'apostrophe sont des outils pour faire du lecteur un compagnon de pensée. **Ces outils ne sont pas automatiques** : dans un chapitre d'installation (constat intime, introspection), le "je" et le "on" inclusif peuvent suffire. Le tutoiement gagne à être introduit quand la relation narrateur/lecteur est établie (chapitres suivants). Le "on" inclusif est une alternative discrète qui universalise sans apostrophe directe.
-- **Empilage avec registre épique** : l'essai peut accueillir des techniques épiques (grande phrase-monde, anaphore, accumulation) sans trahir la voix d'essayiste. La « césure d'échelle » (retour au geste minuscule après le souffle) est le meilleur outil pour concilier les deux registres : elle crée le contraste signature de l'utilisateur.
+- **Voix d'essayiste** : le « je » qui pense à voix haute. L'essai n'est pas un article académique — c'est une pensée en mouvement.
+- **Prose d'idées poétique** : les images portent l'argument autant que la logique. Lyrisme autorisé, imprécision interdite.
+- **Structure en spirale** : revenir sur une même idée, de plus en plus profondément — pas de linéarité démonstrative.
+- **Ancrage sensible** : partir d'un objet concret, d'un lieu, d'un geste. L'essai ne part pas d'une thèse mais d'une perception. **Précision vs universalité** : le générique favorise la projection du lecteur ; le spécifique crée l'effet de réel.
+- **Autorité du doute** : « je ne sais pas », « peut-être », « ou plutôt » sont des marques de rigueur, pas de faiblesse. Le « peut-être » peut scander un chapitre (3 occurrences : ouverture, milieu, chute). Jusqu'à 7 en conclusion. *(Voir aussi : Atténuation des affirmations, boîte à outils Rythme/Mouvement.)*
+- **Économie référentielle** : max 3 références d'autorité par chapitre. Les objets d'étude (auteurs, œuvres dont l'essai parle) ne comptent pas. Si une citation ne sert pas l'argument, la couper. **Variante — Référence suggérée sans nom** : périphrase reconnaissable sans nommer l'auteur.
+- **Lecteur interlocuteur** : tutoiement progressif — absent dans l'introduction, max 2 occurrences au ch.1, généralisation à partir du ch.3. Le « on » inclusif reste la voix dominante.
+- **Empilage avec registre épique** : l'essai peut accueillir des techniques épiques (grande phrase-monde, anaphore). La « césure d'échelle » (retour au geste minuscule après le souffle) est l'outil de conciliation.
 
-## Boîte à outils de l'essayiste
+## Boîte à outils de l'essayiste (14 outils)
 
-Techniques disponibles, jamais obligatoires — l'essayiste pioche selon les besoins de la réflexion. La rareté fait la puissance.
+Techniques disponibles, jamais obligatoires — l'essayiste pioche selon les besoins. La rareté fait la puissance.
 
-### Ouverture
-- **Ouverture par le concret** : commencer par un objet, un lieu, un souvenir, une scène. La pensée naît de la perception, pas de l'abstraction.
-- **Ancrage par le rugueux** (variante) : un objet banal, peu « poétique » — un cintre qui racle, un tiroir qui coince. Évite le lyrisme facile.
-- **Ancrage par le geste de lecture** (variante) : la pensée part d'un geste de lecture — relire, noter, comparer. À utiliser quand l'ancrage par un objet physique serait artificiel.
+### Ouverture (1 outil)
+- **Ouverture par le concret** — 7 variantes d'ancrage au choix :
+  *Rugueux* (objet banal), *geste quotidien universel* (téléphone, clé), *geste exploratoire* (doigt qui suit la cassure), *historique* (figure ancrée dans un geste), *anti-métaphore* (détail technique), *geste infime* (déplacer d'1 mm), *geste de lecture* (relire, noter).
 
-### Aphorisme et chute
-- **Aphorisme comme nœud** : une phrase qui condense la pensée en formule. Une par page maximum. **Variante — Aphorisme de clôture** : placé en chute de section, il condense tout le chemin parcouru sans fermer.
-- **Chute ouverte** : terminer sur une image, une question, un geste suspendu. Le lecteur continue de penser après avoir fermé le livre.
-- **Chute image vs chute rhétorique** : préférer une image qui travaille en silence à une question qui sonne comme un appel.
+### Fin de chapitre (2 outils)
+- **Aphorisme** : phrase qui condense la pensée. Variante : aphorisme de clôture.
+- **Chute ouverte** — 6 variantes : image vs rhétorique, prospective (question vers l'avenir), commencement (je commence à voir), conditionnel prospectif (pourrait), geste visuel (un pas en arrière), geste + ouverture (conclusion d'essai).
 
-### Rythme et ponctuation
-- **Le deux-points plutôt que le tiret** : le deux-points lie, explicite ; le tiret rompt. Limiter le tiret à 2-3 occurrences par chapitre.
-- **Point-virgule d'enchaînement** : pause intermédiaire, élégante. 1-3 par chapitre.
-- **Phrase nominale isolée** : détacher un syntagme nominal pour un arrêt sur image. Max 3 par chapitre.
+### Rythme et souffle (4 outils)
+- **Deux-points plutôt que tiret** (max 2-3 tirets/chapitre)
+- **Point-virgule** (1-3/chapitre)
+- **Phrase nominale isolée** (max 3/chapitre)
+- **Tricolon d'escalade** (3 éléments en intensité croissante, 1/chapitre max)
 
-### Mouvement de la pensée
-- **Digression maîtrisée** : toute digression doit retourner au centre. Si on ne voit pas comment revenir, ne pas digresser.
-- **Alternance abstraction/concret** : une idée générale suivie d'un exemple sensible, immédiatement.
-- **Question non résolue** : poser une question, ne pas y répondre. Y revenir plus tard, ou jamais.
-- **Auto-correction visible** : « ou plutôt », « pas exactement », « du moins » — la pensée qui se reprend en direct.
-- **Auto-corrosion** (variante extrême) : exposer l'écart entre la sagesse citée et l'incapacité à l'incarner. Variantes : différée (échec futur anticipé), disséminée (3 micro-occurrences), meta (corroder sa propre rhétorique).
-- **Alternance de tons** : varier délibérément le registre tonal au sein d'un même chapitre — ironique, grave, médian, neutre. L'alternance crée un rythme émotionnel qui évite la monotonie du ton doctoral et la légèreté du ton uniforme. Chaque ton doit être au service de ce qu'il décrit : l'ironie pour la lucidité sur soi, le grave pour le constat, le médian pour la réflexion, le neutre pour l'ouverture.
+### Mouvement de la pensée (5 outils)
+- **Digression maîtrisée** : toute digression retourne au centre. Alternance abstraction/concret.
+- **Auto-correction visible** : « ou plutôt », « pas exactement », question non résolue.
+- **Auto-corrosion** : exposer l'écart entre la sagesse citée et l'incapacité à l'incarner. Variante : auto-corrosion du cliché (anticiper et démonter le cliché avant qu'il ne se forme).
+- **Alternance de tons / ironie tempérée** : varier les registres (ironique/grave/médian/neutre). L'ironie tempérée inclut l'essayiste dans sa critique.
+- **Structure par émergence / synthèse rétrospective** : faire émerger les catégories du geste ; un geste comme grille de relecture des chapitres passés.
 
-### Métaphore et image
-- **Métaphore argumentative (cadrée)** : cadrée (signalée comme emprunt), limitée (1-2 par chapitre), justifiée (fait avancer l'argument). Variante filée possible.
-- **Micro-geste répété** : un geste minuscule vécu à chaque étape de la réflexion — preuve charnelle de l'argument.
-- **Intervalle pratique** : un mot simple et ouvert (« souffle », « pause », « intervalle ») qui suggère l'action sans la dicter. 1-2 par chapitre.
-- **Suggestion par le vide** : ne pas nommer ce qu'on décrit. Le mot juste (addiction, dopamine, angoisse) est dans l'esprit du lecteur mais pas sur la page. Le texte crée le vide que le lecteur remplit. La phrase décrit les symptômes, les gestes, les sensations — jamais le diagnostic. Cela évite le ton clinique et fait participer le lecteur à la reconnaissance de ce qui se joue. **À appliquer** : pour les concepts psychologiques ou sociologiques forts. Si le mot est trop clinique, trop technique, ou trop chargé, le mettre dans le brouillon comme référence pour l'écrivain, mais le couper du texte final.
-- **Métaphore filée transversale** : une seule image qui traverse tout un chapitre, revenant comme un leitmotiv à des moments-clés (ouverture, milieu, chute). Contrairement à la métaphore cadrée (limitée, ponctuelle), la métaphore filée transversale porte l'argument sur toute la durée du chapitre. Règle : ne pas l'expliquer, ne pas la développer artificiellement — la laisser revenir naturellement quand le geste qu'elle décrit se répète. Maximum une par chapitre.
+### Métaphore et image (2 outils)
+- **Métaphore argumentative et micro-geste métaphorique** : métaphore cadrée (1-2/chapitre). Micro-geste métaphorique : fusion du geste répété et de la métaphore filée (3-4 occurrences, littéral ET figuré). Main comme sujet pensant.
+- **Métaphore filée transversale et suggestion par le vide** : une image qui traverse tout le chapitre (3 occurrences, jamais expliquée). Suggestion par le vide : décrire les symptômes, pas le diagnostic. Variantes : évocation par le geste, extension lexique psychologique, escalade catégorielle, mot-titre comme écho différé.
 
-### Dispositifs de composition
-- **Section réflexive** (optionnelle) : espace dédié en fin de chapitre pour note personnelle, citation méditée, question sans réponse.
-- **Note personnelle comme climax** : une note de carnet obscure, élevée au point culminant du chapitre, dépliée sans être épuisée.
-- **Bouclage d'objets** (composition longue-distance) : ouvrir plusieurs chapitres sur des objets concrets, les revisiter en fin d'essai — l'objet n'a pas changé, le regard oui.
-- **Bouclage d'image** (variante) : une image centrale posée dans l'introduction, qui revient en conclusion comme résonance.
-- **Évocation par sensation** : en fin d'essai, évoquer les concepts par une empreinte sensorielle unique plutôt que par leur nom. Max 5 évocations.
+### Bouclage longue-distance et composition (1 outil)
+- **Bouclage et composition longue-distance** — revisiter des objets en fin d'essai. 6 variantes de bouclage (image, inter-chapitre, narratif, synchrone, leitmotiv sans résolution, sensoriel). **Motif-réserve** : poser une image, la déployer 3 chapitres plus tard. **Composition prospective par la négation** : nier le concept à venir.
 
 ## Références
 
@@ -109,4 +95,19 @@ Amendé le 07/06/2026 (post-projet *Petit traité sur la déconnexion*) — ajou
 (Mouvement de la pensée), nuance Tutoiement contextuel (Le lecteur comme interlocuteur),
 Suggestion par le vide (Métaphore et image), nuance Autorité du doute adaptée au type de chapitre,
 Précision vs universalité (Ancrage sensible), Métaphore filée transversale (Métaphore et image).
+Amendé le 21/06/2026 (post-projet *S'accorder*, essai 7 unités) — enrichissement massif :
+- Principes : Progression recommandée du tutoiement, Note sur le « peut-être » structurel,
+  Variante Référence suggérée sans nom.
+- Ouverture : 5 nouvelles variantes d'ancrage (geste quotidien, geste exploratoire, historique,
+  technique anti-métaphore, geste infime).
+- Aphorisme et chute : 5 nouvelles variantes de chute ouverte (prospective, commencement,
+  conditionnel prospectif, geste visuel, geste+ouverture).
+- Rythme et ponctuation : Tricolon d'escalade.
+- Mouvement de la pensée : Auto-corrosion du cliché, Ironie tempérée, Structure par émergence,
+  Synthèse rétrospective par le geste.
+- Métaphore et image : Note de croisement micro-geste métaphorique, Main comme sujet pensant,
+  Motif-réserve (conditions de succès), Évocation par le geste, Extension lexique psychologique,
+  Règle de dosage métaphore filée, Escalade catégorielle, Mot-titre comme écho différé.
+- Dispositifs de composition : Bouclage inter-chapitre, narratif longue-distance, synchrone,
+  leitmotiv sans résolution, sensoriel longue-distance, Composition prospective par la négation.
 -->

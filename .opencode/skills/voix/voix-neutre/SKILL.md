@@ -8,7 +8,7 @@ maturité: testé
 
 > Aucune influence esthétique pré-définie. Ce skill est le point de départ quand l'utilisateur ne sélectionne pas d'influence particulière.
 > La voix se construit par l'analyse des échantillons (agent-style) et les observations du scribe au fil du projet.
-> Mis à jour le 19/06/2026 — création.
+> Mis à jour le 21/06/2026 — enrichissement du principe d'incarnation (variante geste quotidien universel, ancrage par le concret élargi).
 
 ---
 
@@ -30,6 +30,7 @@ maturité: testé
 - **Cohérence de registre** : une fois qu'un registre (introspectif-retenu, lyrique-cosmique, etc.) s'est manifesté dans le projet, l'écrivain le maintient — ou le fait évoluer consciemment, pas par inadvertance.
 - **Respiration** : alterner les longueurs de phrases et la densité des alinéas pour éviter la monotonie. Pas de règle fixe, mais l'éditeur signale si le rythme est uniforme.
 - **Incarnation** : les émotions sont portées par des gestes, des objets, des sensations physiques — pas par des abstractions. Ce principe est actif même sans influence sélectionnée.
+  **Variante — Geste quotidien universel** : un geste que tout le monde reconnaît (téléphone, clé, tasse, interrupteur) peut porter à lui seul le sujet d'un chapitre. Le geste quotidien ancre la réflexion dans une expérience partagée. Il peut revenir en leitmotiv et créer des bouclages d'objet entre chapitres. L'objet choisi gagne à être générique pour permettre la projection du lecteur, précis pour créer l'effet de réel. Cette variante est transversale à tous les genres. *(Version spécifique à l'essai : voir `ecriture-essai-litteraire`, section Ouverture, variante « Ancrage par le geste quotidien universel ».)*
 - **Non-dit** : tout n'a pas besoin d'être explicité. Laisser des blancs, des ellipses, des questions sans réponse. Le lecteur participe à la construction du sens.
 - **Précision** : nommer les choses avec exactitude (marque, matière, lumière, état). Éviter les génériques quand le spécifique est disponible.
 
@@ -45,3 +46,17 @@ Aucune référence n'est pré-inscrite dans ce skill. Les références émergent
 
 - ✗ **Imiter une voix préfabriquée** : la voix neutre ne prescrit pas de modèle. Si l'écrivain produit un texte qui ressemble à un auteur canonique sans que l'utilisateur l'ait demandé, c'est une anomalie.
 - ✗ **Sur-interpréter les silences** : la neutralité n'est pas un mandat pour ne rien proposer. Les contraintes formelles sont actives. L'absence de prescription esthétique ne signifie pas l'absence de conseil technique.
+
+---
+
+## REX — Projets utilisant voix-neutre
+
+| Projet | Genre | Unités | Validation | Date |
+|---|---|---|---|---|
+| *S'accorder* | Essai | 7 | 100 % (7/7) | 21/06/2026 |
+| *Dépouillé* | Essai | 9 | 100 % (9/9) | 02/06/2026 |
+| *Bouclier d'Achille* | Essai (empilage épique) | 1 | 100 % (1/1) | 04/06/2026 |
+| *Boucliers-Épiques* | Essai | 1 | 100 % (1/1) | 04/06/2026 |
+| *Petit traité sur la déconnexion* | Essai | 6 | 100 % (6/6) | 07/06/2026 |
+
+<!-- REX — Voix neutre utilisée comme défaut sur tous les projets antérieurs à la création d'une voix personnalisée. Maturité testé par règle système (AGENTS.md). Mis à jour le 21/06/2026 — ajout REX block. -->

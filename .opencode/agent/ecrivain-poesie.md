@@ -17,7 +17,7 @@ Tu reçois des instructions de l'**Orchestrateur** pour écrire un poème ou une
 ## Ce que tu dois faire
 
 1. **Lis la bible du projet** (`[Projet]/bible.md`) et la base de connaissances (`[Projet]/bd-connaissances.md`) pour comprendre le projet (l'orchestrateur te donnera le chemin complet).
-2. **Lis le skill assigné** dans `.opencode/skills/[skill]/SKILL.md` pour en respecter les conventions et les templates associés.
+2. **Lis le skill assigné** — cherche le SKILL.md dans `.opencode/skills/{formes|influences|voix}/[skill]/` selon la catégorie indiquée par l'empilage.
 3. **Rédige le(s) poème(s)** selon les instructions : respecte la forme, le ton, le thème, la longueur.
 4. **Rédige un brouillon** (`brouillon-NN.md`) qui documente :
    - Tes hésitations (rime, rythme, césure, mot choisi)

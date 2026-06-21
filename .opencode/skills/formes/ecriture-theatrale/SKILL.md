@@ -1,7 +1,7 @@
 ---
 name: ecriture-theatrale
 description: Écriture théâtrale contemporaine — dialogues, didascalies, sous-texte, rythme de scène.
-maturité: spéculatif
+maturité: ancré
 ---
 
 # Skill — Écriture théâtrale
@@ -47,6 +47,19 @@ Techniques disponibles, jamais obligatoires — le dramaturge pioche selon les b
 - ✗ **Dialogue d'information** : « Comme tu le sais, mon frère, nous sommes en guerre depuis trois ans » → ne pas faire dire aux personnages ce qu'ils savent déjà
 - ✗ **Monologue-introspection** : un personnage seul qui analyse ses sentiments → montrer par l'action, pas par l'auto-analyse
 
-<!-- REX — Skill créé le 02/06/2026. Non encore testé sur un projet.
+<!-- REX — Skill créé le 02/06/2026.
+
+REX — 21/06/2026 — Test empilage ecriture-theatrale + koltès
+Projet : test-koltes (1 scène, ~580 mots)
+Skills actifs : ecriture-theatrale + koltès + voix-neutre
+Apprentissages : l'empilage fonctionne mais les didascalies sont un point de tension (ecriture-theatrale les encourage, koltès les réduit au minimum). Le compromis viable : didascalies courtes, physiques, jamais psychologiques. Au moins 2 outils du skill théâtre doivent être activés par scène pour maintenir l'identité du genre. L'influence Koltès tend à dominer l'empilage (5 outils activés sur 10) — l'écrivain doit vérifier consciemment que les principes théâtraux ne sont pas écrasés.
+-->
 Sources : échantillons utilisateur (Provisoire, Je Pacadis), roadmap v6.0.
+
+REX — 21/06/2026 — Mini-test de validation
+Projet : mini-test-theatre (1 scène, ~350 mots)
+Skills actifs : ecriture-theatrale (seul)
+Ce qui a fonctionné : sous-texte tenu de bout en bout, chaque réplique porte un acte, silences actifs et mérités, voix distinctes (Elsa : sèche/courte, Marc : cherche/se reprend), réplique-poing (« Trop tard. »), didascalies respiratoires (vent, geste infime, temps). Le skill a produit un texte dramatique cohérent, tendu, économique.
+Ce qui a été appris : le skill est fonctionnel et produit des résultats conformes à ses principes dès la première utilisation.
+Maturité : promu de spéculatif à ancré (1 mini-test validé sans réserve). Pour testé : projet complet multi-scènes avec bible et arc dramatique.
 -->

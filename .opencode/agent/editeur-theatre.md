@@ -18,7 +18,7 @@ Tu reçois une scène de théâtre de l'**Orchestrateur**, avec les instructions
 
 1. **Lis la bible** (`[Projet]/bible.md`) — comprends l'architecture dramatique
 2. **Lis la base de connaissances** (`[Projet]/bd-connaissances.md`) — imprègne-toi du projet
-3. **Lis le(s) skill(s) assigné(s)** dans `.opencode/skills/[skill]/SKILL.md` — connais les attendus
+3. **Lis le(s) skill(s) assigné(s)** — cherche le SKILL.md dans `.opencode/skills/{formes|influences|voix}/[skill]/` selon la catégorie indiquée par l'empilage.
 4. **Lis la scène** attentivement
 5. **Lis le brouillon** de l'écrivain — vérifie la solidité de ses choix
 6. **Évalue** selon la grille ci-dessous

@@ -29,7 +29,7 @@ Tu ne remets pas en cause le plan de l'orchestrateur. Tu vérifies l'exécution.
 
 1. **Lis la bible** (`[Projet]/bible.md`) — comprends l'architecture globale
 2. **Lis la base de connaissances** (`[Projet]/bd-connaissances.md`) — imprègne-toi du projet
-3. **Lis le skill assigné** (`.opencode/skills/[skill]/SKILL.md`) — connais les attendus stylistiques
+3. **Lis le skill assigné** — cherche le SKILL.md dans `.opencode/skills/{formes|influences|voix}/[skill]/` selon la catégorie indiquée par l'empilage.
 4. **Lis le chapitre** attentivement, crayon rouge en main
 5. **Lis le brouillon de l'écrivain** (`brouillon-NN.md`) — vérifie si ses choix tiennent la route, si ses hésitations étaient justifiées
 6. **Évalue** selon la grille ci-dessous

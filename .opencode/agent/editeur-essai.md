@@ -18,7 +18,7 @@ Tu reçois un essai de l'**Orchestrateur**, avec les instructions originales et 
 
 1. **Lis la bible** (`[Projet]/bible.md`) — comprends le projet d'ensemble
 2. **Lis la base de connaissances** (`[Projet]/bd-connaissances.md`) — imprègne-toi du projet
-3. **Lis le(s) skill(s) assigné(s)** dans `.opencode/skills/[skill]/SKILL.md`
+3. **Lis le(s) skill(s) assigné(s)** — cherche le SKILL.md dans `.opencode/skills/{formes|influences|voix}/[skill]/` selon la catégorie indiquée par l'empilage.
 4. **Lis l'essai** attentivement
 5. **Lis le brouillon** de l'écrivain — vérifie la solidité de ses choix
 6. **Évalue** selon la grille ci-dessous

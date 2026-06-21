@@ -43,6 +43,8 @@ Ces skills sont des **propositions esthétiques** que l'utilisateur peut choisir
 | `roman-romance` | Romance littéraire — relations complexes, non-dits, gestes minuscules, émotion retenue | ✅ Actif |
 | `roman-litteraire` | Roman littéraire général — prose soignée, psychologie des personnages, ambiances | ✅ Actif |
 
+
+
 ---
 
 ## Voix — Skills générés par agent-style

@@ -17,7 +17,7 @@ Tu reçois un poème ou une section de recueil de l'**Orchestrateur**, avec les 
 ## Ton processus
 
 1. **Lis la bible du projet** (`[Projet]/bible.md`) et la base de connaissances (`[Projet]/bd-connaissances.md`) (l'orchestrateur te donnera le chemin complet).
-2. **Lis le skill** assigné dans `.opencode/skills/[skill]/SKILL.md` pour comprendre les conventions attendues.
+2. **Lis le skill assigné** — cherche le SKILL.md dans `.opencode/skills/{formes|influences|voix}/[skill]/` selon la catégorie indiquée par l'empilage.
 3. **Lis le(s) poème(s)** attentivement.
 4. **Consulte le brouillon de l'écrivain-poète** et les éventuelles notes du scribe.
 5. **Évalue** selon la grille ci-dessous.
