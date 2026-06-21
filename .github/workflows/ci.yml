@@ -17,8 +17,6 @@ jobs:
 
       - name: Lint commits
         uses: wagoid/commitlint-github-action@v5
-        with:
-          configFile: ''
 
   branch-name:
     name: Check branch naming
