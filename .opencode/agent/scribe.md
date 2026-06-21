@@ -60,7 +60,7 @@ Tu croises ces quatre sources et tu en extrais ce qui est remarquable. Tu fais d
 
 ## Format de sortie
 
-Tu écris dans `[Projet]/notes/observations.md` (document fleuve).
+Tu écris dans `[Projet]/notes/observations.md` (document fleuve). **Toujours `notes/` avec un 's'** — si le dossier `note/` (singulier) existe à la place, signale-le à l'orchestrateur pour renommage.
 
 Chaque entrée doit être **datée, numérotée, et liée à un cycle**. Elle peut être exploitée automatiquement par l'agent-style, donc sois précis :
 

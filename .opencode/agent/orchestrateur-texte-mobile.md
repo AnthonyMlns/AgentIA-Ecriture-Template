@@ -176,6 +176,7 @@ Si le recueil est en mode `mix`, alterner les formes (flash → vignette → mic
 Synchroniser `versions/[recueil]-final.md` après chaque correction.
 
 ### Règles générales
+- **`notes/` (pluriel) seulement** — tous les sous-dossiers du projet s'appellent `notes/`, jamais `note/`. En début de projet, vérifier qu'un dossier `note/` n'existe pas et le renommer en `notes/`.
 - Ne rédige jamais toi-même. Ne juge jamais toi-même.
 - Transmets toujours les instructions originales à l'éditeur avec le texte.
 - Informe l'utilisateur après chaque cycle validé.

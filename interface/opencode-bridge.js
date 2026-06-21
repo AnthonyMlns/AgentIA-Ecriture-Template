@@ -30,6 +30,9 @@ const opencodeSessions = new Map();
 // et lire le flux d'un autre). Renseigné au lancement (/run) via opts.userId.
 const sessionOwners = new Map();
 
+// Association bridgeSessionId → projectId (pour les logs cumulatifs)
+const sessionProjects = new Map();
+
 // ---------------------------------------------------------------------------
 // Trouver le binaire opencode.exe
 // ---------------------------------------------------------------------------
@@ -159,15 +162,50 @@ function runCommand(agent, message, opts = {}) {
   const emitter = new EventEmitter();
 
   // --- Session log ---
-  // On peut réutiliser un bridgeSessionId (reprise de session) pour garder une
-  // identité stable côté front à travers les tours de dialogue.
+  // Si un projectId est fourni (ex: "romans/MonProjet"), on utilise un log
+  // cumulatif : un seul fichier par projet, auquel chaque session ajoute ses
+  // événements. Sinon, on garde le comportement historique (un log par session).
+  const projectId = opts.projectId || null;
   const sessionId = opts.bridgeSessionId || `ses_${Date.now()}_${Math.random().toString(36).slice(2, 8)}`;
   // S16 : mémoriser le propriétaire dès le lancement (ne pas écraser à la reprise,
   // où opts.userId n'est pas repassé — continueSession conserve le bridgeSessionId).
   if (opts.userId && !sessionOwners.has(sessionId)) sessionOwners.set(sessionId, opts.userId);
-  const logNonce = Math.random().toString(36).slice(2, 6); // évite l'écrasement du log à la reprise
+  // Mémoriser le projectId pour les reprises de session
+  if (projectId) sessionProjects.set(sessionId, projectId);
+
+  // Déterminer le slug et le fichier de log
+  let slug, filePath;
+  if (projectId) {
+    // Log projet : fichier unique, cumulatif
+    const safeProject = projectId.replace(/[\/\\:?*"<>|]/g, '_').slice(0, 100);
+    slug = `projet-${safeProject}`;
+    filePath = path.join(LOGS_DIR, `${slug}.json`);
+  } else {
+    // Log session : historique (fallback)
+    const logNonce = Math.random().toString(36).slice(2, 6);
+    slug = `${new Date().toISOString().slice(0, 10)}-${sessionId.slice(-8)}-${logNonce}`;
+    filePath = path.join(LOGS_DIR, `${slug}.json`);
+  }
+
+  // Charger les événements existants si c'est un log projet cumulatif
+  let existingEvents = [];
+  let existingWarnings = [];
+  let sessionIndex = 0;
+  if (projectId && fs.existsSync(filePath)) {
+    try {
+      const prev = JSON.parse(fs.readFileSync(filePath, 'utf-8'));
+      existingEvents = prev.events || [];
+      existingWarnings = prev.warnings || [];
+      sessionIndex = (prev.sessionIndex || 0) + 1;
+    } catch {}
+  }
+
+  const startTime = Date.now();
   const sessionLog = {
-    id: sessionId,
+    id: projectId || sessionId,
+    slug,
+    projectId,
+    sessionIndex,
     timestamp: new Date().toISOString(),
     userId: opts.userId || sessionOwners.get(sessionId) || null,
     bridgeSessionId: sessionId,
@@ -186,15 +224,27 @@ function runCommand(agent, message, opts = {}) {
     exitCode: null,
     error: null,
   };
-  const startTime = Date.now();
-  const slug = `${new Date().toISOString().slice(0, 10)}-${sessionId.slice(-8)}-${logNonce}`;
-  const filePath = path.join(LOGS_DIR, `${slug}.json`);
   let lastCheckpointAt = 0;
 
   function saveLog() {
     sessionLog.duration = Date.now() - startTime;
     try {
-      fs.writeFileSync(filePath, JSON.stringify(sessionLog, null, 2), 'utf-8');
+      // Pour les logs projet, on préserve les événements des sessions précédentes
+      if (projectId) {
+        const allEvents = [...existingEvents, ...sessionLog.events];
+        const allWarnings = [...existingWarnings, ...sessionLog.warnings];
+        fs.writeFileSync(filePath, JSON.stringify({
+          ...sessionLog,
+          events: allEvents,
+          warnings: allWarnings,
+          totalEvents: allEvents.length,
+          totalWarnings: allWarnings.length,
+          sessionCount: sessionIndex + 1,
+          lastUpdated: new Date().toISOString(),
+        }, null, 2), 'utf-8');
+      } else {
+        fs.writeFileSync(filePath, JSON.stringify(sessionLog, null, 2), 'utf-8');
+      }
     } catch {}
   }
 
@@ -376,36 +426,50 @@ function listLogs(limit = 50) {
   if (!fs.existsSync(LOGS_DIR)) return [];
   const files = fs.readdirSync(LOGS_DIR)
     .filter(f => f.endsWith('.json'))
-    .sort()
-    .reverse()
-    .slice(0, limit);
+    .sort((a, b) => b.localeCompare(a)); // tri alphabétique inverse (projets d'abord)
 
-  return files.map(f => {
+  // Grouper par projet : on garde les logs projet en priorité, et on filtre
+  // les sessions individuelles redondantes (celles dont le projet a déjà un log)
+  const projectKeys = new Set();
+  const result = [];
+
+  for (const f of files) {
     const fp = path.join(LOGS_DIR, f);
     try {
       const raw = fs.readFileSync(fp, 'utf-8');
       const data = JSON.parse(raw);
-      return {
+      const entry = {
         id: data.id,
-        slug: f.replace('.json', ''),
+        slug: data.slug || f.replace('.json', ''),
+        isProjectLog: !!data.projectId,
+        projectId: data.projectId || null,
         timestamp: data.timestamp,
         agent: data.agent,
         status: data.status,
         duration: data.duration,
         exitCode: data.exitCode,
         message: data.message ? data.message.slice(0, 120) : '',
-        eventCount: (data.events || []).length,
-        lastEventAt: data.lastEventAt,
+        eventCount: data.totalEvents || (data.events || []).length,
+        lastEventAt: data.lastUpdated || data.lastEventAt,
         currentStep: data.currentStep,
         currentSubagent: data.currentSubagent,
         expectedFiles: data.expectedFiles || [],
-        warningCount: (data.warnings || []).length,
+        warningCount: data.totalWarnings || (data.warnings || []).length,
+        sessionCount: data.sessionCount || 1,
         error: data.error,
       };
-    } catch {
-      return null;
-    }
-  }).filter(Boolean);
+
+      // Pour les logs projet : on garde le premier (le plus récent)
+      if (data.projectId) {
+        if (projectKeys.has(data.projectId)) continue;
+        projectKeys.add(data.projectId);
+      }
+
+      result.push(entry);
+    } catch { /* ignorer les fichiers corrompus */ }
+  }
+
+  return result.slice(0, limit);
 }
 
 function getLog(slug) {
@@ -432,7 +496,9 @@ function continueSession(bridgeSessionId, text, opts = {}) {
   const opencodeId = opencodeSessions.get(bridgeSessionId);
   if (!opencodeId) return null;
   // On réutilise le bridgeSessionId pour garder une identité stable côté front.
-  return runCommand(null, text, { ...opts, resumeSessionId: opencodeId, bridgeSessionId });
+  // On récupère aussi le projectId pour que les logs restent cumulatifs.
+  const projectId = sessionProjects.get(bridgeSessionId) || null;
+  return runCommand(null, text, { ...opts, resumeSessionId: opencodeId, bridgeSessionId, projectId });
 }
 
 /** Indique si une session opencode reprenable est connue pour cet ID bridge. */

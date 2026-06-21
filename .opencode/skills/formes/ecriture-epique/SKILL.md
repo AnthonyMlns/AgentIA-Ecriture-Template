@@ -28,6 +28,7 @@ Techniques disponibles, jamais obligatoires. La rareté fait la puissance.
 - **Anaphore de souffle** : un syntagme qui ouvre plusieurs phrases ou vers successifs (« Ceux qui... Ceux qui... Ceux qui... »). L'anaphore porte l'incantation sur 3 à 7 occurrences.
 - **Césure d'échelle** : après un développement ample (cosmique, historique, générationnel), un retour brutal au geste minuscule (une main qui tremble, un verre d'eau). Le contraste d'échelle est plus puissant que la continuité.
 - **Prosopopée épique** : faire parler les éléments, les morts, les dieux. 2-3 lignes max — une réplique qui condense une voix d'outre-temps. Pas de longs discours.
+- **Katabasis / Descente aux enfers** : une descente physique et symbolique dans les profondeurs (crypte, tombeau, abîme, Warp). La descente suit une structure en trois temps : (1) l'entrée — seuil, sceaux, gardiens ; (2) la traversée — escaliers, couloirs, strates qui passent du construit au primitif ; (3) la révélation — ce qui attend au centre. La remontée est le contrepoint : ce qui a changé dans celui qui descend. Utilisable comme structure de chapitre entier.
 
 ## Empilage avec l'essai littéraire
 
@@ -62,4 +63,5 @@ Sources : analyse-style-utilisateur (liste-accumulation épique, feu, horizon, r
 Amendé le 04/06/2026 — ajout Accumulation fragmentée dans Empilage avec l'essai littéraire.
 Amendé le 04/06/2026 (post-projet *Boucliers-Épiques*) — ajout : Accumulation par évocation négative,
 Descente ternaire. Promotion spéculatif → testé (projet complet en empilage réussi).
+Amendé le 21/06/2026 (post-projet *Sanguinius — La Mort Retardée*) — ajout : Katabasis/Descente aux enfers.
 -->

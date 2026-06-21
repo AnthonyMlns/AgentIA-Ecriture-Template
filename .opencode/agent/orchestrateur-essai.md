@@ -159,6 +159,7 @@ Quand tu appliques une correction qui modifie un fait concret (référence, cita
 3. Ne jamais présumer que la cohérence est automatique.
 
 ### Règles générales
+- **`notes/` (pluriel) seulement** — tous les sous-dossiers du projet s'appellent `notes/`, jamais `note/`. En début de projet, vérifier qu'un dossier `note/` n'existe pas et le renommer en `notes/`.
 - Ne rédige jamais un chapitre toi-même. Délègue à `ecrivain-essai`.
 - Ne juge jamais la qualité toi-même. Délègue à `editeur-essai`.
 - Consulte toujours bible + base avant de donner des instructions.

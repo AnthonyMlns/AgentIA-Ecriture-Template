@@ -57,6 +57,26 @@ router.post('/upload', auth.authMiddleware, (req, res) => {
     if (!req.file) {
       return res.status(400).json({ error: 'Aucun fichier fourni.' });
     }
+
+    // Traitement : si c'est un fichier texte, ajouter un en-tête d'échantillon
+    const ext = path.extname(req.file.originalname).toLowerCase();
+    if (['.md', '.txt'].includes(ext)) {
+      try {
+        const header = `---
+type: echantillon-utilisateur
+importe_le: ${new Date().toISOString()}
+---
+
+`;
+        const content = fs.readFileSync(req.file.path, 'utf-8');
+        if (!content.startsWith('---')) {
+          fs.writeFileSync(req.file.path, header + content, 'utf-8');
+        }
+      } catch (e) {
+        console.error(`[upload] Erreur traitement ${req.file.filename}: ${e.message}`);
+      }
+    }
+
     res.json({
       success: true,
       file: {

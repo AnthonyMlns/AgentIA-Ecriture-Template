@@ -1,7 +1,7 @@
 ---
 name: poesie-lyrique
 description: Poésie lyrique — émotion, chant, registre élégiaque, expression du moi.
-maturité: ancré
+maturité: testé
 ---
 
 # Skill — Poésie lyrique
@@ -53,4 +53,17 @@ En poésie lyrique, l'exaltation peut aller jusqu'à la violence de l'image : *"
 <!-- REX 02/06/2026 — Modifications
 - Outils ajoutés : refrain-mot, violence lyrique (issus analyse-style utilisateur)
 - Source : analyse-style-utilisateur — Junon, rivage(s)
+-->
+
+## REX — Recueil Test (Poésie #01)
+
+- **Date** : 21/06/2026
+- **Projet** : Recueil Test — recueil de poésie en 2 sections, 10 poèmes
+- **Skills actifs** : poesie-lyrique (Section 02) + composition-recueil + voix-neutre
+- **Ce qui a fonctionné** : la violence lyrique (brûler, mordre, feu) a innervé la section 02 sans tomber dans le pathos. L'alternance rythmique entre élans lyriques et retenue a soutenu l'arc d'embrasement. La phrase d'envol « la lumière a le goût du métal chauffé au rouge » reconnue comme geste de clôture exceptionnel.
+- **Ce qui a été appris** : le lyrisme retenu est compatible avec la saturation thématique (feu à 100%) quand le motif suit un arc micro-narratif. Aucune proposition d'amendement directe pour ce skill.
+- **Maturité** : promu de `ancré` à `testé` — premier cycle complet en projet pipeline (Section 02, 5 poèmes, 0 REFUS, éditeur + scribe + REX).
+
+<!-- REX Recueil Test 21/06/2026 — Modifications
+Aucune modification proposée. Premier cycle complet en projet pipeline : maturité promue de `ancré` à `testé`.
 -->

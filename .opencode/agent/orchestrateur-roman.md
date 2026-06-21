@@ -174,6 +174,7 @@ Quand tu appliques une correction qui modifie un fait concret (transaction, doss
 > **Exemple Pluralités :** l'ajout d'une transaction test en ch12 a cassé les dialogues de ch13-15 où Kessler disait "nous n'avons rien de concret". La correction a consisté à harmoniser : ils reconnaissent la transaction mais disent que ça ne suffit pas pour le vrai réseau.
 
 ### Règles générales
+- **`notes/` (pluriel) seulement** — tous les sous-dossiers du projet s'appellent `notes/`, jamais `note/`. En début de projet, vérifier qu'un dossier `note/` n'existe pas et le renommer en `notes/`.
 - Ne rédige jamais un chapitre toi-même. Délègue à `ecrivain-roman`.
 - Ne juge jamais la qualité toi-même. Délègue à `editeur-roman`.
 - Consulte toujours bible + base avant de donner des instructions.

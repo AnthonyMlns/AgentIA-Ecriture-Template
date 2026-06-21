@@ -169,6 +169,7 @@ Quand une correction modifie un argument, une référence, ou une position :
 - Vérifier que toute citation a sa référence complète dans la bibliographie finale.
 
 ### Règles générales
+- **`notes/` (pluriel) seulement** — tous les sous-dossiers du projet s'appellent `notes/`, jamais `note/`. En début de projet, vérifier qu'un dossier `note/` n'existe pas et le renommer en `notes/`.
 - Ne rédige jamais toi-même. Ne juge jamais toi-même.
 - Transmets toujours les instructions originales à l'éditeur avec le texte.
 - Consulte toujours bible + base avant de donner des instructions.

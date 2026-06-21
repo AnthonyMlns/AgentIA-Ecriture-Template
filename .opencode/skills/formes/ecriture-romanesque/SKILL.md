@@ -190,6 +190,7 @@ La bible du roman est structurée ainsi :
    Un brouillon vide ou insuffisant est refusé. Le brouillon est un document méta-textuel qui permet à l'éditeur et au scribe de comprendre le processus créatif.
 6. Vérifier les homophones courants avant remise : leur/leurs, murs/mets, tapis/tapas, bordereaux/borderaux, etc.
 6.5. **Vérification inter-unités** : avant de remettre le chapitre, vérifier la cohérence des preuves matérielles avec les chapitres précédents (compteurs, lieux, dates, objets, citations). Consulter le fichier `_citations-utilisees.md` s'il existe. Si une incohérence est détectée, la corriger ou la signaler dans le brouillon.
+6.6. **Vérification des homophones** : avant de remettre le chapitre, vérifier les homophones courants : leur/leurs, murs/mets, tapis/tapas, bordereaux/borderaux, etc. Ajouter cette vérification dans la section Vérification style du brouillon.
 7. Retourner un résumé du chapitre à l'orchestrateur.
 
 ### Étape 3 — Relecture (Éditeur)
@@ -314,4 +315,8 @@ REX Un été 07/06/2026 — Ajouts
 - Template de brouillon structuré (déjà présent dans Étape 2, validé sur brouillon A1)
 - Vérification inter-unités (ajoutée dans Règles de mise à jour + workflow)
 - Source : analyse-style Un été (propositions #B, #C, #E) + REX transversal pattern #1
+
+REX Sanguinius 21/06/2026 — Ajouts
+- Homophone check (6.6) ajouté dans le workflow d'écriture
+- Validation : 14 chapitres, 100 % validé, workflow scribe renforcé
 -->

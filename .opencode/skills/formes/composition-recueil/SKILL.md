@@ -32,12 +32,15 @@ Techniques disponibles, jamais obligatoires — le compositeur pioche selon les 
 
 - **Écho lexical entre textes** : un mot ou syntagme repris d'un poème/récit à l'autre dans une même section crée un fil rouge. Un seul écho par section maximum. *Extension inter-sections* : un syntagme repris à distance d'au moins une section crée un fil de recueil.
   > *Variante — écho textuel large* : un vers entier ou une image complète peut être repris d'un poème à l'autre, pas seulement un mot ou syntagme. La première occurrence pose l'image, la seconde la varie par le contexte. Le lecteur reconnaît la phrase mais le sens a changé — c'est la répétition qui crée la mesure du chemin parcouru. Usage : un écho large par recueil maximum (ne pas cumuler avec un écho lexical dans la même section). L'écart entre les deux occurrences doit être d'au moins un texte intermédiaire. Signalé explicitement dans le brouillon pour éviter l'auto-plagiat. *Extension — absence comme écho* : l'absence délibérée de l'écho dans le texte de clôture peut être aussi porteuse que sa présence. Le lecteur qui a reconnu le fil rouge attend la reprise — ne pas la donner crée un manque qui dit la fin de la boucle.
+  > *Variante — écho textuel exact* : un vers entier peut être répété textuellement à deux endroits d'un recueil, généralement au début et à la fin d'une section ou du recueil entier. L'effet est circulaire : le même énoncé, mais le narrateur n'est plus le même. La répétition exacte (pas un glissement) crée un effet de boucle temporelle : le recueil se referme sur son point de départ, mais tout a changé entre-temps. Usage : une fois par recueil maximum, entre deux poèmes non adjacents. Ne pas confondre avec le refrain (répété dans le même poème) ou l'écho lexical (un mot ou une image, pas un vers complet).
+  > *Variante — écho-révélation* : un motif (objet, geste, image) d'une section antérieure est repris dans une section ultérieure avec un complément d'information qui en change rétroactivement le sens. Le lecteur, en relisant, comprend que le motif portait déjà ce sens sans le savoir. Technique : (1) installer un motif avec une ambiguïté latente dans la section 01 (un geste dont la cause n'est pas claire, une image dont la portée est incomplète) ; (2) le relâcher dans la section 02 avec le complément d'information qui révèle sa nature. Effet : le recueil donne l'impression d'avoir été écrit d'un seul tenant, chaque section répondant à l'autre. Usage : une fois par recueil maximum, entre deux sections non adjacentes ou aux deux extrémités du recueil. Condition : le motif doit être reconnaissable mais pas saturé avant la révélation (2-3 occurrences max avant). La révélation doit surprendre sans invalider la première lecture — elle l'approfondit. Exemple : le motif des « pas derrière soi » dans une section 01, révélé en section 02 comme les pas du narrateur lui-même.
 
 - **Diptyque de lieu autorisé** : un même lieu traité plusieurs fois si le regard change (angle, personne, temporalité). La répétition devient approfondissement, pas redite. Applicable aux nouvelles et aux poèmes.
 
 - **Progression en croix des motifs** : alterner deux motifs sur plusieurs textes avant de les réunir. Structure typique : motif A → motif B → motif A → A+B réunis. Chaque motif a le temps d'être installé séparément.
 
 - **Condensation de recueil** : dans un texte de clôture, reprendre les motifs majeurs des sections en les transformant syntaxiquement. Pas plus de 40% d'échos, chaque reprise doit être une réécriture. Applicable à tous les genres de recueil.
+  > *Variante — condensation par effacement* : au lieu de reprendre les motifs en les transformant syntaxiquement, le poème de clôture les reprend pour les annuler un par un (disparition, don, destruction, effacement). La séquence d'effacement suit une gradation : du plus retenu (l'empreinte qui s'efface d'elle-même) au plus radical (la destruction volontaire). Le dernier motif non effacé devient l'exception qui porte tout le sens du recueil. La condensation par effacement est adaptée aux recueils sur la perte, la fin, l'épuisement. Usage : 1 fois par recueil maximum, en position de clôture. Exemple : P10 — *Le Romantisme est Mort*
 
 - **Pièce respiration (constat pur)** : un texte court (5-8 vers pour la poésie, <200 mots pour la prose) sans doute, glissement ou question. Uniquement des objets précis, de la lumière active, des gestes simples. Un ou deux par recueil pour aérer la densité.
   > *Extension — solo de section* : quand une section entière ne contient qu'un seul poème (solo), la fourchette monte jusqu'à 20-30 vers. Le poème unique porte seul le poids de la transition — il doit être assez dense pour tenir sans dispersion. La respiration n'est plus dans la brièveté du texte mais dans sa concentration : chaque vers compte, aucun remplissage. Le solo de section est un geste structurel — l'asymétrie des sections (4+1+3) crée un rythme de recueil que l'uniformité n'aurait pas.
@@ -47,6 +50,8 @@ Techniques disponibles, jamais obligatoires — le compositeur pioche selon les 
 - **Arc gestuel inter-poèmes** : un geste (la main tendue, la paume qui touche, le pas qui se pose) traverse deux poèmes non contigus du recueil. Le geste n'est pas nommé comme lien — le lecteur le recompose mentalement. L'arc est d'autant plus puissant qu'il n'est pas signalé. Condition : les deux poèmes doivent être séparés par au moins un poème intermédiaire. Usage : une fois par recueil maximum (un seul arc gestuel, sous peine de créer un tic structurel).
 
 - **Arc pronominal de recueil** : progression du système pronominal sur l'ensemble d'un recueil multi-section, de l'absence de sujet au « nous » collectif. Gradation type : absence (phrases nominales, objets sujets) → apparition du « je » → adresse au « tu » → « nous » final. Chaque section installe un pronom qui évolue, et le « nous » final a valeur d'aboutissement — il n'est pas une évidence mais un événement. Règles : l'absence de pronom ne doit pas excéder 2 sections consécutives. Le « je » doit apparaître avant la moitié du recueil pour ancrer le sujet. Le « nous » différé est d'autant plus puissant qu'il est préparé (un seul « nous » final possible — un deuxième diluerait l'effet). L'arc pronominal peut être parallèle à un arc de motif (main, regard) pour amplifier la convergence.
+  > *Variante — arc complet je→tu→nous en trois phases* : planifier la progression pronominale d'un recueil entier en trois phases — phase 1 : je solitaire (le tu est absent, ou en rêve, ou sans réponse, ou structurellement inaccessible) ; phase 2 : tu adressé (d'abord dans la distance ou la destruction, puis dans la présence) ; phase 3 : nous (aboutissement, aucune régression au je possible après). La phase 2 peut inclure un retour stratégique au je (poème d'intervalle) pour éviter que le tu ne devienne une habitude. L'arc fonctionne comme un fil rouge structurel : chaque poème a une position dans l'arc, et la progression est lisible sans être explicite. Condition : le brouillon doit documenter la position de chaque poème dans l'arc. Usage : un recueil par projet maximum, pour les recueils à arc narratif ou émotionnel.
+  > *Variante — arc on→je sans aboutissement collectif* : le recueil part du collectif (on, impersonnel) et se resserre vers le singulier (je) sans passer par tu ou nous. Le « je » final n'est pas un aboutissement mais un constat solitaire. Utilisation : recueils sur l'absence, la solitude, l'impossibilité de la rencontre, où le collectif est un fond universel qui se dissout dans le singulier. Le retour au « on » après l'apparition du « je » est possible (comme intervalle ou retrait). Le « je » peut n'apparaître qu'en fin de recueil (une seule occurrence finale) ou progressivement (apparition puis alternance). Exemple : P01-P07 en « on » / P08 « Je me retourne sur le seuil » / P09 « on » / P10 « j'avais tout rêvé » — *Le Romantisme est Mort*
 
 - **Clôture par réponse sans résolution** : le poème final d'une section (ou d'un recueil) répond au poème précédent en reprenant 2-3 de ses motifs (geste, abstraction, objet) et en les transformant par déplacement — jamais par résolution. Types de transformation : (1) geste actif → passif (tendre → poser), (2) abstraction personnifiée → matérialisée (voix → chose), (3) adresse directe → possession sans antécédent (tu → la sienne). Le poème de clôture ne conclut pas — il juxtapose. Usage : poème final de section ou de recueil uniquement.
 
@@ -108,6 +113,24 @@ Techniques disponibles, jamais obligatoires — le compositeur pioche selon les 
 - **Ce qui a été appris** : l'arc pronominal de recueil est une technique de composition distincte qui mérite son propre outil. Le solo de section (un seul poème pour toute une section) nécessite d'étendre la fourchette de pièce respiration.
 - **Maturité** : promu de `ancré` à `testé` — 2 cycles complets d'utilisation sur projet pipeline.
 
+## REX — Recueil Test (Poésie #01)
+
+- **Date** : 21/06/2026
+- **Projet** : Recueil Test — recueil de poésie en 2 sections, 10 poèmes (voix Koltès/Rimbaud/Liberati)
+- **Skills actifs** : composition-recueil + poesie-contemporaine + poesie-lyrique + voix-neutre
+- **Ce qui a fonctionné** : l'arc pronominal complet je→tu→nous sur 10 poèmes a donné sa colonne vertébrale au recueil (éditeur : « parfaitement tenu »). L'écho-révélation (le motif des pas de P03 relu par P10) a transformé rétroactivement le sens de la section 01 sans toucher au texte. L'écho textuel exact du vers « la lumière a le goût du métal chauffé au rouge » entre P06 et P10 a créé une clôture circulaire. La réserve d'influence (section 01 retient Rimbaud, section 02 le déploie) a produit un arc de contraste différé. La saturation du feu (100% de la section 02) justifiée comme arc d'embrasement.
+- **Ce qui a été appris** : l'écho-révélation est une technique distincte de l'écho lexical — elle permet de transformer le sens d'un poème antérieur sans le modifier. L'arc pronominal complet en trois phases (je→tu→nous) enrichit l'outil existant avec la possibilité de retours stratégiques au je. L'écho textuel exact d'un vers entier est une variante de l'écho lexical qui produit un effet de boucle temporelle unique. La variation catégorielle du mot seul entre poèmes évite l'effet de tic.
+- **Maturité** : déjà `testé` (inchangé).
+
+## REX — Le Romantisme est Mort (Poésie #02)
+
+- **Date** : 21/06/2026
+- **Projet** : Le Romantisme est Mort — recueil de poésie, 2 sections × 10 poèmes
+- **Skills actifs** : poesie-contemporaine + composition-recueil + voix-neutre
+- **Ce qui a fonctionné** : l'arc pronominal on→je validé comme variante alternative à l'arc je→tu→nous (P01-P07 en on → P08 je → P09 on → P10 j'). La condensation par effacement en P10 a montré que la clôture peut fonctionner par annulation progressive des motifs plutôt que par transformation syntaxique. L'écho-révélation P03↔P10 (lumière par la même fenêtre) a transformé rétroactivement le sens de la section 01. La progression des motifs (cercle → manteau → ruines → lumière) a créé un arc de disparition cohérent. L'arc de conservation→destruction a été utilisé avec une gradation maîtrisée.
+- **Ce qui a été appris** : l'arc pronominal on→je est une technique de composition distincte qui couvre un type de recueil (absence, solitude) non documenté auparavant. La condensation par effacement est une variante complémentaire de la condensation par transformation. Les deux variantes enrichissent la boîte à outils sans créer de nouveaux outils de tête (consolidation).
+- **Maturité** : déjà `testé` (inchangé).
+
 <!-- REX — 18/06/2026 — Le Dernier des Romantiques
 Projet : recueil de 5 textes mobiles (flash-fiction + vignette-prose + micro-nouvelle)
 Skills actifs : composition-recueil + flash-fiction + vignette-prose + micro-nouvelle + ecriture-carnet-journal + ecriture-hybride
@@ -124,3 +147,17 @@ CHANGELOG — compact
 | 15/06 | Sans-Sommeil (Carnets #03) | +1 variante (Écho textuel large) sous Écho lexical | 12 outils (inchangé) |
 | 15/06 | Preuves de Vie (Carnets #04) | +1 outil (Arc pronominal de recueil), extension Pièce respiration (solo section 20-30v) | 12→13 outils |
 | 18/06 | Le Dernier des Romantiques | +3 outils (Arc de progression, Coda en rupture, Diglossie medium), extension Écho textuel large (absence significative) | 13→15 outils |
+| 21/06 | Recueil Test | +2 variantes (Écho textuel exact, Écho-révélation) sous Écho lexical, enrichissement Arc pronominal (arc complet je→tu→nous) | 15 outils (inchangé) |
+| 21/06 | Le Romantisme est Mort | +1 variante (Arc on→je), +1 variante (Condensation effacement) | 15 outils (inchangé) |
+
+<!-- REX Recueil Test 21/06/2026 — État des propositions du scribe
+## Appliquées (3/4)
+- Variante écho textuel exact sous Écho lexical entre textes
+- Variante écho-révélation sous Écho lexical entre textes
+- Enrichissement Arc pronominal : variante arc complet je→tu→nous en trois phases
+
+## Non retenues (1/4)
+- Variante « suppression d'influence » dans Réserve lyrique — non appliquée (décision orchestrateur)
+
+Propositions sources : scribe (propositions-skills.md) — 4 propositions
+-->

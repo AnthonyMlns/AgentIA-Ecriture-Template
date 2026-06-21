@@ -1247,8 +1247,52 @@ async function renderProjet(container, genre, projet) {
           </div>` : ''}
           ${sectionsHtml}
         </div>
+
+        <div class="projet-section" style="margin-top:20px;">
+          <div class="projet-section-title">💬 Consignes post-écriture</div>
+          <div class="projet-section-content">
+            <p style="font-size:12px;color:var(--text-muted);margin-bottom:8px">
+              Ajoutez une remarque, une piste d'amélioration ou une consigne qui sera
+              transmise à l'agent-style pour enrichir les skills.
+            </p>
+            <textarea id="post-feedback" rows="3" style="width:100%;background:var(--bg-primary);border:1px solid var(--border);border-radius:var(--radius-sm);padding:10px;color:var(--text-primary);font-size:13px;resize:vertical;font-family:var(--font);" placeholder="Ex : Allonger les descriptions, ajouter plus de dialogues, le personage X devrait être plus mystérieux…"></textarea>
+            <div style="display:flex;gap:8px;margin-top:8px;flex-wrap:wrap;">
+              <button id="btn-post-note" class="btn-action" style="background:var(--bg-card);">📝 Ajouter une note</button>
+              <button id="btn-post-skills" class="btn-action" style="background:var(--accent-glow);color:var(--accent);border-color:var(--accent-dim);">⚙ Suggérer pour les skills</button>
+            </div>
+            <div id="post-status" style="font-size:12px;color:var(--text-muted);margin-top:6px"></div>
+          </div>
+        </div>
       </div>
     `;
+
+    // ─── Consignes post-écriture ────────────────────────────────────────────
+    function setupPostEcriture(type) {
+      const textarea = document.getElementById('post-feedback');
+      const statusEl = document.getElementById('post-status');
+      const feedback = textarea?.value.trim();
+      if (!feedback) { statusEl.textContent = '❌ Écrivez d\'abord un message.'; return; }
+      statusEl.textContent = '⏳ Envoi…';
+      fetch(`/api/projets/${genre}/${projet}/post-ecriture`, {
+        method: 'POST',
+        headers: { ...authHeaders(), 'Content-Type': 'application/json' },
+        body: JSON.stringify({ feedback, type })
+      })
+      .then(r => r.json())
+      .then(data => {
+        if (data.success) {
+          statusEl.innerHTML = `✅ Sauvegardé dans <code>${escHtml(data.savedTo)}</code>`;
+          textarea.value = '';
+          setTimeout(() => { statusEl.textContent = ''; }, 4000);
+        } else {
+          statusEl.textContent = `❌ ${data.error || 'Erreur'}`;
+        }
+      })
+      .catch(err => { statusEl.textContent = `❌ ${err.message}`; });
+    }
+
+    document.getElementById('btn-post-note')?.addEventListener('click', () => setupPostEcriture('note'));
+    document.getElementById('btn-post-skills')?.addEventListener('click', () => setupPostEcriture('amelioration-skills'));
 
     // ─── Boutons d'action ──────────────────────────────────────────────────
     const resultEl = document.getElementById('action-result');
@@ -1327,7 +1371,7 @@ async function renderProjet(container, genre, projet) {
       const btn = e.currentTarget;
       btn.disabled = true;
       btn.textContent = '⏳ Finalisation…';
-      if (resultEl) resultEl.textContent = 'Finalisation en cours…';
+      if (resultEl) resultEl.innerHTML = '<div class="loading"><div class="spinner"></div> Finalisation en cours…</div>';
       try {
         const resp = await fetch(`/api/projets/${genre}/${projet}/finalize`, {
           method: 'POST',
@@ -1335,18 +1379,30 @@ async function renderProjet(container, genre, projet) {
         });
         const data = await resp.json();
         if (data.success) {
-          let html = '✅ Finalisation terminée :<br>';
+          let html = '<div class="progress-container" style="margin-top:8px"><div class="progress-header"><span class="progress-title">✅ Finalisation terminée</span></div><div style="font-size:13px;line-height:1.8">';
           data.results.forEach(r => {
-            if (r.step === 'compilation') html += `  📄 Compilation : ${r.file}<br>`;
-            else if (r.step === 'pdf') html += `  📕 PDF : ${r.status === 'ok' ? r.file : 'non disponible'}<br>`;
-            else if (r.step === 'bilan') html += `  📊 Bilan : ${r.ecrits} textes, ${r.valides} validés<br>`;
+            if (r.step === 'rex') {
+              html += r.status === 'ok'
+                ? `  📋 REX généré : <code>${r.file}</code><br>`
+                : `  📋 REX : ${r.reason || 'ignoré'}<br>`;
+            } else if (r.step === 'compilation') {
+              html += `  📄 Compilation : <code>${r.file}</code><br>`;
+            } else if (r.step === 'archive') {
+              html += `  📦 Archive sources : <code>${r.file}</code><br>`;
+            } else if (r.step === 'pdf') {
+              const pdfStatus = r.status === 'ok' ? `✅ <code>${r.file}</code>` : `❌ ${r.reason || 'non disponible'}`;
+              html += `  📕 PDF : ${pdfStatus}<br>`;
+            } else if (r.step === 'bilan') {
+              html += `  📊 ${r.message || `${r.ecrits} textes, ${r.valides} validés`}<br>`;
+            }
           });
+          html += '</div></div>';
           if (resultEl) resultEl.innerHTML = html;
         } else {
-          if (resultEl) resultEl.textContent = `❌ ${data.error || 'Erreur'}`;
+          if (resultEl) resultEl.innerHTML = `<div class="error">❌ ${data.error || 'Erreur'}</div>`;
         }
       } catch (err) {
-        if (resultEl) resultEl.textContent = `❌ ${err.message}`;
+        if (resultEl) resultEl.innerHTML = `<div class="error">❌ ${err.message}</div>`;
       }
       btn.disabled = false;
       btn.textContent = '📦 Finaliser le projet';
@@ -1433,6 +1489,156 @@ async function lireSkill(nom) {
   }
 }
 
+// ─── Helper : crée une zone de drop stylisée ──────────────────────────────
+function createDropZone({
+  accept = '.md,.txt,.json,.yaml,.yml',
+  hint = 'Markdown, texte, JSON, YAML',
+  multiple = false,
+  subdirs = null,       // [{value, label}] ou null
+  uploadUrl = '/api/knowledge/upload',
+  extraFields = {},     // champs fixes à ajouter au FormData
+  onSuccess = null,
+}) {
+  const zoneId = `dz-${Math.random().toString(36).slice(2, 7)}`;
+  const inputId = `${zoneId}-input`;
+  const statusId = `${zoneId}-status`;
+  const subdirId = subdirs ? `${zoneId}-subdir` : null;
+
+  let html = `<div class="drop-zone" id="${zoneId}" style="border:2px dashed var(--border);border-radius:var(--radius-lg);padding:40px 24px;text-align:center;cursor:pointer;transition:all 0.25s;background:var(--bg-card);position:relative;">
+    <input type="file" id="${inputId}" accept="${accept}" ${multiple ? 'multiple' : ''} style="display:none">
+    <div class="drop-zone-content" id="${zoneId}-content">
+      <div style="font-size:42px;color:var(--text-muted);margin-bottom:12px;opacity:0.5;transition:all 0.25s;">☁️</div>
+      <div style="font-size:15px;font-weight:500;color:var(--text-secondary);margin-bottom:4px;">Glissez-déposez vos fichiers ici</div>
+      <div style="font-size:12px;color:var(--text-muted);margin-bottom:12px;">ou <span style="color:var(--accent);text-decoration:underline;">cliquez pour parcourir</span></div>
+      <div style="font-size:11px;color:var(--text-muted);padding:4px 12px;background:var(--bg-secondary);border-radius:var(--radius-sm);display:inline-block;">${hint}</div>
+    </div>
+    <div class="drop-zone-file" id="${zoneId}-file" style="display:none;font-size:14px;color:var(--text-primary);padding:12px;">
+      <div style="font-size:32px;margin-bottom:8px;">📄</div>
+      <div id="${zoneId}-filename" style="font-weight:500;margin-bottom:4px;"></div>
+      <div id="${zoneId}-filesize" style="font-size:12px;color:var(--text-muted);margin-bottom:12px;"></div>
+      <div style="display:flex;gap:8px;justify-content:center;flex-wrap:wrap;">
+        ${subdirs ? `<select id="${subdirId}" style="background:var(--bg-primary);border:1px solid var(--border);border-radius:var(--radius-sm);padding:8px 12px;color:var(--text-primary);font-size:13px;">
+          ${subdirs.map(s => `<option value="${s.value}">${s.label}</option>`).join('')}
+        </select>` : ''}
+        <button class="btn-primary btn-small" id="${zoneId}-upload">Importer</button>
+        <button class="btn-secondary btn-small" id="${zoneId}-cancel">Annuler</button>
+      </div>
+    </div>
+    <div id="${statusId}" style="font-size:12px;color:var(--text-muted);margin-top:8px;min-height:20px;"></div>
+  </div>`;
+
+  return { html, zoneId, inputId, statusId, subdirId };
+}
+
+function setupDropZone({
+  zoneId, inputId, statusId, subdirId,
+  uploadUrl = '/api/knowledge/upload',
+  extraFields = {},
+  onSuccess = null,
+  multiple = false,
+}) {
+  const zone = document.getElementById(zoneId);
+  const input = document.getElementById(inputId);
+  const statusEl = document.getElementById(statusId);
+  const content = document.getElementById(`${zoneId}-content`);
+  const fileDisplay = document.getElementById(`${zoneId}-file`);
+  const filenameEl = document.getElementById(`${zoneId}-filename`);
+  const filesizeEl = document.getElementById(`${zoneId}-filesize`);
+  const uploadBtn = document.getElementById(`${zoneId}-upload`);
+  const cancelBtn = document.getElementById(`${zoneId}-cancel`);
+  const subdirSelect = subdirId ? document.getElementById(subdirId) : null;
+
+  let selectedFile = null;
+
+  function showFile(file) {
+    selectedFile = file;
+    content.style.display = 'none';
+    fileDisplay.style.display = 'block';
+    filenameEl.textContent = file.name;
+    filesizeEl.textContent = file.size > 1024 * 1024
+      ? `${(file.size / 1024 / 1024).toFixed(1)} Mo`
+      : `${(file.size / 1024).toFixed(0)} Ko`;
+    statusEl.textContent = '';
+  }
+
+  function resetZone() {
+    selectedFile = null;
+    content.style.display = '';
+    fileDisplay.style.display = 'none';
+    statusEl.textContent = '';
+    input.value = '';
+  }
+
+  // Click → file picker
+  zone.addEventListener('click', (e) => {
+    if (e.target.tagName === 'BUTTON' || e.target.tagName === 'SELECT') return;
+    input.click();
+  });
+
+  input.addEventListener('change', () => {
+    if (input.files && input.files[0]) showFile(input.files[0]);
+  });
+
+  // Drag events
+  zone.addEventListener('dragover', (e) => {
+    e.preventDefault();
+    zone.classList.add('drag-over');
+  });
+
+  zone.addEventListener('dragleave', () => {
+    zone.classList.remove('drag-over');
+  });
+
+  zone.addEventListener('drop', (e) => {
+    e.preventDefault();
+    zone.classList.remove('drag-over');
+    const files = e.dataTransfer.files;
+    if (files && files[0]) {
+      // Simuler le changement de l'input pour les fichiers dropped
+      const dt = new DataTransfer();
+      dt.items.add(files[0]);
+      input.files = dt.files;
+      showFile(files[0]);
+    }
+  });
+
+  // Cancel
+  if (cancelBtn) cancelBtn.addEventListener('click', (e) => {
+    e.stopPropagation();
+    resetZone();
+  });
+
+  // Upload
+  if (uploadBtn) uploadBtn.addEventListener('click', async (e) => {
+    e.stopPropagation();
+    if (!selectedFile) { statusEl.textContent = '❌ Sélectionnez un fichier.'; return; }
+    const fd = new FormData();
+    fd.append('file', selectedFile);
+    if (subdirSelect) fd.append('subdir', subdirSelect.value);
+    for (const [k, v] of Object.entries(extraFields)) fd.append(k, v);
+    statusEl.textContent = '⏳ Import en cours…';
+    uploadBtn.disabled = true;
+    try {
+      const resp = await fetch(uploadUrl, { method: 'POST', headers: authHeaders(), body: fd });
+      const data = await resp.json();
+      if (data.success) {
+        statusEl.innerHTML = `✅ <strong>${escHtml(data.file.name || selectedFile.name)}</strong> importé avec succès.`;
+        setTimeout(() => {
+          resetZone();
+          if (onSuccess) onSuccess();
+          else chargerDonnees().then(() => afficherVue(state.view));
+        }, 1000);
+      } else {
+        statusEl.textContent = `❌ ${data.error || 'Erreur'}`;
+        uploadBtn.disabled = false;
+      }
+    } catch (err) {
+      statusEl.textContent = `❌ ${err.message}`;
+      uploadBtn.disabled = false;
+    }
+  });
+}
+
 // ─── KNOWLEDGE ───
 function renderKnowledge(container) {
   const k = state.data.knowledge;
@@ -1453,13 +1659,31 @@ function renderKnowledge(container) {
     }
   }
 
+  const dz = createDropZone({
+    accept: '.md,.txt,.json,.yaml,.yml',
+    hint: 'Markdown (.md), texte (.txt), JSON, YAML',
+    subdirs: [
+      { value: '', label: '📁 Racine knowledge/' },
+      { value: 'style', label: '🎨 notes/style/' },
+      { value: 'scenes', label: '🎬 notes/scenes/' },
+      { value: 'idees', label: '💡 notes/idees/' },
+      { value: 'univers', label: '🌍 notes/univers/' },
+      { value: 'personnages', label: '👤 notes/personnages/' },
+      { value: 'formes', label: '📐 notes/formes/' },
+    ],
+    uploadUrl: '/api/knowledge/upload',
+  });
+
   container.innerHTML = `
     <div class="knowledge-view">
       <h2>◈ Knowledge</h2>
       <p class="subtitle" style="margin-bottom:20px;color:var(--text-secondary);font-size:14px;">
         Base de connaissances partagée — ${allItems.length} fichiers
       </p>
-      <div class="knowledge-grid">
+
+      ${dz.html}
+
+      <div class="knowledge-grid" style="margin-top:24px;">
         ${allItems.map(item => `
           <div class="knowledge-item" data-path="${item.path}" data-title="${item.nom}">
             <div class="knowledge-item-title">
@@ -1472,6 +1696,8 @@ function renderKnowledge(container) {
       </div>
     </div>
   `;
+
+  setupDropZone({ ...dz, onSuccess: () => chargerDonnees().then(() => afficherVue('knowledge')) });
 }
 
 async function lireFichierKnowledge(path, title) {
@@ -1500,13 +1726,24 @@ async function lireFichierKnowledge(path, title) {
 // ─── ÉCHANTILLONS ───
 function renderEchantillons(container) {
   const items = state.data.echantillons || [];
+
+  const dz = createDropZone({
+    accept: '.md,.txt,.pdf,.docx,.doc,.jpg,.jpeg,.png',
+    hint: 'Markdown, texte, PDF, DOCX, images',
+    uploadUrl: '/api/files/upload',
+    extraFields: { category: 'echantillons' },
+  });
+
   container.innerHTML = `
     <div class="knowledge-view">
       <h2>◇ Échantillons</h2>
       <p class="subtitle" style="margin-bottom:20px;color:var(--text-secondary);font-size:14px;">
-        ${items.length} fichier${items.length > 1 ? 's' : ''} — textes bruts fournis par l'utilisateur
+        ${items.length} fichier${items.length > 1 ? 's' : ''} — textes bruts pour l'analyse stylistique
       </p>
-      <div class="knowledge-grid">
+
+      ${dz.html}
+
+      <div class="knowledge-grid" style="margin-top:24px;">
         ${items.map(item => `
           <div class="knowledge-item" data-echantillon="${item.nom}">
             <div class="knowledge-item-title">
@@ -1519,6 +1756,8 @@ function renderEchantillons(container) {
       </div>
     </div>
   `;
+
+  setupDropZone({ ...dz, onSuccess: () => chargerDonnees().then(() => afficherVue('echantillons')) });
 }
 
 // ─── AUTH VIEWS ──────────────────────────────────────────────────────────────
@@ -2066,7 +2305,7 @@ async function renderLogs(container) {
       <div class="knowledge-view">
         <h2>📋 Logs des sessions</h2>
         <p class="subtitle" style="margin-bottom:20px;color:var(--text-secondary);font-size:14px;">
-          ${logs.length} session${logs.length > 1 ? 's' : ''} — historique des commandes OpenCode
+          ${logs.length} entrée${logs.length > 1 ? 's' : ''} — historique par projet${logs.length > 0 ? ' (1 log = 1 projet)' : ''}
         </p>
         <div class="logs-list">
           ${logs.map(log => {
@@ -2076,18 +2315,18 @@ async function renderLogs(container) {
             const durationStr = log.duration ? `${(log.duration / 1000).toFixed(0)}s` : '—';
             const statusIcon = statusIconForLog(log.status);
             const agentLabel = log.agent || '—';
-            return `<div class="log-item" data-slug="${log.slug}">
+            const isProject = log.isProjectLog;
+            const sessionInfo = log.sessionCount > 1 ? ` · ${log.sessionCount} sessions` : '';
+            return `<div class="log-item" data-slug="${log.slug}" style="${isProject ? 'border-left:3px solid var(--accent);' : ''}">
               <div class="log-item-header">
-                <span class="log-status-icon">${statusIcon}</span>
-                <span class="log-agent">${agentLabel}</span>
+                <span class="log-status-icon">${isProject ? '📂' : statusIcon}</span>
+                <span class="log-agent">${isProject ? escHtml(log.projectId || agentLabel) : agentLabel}</span>
                 <span class="log-date">${dateStr} ${timeStr}</span>
                 <span class="log-duration">${durationStr}</span>
-                <span class="log-events-count">${log.eventCount} events</span>
+                <span class="log-events-count">${log.eventCount} events${sessionInfo}</span>
               </div>
               <div class="log-message">${escHtml(log.message || '')}</div>
-              ${log.currentSubagent ? `<div class="log-message">Sous-agent : ${escHtml(log.currentSubagent.type)} · ${escHtml(log.currentSubagent.status || 'en cours')}</div>` : ''}
-              ${log.currentStep ? `<div class="log-message">Étape : ${escHtml(log.currentStep)}</div>` : ''}
-              ${log.warningCount ? `<div class="log-error">⚠️ ${log.warningCount} alerte${log.warningCount > 1 ? 's' : ''} pipeline</div>` : ''}
+              ${log.warningCount ? `<div class="log-error">⚠️ ${log.warningCount} alerte${log.warningCount > 1 ? 's' : ''}</div>` : ''}
               ${log.error ? `<div class="log-error">${escHtml(log.error)}</div>` : ''}
             </div>`;
           }).join('')}
@@ -2115,9 +2354,19 @@ async function renderLogDetail(container, slug) {
     const date = new Date(log.timestamp);
     const statusIcon = statusIconForLog(log.status);
     const durationStr = log.duration ? `${(log.duration / 1000).toFixed(1)}s` : '—';
+    const isProject = !!log.projectId;
+    const sessionCount = log.sessionCount || 1;
 
     // Reconstruire le terminal (même rendu que le live)
     let terminalHtml = '';
+
+    // Pour les logs projet, ajouter un en-tête de session
+    if (isProject && sessionCount > 1) {
+      terminalHtml += `<div class="term-line term-meta" style="border-bottom:1px solid var(--border);margin-bottom:8px;padding-bottom:4px;">
+        📂 Projet : ${escHtml(log.projectId)} · ${sessionCount} sessions · ${log.totalEvents || log.events.length} events
+      </div>`;
+    }
+
     for (const evt of log.events || []) {
       const ts = evt.timestamp ? new Date(evt.timestamp).toLocaleTimeString() : '';
       const time = ts ? `<span class="term-time">${ts}</span>` : '';
@@ -2239,7 +2488,9 @@ async function renderRecentActivity(container) {
             const dateStr = date.toLocaleDateString();
             const timeStr = date.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
             const statusIcon = statusIconForLog(log.status);
-            const agentLabel = (log.agent || '').replace('orchestrateur-', '');
+            const agentLabel = log.isProjectLog
+              ? `📂 ${log.projectId}`
+              : (log.agent || '').replace('orchestrateur-', '');
             return `<div class="log-item" data-slug="${log.slug}" onclick="afficherVue('logs')" style="cursor:pointer;">
               <div class="log-item-header">
                 <span class="log-status-icon">${statusIcon}</span>

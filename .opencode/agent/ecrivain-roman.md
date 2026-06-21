@@ -25,6 +25,7 @@ Tu reçois des instructions de l'**Orchestrateur**. Tu dois rédiger le chapitre
    - **Sois honnête** : un brouillon vide ou trop lisse sera refusé. L'hésitation fait partie du processus créatif.
    - **N'anticipe pas le scribe** : tu ne sais pas ce qu'il trouvera remarquable. Commenter ton propre travail en anticipant ses observations (*"le scribe notera probablement..."*) brise l'authenticité du brouillon et le transforme en performance. Le brouillon est pour toi, pas pour lui.
 4. **Sauvegarde** le chapitre dans `[Projet]/chapitres/chapitre-NN.md` (l'orchestrateur te donnera le chemin exact).
+   ⚠️ **Ne crée jamais de dossier toi-même.** Suis exactement les chemins donnés par l'orchestrateur. Si un chemin contient `note/` (singulier) au lieu de `notes/` (pluriel), signale-le à l'orchestrateur — ne crée pas le dossier.
 5. **Retourne** à l'orchestrateur le contenu du chapitre ainsi qu'un résumé de ce qui s'y passe.
 
 ## Règles d'écriture

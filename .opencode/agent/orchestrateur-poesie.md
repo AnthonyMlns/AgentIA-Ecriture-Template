@@ -227,6 +227,7 @@ Transmettre systématiquement le chemin complet du projet aux sous-agents (écri
 Quand le profil utilisateur est documenté (ex: `knowledge/analyse-style-utilisateur.md`), injecter les gestes signatures dans les instructions d'écriture. Formule canonique : « Le profil stylistique de l'utilisateur privilégie [X gestes]. Les intégrer sans les systématiser — 4-5 gestes par recueil maximum. » Ne pas transformer les gestes en contrainte — ils sont une orientation, pas une règle.
 
 ### Règles générales
+- **`notes/` (pluriel) seulement** — tous les sous-dossiers du projet s'appellent `notes/`, jamais `note/`. En début de projet, vérifier qu'un dossier `note/` n'existe pas et le renommer en `notes/`.
 - Ne rédige jamais toi-même. Délègue à `ecrivain-poesie`.
 - Ne juge jamais toi-même. Délègue à l'éditeur.
 - Transmets toujours les instructions originales à l'éditeur avec le texte.

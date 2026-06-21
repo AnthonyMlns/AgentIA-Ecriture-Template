@@ -169,6 +169,7 @@ Documente dans `[Projet]/bd-connaissances.md`, section `## Contraintes utilisate
 - Transmets toujours les instructions originales à l'éditeur avec le texte.
 - Toute modification d'un fait concret doit être vérifiée dans toutes les [unités] suivantes.
 - Informe l'utilisateur après chaque cycle validé.
+- **`notes/` (pluriel) seulement** — tous les sous-dossiers du projet s'appellent `notes/`, jamais `note/`. En début de projet, vérifier qu'un dossier `note/` n'existe pas (et le renommer en `notes/` si c'est le cas).
 - [PLACEHOLDER — règles spécifiques au genre]
 
 ### Transmettre le chemin absolu

@@ -261,13 +261,6 @@ function saveApiKeys(keys) {
   writeJSON(APIKEYS_FILE, keys);
 }
 
-function getApiKey(userId) {
-  const keys = loadApiKeys();
-  const encrypted = keys[userId];
-  if (!encrypted) return null;
-  return decrypt(encrypted.key);
-}
-
 function getApiKeyMeta(userId) {
   const keys = loadApiKeys();
   return keys[userId] ? { provider: keys[userId].provider, hasKey: true } : { hasKey: false };
@@ -304,13 +297,6 @@ function saveQuotas(quotas) {
 function getUserQuota(userId) {
   const quotas = loadQuotas();
   return quotas[userId] || { projets: [], limiteProjets: 3, unitesParProjet: 5 };
-}
-
-function incrementProjetCount(userId) {
-  const quotas = loadQuotas();
-  if (!quotas[userId]) quotas[userId] = { projets: [], limiteProjets: 3, unitesParProjet: 5 };
-  saveQuotas(quotas);
-  return quotas[userId];
 }
 
 function loadInvites() {
@@ -507,10 +493,8 @@ module.exports = {
   deleteInvite,
   getUserStyle,
   setUserStyle,
-  getApiKey,
   getApiKeyMeta,
   setApiKey,
   deleteApiKey,
   getUserQuota,
-  incrementProjetCount,
 };

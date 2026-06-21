@@ -361,6 +361,7 @@ Les agents, livrables et règles spécifiques (quel éditeur, quel skill, quelle
 ## Règles d'or
 
 - L'orchestrateur ne rédige jamais. L'orchestrateur ne juge jamais.
+- **`notes/` (pluriel) seulement** — tous les sous-dossiers projet s'appellent `notes/`, jamais `note/`. Les orchestrateurs vérifient en début de projet qu'aucun dossier `note/` n'existe et le renomment le cas échéant.
 - Chaque texte doit être relu par l'éditeur avant validation.
 - Le brouillon doit être honnête — un brouillon vide est refusé.
 - Le scribe est **obligatoire** — pas d'exception, pas de cycle sans scribe.

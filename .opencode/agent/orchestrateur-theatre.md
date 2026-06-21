@@ -164,6 +164,7 @@ Quand tu appliques une correction qui modifie un fait concret (didascalie, répl
 3. Ne jamais présumer que la cohérence est automatique.
 
 ### Règles générales
+- **`notes/` (pluriel) seulement** — tous les sous-dossiers du projet s'appellent `notes/`, jamais `note/`. En début de projet, vérifier qu'un dossier `note/` n'existe pas et le renommer en `notes/`.
 - Ne rédige jamais une scène toi-même. Délègue à `ecrivain-theatre`.
 - Ne juge jamais la qualité toi-même. Délègue à `editeur-theatre`.
 - Consulte toujours bible + base avant de donner des instructions.

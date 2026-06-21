@@ -29,11 +29,87 @@ const ECHANTILLONS = path.join(ROOT, 'echantillons');
 const AGENTS_DIR = path.join(ROOT, '.opencode', 'agent');
 
 // ─── Helper : résoudre le chemin projet ────────────────────────────────────
-// Tous les projets sont dans projets/ (global) pour que les agents opencode
-// puissent y accéder (cwd = ROOT). Le répertoire user-specific n'est pas
-// utilisé pour les projets — uniquement pour les échantillons et uploads.
+// Si l'utilisateur est connecté, on utilise son dossier spécifique
+// (users/{id}/projets/). Sinon, on tombe sur le dossier global.
+// Les agents OpenCode écrivent dans projets/ (global, car lancés depuis ROOT),
+// donc on auto-synchronise du global vers l'utilisateur à la première lecture.
 function userProjets(req) {
+  if (req && req.user) return auth.userProjetsDir(req.user.id);
   return GLOBAL_PROJETS;
+}
+
+/**
+ * Synchronise un projet depuis le dossier global projets/ vers le dossier
+ * utilisateur s'il n'y est pas encore. Permet aux agents OpenCode (qui
+ * écrivent dans le global depuis ROOT) de cohabiter avec l'interface user.
+ */
+function ensureUserProject(req, genre, nom) {
+  if (!req || !req.user) return;
+  const userDir = auth.userProjetsDir(req.user.id);
+  const userProjPath = path.join(userDir, genre, nom);
+  const globalProjPath = path.join(GLOBAL_PROJETS, genre, nom);
+
+  if (!fs.existsSync(userProjPath) && fs.existsSync(globalProjPath)) {
+    console.error(`[sync] Copie ${genre}/${nom} : global → utilisateur ${req.user.id}`);
+    fs.mkdirSync(path.dirname(userProjPath), { recursive: true });
+    try {
+      fs.cpSync(globalProjPath, userProjPath, { recursive: true });
+    } catch (err) {
+      console.error(`[sync] Erreur copie ${genre}/${nom} : ${err.message}`);
+    }
+  }
+}
+
+/**
+ * Synchronise tous les projets du dossier global projets/ vers le dossier
+ * utilisateur. Appelé au chargement du tableau de bord et du statut global.
+ */
+function syncAllGlobalToUser(req) {
+  if (!req || !req.user) return;
+  const userDir = auth.userProjetsDir(req.user.id);
+  for (const g of GENRES) {
+    const globalGenre = path.join(GLOBAL_PROJETS, g.slug);
+    if (!fs.existsSync(globalGenre)) continue;
+    for (const nom of fs.readdirSync(globalGenre).filter(d => !d.startsWith('.'))) {
+      const userProj = path.join(userDir, g.slug, nom);
+      const globalProj = path.join(globalGenre, nom);
+      if (!fs.existsSync(userProj) && fs.existsSync(path.join(globalProj, 'bible.md'))) {
+        fs.mkdirSync(path.dirname(userProj), { recursive: true });
+        try {
+          fs.cpSync(globalProj, userProj, { recursive: true });
+          console.error(`[sync] Copie globale → user : ${g.slug}/${nom}`);
+        } catch (err) {
+          console.error(`[sync] Erreur ${g.slug}/${nom} : ${err.message}`);
+        }
+      }
+    }
+  }
+}
+
+/**
+ * Déplace un projet du dossier global projets/ vers le dossier utilisateur
+ * APRÈS qu'une session OpenCode l'a créé/modifié dans le global.
+ * C'est ce qui assure que les projets "atterrissent" dans le bon dossier user.
+ * Le projet n'existe plus dans le global après le déplacement.
+ */
+function moveProjectToUserDir(req, genre, nom) {
+  if (!req || !req.user) return;
+  const userProj = path.join(auth.userProjetsDir(req.user.id), genre, nom);
+  const globalProj = path.join(GLOBAL_PROJETS, genre, nom);
+  if (!fs.existsSync(globalProj)) return;
+  fs.mkdirSync(path.dirname(userProj), { recursive: true });
+  if (fs.existsSync(userProj)) {
+    // Déjà dans user → purger le global
+    fs.rmSync(globalProj, { recursive: true, force: true });
+    return;
+  }
+  try {
+    fs.cpSync(globalProj, userProj, { recursive: true });
+    fs.rmSync(globalProj, { recursive: true, force: true });
+    console.error(`[move] Projet ${genre}/${nom} → user ${req.user.id}`);
+  } catch (err) {
+    console.error(`[move] Erreur ${genre}/${nom} : ${err.message}`);
+  }
 }
 
 function userEchantillons(req) {
@@ -458,6 +534,8 @@ app.use('/api', (req, res, next) => {
 
 // --- Liste des genres + projets (avec progression) ---
 app.get('/api/projets', (req, res) => {
+  // Synchroniser tous les projets du global vers l'utilisateur
+  syncAllGlobalToUser(req);
   const projetsBase = userProjets(req);
   const data = GENRES.map(g => ({
     ...g,
@@ -475,6 +553,7 @@ app.get('/api/projets', (req, res) => {
 // --- Structure détaillée d'un projet (avec progression) ---
 app.get('/api/projets/:genre/:nom/structure', (req, res) => {
   const { genre, nom } = req.params;
+  ensureUserProject(req, genre, nom);
   const projetsBase = userProjets(req);
   if (!projetExists(genre, nom, projetsBase)) return res.status(404).json({ error: 'Projet introuvable' });
   const struct = structureProjet(genre, nom, projetsBase);
@@ -488,6 +567,7 @@ app.get('/api/projets/:genre/:nom/structure', (req, res) => {
 // --- Lecture d'un fichier quelconque ---
 app.get('/api/projets/:genre/:nom/fichier', (req, res) => {
   const { genre, nom } = req.params;
+  ensureUserProject(req, genre, nom);
   const relPath = req.query.path;
   const projetsBase = userProjets(req);
   if (!relPath) return res.status(400).json({ error: 'Paramètre path requis' });
@@ -548,6 +628,66 @@ app.get('/api/knowledge', (req, res) => {
   res.json({ fichiers, dossiers });
 });
 
+// --- Upload d'un fichier dans knowledge/notes/ ---
+// Multipart: file + sous-dossier (style|scenes|idees|univers|personnages|formes)
+const multer = require('multer');
+const knowledgeStorage = multer.diskStorage({
+  destination: (req, file, cb) => {
+    const subdir = req.body.subdir || '';
+    const allowed = ['style', 'scenes', 'idees', 'univers', 'personnages', 'formes', ''];
+    const safe = allowed.includes(subdir) ? subdir : '';
+    const dest = path.join(KNOWLEDGE, 'notes', safe);
+    fs.mkdirSync(dest, { recursive: true });
+    cb(null, dest);
+  },
+  filename: (req, file, cb) => {
+    const ext = path.extname(file.originalname);
+    const base = path.basename(file.originalname, ext).replace(/[^a-zA-Z0-9-_]/g, '_').slice(0, 80);
+    cb(null, `${base}${ext}`);
+  }
+});
+const knowledgeUpload = multer({
+  storage: knowledgeStorage,
+  limits: { fileSize: 10 * 1024 * 1024 },
+  fileFilter: (req, file, cb) => {
+    const allowed = ['.md', '.txt', '.json', '.yaml', '.yml'];
+    const ext = path.extname(file.originalname).toLowerCase();
+    if (allowed.includes(ext)) return cb(null, true);
+    cb(new Error(`Format non supporté : ${ext}. Formats acceptés : ${allowed.join(', ')}`));
+  }
+});
+app.post('/api/knowledge/upload', auth.authMiddleware, (req, res) => {
+  knowledgeUpload.single('file')(req, res, (err) => {
+    if (err) return res.status(400).json({ error: err.message });
+    if (!req.file) return res.status(400).json({ error: 'Aucun fichier fourni.' });
+
+    // Traitement : envelopper le fichier texte avec un en-tête
+    const ext = path.extname(req.file.originalname).toLowerCase();
+    if (['.md', '.txt'].includes(ext)) {
+      try {
+        const subdir = req.body.subdir || '';
+        const label = subdir ? `notes/${subdir}/` : 'knowledge/';
+        const header = `---
+type: note-utilisateur
+categorie: ${subdir || 'racine'}
+importe_le: ${new Date().toISOString()}
+---
+
+*Note importée le ${new Date().toLocaleDateString('fr-FR')} dans ${label}*\n\n`;
+        const content = fs.readFileSync(req.file.path, 'utf-8');
+        // Éviter le double-enrobage si le fichier a déjà un frontmatter
+        if (!content.startsWith('---')) {
+          fs.writeFileSync(req.file.path, header + content, 'utf-8');
+        }
+      } catch (e) {
+        console.error(`[knowledge] Erreur traitement ${req.file.filename}: ${e.message}`);
+      }
+    }
+
+    res.json({ success: true, file: { name: req.file.filename, path: req.file.path, size: req.file.size } });
+  });
+});
+
 // --- Lecture d'un fichier knowledge ---
 app.get('/api/knowledge/fichier', (req, res) => {
   const relPath = req.query.path;
@@ -575,6 +715,7 @@ app.get('/api/echantillons', (req, res) => {
 
 // --- Statut global (avec progression) ---
 app.get('/api/statut', (req, res) => {
+  syncAllGlobalToUser(req);
   const projetsBase = userProjets(req);
   const data = GENRES.map(g => ({
     ...g,
@@ -595,6 +736,7 @@ app.get('/api/statut', (req, res) => {
 // --- Progression d'un projet spécifique ---
 app.get('/api/projets/:genre/:nom/progression', (req, res) => {
   const { genre, nom } = req.params;
+  ensureUserProject(req, genre, nom);
   const projetsBase = userProjets(req);
   if (!projetExists(genre, nom, projetsBase)) return res.status(404).json({ error: 'Projet introuvable' });
   const prog = calculerProgression(genre, nom, projetsBase);
@@ -605,6 +747,7 @@ app.get('/api/projets/:genre/:nom/progression', (req, res) => {
 // --- Diagnostic de reprise : artefacts attendus/manquants ---
 app.get('/api/projets/:genre/:nom/recovery', (req, res) => {
   const { genre, nom } = req.params;
+  ensureUserProject(req, genre, nom);
   const projetsBase = userProjets(req);
   if (!projetExists(genre, nom, projetsBase)) return res.status(404).json({ error: 'Projet introuvable' });
   res.json(detectRecoveryState(genre, nom, projetsBase));
@@ -777,10 +920,21 @@ app.post('/api/opencode/run', auth.authMiddleware, (req, res) => {
   // Lancer depuis ROOT pour que les agents .opencode/agent/ soient trouvés.
   let result;
   try {
-    result = runCommand(mapping.agent, message, { command: mapping.command, userId: req.user.id });
+    result = runCommand(mapping.agent, message, {
+      command: mapping.command,
+      userId: req.user.id,
+      projectId: `${genre}/${titre}`,
+    });
   } catch (err) {
     return res.status(500).json({ error: `Erreur au lancement : ${err.message}` });
   }
+
+  // Rattacher le déplacement user AVANT streamSSE pour garantir l'ordre des listeners
+  result.emitter.on('close', (code) => {
+    if (code === 0 && genre && titre) {
+      moveProjectToUserDir(req, genre, titre);
+    }
+  });
 
   streamSSE(req, res, result, { agent: mapping.agent, command: mapping.command, titre, genre });
 });
@@ -805,6 +959,22 @@ app.get('/api/logs/:slug', auth.authMiddleware, (req, res) => {
 // Body: { registre, filRouge } — réponses pré-flight optionnelles
 app.post('/api/projets/:genre/:nom/continue', auth.authMiddleware, (req, res) => {
   const { genre, nom } = req.params;
+
+  // Avant de lancer l'agent (qui écrit dans global), on s'assure que le projet
+  // est dans le global. Si l'utilisateur l'a dans son user dir mais pas dans le
+  // global (déplacé après création), on le re-synchronise vers le global.
+  if (req.user) {
+    const globalProj = path.join(GLOBAL_PROJETS, genre, nom);
+    const userProj = path.join(auth.userProjetsDir(req.user.id), genre, nom);
+    if (!fs.existsSync(globalProj) && fs.existsSync(userProj)) {
+      console.error(`[sync] Re-copie user → global pour reprise : ${genre}/${nom}`);
+      fs.mkdirSync(path.dirname(globalProj), { recursive: true });
+      try { fs.cpSync(userProj, globalProj, { recursive: true }); } catch (err) {
+        console.error(`[sync] Erreur re-copie ${genre}/${nom} : ${err.message}`);
+      }
+    }
+  }
+
   const projetsBase = userProjets(req);
   if (!projetExists(genre, nom, projetsBase)) {
     return res.status(404).json({ error: 'Projet introuvable.' });
@@ -838,10 +1008,21 @@ app.post('/api/projets/:genre/:nom/continue', auth.authMiddleware, (req, res) =>
 
   let result;
   try {
-    result = runCommand(mapping.agent, message, { userId: req.user.id, expectedFiles: recovery.expectedFiles || [] });
+    result = runCommand(mapping.agent, message, {
+      userId: req.user.id,
+      expectedFiles: recovery.expectedFiles || [],
+      projectId: `${genre}/${nom}`,
+    });
   } catch (err) {
     return res.status(500).json({ error: `Erreur au lancement : ${err.message}` });
   }
+
+  // Rattacher le déplacement user après session réussie
+  result.emitter.on('close', (code) => {
+    if (code === 0 && genre && nom) {
+      moveProjectToUserDir(req, genre, nom);
+    }
+  });
 
   // Streamé en SSE (comme /run) pour afficher la reprise en direct dans l'UI.
   streamSSE(req, res, result, { kind: 'continue', agent: mapping.agent, genre, titre: nom });
@@ -849,8 +1030,10 @@ app.post('/api/projets/:genre/:nom/continue', auth.authMiddleware, (req, res) =>
 
 // ─── Finaliser un projet ─────────────────────────────────────────────────────
 // POST /api/projets/:genre/:nom/finalize
+// Exécute la boucle complète : REX → compilation → PDF → archivage
 app.post('/api/projets/:genre/:nom/finalize', auth.authMiddleware, async (req, res) => {
   const { genre, nom } = req.params;
+  ensureUserProject(req, genre, nom);
   const projetsBase = userProjets(req);
   if (!projetExists(genre, nom, projetsBase)) {
     return res.status(404).json({ error: 'Projet introuvable.' });
@@ -859,22 +1042,46 @@ app.post('/api/projets/:genre/:nom/finalize', auth.authMiddleware, async (req, r
   const base = path.join(projetsBase, genre, nom);
   const textesDir = path.join(base, UNIT_DIRS[genre] || 'textes');
   const versionsDir = path.join(base, 'versions');
-
+  const notesDir = path.join(base, 'notes');
   const results = [];
 
-  // 1. Compiler tous les textes en un seul fichier
+  // ── 1. REX : compiler les observations en rex.md ───────────────────────────
+  const observations = lireFichier(path.join(notesDir, 'observations.md'));
+  const propositions = lireFichier(path.join(notesDir, 'propositions-skills.md'));
+  const rexTemplate = lireFichier(path.join(KNOWLEDGE, 'rex-template.md')) ||
+    '# REX — {{projet}}\n\nDate : {{date}}\n\n## Observations\n{{observations}}\n\n## Propositions skills\n{{propositions}}';
+
+  if (observations || propositions) {
+    fs.mkdirSync(notesDir, { recursive: true });
+    const rexPath = path.join(notesDir, 'rex.md');
+    const rexContent = rexTemplate
+      .replace(/\{\{projet\}\}/g, nom)
+      .replace(/\{\{genre\}\}/g, genre)
+      .replace(/\{\{date\}\}/g, new Date().toLocaleDateString('fr-FR'))
+      .replace(/\{\{observations\}\}/g, observations || '*Aucune observation*')
+      .replace(/\{\{propositions\}\}/g, propositions || '*Aucune proposition*');
+    fs.writeFileSync(rexPath, rexContent, 'utf-8');
+    results.push({ step: 'rex', file: 'notes/rex.md', status: 'ok' });
+  } else {
+    results.push({ step: 'rex', status: 'ignore', reason: 'Aucune observation à compiler' });
+  }
+
+  // ── 2. Compiler tous les textes en un seul fichier ─────────────────────────
+  let fichiersTextes = [];
   if (fs.existsSync(textesDir)) {
-    const files = fs.readdirSync(textesDir)
+    fichiersTextes = fs.readdirSync(textesDir)
       .filter(f => f.endsWith('.md') && !f.startsWith('brouillon-') && !f.startsWith('avis-') && !f.startsWith('_'));
 
-    if (files.length > 0) {
+    if (fichiersTextes.length > 0) {
       fs.mkdirSync(versionsDir, { recursive: true });
       const compilationPath = path.join(versionsDir, `${nom}-complet.md`);
-      let compilation = `# ${nom}\n\n*Recueil complet — généré le ${new Date().toLocaleDateString('fr-FR')}*\n\n---\n\n`;
+      const genreLabel = (GENRES.find(g => g.slug === genre) || {}).label || genre;
+      let compilation = `# ${nom}\n\n*${genreLabel} — Compilation finale — ${new Date().toLocaleDateString('fr-FR')}*\n\n---\n\n`;
 
-      files.sort().forEach(f => {
+      fichiersTextes.sort().forEach(f => {
         const content = lireFichier(path.join(textesDir, f));
         if (content) {
+          compilation += `## ${f.replace('.md', '')}\n\n`;
           compilation += content;
           compilation += '\n\n---\n\n';
         }
@@ -885,7 +1092,25 @@ app.post('/api/projets/:genre/:nom/finalize', auth.authMiddleware, async (req, r
     }
   }
 
-  // 2. Essayer de générer un PDF
+  // ── 3. Générer une archive des fichiers source ────────────────────────────
+  const archivePath = path.join(versionsDir, `${nom}-sources.md`);
+  let archive = `# ${nom} — Archive des sources\n\n*Généré le ${new Date().toLocaleDateString('fr-FR')}*\n\n`;
+  archive += `- Genre : ${genre}\n`;
+  archive += `- Textes : ${fichiersTextes.length}\n`;
+  archive += `- Dossier : ${base}\n\n---\n\n`;
+
+  // Lire et inclure la bible
+  const bible = lireFichier(path.join(base, 'bible.md'));
+  if (bible) archive += `## Bible\n\n${bible}\n\n---\n\n`;
+
+  // Lire et inclure les notes
+  if (observations) archive += `## Observations du scribe\n\n${observations}\n\n---\n\n`;
+  if (propositions) archive += `## Propositions d'amendement des skills\n\n${propositions}\n\n`;
+
+  fs.writeFileSync(archivePath, archive, 'utf-8');
+  results.push({ step: 'archive', file: `${nom}-sources.md`, status: 'ok' });
+
+  // ── 4. Essayer de générer un PDF ──────────────────────────────────────────
   // Sécurité (S2) : execFileSync avec un tableau d'arguments — PAS de shell,
   // donc le nom de projet (`nom`, segment d'URL) ne peut pas injecter de
   // commande même s'il contient " ; $() ` & etc.
@@ -914,7 +1139,7 @@ app.post('/api/projets/:genre/:nom/finalize', auth.authMiddleware, async (req, r
     results.push({ step: 'pdf', status: 'ignore', reason: 'Pandoc non disponible' });
   }
 
-  // 3. Vérifier les fichiers produits
+  // ── 5. Bilan ──────────────────────────────────────────────────────────────
   let ecrits = 0, valides = 0;
   if (fs.existsSync(textesDir)) {
     const allFiles = fs.readdirSync(textesDir);
@@ -922,9 +1147,56 @@ app.post('/api/projets/:genre/:nom/finalize', auth.authMiddleware, async (req, r
     valides = allFiles.filter(f => f.startsWith('avis-editeur-')).length;
   }
 
-  results.push({ step: 'bilan', ecrits, valides, status: 'ok' });
+  const notesCount = observations ? observations.split('\n').filter(l => l.trim()).length : 0;
+  results.push({
+    step: 'bilan',
+    ecrits,
+    valides,
+    notesCount,
+    status: 'ok',
+    message: `${ecrits} textes, ${valides} validés, ${notesCount} observations scribe`
+  });
 
   res.json({ success: true, results });
+});
+
+// ─── Consignes post-écriture ─────────────────────────────────────────────────
+// POST /api/projets/:genre/:nom/post-ecriture
+// Body: { feedback, type } — type = "relecture" | "amelioration-skills" | "note"
+// Sauvegarde le feedback dans notes/propositions-skills.md et/ou notes/observations.md
+app.post('/api/projets/:genre/:nom/post-ecriture', auth.authMiddleware, (req, res) => {
+  const { genre, nom } = req.params;
+  ensureUserProject(req, genre, nom);
+  const projetsBase = userProjets(req);
+  if (!projetExists(genre, nom, projetsBase)) {
+    return res.status(404).json({ error: 'Projet introuvable.' });
+  }
+  const { feedback, type = 'note' } = req.body;
+  if (!feedback || !feedback.trim()) {
+    return res.status(400).json({ error: 'Le feedback est requis.' });
+  }
+
+  const notesDir = path.join(projetsBase, genre, nom, 'notes');
+  fs.mkdirSync(notesDir, { recursive: true });
+
+  const now = new Date().toISOString();
+  const header = `\n---\n## Consigne post-écriture (${type})\n*Date : ${now}*\n\n`;
+
+  if (type === 'amelioration-skills') {
+    // Écrire dans propositions-skills.md (pour agent-style)
+    const propsPath = path.join(notesDir, 'propositions-skills.md');
+    let existing = lireFichier(propsPath) || '';
+    existing += `${header}${feedback.trim()}\n`;
+    fs.writeFileSync(propsPath, existing, 'utf-8');
+    res.json({ success: true, savedTo: 'propositions-skills.md', type });
+  } else {
+    // Écrire dans observations.md (scribe)
+    const obsPath = path.join(notesDir, 'observations.md');
+    let existing = lireFichier(obsPath) || '';
+    existing += `${header}${feedback.trim()}\n`;
+    fs.writeFileSync(obsPath, existing, 'utf-8');
+    res.json({ success: true, savedTo: 'observations.md', type });
+  }
 });
 
 // --- Fallback SPA : servir index.html pour les routes non-API ---

@@ -24,6 +24,7 @@ Tu reçois des instructions de l'**Orchestrateur** pour écrire un poème ou une
    - Les alternatives envisagées
    - Le choix retenu et pourquoi
 5. **Sauvegarde** le(s) poème(s) dans le fichier demandé (ex: `section-NN.md`).
+   ⚠️ **Ne crée jamais de dossier toi-même.** Suis exactement les chemins donnés par l'orchestrateur. Si un chemin contient `note/` (singulier) au lieu de `notes/` (pluriel), signale-le à l'orchestrateur — ne crée pas le dossier.
 6. **Retourne** à l'orchestrateur le contenu du poème ainsi qu'un résumé de ce qui a été écrit.
 
 ## Règles d'écriture poétique

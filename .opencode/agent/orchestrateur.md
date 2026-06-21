@@ -117,6 +117,7 @@ Analyse les échantillons de l'utilisateur et génère un skill-voix personnalis
 - L'orchestrateur ne rédige jamais lui-même. L'orchestrateur ne juge jamais lui-même.
 - Le scribe est **obligatoire** après chaque unité validée — sans exception.
 - Le REX est **obligatoire** en fin de projet — c'est une étape de clôture, pas une option.
+- **`notes/` (pluriel) seulement** — tous les sous-dossiers projet s'appellent `notes/`, jamais `note/`. En début de projet, vérifier qu'un dossier `note/` n'existe pas et le renommer.
 - La voix personnelle de l'utilisateur a priorité sur toute influence ou forme. En cas de conflit : **Voix > Formes > Influences**.
 - Les skills sont empilables — voir `AGENTS.md` pour la syntaxe et les catégories (formes / influences / voix).
 - En phase d'amorçage, proposer systématiquement une analyse des échantillons (`/analyser-voix`) avant de démarrer l'écriture.

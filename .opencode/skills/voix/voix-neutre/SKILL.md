@@ -31,6 +31,7 @@ maturité: testé
 - **Respiration** : alterner les longueurs de phrases et la densité des alinéas pour éviter la monotonie. Pas de règle fixe, mais l'éditeur signale si le rythme est uniforme.
 - **Incarnation** : les émotions sont portées par des gestes, des objets, des sensations physiques — pas par des abstractions. Ce principe est actif même sans influence sélectionnée.
   **Variante — Geste quotidien universel** : un geste que tout le monde reconnaît (téléphone, clé, tasse, interrupteur) peut porter à lui seul le sujet d'un chapitre. Le geste quotidien ancre la réflexion dans une expérience partagée. Il peut revenir en leitmotiv et créer des bouclages d'objet entre chapitres. L'objet choisi gagne à être générique pour permettre la projection du lecteur, précis pour créer l'effet de réel. Cette variante est transversale à tous les genres. *(Version spécifique à l'essai : voir `ecriture-essai-litteraire`, section Ouverture, variante « Ancrage par le geste quotidien universel ».)*
+- **Adaptation au POV** : la voix neutre n'est pas une voix unique. Elle s'adapte au personnage dont on suit le point de vue. Dante (incarné, sensoriel) et Mephiston (froid, abstrait) peuvent avoir des voix distinctes sous le même skill. La voix émerge du personnage, pas d'une prescription stylistique.
 - **Non-dit** : tout n'a pas besoin d'être explicité. Laisser des blancs, des ellipses, des questions sans réponse. Le lecteur participe à la construction du sens.
 - **Précision** : nommer les choses avec exactitude (marque, matière, lumière, état). Éviter les génériques quand le spécifique est disponible.
 
@@ -58,5 +59,8 @@ Aucune référence n'est pré-inscrite dans ce skill. Les références émergent
 | *Bouclier d'Achille* | Essai (empilage épique) | 1 | 100 % (1/1) | 04/06/2026 |
 | *Boucliers-Épiques* | Essai | 1 | 100 % (1/1) | 04/06/2026 |
 | *Petit traité sur la déconnexion* | Essai | 6 | 100 % (6/6) | 07/06/2026 |
+| *Recueil Test* | Poésie | 10 | 100 % (10/10) | 21/06/2026 |
+| *Le Romantisme est Mort* | Poésie | 10 | 100 % (10/10) | 21/06/2026 |
+| *Sanguinius — La Mort Retardée* | Roman | 14 | 100 % (14/14) | 21/06/2026 |
 
-<!-- REX — Voix neutre utilisée comme défaut sur tous les projets antérieurs à la création d'une voix personnalisée. Maturité testé par règle système (AGENTS.md). Mis à jour le 21/06/2026 — ajout REX block. -->
+<!-- REX — Voix neutre utilisée comme défaut sur tous les projets antérieurs à la création d'une voix personnalisée. Maturité testé par règle système (AGENTS.md). Mis à jour le 21/06/2026 — ajout REX block. Mis à jour le 21/06/2026 — ajout Recueil Test (poésie, 10 poèmes, 100 %). -->
