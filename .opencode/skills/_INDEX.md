@@ -42,6 +42,7 @@ Ces skills sont des **propositions esthétiques** que l'utilisateur peut choisir
 | `roman-espionnage` | Roman d'espionnage réaliste — atmosphère Le Carré, méfiance, zones grises | ✅ Actif |
 | `roman-romance` | Romance littéraire — relations complexes, non-dits, gestes minuscules, émotion retenue | ✅ Actif |
 | `roman-litteraire` | Roman littéraire général — prose soignée, psychologie des personnages, ambiances | ✅ Actif |
+| `roman-fantasy` | Fantasy mature — low magic, bestiaire naturaliste, guildes, politique par le monde | ✅ Actif |
 
 
 
@@ -66,4 +67,4 @@ Ces skills sont **créés automatiquement** par l'agent-style à partir des éch
 
 ---
 
-*Dernière mise à jour : 19/06/2026 — refonte architecture : formes/ (structure) + influences/ (esthétique) + voix/ (généré)*
+*Dernière mise à jour : 22/06/2026 — ajout `roman-fantasy`*

@@ -20,6 +20,8 @@ maturité: testé
 - **Les échantillons sont la boussole** : si l'utilisateur a déposé des textes dans `echantillons/`, l'agent-style les analyse et produit des signatures (cf. `knowledge/analyse-style-utilisateur.md`). Ces signatures sont intégrées comme des « pistes » et non des « règles ».
 - **Les tics involontaires sont des données** : les modérateurs systématiques ("un peu", "quelque chose de"), les patterns de correction (tiret → deux-points), les isotopies involontaires (eau, feu) sont documentés dans `knowledge/analyse-style-utilisateur.md` et signalés à l'éditeur comme éléments de vigilance — pas comme des interdits.
 - **La neutralité n'est pas le silence** : ne pas imposer de style ne signifie pas écrire sans intention. Les contraintes formelles du genre (sonnet, alexandrin, dialogue de théâtre) et la structure du projet (arc narratif, progression thématique) sont actives.
+- **Présence par le silence** : le personnage principal peut s'exprimer davantage par ses gestes, ses rituels et ses silences que par ses dialogues. Les émotions ne sont pas nommées — elles passent par des micro-gestes répétés (régler une sangle, souffler une bougie éteinte, éviter une marche qui bouge). Les objets du personnage deviennent des extensions de son état émotionnel : un accessoire allumé/éteint signale l'inquiétude, un carquois vérifié trois fois trahit l'anxiété.
+- **Rituel comme signature** : un geste répété à chaque occurrence (éviter une marche, fermer un verrou, souffler une bougie) crée un ancrage du personnage dans l'espace et le temps. Le rituel peut évoluer de sens au fil du récit (de l'habitude machinale au geste conscient). Applicable aussi aux personnages secondaires par des accessoires-signatures (une pipe, une clé, un chapeau).
 
 ---
 
@@ -62,5 +64,6 @@ Aucune référence n'est pré-inscrite dans ce skill. Les références émergent
 | *Recueil Test* | Poésie | 10 | 100 % (10/10) | 21/06/2026 |
 | *Le Romantisme est Mort* | Poésie | 10 | 100 % (10/10) | 21/06/2026 |
 | *Sanguinius — La Mort Retardée* | Roman | 14 | 100 % (14/14) | 21/06/2026 |
+| *Chroniques de Thalmoor — Tome 1 : Vasthaven* | Roman | 4 | 100 % (4/4) | 22/06/2026 |
 
-<!-- REX — Voix neutre utilisée comme défaut sur tous les projets antérieurs à la création d'une voix personnalisée. Maturité testé par règle système (AGENTS.md). Mis à jour le 21/06/2026 — ajout REX block. Mis à jour le 21/06/2026 — ajout Recueil Test (poésie, 10 poèmes, 100 %). -->
+<!-- REX — Voix neutre utilisée comme défaut sur tous les projets antérieurs à la création d'une voix personnalisée. Maturité testé par règle système (AGENTS.md). Mis à jour le 21/06/2026 — ajout REX block. Mis à jour le 21/06/2026 — ajout Recueil Test (poésie, 10 poèmes, 100 %). Mis à jour le 22/06/2026 — ajout principes « Présence par le silence » et « Rituel comme signature » (issus des observations scribe ch01-04, Chroniques de Thalmoor). -->

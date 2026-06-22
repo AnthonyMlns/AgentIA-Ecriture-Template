@@ -24,11 +24,13 @@ Techniques disponibles, jamais obligatoires. La rareté fait la puissance.
 - **Liste-accumulation** : 6 à 12 éléments qui s'accumulent en une phrase ou un paragraphe. Chaque élément est précis, l'ensemble crée un vertige. Terminer sur un point d'ancrage (un geste, un silence, un nom). Pas plus d'une par page.
 - **Grande phrase-monde** : une phrase unique qui déploie un paysage, une généalogie, une vision. Accumulations, incises, subordonnées. Le souffle est la structure. Une à deux par chapitre maximum.
 - **Motif cosmique filé** : un élément (le feu, l'eau, la lumière, l'horizon) qui traverse le récit en changeant de sens. Chaque apparition ajoute une couche. Le motif n'est pas un leitmotiv — c'est une évolution.
+  - *Variante — Transformation du motif* : le motif peut être retourné en son contraire à un moment-clé (le bruit devient silence, la respiration devient absence, le mouvement devient immobilité). Cette transformation signale une rupture dans l'ordre du monde et crée un effet de contraste plus puissant que la simple continuité.
 - **Refrain épique** : une formule qui revient à des moments-clés, comme un sceau. Exemple homérique : « Quand parut l'Aurore aux doigts de rose. » La répétition crée la solennité.
 - **Anaphore de souffle** : un syntagme qui ouvre plusieurs phrases ou vers successifs (« Ceux qui... Ceux qui... Ceux qui... »). L'anaphore porte l'incantation sur 3 à 7 occurrences.
 - **Césure d'échelle** : après un développement ample (cosmique, historique, générationnel), un retour brutal au geste minuscule (une main qui tremble, un verre d'eau). Le contraste d'échelle est plus puissant que la continuité.
 - **Prosopopée épique** : faire parler les éléments, les morts, les dieux. 2-3 lignes max — une réplique qui condense une voix d'outre-temps. Pas de longs discours.
 - **Katabasis / Descente aux enfers** : une descente physique et symbolique dans les profondeurs (crypte, tombeau, abîme, Warp). La descente suit une structure en trois temps : (1) l'entrée — seuil, sceaux, gardiens ; (2) la traversée — escaliers, couloirs, strates qui passent du construit au primitif ; (3) la révélation — ce qui attend au centre. La remontée est le contrepoint : ce qui a changé dans celui qui descend. Utilisable comme structure de chapitre entier.
+- **Katabasis inversée / Ascension vers le pouvoir** : structure symétrique de la descente aux enfers, mais en montée. Suit les trois mêmes temps : (1) l'entrée — gardiens, seuil, inspection ; (2) la traversée — strates qui passent du peuple au pouvoir, du bruit au silence, de l'humide au minéral ; (3) la révélation — ce qui attend au sommet (vérité ou mensonge). La descente dépouille le héros ; l'ascension le confronte à ce qui le dépasse. Utilisable pour structurer des scènes d'accès au pouvoir, à l'administration, aux hauts lieux.
 
 ## Empilage avec l'essai littéraire
 
@@ -64,4 +66,5 @@ Amendé le 04/06/2026 — ajout Accumulation fragmentée dans Empilage avec l'es
 Amendé le 04/06/2026 (post-projet *Boucliers-Épiques*) — ajout : Accumulation par évocation négative,
 Descente ternaire. Promotion spéculatif → testé (projet complet en empilage réussi).
 Amendé le 21/06/2026 (post-projet *Sanguinius — La Mort Retardée*) — ajout : Katabasis/Descente aux enfers.
+Amendé le 22/06/2026 (post-ch04 *Chroniques de Thalmoor*) — ajout : Katabasis inversée / Ascension vers le pouvoir (variante symétrique). Enrichi : Motif cosmique filé — variante Transformation du motif (retournement en son contraire).
 -->

@@ -277,6 +277,7 @@ Chaque agent qui produit un output final doit le convertir en PDF dans le dossie
 ## Principes stylistiques (extraits de knowledge/style.md)
 
 - **Point de vue** : focalisation interne par défaut. Defocus en 3e personne réservé aux passages documentaires.
+  - **Échappées POV ponctuelles** : des sorties brèves de la focalisation interne sont autorisées si justifiées dramatiquement (créer une tension que le personnage ne perçoit pas, révéler une menace au lecteur). Règles : (1) ne pas excéder 15-20 lignes par occurrence, (2) ne pas dépasser 2 occurrences dans tout le roman, (3) signaler dans le brouillon que l'échappée est intentionnelle, (4) privilégier une focalisation externe (description objective) plutôt qu'un autre POV.
 - **Prose sobre** : pas d'emphase, poésie par petites touches, les silences comptent.
 - **Rythme** : alterner moments contemplatifs et scènes tendues.
 - **Dialogues** : naturels, sous-texte, chaque personnage a sa voix.
@@ -319,4 +320,7 @@ REX Un été 07/06/2026 — Ajouts
 REX Sanguinius 21/06/2026 — Ajouts
 - Homophone check (6.6) ajouté dans le workflow d'écriture
 - Validation : 14 chapitres, 100 % validé, workflow scribe renforcé
+
+REX Chroniques de Thalmoor 22/06/2026 — Ajouts
+- Échappées POV ponctuelles (sous-règle sous « Point de vue » dans Principes stylistiques) — formalisation des sorties brèves de focalisation interne, avec cadre (15-20 lignes max, ≤2 occurrences par roman, signalement dans brouillon, focalisation externe privilégiée).
 -->
