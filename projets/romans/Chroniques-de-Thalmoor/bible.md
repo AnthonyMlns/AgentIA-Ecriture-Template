@@ -61,6 +61,10 @@ Dans le monde de Thalmoor, fracturé par une Faille magique survenue il y a une 
 | **Ours des glaces** | Montagnes du Nord | Kellan tué — Thoren absent | A dévoré son mentor. Source de sa discipline (étirements). | Ch02 |
 | **Harfang des montagnes** | Inconnu (il y a ~2 ans) | Survivant ? | Foncé sur Thoren depuis une corniche. Entaille sur sa dague, cicatrice à l'avant-bras. | Ch02, Ch03 |
 | **Cerf du Nord** | Forêts du Nord (il y a ~3 ans) | Tué | Cuir utilisé pour le carquois modulaire. | Ch01 |
+| **Griffon des cimes** | Col de Kharz (il y a ~5 ans) | Tué (à deux) | Premier gros contrat de Thoren. Chassé en binôme avec un autre chasseur. Plumes de l'aile encore dans son carquois (porte-bonheur). | — |
+| **Basilic des sables** | Désert d'Aksha (il y a ~4 ans) | Tué | Venin paralysant prélevé — utilisé pour ses flèches empoisonnées. Peau trop épaisse pour l'arc, tué au piège (fosse + pieux). | — |
+| **Vouivre des gorges** | Gorges de Tharn (il y a ~6 ans) | Survivante ? | L'a mordu à la cuisse. A fui dans une crevasse. Boite légèrement par temps froid. Ne l'a jamais retrouvée. | — |
+| **Kelpie des marais** | Marais de Fenn (il y a ~3 ans) | Tué | Créature aquatique, embuscade. A failli noyer Thoren. Tué à la dague, sous l'eau. | — |
 
 > **Règle** : Ces créatures sont déjà connues. Les mentionner en souvenir, comparaison ou anecdote. Toute nouvelle créature du passé de Thoren doit être documentée ici.
 
