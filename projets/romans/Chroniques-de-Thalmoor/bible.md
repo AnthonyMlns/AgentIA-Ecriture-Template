@@ -53,20 +53,18 @@ Dans le monde de Thalmoor, fracturé par une Faille magique survenue il y a une 
 - **Structure par tome** : Plusieurs espèces mineures + une menace majeure (le contrat central).
 
 ### Bestiaire personnel de Thoren (créatures déjà chassées)
-> Source d'anecdotes et de flashbacks. Chaque créature a une histoire que Thoren peut évoquer.
+> Chaque chasse est une histoire — pas une fiche technique. Ces créatures peuvent être évoquées en souvenir, comparaison ou anecdote. Le lieu, la méthode, la leçon comptent plus que la taxonomie.
 
-| Créature | Lieu | Issue | Détail marquant | Mentionné |
-|---|---|---|---|---|
-| **Loup des collines (3 pattes)** | Thornwood | Tué (1 flèche) | Avait perdu une patte dans un piège. 4 jours de pistage. 20 couronnes d'argent. | Ch01, Ch02 |
-| **Ours des glaces** | Montagnes du Nord | Kellan tué — Thoren absent | A dévoré son mentor. Source de sa discipline (étirements). | Ch02 |
-| **Harfang des montagnes** | Inconnu (il y a ~2 ans) | Survivant ? | Foncé sur Thoren depuis une corniche. Entaille sur sa dague, cicatrice à l'avant-bras. | Ch02, Ch03 |
-| **Cerf du Nord** | Forêts du Nord (il y a ~3 ans) | Tué | Cuir utilisé pour le carquois modulaire. | Ch01 |
-| **Griffon des cimes** | Col de Kharz (il y a ~5 ans) | Tué (à deux) | Premier gros contrat de Thoren. Chassé en binôme avec un autre chasseur. Plumes de l'aile encore dans son carquois (porte-bonheur). | — |
-| **Basilic des sables** | Désert d'Aksha (il y a ~4 ans) | Tué | Venin paralysant prélevé — utilisé pour ses flèches empoisonnées. Peau trop épaisse pour l'arc, tué au piège (fosse + pieux). | — |
-| **Vouivre des gorges** | Gorges de Tharn (il y a ~6 ans) | Survivante ? | L'a mordu à la cuisse. A fui dans une crevasse. Boite légèrement par temps froid. Ne l'a jamais retrouvée. | — |
-| **Kelpie des marais** | Marais de Fenn (il y a ~3 ans) | Tué | Créature aquatique, embuscade. A failli noyer Thoren. Tué à la dague, sous l'eau. | — |
-
-> **Règle** : Ces créatures sont déjà connues. Les mentionner en souvenir, comparaison ou anecdote. Toute nouvelle créature du passé de Thoren doit être documentée ici.
+| Créature | Histoire |
+|---|---|
+| **Loup** | Thornwood. Avait perdu une patte dans un piège, s'attaquait au bétail. 4 jours de pistage dans la boue gelée. Tué d'une flèche entre les omoplates, sous un bosquet de sapins. 20 couronnes. Rien de glorieux — juste un animal affamé. |
+| **Ours des glaces** | Montagnes du Nord. Kellan, son mentor, s'est fait dévorer. Thoren n'était pas là. Depuis, il s'étire chaque matin — « les muscles qu'on n'étire pas sont les premiers à lâcher. » |
+| **Harfang** | Montagnes, il y a ~2 ans. Foncé sur lui depuis une corniche sans un bruit. Il a levé la dague par réflexe, la lame a rencontré le bec. Cicatrice à l'avant-bras, entaille sur la dague — jamais fait réparer. L'harfang est reparti. |
+| **Cerf** | Forêts du Nord, il y a ~3 ans. Rien de dangereux. Tué pour sa viande et son cuir, avec lequel il a fabriqué son carquois modulaire. Chaque compartiment, chaque couture — c'est ce cerf. |
+| **Griffon** | Col de Kharz, il y a ~5 ans. Premier « vrai » contrat. Chassé en duo avec un autre mercenaire dont il a oublié le nom. La bête gardait un nid, trois œufs. Plumes de l'aile encore dans le carquois. Il ne sait pas dire pourquoi il les garde. |
+| **Basilic** | Désert d'Aksha, il y a ~4 ans. Peau si épaisse que ses flèches ricochaient. Il a creusé une fosse, planté des pieux, attendu trois jours. Le venin paralysant qu'il en a tiré est encore sur deux de ses flèches. |
+| **Vouivre** | Gorges de Tharn, il y a ~6 ans. L'a mordu à la cuisse avant de disparaître dans une crevasse. Il a failli y passer — infection, fièvre, trois semaines alité. Depuis, il boite légèrement par temps froid. Ne l'a jamais retrouvée. |
+| **Kelpie** | Marais de Fenn, il y a ~3 ans. Créature d'eau, embuscade. L'a tiré par la cheville dans une mare noire. Il l'a tuée à la dague, sous l'eau, en retenant sa respiration. Depuis, il ne traverse plus un marais sans sonder l'eau devant lui. |
 
 ---
 
