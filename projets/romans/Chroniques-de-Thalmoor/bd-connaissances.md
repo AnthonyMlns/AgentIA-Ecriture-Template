@@ -15,6 +15,7 @@
   - Uniquement humains, pas d'espèces fantastiques jouables.
   - Thoren n'a pas de passé personnel lié au complot — il y est mêlé par coïncidence professionnelle.
   - Pas de compagnon récurrent — un allié local par tome, qui se referme à la fin du tome.
+  - **Religion / théologie** : À définir (worldbuilding futur). Interdit : toute référence chrétienne/monothéiste réelle. Corrigé ch01 (« se signa » → « toucha le bois », « prie » → « compte pas sur la chance ») et ch04 (« Doux Jésus » → « Par les marées »), 22/06/2026.
   - Révélation finale (tome 4) : un prétendant au trône derrière la Compagnie du Trait Gris.
 
 ## Preuves matérielles établies

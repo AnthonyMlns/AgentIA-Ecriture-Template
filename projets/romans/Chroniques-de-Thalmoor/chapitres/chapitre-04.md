@@ -280,7 +280,7 @@ L'eau, sous la coque, devenait plus sombre. Pas graduellement — d'un coup, com
 
 Thoren sentit le pont trembler sous ses pieds. Pas un tremblement de houle — un frémissement. Comme si la coque elle-même avait peur.
 
-« — Doux Jésus, souffla Orin. »
+« — Par les marées, souffla Orin. »
 
 La voix du marin s'était brisée sur le dernier mot. Il avait croisé des tempêtes, des récifs, des pirates, mais il n'avait jamais rien vu de tel.
 

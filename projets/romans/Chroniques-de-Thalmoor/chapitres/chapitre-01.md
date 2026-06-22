@@ -192,7 +192,7 @@ Un vieux pêcheur, dans l'assistance, cracha entre ses pieds.
 
 Le silence tomba.
 
-Le mot Faille planait au-dessus du groupe comme un oiseau noir. Personne n'osait le répéter. Quelqu'un se signa. Un autre cracha par-dessus son épaule, un geste de conjuration.
+Le mot Faille planait au-dessus du groupe comme un oiseau noir. Personne n'osait le répéter. Quelqu'un toucha le bois du quai du bout des doigts. Un autre cracha par-dessus son épaule, un geste de conjuration.
 
 Un jeune pêcheur, le plus jeune du groupe, leva la main :
 
@@ -416,7 +416,7 @@ La pension qu'il trouva s'appelait Le Havre du Marin. Coincée entre un entrepô
 
 Le propriétaire, un vieil homme à la jambe de bois, lisait un livre à la lueur d'une bougie. Il leva à peine les yeux quand Thoren entra.
 
-« — Chambre dix, troisième étage. Le verrou fonctionne, si tu le fermes. Sinon, prie pour que personne entre.
+« — Chambre dix, troisième étage. Le verrou fonctionne, si tu le fermes. Sinon, compte pas sur la chance. »
 
 — Combien ?
 
