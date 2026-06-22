@@ -413,3 +413,17 @@ Juin 2026            Juillet 2026          Août 2026
 4. **Après la beta** — tu décides : Docker, pricing, ouverture publique
 
 Le produit est déjà utilisable. Les fonctionnalités manquantes (quotas, BYOK, Docker) sont ce qui le rend **partageable sans risque**.
+
+---
+
+## Projets en cours
+
+| Projet | Genre | Progression | Priorité |
+|---|---|---|---|
+| **Chroniques de Thalmoor — T1 : Vasthaven** | Roman (fantasy mature) | 5/20 chapitres | 🔴 À finir |
+| *Projets antérieurs (achevés)* | — | — | ✅ |
+| Sanguinius — La Mort Retardée | Roman | 14/14 | ✅ |
+| S'accorder | Essai | 7/7 | ✅ |
+| Dépouillé | Essai | 9/9 | ✅ |
+| Le Romantisme est Mort | Poésie | 10/10 | ✅ |
+| Recueil Test | Poésie | 10/10 | ✅ |
