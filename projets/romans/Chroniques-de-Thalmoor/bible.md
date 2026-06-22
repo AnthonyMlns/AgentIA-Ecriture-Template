@@ -52,6 +52,18 @@ Dans le monde de Thalmoor, fracturé par une Faille magique survenue il y a une 
 - **Origine** : Majoritairement écologie naturelle. La Faille reste une exception rare.
 - **Structure par tome** : Plusieurs espèces mineures + une menace majeure (le contrat central).
 
+### Bestiaire personnel de Thoren (créatures déjà chassées)
+> Source d'anecdotes et de flashbacks. Chaque créature a une histoire que Thoren peut évoquer.
+
+| Créature | Lieu | Issue | Détail marquant | Mentionné |
+|---|---|---|---|---|
+| **Loup des collines (3 pattes)** | Thornwood | Tué (1 flèche) | Avait perdu une patte dans un piège. 4 jours de pistage. 20 couronnes d'argent. | Ch01, Ch02 |
+| **Ours des glaces** | Montagnes du Nord | Kellan tué — Thoren absent | A dévoré son mentor. Source de sa discipline (étirements). | Ch02 |
+| **Harfang des montagnes** | Inconnu (il y a ~2 ans) | Survivant ? | Foncé sur Thoren depuis une corniche. Entaille sur sa dague, cicatrice à l'avant-bras. | Ch02, Ch03 |
+| **Cerf du Nord** | Forêts du Nord (il y a ~3 ans) | Tué | Cuir utilisé pour le carquois modulaire. | Ch01 |
+
+> **Règle** : Ces créatures sont déjà connues. Les mentionner en souvenir, comparaison ou anecdote. Toute nouvelle créature du passé de Thoren doit être documentée ici.
+
 ---
 
 ## Guildes de chasseurs
