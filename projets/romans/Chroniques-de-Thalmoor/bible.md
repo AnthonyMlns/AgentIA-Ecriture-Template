@@ -38,6 +38,7 @@ Dans le monde de Thalmoor, fracturé par une Faille magique survenue il y a une 
 ## Univers
 
 - **Nom du monde** : Thalmoor.
+- **Mer** : La Mer de Verre (au large de Vasthaven).
 - **La Faille** : Événement survenu il y a une à deux générations. Des zones de Faille restent actives aujourd'hui.
 - **Magie** : Très rare et faible. Low-magic — la compétence et l'équipement priment sur les sortilèges.
 - **Peuples** : Uniquement humains. Tensions culturelles et politiques entre cités.
@@ -71,6 +72,8 @@ Thoren Wyck se retrouve mêlé à ce complot par pure coïncidence professionnel
 
 ## Structure du tome 1 — Vasthaven
 
+**Surnom** : La Cité des Marées.
+**Mer** : La Mer de Verre.
 **Régime politique** : Conseil des Maisons marchandes (oligarchie collégiale).
 **Menace majeure** : Un Léviathan portuaire qui brise les navires.
 **Espèces mineures** : Une version corrompue/aberrante d'une espèce commune, liée à une zone de Faille proche.
