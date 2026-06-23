@@ -127,6 +127,8 @@ La bible du roman est structurée ainsi :
 - **Cohérence saisonnière** : vérifier systématiquement que la saison et les mois du texte correspondent à ceux de la bible. Si le texte modifie la période, mettre à jour la bible.
 - **Changement de lieu documenté** : tout changement de lieu, nom de personnage ou date déjà documenté dans la bible doit être enregistré dans la BD connaissances avec la date, l'ancienne valeur, la nouvelle valeur, et la raison du changement.
 - **Vérification inter-unités** (obligatoire) : avant de commencer une nouvelle unité (chapitre, section, récit), vérifier systématiquement la cohérence des preuves matérielles avec toutes les unités précédentes : compteurs d'objets, états des lieux, saisons, dates, prénoms, citations. Maintenir un fichier `_citations-utilisees.md` dans le dossier du projet pour tracer les éléments de continuité. Après chaque correction structurelle, lister tous les chapitres impactés et les relire un par un avant de valider.
+- **Traçage des boucles matérielles** : un objet introduit dans une unité (argent, munition, équipement, document) doit avoir un destin dans une unité ultérieure — il est dépensé, utilisé, perdu, ou intentionnellement laissé sans suite. La boucle est fermée quand l'objet réapparaît avec une fonction narrative (pas seulement décorative). Documenter la boucle dans les brouillons des deux unités (introduction et fermeture) pour assurer la cohérence. Utile pour l'économie low-fantasy : chaque couronne compte, chaque flèche a un coût.
+- **Vérifier la continuité des motifs et rituels** : les objets-signatures, gestes répétés, phrases rituelles et images filées doivent être tracés d'une unité à l'autre. Un rituel qui disparaît (bougie soufflée, 5e marche) doit être soit intentionnellement absent (justifié par le contexte : le personnage n'est pas dans son lieu habituel), soit signalé comme motif clos. Documenter la continuité dans les brouillons des unités concernées.
 
 ---
 
@@ -281,6 +283,7 @@ Chaque agent qui produit un output final doit le convertir en PDF dans le dossie
 - **Prose sobre** : pas d'emphase, poésie par petites touches, les silences comptent.
 - **Rythme** : alterner moments contemplatifs et scènes tendues.
 - **Dialogues** : naturels, sous-texte, chaque personnage a sa voix.
+- **One-liner comme signature de personnage** : une réplique unique de 15 à 25 mots qui condense la personnalité, le rapport au monde et la menace/aisance d'un personnage. Structure recommandée : (1) affirmation de capacité (« Je pourrais vous tuer »), (2) précision contextuelle (« Ici, maintenant »), (3) détail technique qui prouve l'observation (« Vous n'auriez pas le temps de dégainer votre dague »), (4) retournement qui définit le vrai motif (« Mais je ne suis pas venu pour ça »). Le one-liner est au dialogue ce que le portrait-charge est à la description : une économie maximale pour un effet immédiat. Fréquence : 1 à 2 par roman, réservé aux personnages secondaires importants qui doivent être saisis en une seule apparition.
 - **Description** : sensorielle, contextuelle (filtrée par l'humeur du personnage), économique (2-3 détails précis).
 - **Motifs récurrents** : tenir un registre pour éviter les tics d'écriture (ex: téléphone face contre la table).
 - **Échos structurels** : une image ou une phrase peut faire écho entre le début et la fin du roman.
@@ -288,6 +291,8 @@ Chaque agent qui produit un output final doit le convertir en PDF dans le dossie
 - **Structure en trois blocs (A/B/C)** : Avant / Pendant / Après. Le bloc A installe la situation, B est le corps du récit (le voyage, l'aventure, la relation), C est le retour — ce qui a changé, ce qui reste. Le bloc B est le plus long, le bloc C le plus court, créant un effet de parenthèse suspendue. Variante : bloc C peut changer de point de vue.
 - **Structure amont** : pour les romans mêlant intrigue intime et danger, placer le développement de la relation personnelle avant l'intrusion de la menace. Le lecteur doit s'attacher aux personnages avant qu'ils ne soient en danger, pour que la tension fonctionne avec l'émotion.
 - **Promesse silencieuse** : un premier chapitre peut ne contenir aucun événement dramatique si sa chute promet implicitement au lecteur que le drame viendra. La promesse tient par la qualité de l'écriture et l'attention au quotidien, pas par l'événement. Exemple : « Il n'y a pas de quoi en faire un drame. »
+- **Variation des ouvertures** : ne pas commencer deux chapitres consécutifs par le même type de scène (réveil, repas, marche, insomnie). Varier les registres d'ouverture : lieu et atmosphère, action in medias res, dialogue, description sensorielle, rituel, entraînement, souvenir, arrivée. Si un chapitre s'ouvre sur le sommeil, les deux suivants doivent s'en écarter. Une insomnie délibérée (nuit blanche avant un départ) est un cas particulier acceptable — à utiliser une seule fois par roman.
+- **Variation des clôtures** : ne pas terminer deux chapitres consécutifs par le même type de clôture (sommeil, pensée interne, phrase nominale sur la mer, décision, promesse, silence). Varier les registres de clôture : objet symbolique, geste rituel, phrase courte de résolution, image sensorielle, retournement de point de vue, silence, décision. Les motifs filés (mer qui respire, chose qui attend) sont à utiliser avec parcimonie en clôture — une fois posés en début de roman, ils gagnent à s'effacer ou à se transformer plutôt qu'à se répéter.
 - **MacGuffin déclencheur** : tout objet volé, crime ou secret qui déclenche le récit doit avoir une résolution minimale — même en arrière-plan, mentionné dans un dialogue ou une pensée du personnage. Le lecteur n'a pas besoin de la voir, mais le personnage doit y faire référence au moins une fois pour fermer la boucle.
 
 ---
@@ -322,5 +327,14 @@ REX Sanguinius 21/06/2026 — Ajouts
 - Validation : 14 chapitres, 100 % validé, workflow scribe renforcé
 
 REX Chroniques de Thalmoor 22/06/2026 — Ajouts
-- Échappées POV ponctuelles (sous-règle sous « Point de vue » dans Principes stylistiques) — formalisation des sorties brèves de focalisation interne, avec cadre (15-20 lignes max, ≤2 occurrences par roman, signalement dans brouillon, focalisation externe privilégiée).
--->
+- Échappées POV ponctuelles (sous-règle sous « Point de vue » dans Principes stylistiques)
+
+REX Chroniques de Thalmoor 23/06/2026 — Ajouts
+- Traçage des boucles matérielles (continuité des objets argent/munitions à l'échelle du roman)
+- Vérification de la continuité des motifs et rituels (extension de la vérification inter-unités)
+- Source : observations scribe #020, analyse agent-style mi-parcours
+
+REX Chroniques de Thalmoor 23/06/2026 (checkpoint ch07-10) — Ajouts
+- Structure d'enquête en entonnoir (principe stylistique)
+- One-liner comme signature de personnage (principe stylistique)
+- Source : observations scribe ch08-10, analyse agent-style checkpoint ch07-10 -->

@@ -88,7 +88,7 @@ Et au bout du quai, La Mouette.
 
 Orin était déjà debout.
 
-Il se tenait sur le pont de sa goélette, une tasse fumante à la main, le regard tourné vers le large. Il portait son gilet de cuir, sa chemise de lin, et une écharpe de laine grise enroulée autour du cou. Sa pipe n'était pas encore allumée — elle pendait, éteinte, au coin de ses lèvres, comme une promesse qu'il s'apprêtait à tenir.
+Il se tenait sur le pont de sa goélette, une tasse fumante à la main, le regard tourné vers le large. Il portait son gilet de cuir, sa chemise de lin, et une écharpe de laine grise enroulée autour du cou. Sa pipe n'était pas encore allumée — elle pendait, éteinte, au coin de ses lèvres, comme une promesse qu'il s'apprêtait à tenir. Sur l'étrave de La Mouette, un petit médaillon de bronze — une vague stylisée — oscillait doucement au gré du clapotis. Un vieux porte-bonheur de marin. Morgaal ou un autre, Thoren n'aurait su dire.
 
 À côté de lui, un garçon d'une vingtaine d'années s'affairait autour des cordages. Il était grand, maigre, les cheveux blonds coupés court, les bras couverts de tatouages — des ancres, des nœuds marins, une sirène sur l'avant-bras gauche. Ses mains bougeaient vite, avec l'assurance de quelqu'un qui a passé sa vie sur un pont, qui connaît chaque cordage par son nom et chaque nœud par son usage. Il vérifiait les drisses une par une, tirait sur les écoutes, s'assurait que les voiles étaient correctement ferlées. Un rituel de marin, aussi précis que celui de Thoren quand il vérifiait ses flèches.
 

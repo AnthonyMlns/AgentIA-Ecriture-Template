@@ -1,22 +1,14 @@
-Le matin entra par la fenêtre avant que Thoren n'ouvre les yeux.
+La soupe de légumes du Havre du Marin n'était pas bonne, mais elle était chaude.
 
-Une lumière grise, pâle, qui glissait entre les rideaux de toile écrue sans les déranger, sans les faire bouger, comme une présence timide qui n'osait pas s'imposer. La chambre sentait encore le savon noir et la poussière de la veille, mais une odeur nouvelle flottait dans l'air — celle du pain chaud qui montait du rez-de-chaussée, mêlée à la brise marine qui s'engouffrait par l'entrebâillement de la fenêtre et faisait doucement gonfler les rideaux.
+Thoren mangeait près de la fenêtre, le dos au mur, le regard tourné vers la rue. Le matin entrait par les carreaux — une lumière grise, pâle, qui dessinait des rectangles sur le plancher et faisait luire la poussière en suspension. La salle sentait le pain chaud et la cendre froide de la veille. Dehors, les premiers dockers descendaient vers le port, le col relevé, les mains dans les poches.
 
-Thoren resta immobile un long moment. Il écoutait son corps, comme il le faisait chaque matin depuis quinze ans. Les jambes : lourdes, mais sans douleur. Les épaules : raides, le cuir de l'arc avait laissé sa marque dans le muscle. Le dos : une contracture légère, à gauche, sous l'omoplate — la position qu'il avait prise en dormant, le bras replié sous l'oreiller, la main sur la dague.
+Le propriétaire était derrière son comptoir, comme chaque matin. Il lisait le même livre que la veille, un ouvrage relié de cuir dont les pages étaient cornées aux mêmes endroits. Il ne lisait pas, en réalité — il passait le temps. Ses yeux allaient du livre à la rue, de la rue à Thoren, de Thoren au livre, et sa jambe de bois tapait contre le comptoir un rythme irrégulier.
 
-Il suivit une fissure au plafond, de la fenêtre au mur, du mur à la tête de lit. Le plâtre était craquelé par endroits, jauni par l'humidité, et quelqu'un avait tenté de le replâtrer sans vraiment y croire — la rustine était plus claire que le reste, un carré blanc sur un fond crème. Une réparation de propriétaire, faite à l'économie, pour durer le temps qu'un locataire ne s'en plaigne pas.
+« — Bien dormi ?
 
-Le plafond était bas, les poutres apparentes, et une araignée avait tissé sa toile dans un angle, entre deux solives. Une toile parfaite, géométrique, qui n'avait pas encore pris la poussière. L'araignée était au centre, immobile, ses pattes repliées. Elle aussi attendait.
+— Oui. »
 
-Il s'était réveillé une fois, au milieu de la nuit. Ce signal du corps qui ne le trompait jamais — cette alarme silencieuse, au fond du crâne, qui lui avait dit de prendre sa dague et d'écouter. Il avait ouvert les yeux dans le noir, la main déjà sur le manche, l'oreille tendue. Rien. Aucun bruit suspect. Aucun mouvement dans l'escalier. Rien que le silence épais de la chambre et la rumeur lointaine de la mer qui respirait. Il s'était forcé à refermer les yeux, à détendre ses muscles un par un — et le sommeil était revenu, lentement, par paliers, comme une marée qui hésite avant de monter.
-
-Cela ne lui arrivait jamais. D'habitude, quand son corps le réveillait en pleine nuit, il ne se rendormait pas. Il restait couché, aux aguets, à compter les heures jusqu'à l'aube. Mais cette fois, le sommeil était revenu. Profond, lourd, sans rêves. Et il avait dormi jusqu'au matin.
-
-Les ressorts du lit étaient durs, l'oreiller sentait le moisi, les voisins du dessous avaient ronflé assez fort pour faire trembler les cloisons. Un chien avait aboyé dans la rue, une fois, vers le milieu de la nuit. Des ivrognes étaient sortis de la taverne d'à côté en braillant une chanson de marin dont ils ne connaissaient visiblement pas les paroles. Rien de tout cela ne l'avait empêché de se rendormir.
-
-C'était bon signe. Ou mauvais signe. Dans ce métier, la frontière entre la confiance et l'imprudence était si fine qu'on ne savait jamais de quel côté on se trouvait. Un chasseur qui dormait trop profondément était un chasseur qui baissait sa garde. Un chasseur qui ne dormait pas du tout était un chasseur qui finissait par faire des erreurs. Il fallait trouver l'équilibre, ce point précaire entre la vigilance et le repos. Thoren l'avait trouvé, la plupart du temps. Mais cette nuit, il s'était rendormi — et ça ne lui avait pas déplu.
-
-Et ça ne lui avait pas déplu.
+Ce n'était pas tout à fait vrai. Il s'était réveillé une fois, au milieu de la nuit.
 
 Il se leva.
 
@@ -236,7 +228,7 @@ Aldric le regarda, interloqué.
 
 — Justement. Je préfère ne rien devoir à personne. »
 
-— Pour la déposition, je vais voir ce que je peux faire. Le Conseil, c'est une forteresse. Ils ont des règles, des procédures, des formulaires. Mais avec ta signature sur le contrat, j'aurai un argument. Un chasseur officiel, mandaté par la guilde, a le droit de consulter les documents liés à son contrat. C'est dans le règlement. Article dix-sept, paragraphe trois. »
+« — Pour la déposition, je vais voir ce que je peux faire. Le Conseil, c'est une forteresse. Ils ont des règles, des procédures, des formulaires. Mais avec ta signature sur le contrat, j'aurai un argument. Un chasseur officiel, mandaté par la guilde, a le droit de consulter les documents liés à son contrat. C'est dans le règlement. Article dix-sept, paragraphe trois. »
 
 Il connaissait ses textes. C'était bon signe.
 
@@ -262,7 +254,7 @@ Le parchemin était toujours aussi neuf. Aussi lisse. Aussi vierge de toute esta
 
 « — Signe ici. »
 
-Aldric posa la plume à côté du parchemin. Une plume d'oie, taillée en biseau, dont l'extrémité était noircie par l'encre des précédents contrats. Il poussa l'encrier vers Thoren, un flacon de verre épais dont le bouchon de liège était rongé sur les bords.
+Aldric posa la plume à côté du parchemin. Du bout du doigt, il toucha le sceau de la guilde — un geste rapide, presque machinal — et murmura quelque chose entre ses dents. Thoren ne distingua pas les mots, mais il reconnut la formule : une invocation de témoin, le genre de chose que les greffiers faisaient avant chaque contrat. Mercatus ou Justia, selon les guildes. Une plume d'oie, taillée en biseau, dont l'extrémité était noircie par l'encre des précédents contrats. Il poussa l'encrier vers Thoren, un flacon de verre épais dont le bouchon de liège était rongé sur les bords.
 
 Thoren prit la plume. Il la trempa dans l'encre, laissa l'excédent s'égoutter. Sa main resta suspendue au-dessus du parchemin, immobile.
 
@@ -642,8 +634,4 @@ Il avait signé. Il irait jusqu'au bout.
 
 Il s'allongea sur le lit sans se déshabiller. La fenêtre était toujours entrouverte, et le vent du soir apportait avec lui l'odeur du sel, le bruit lointain des vagues, la rumeur assourdie des voix dans la taverne d'à côté.
 
-Il ferma les yeux.
-
-Dehors, la mer respirait.
-
-Et sous l'eau, la chose attendait.
+Sur la table de chevet, le contrat plié en quatre — cinq mille couronnes, un Léviathan, une promesse faite à un capitaine qui ne parlait plus. Il le regarda jusqu'à ce que la nuit l'efface.

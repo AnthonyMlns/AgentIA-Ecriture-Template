@@ -4,7 +4,7 @@ Thoren le savait avant même d'avoir quitté sa chambre. Il le savait depuis la 
 
 Il quitta la pension aux premières lueurs du jour. Le propriétaire n'était pas encore levé — il dormait derrière son comptoir, la tête posée sur son livre ouvert, ronflant doucement, un filet de salive brillant au coin des lèvres. Sa jambe de bois était appuyée contre le tabouret, dégrafée, et il avait l'air, dans son sommeil, d'un vieux pirate échoué sur une île déserte.
 
-Thoren passa devant lui sans le réveiller. Il sortit dans la rue froide, le col relevé, les mains dans les poches. Le vent du matin portait encore l'odeur de la nuit — sel, poisson, cendre froide des tavernes.
+Thoren passa devant lui sans le réveiller. Il descendit l'escalier en silence, évitant la cinquième marche par réflexe, et sortit dans la rue froide, le col relevé, les mains dans les poches. Le vent du matin portait encore l'odeur de la nuit — sel, poisson, cendre froide des tavernes.
 
 La montée commença aussitôt.
 
@@ -28,7 +28,7 @@ Le bastion apparut au dernier tournant de l'escalier.
 
 C'était une masse de pierre grise, cubique, massive, posée sur le sommet de la colline comme un dé à jouer oublié par un dieu négligent. Pas de fioritures, pas d'ornements, pas de sculptures. Rien qui ressemble à de la beauté ou à de l'accueil. Des murs épais comme deux hommes bout à bout, des fenêtres étroites comme des meurtrières, des créneaux carrés qui ne servaient plus à rien depuis des siècles mais qu'on entretenait encore, par tradition, par habitude, par peur peut-être.
 
-Une grande porte de chêne, cloutée de fer noir, s'ouvrait sur une cour pavée. Les clous formaient des motifs géométriques — des losanges, des croix, des spirales — qui évoquaient les portes des forteresses anciennes.
+Une grande porte de chêne, cloutée de fer noir, s'ouvrait sur une cour pavée. Les clous formaient des motifs géométriques — des losanges, des croix, des spirales — qui évoquaient les portes des forteresses anciennes. Au-dessus du linteau, gravé dans la pierre, un œil ouvert veillait sur l'entrée — le symbole de Scriptor, gardien des archives et des vérités écrites.
 
 Deux gardes en uniforme du Conseil encadraient l'entrée. Tuniques bleues, ceinturons de cuir, hallebardes dont le fer étincelait au soleil. Des vrais gardes, cette fois. Pas les deux endormis de la porte de la ville, vautrés contre la muraille, qui regardaient les nuages. Ceux-ci se tenaient droits, les épaules carrées, le menton levé, la main gauche sur le manche de l'arme. Leurs yeux balayaient la rue, les toits, le ciel, sans jamais se fixer nulle part.
 

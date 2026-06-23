@@ -118,7 +118,7 @@ Au-dessus, les maisons des marchands. Blanches, carrées, ramassées sur elles-m
 
 Plus haut encore, les habitations modestes. Incrustées dans les pentes de la colline comme des nids d'hirondelle. Des ruelles qui zigzaguaient, des escaliers de pierre usés par des siècles de pas, des passages voûtés où deux personnes ne se croisaient pas sans se frôler. Du linge qui séchait aux fenêtres, des cages à oiseaux pendues aux auvents, des enfants qui jouaient sur les toits plats.
 
-Et tout en haut, dominant la ville comme un poing fermé, le bastion du Conseil des Maisons. Une masse de pierre sombre, massive, aux murs épais et aux créneaux carrés. Le siège du pouvoir — l'oligarchie marchande qui gouvernait Vasthaven depuis des générations.
+Et tout en haut, dominant la ville comme un poing fermé, le bastion du Conseil des Maisons. Une masse de pierre sombre, massive, aux murs épais et aux créneaux carrés. Le siège du pouvoir — l'oligarchie marchande qui gouvernait Vasthaven depuis des générations. À sa gauche, plus bas sur la colline, le temple d'Ordran dressait sa tour carrée — une flèche de pierre blanche, seule construction assez haute pour rivaliser avec le bastion.
 
 Derrière le bastion, derrière les toits, derrière les fumées, la mer. Une ligne d'horizon grise qui séparait le ciel de l'eau, qui s'étendait à l'infini, qui promettait d'autres rivages et d'autres villes.
 
@@ -418,7 +418,7 @@ Le propriétaire, un vieil homme à la jambe de bois, lisait un livre à la lueu
 
 « — Chambre dix, troisième étage. Le verrou fonctionne, si tu le fermes. Sinon, compte pas sur la chance. »
 
-— Combien ?
+« — Combien ?
 
 — Trois pièces d'argent la nuit. Repas compris, si tu descends avant que la soupe soit finie. »
 

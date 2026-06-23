@@ -4,7 +4,9 @@
 - 21/06/2026 — Lancement du projet. Empire vocal : `ecriture-romanesque` + `voix-neutre`. 20 chapitres cible (flexible).
 - 22/06/2026 — Empilage final : `ecriture-romanesque` + `voix-neutre` + `ecriture-epique`. Inspirations homériques ajoutées (L'Iliade, L'Odyssée).
 - 22/06/2026 — Cible de longueur révisée : **600-800 lignes** par chapitre (au lieu de 1200-1500). Cohérent avec ch01-04 (500-650).
-- 22/06/2026 — Kellan documenté comme personnage secondaire passé (mentions ch02 L25-27, ch04 L3). Source : recommandation éditeur ch04. Ajouté dans bible.md (section Personnages) et bd-connaissances.md.
+- 23/06/2026 — Cible de longueur révisée : **400-600 lignes** par chapitre (au lieu de 600-800). Cohérent avec la pratique réelle sur 7 unités (~500 lignes en moyenne). L'efficacité narrative prime sur la longueur cible. Source : recommandation éditeur ch05, confirmée par la tendance ch06.
+- 22/06/2026 — Théologie définie (Dieux Anciens vs Dieux Modernes — Réforme du Concile de la Rectitude). Documentée dans bible.md (section Théologie), bd-connaissances.md.
+- 22/06/2026 — Bestiaire enrichi : classification écologique (faune naturelle / aberrante / entités de Faille), bestiaire Tome 1 (Léviathan + 3 espèces mineures : rat-garou, harpie, crabe de faille), bestiaire universel (écosystèmes par région). Documenté dans bible.md (section Bestiaire), bd-connaissances.md.
 
 ## Contraintes utilisateur
 - **Source de référence** : `chroniques_de_thalmoor_bible.html` (bible d'univers complète) — tous les éléments d'univers, personnages, bestiaire, guildes, ton, structure y sont documentés.
@@ -15,7 +17,7 @@
   - Uniquement humains, pas d'espèces fantastiques jouables.
   - Thoren n'a pas de passé personnel lié au complot — il y est mêlé par coïncidence professionnelle.
   - Pas de compagnon récurrent — un allié local par tome, qui se referme à la fin du tome.
-  - **Religion / théologie** : À définir (worldbuilding futur). Interdit : toute référence chrétienne/monothéiste réelle. Corrigé ch01 (« se signa » → « toucha le bois », « prie » → « compte pas sur la chance ») et ch04 (« Doux Jésus » → « Par les marées »), 22/06/2026.
+  - **Religion / théologie** : Définie le 22/06/2026. Dieux Anciens (Morgaal/Mer, Kharz/Montagne, Sylvaen/Chasse, Morvhen/Mort, Ignis/Feu, Aeolus/Vent) vs Dieux Modernes (Réforme — Ordran/Ordre, Mercatus/Commerce, Scriptor/Savoir, Justia/Justice, Medica/Guérison). Réforme imposée par le Concile de la Rectitude il y a ~60 ans (post-Faille). Vasthaven officiellement réformée, officieusement syncrétique (marins craignent Morgaal). Interdit : toute référence chrétienne/monothéiste réelle. Jurons et exclamations passent par les dieux du monde. Corrigé ch01 (« se signa » → « toucha le bois », « prie » → « compte pas sur la chance ») et ch04 (« Doux Jésus » → « Par les marées »), 22/06/2026.
   - Révélation finale (tome 4) : un prétendant au trône derrière la Compagnie du Trait Gris.
 
 ## Preuves matérielles établies

@@ -1,13 +1,36 @@
-# Observations — Chroniques de Thalmoor, Tome 1 : Vasthaven
+﻿# Observations — Chroniques de Thalmoor, Tome 1 : Vasthaven
 
 > Journal de bord continu du scribe. Observations capitalisées pour l'analyse stylistique et l'amendement des skills.
-> Dernière mise à jour : 22/06/2026 — Consolidation chapitres 1 à 4.
+> Dernière mise à jour : 23/06/2026 — Consolidation chapitres 1 à 10 + enrichissements.
 
 ---
 
-## JOURNAL — Chapitres 01 à 04 consolidés (22/06/2026)
+## [JOURNAL] Chapitres 01 à 04 consolidés (22/06/2026)
 
 **Skills actifs** : `ecriture-romanesque` (forme) + `voix-neutre` (voix) + `ecriture-epique` (influence)
+
+---
+
+### ⚡ Mise à jour du 22/06/2026 — Enrichissements suite à prologue + ch06
+
+**#003 — Rituels comme signature : extension confirmée (3 nouveaux gestes en prologue + ch06)**
+- **Enrichissement** : Le prologue installe un rituel de combat chez Thoren (calcul des distances, temps de réaction — « Il comptait les secondes » L45, gradation de la réponse selon la menace). Le ch06 ajoute deux nouveaux rituels : (1) la relecture des notes comme « rituel, une façon de laisser les informations se déposer » (ch06 L28-30), (2) la vérification des flèches une par une avant de dormir (ch06 L451). Ces trois ajouts confirment que le motif est stable et s'étend de gestes purement physiques (bougie, marche) à des gestes mentaux (relecture, classification). La palette s'élargit sans que le principe soit forcé.
+
+**#006 — Liste-accumulation sobre : nouvelle occurrence en ch06 (boutique Eldrin)**
+- **Enrichissement** : La description de la boutique d'Eldrin (ch06 L137) est une nouvelle liste-accumulation : « Des cartes marines, des cartes terrestres, des relevés de courants, des diagrammes de vents, des croquis de récifs et de passes, des portulans aux bordures rongées par l'humidité. » Comme les précédentes, elle est utilitaire (catalogue de ce qu'Eldrin possède) et sensorielle (l'air sent « le vieux papier, l'encre de seiche, la cire d'abeille »). La liste sert la caractérisation du lieu et du personnage sans être décorative. Motif confirmé.
+
+**#011 — Orin : la pipe — allumée en ch06**
+- **Enrichissement** : En ch06, Orin a sa pipe « allumée » (L72), contrairement au ch04 où elle s'éteignait après l'ombre. Il « tira sur sa pipe, une bouffée longue, lente, méditative » (L93). La pipe allumée confirme l'absence de menace immédiate — Orin est dans son élément, sur son bateau, au matin. La pipe comme indicateur d'état émotionnel est maintenue (pipe allumée = calme, pipe éteinte = inquiétude). Motif stable.
+
+**#013 — L'homme en gris : évolution vers la présence fantôme (ch06)**
+- **Enrichissement** : L'homme en gris n'apparaît PAS physiquement dans le ch06, mais Thoren pense à lui **quatre fois** (ch06 L9, L413, L487-489). C'est une évolution du traitement narratif : de l'apparition physique (ch05, couloir du bastion) à la présence mentale (ch06, obsession). Thoren commence à faire des déductions : « L'homme en gris travaillait pour quelqu'un. Quelqu'un qui avait accès au Conseil restreint » (ch06 L413). L'antagoniste gagne en épaisseur par son absence même — le lecteur sait qu'il est là, quelque part, même quand il n'est pas montré. Le brouillon ch06 documente ce choix consciemment : « L'homme en gris comme présence fantôme. Il n'apparaît pas physiquement dans ce chapitre, mais Thoren pense à lui quatre fois. Cette absence est plus inquiétante qu'une présence. » L'évolution confirme que l'homme en gris est un antagoniste construit avec soin, et non un obstacle ponctuel.
+
+**#017 — Artefact pipeline (DeepSeek V4 Pro) : hypothèse CONFIRMÉE — amélioration des dialogues soutenue sur prologue + ch06**
+- **Enrichissement** : L'hypothèse formulée au ch05 (« le nouveau modèle améliore la qualité des échanges verbaux ») est confirmée par le prologue et le ch06. Le prologue présente trois brigands avec des voix distinctes (chauve pragmatique, nerveux hésitant, archer silencieux) — l'éditeur note que « le dialogue est naturel, chaque brigand a sa voix ». Le ch06 présente trois interlocuteurs (Orin, Eldrin, Aldric) avec des registres différents (marin, savant, bureaucrate). Aucune des 4 scènes de dialogue (prologue × 1, ch06 × 3) ne tombe dans le stéréotype ou la facilité. L'hypothèse est validée : le pipeline DeepSeek V4 Pro produit des dialogues d'une qualité sensiblement supérieure à V4 flash.
+- **Lien avec échantillons** : n/a — phénomène pipeline (confirmé)
+
+**#019 — Ordre verbal : du symptôme au système (ch05 → ch06 : les 5 noms)**
+- **Enrichissement** : Observation #019 notait l'« administration du secret » comme motif (pages arrachées ch03, ordre verbal ch05). Le ch06 pousse le motif à son terme : Aldric nomme les 5 membres du Conseil restreint (Edwin Hatherly, Lysandra Hatherly, Ordan Veyne, Marla Kest, Severin Kael) et confirme que seul ce niveau peut donner un ordre verbal sans laisser de trace. La progression est complète : symptôme (pages arrachées) → procédure (ordre verbal) → responsables (Conseil restreint). Le motif ne sature pas — il se résout en information. Severin Kael émerge comme suspect principal, cohérent avec la bible (antagoniste local à révéler). Le ch06 ne dévoile pas tout : il donne un nom, pas une preuve. La retenue est maintenue.
 
 ---
 
@@ -120,18 +143,621 @@
 
 ---
 
+## [JOURNAL] Chapitre 05 — Le bastion — 22/06/2026 — Skill : ecriture-romanesque + voix-neutre + ecriture-epique + roman-fantasy
+
+---
+
+### #013 — L'homme en gris : introduction de l'antagoniste en silhouette
+**Type** : personnage
+**Contexte** : ch05 L153-207 (première apparition dans le couloir)
+**Description** : L'antagoniste humain local (bible §32-34) fait sa première apparition — mais en silhouette, sans nom, sans fonction révélée. La description est minimale et volontairement elliptique : veste grise, gants fins, yeux gris pâle « comme une mer d'hiver », sourire de reconnaissance. Aucun détail ne le rattache explicitement au Trait Gris. Le brouillon (hésitation #1) documente le choix : une apparition précoce mais furtive (ch09 = dévoilement, ch14 = confrontation). La réplique-clé « Je ne suis pas votre ennemi. Pas encore. » (L197) installe une menace à la fois précise et différée. La sortie silencieuse (L200-203 : « aucun bruit de pas ») ajoute au mystère et suggère une compétence surnaturelle ou un entraînement poussé.
+**Lien avec échantillons** : n/a
+**Sévérité** : [MAJEUR] — première apparition de l'antagoniste humain, jalon narratif du tome.
+
+### #014 — Katabasis à double fond : descente physique ET administrative
+**Type** : style
+**Contexte** : ch05 L211-221 (descente aux sous-sols), L279-351 (confession Garrick)
+**Description** : Le chapitre utilise la katabasis (descente aux enfers) sur deux plans simultanés. **Plan physique** : les trois temps de la katabasis sont respectés — (1) entrée : porte de chêne bardée de fer, plaque de cuivre ternie (L217) ; (2) traversée : escalier de service, salles voûtées, caisses éventrées, toiles d'araignée, obscurité croissante (L211-215) ; (3) révélation : Garrick et les pierres luminescentes (L325-337). **Plan symbolique** : Thoren descend dans les strates administratives du Conseil — du premier étage (Valdric, pouvoir feutré) au niveau trois (Garrick, vérité poussiéreuse). La descente est aussi sociale : du langage policé du pouvoir à la confession brute du sous-sol. Cette superposition de deux katabases en une (physique + bureaucratique) n'est pas documentée dans le skill `ecriture-epique` et pourrait l'enrichir.
+**Lien avec échantillons** : n/a
+**Sévérité** : [MINEUR] — application créative d'une technique existante. [#009 — Verticalité de Vasthaven : continuité confirmée.]
+
+### #015 — Dialogue comme mode d'action exclusif : nouveau palier dans l'arc de Thoren
+**Type** : personnage
+**Contexte** : ch05 entier (aucune action physique, aucune menace directe, pas de violence)
+**Description** : Pour la première fois, Thoren agit exclusivement par le dialogue. Il force le passage des gardes par la présence (aucun coup, aucune menace — L15-17 : « il passa sous la hampe, effaça le fer d'un mouvement d'épaule »), confronte Valdric par la pression verbale (L65-93), obtient la confession de Garrick par la certitude plus que par la menace (L265 : « Thoren n'avait pas haussé la voix. La certitude dans son ton suffisait. »). Le brouillon note : « L'autorité vient de sa certitude, pas de ses poings. » C'est la continuation logique de l'arc #007 (observateur → négociateur → autorité → commandant), désormais dans un registre d'**intimidation silencieuse** par le verbe. Thoren n'a plus besoin de brandir son contrat ni ses armes — son nom et sa détermination suffisent.
+**Lien avec échantillons** : n/a
+**Sévérité** : [MINEUR] — prolonge et confirme l'observation #007. Arc stable.
+
+### #016 — Variation sur l'objet-signature : la pipe de Valdric fait écho à celle d'Orin
+**Type** : style
+**Contexte** : ch05 L99-109 (ritual de la pipe de Valdric), vs ch02 L557-623 et ch04 L91-167 (pipe d'Orin)
+**Description** : Deux personnages partagent le même accessoire-signature (une pipe), mais avec des registres opposés. La pipe d'Orin est **authentique** : elle s'éteint quand il a peur (ch04), elle est un indicateur involontaire d'émotion. La pipe de Valdric est **théâtrale** : le geste de bourrer, tasser, allumer est « étudié » (L99 : « lenteur étudiée »), c'est une performance qui lui donne le temps de peser ses mots. Le même objet, deux significations contraires — transparence vs. calcul. Le brouillon reconnaît l'inspiration consciemment (section Décisions stylistiques, point 2). Cette « variation d'objet-signature entre personnages » n'est pas documentée dans les skills.
+**Lien avec échantillons** : n/a
+**Sévérité** : [MINEUR] — extension de #011 (Orin : la pipe). Motif émergent.
+
+### #017 — Artefact pipeline : nouveau modèle DeepSeek V4 Pro — qualité stylistique et dialogues
+**Type** : artefact-pipeline
+**Contexte** : ch05 entier — évalué par l'éditeur comme « le meilleur niveau de qualité stylistique du projet du point de vue des dialogues »
+**Description** : L'orchestrateur a appliqué une réécriture prose/syntaxe en utilisant DeepSeek V4 Pro (modèle différent des ch01-04). L'éditeur note que « la prose est globalement tenue, sensorielle, précise » et que les dialogues Valdric/Thoren sont « le meilleur du chapitre — efficaces, chaque réplique porte ». Les deux seules anomalies sont mineures (comparaison convenue facilement corrigée + coquille homophonique). Le dialogue entre Valdric et Thoren (L43-145) est particulièrement fluide : le sous-texte domine, chaque réplique avance le rapport de force. Cette qualité conversationnelle était moins présente dans les ch01-04 (dialogues fonctionnels mais moins ciselés). Hypothèse : le nouveau modèle améliore la qualité des échanges verbaux. À confirmer sur les chapitres suivants — si la tendance se maintient, c'est un artefact du pipeline (changement d'outil), pas un trait de voix de l'auteur.
+**Lien avec échantillons** : n/a — phénomène pipeline
+**Sévérité** : [MINEUR] — observation à confirmer sur la suite. Si le style des dialogues reste à ce niveau sur ch06-07, l'hypothèse est validée.
+
+### #018 — Maturité du refus de motif : la mer qui respire et le neveu ne sont pas forcés
+
+**Type** : découverte
+**Contexte** : Brouillon ch05 (section Vérification style, point 8) + absence du motif « neveu sur le Hatherly »
+**Description** : Deux motifs identifiés précédemment (#001 mer qui respire, #004 neveu sur le Hatherly) sont **volontairement absents** de ce chapitre. Le brouillon justifie explicitement l'absence de la mer : « Serait artificiel de le caser ici » — Thoren est dans la pierre, pas sur l'eau. Quant au neveu, ch05 introduit de nouveaux personnages (Valdric, homme gris, Garrick) sans aucun lien familial avec le Hatherly — l'avertissement de l'éditeur (#004, seuil critique à 3 occurrences) a été entendu. Cette double retenue montre une maturité dans l'utilisation des motifs : l'écrivain ne les force pas par habitude ou par réflexe. C'est un signe positif de contrôle stylistique.
+**Lien avec échantillons** : n/a
+**Sévérité** : [MINEUR] — confirme que le système de détection des motifs (scribe + éditeur) fonctionne. Le refus conscient est aussi significatif que l'usage.
+
+### #019 — Ordre verbal : continuité du motif « administration du secret » (pages arrachées → signature absente)
+**Type** : narration
+**Contexte** : ch05 L303-305 (« Ordre verbal. Pas de papier, pas de signature, rien. »), ch03 L301-305 (pages arrachées de la déposition)
+**Description** : Le motif de l'administration du secret se poursuit de ch03 à ch05 selon une progression logique. Ch03 : un document a été physiquement mutilé (pages arrachées au couteau). Ch05 : la procédure a été contournée sans laisser de trace (ordre verbal, mention « non applicable » dans la case signature). Le second indice est plus grave que le premier : les pages arrachées peuvent être un acte individuel ; l'ordre verbal sans signature est un **privilège systémique** (L307 : « Les conseillers ont le droit de prélever sans formalité. Privilège de leur fonction. »). C'est une application de la technique « corruption visible-invisible » du skill `roman-fantasy` : la corruption ne se déclare pas, elle se déduit des anomalies de procédure. La progression (acte → système) est bien calibrée.
+**Lien avec échantillons** : n/a
+**Sévérité** : [MINEUR] — motif confirmé sur 2 chapitres espacés. Pas de saturation.
+
+---
+
+---
+
+## [JOURNAL] Prologue + Chapitre 06 — 22/06/2026 — Skills : ecriture-romanesque + voix-neutre + ecriture-epique + roman-fantasy
+
+---
+
+### #020 — Fil matériel fermé : les douze couronnes (prologue → ch06)
+**Type** : preuve-matérielle
+**Contexte** : Prologue L123-124 (butin du brigand : « douze couronnes d'argent ») → ch06 L271-283 (« Dix, dit-il. Et tu me les livres avant ce soir. »)
+**Description** : Les douze couronnes d'argent prises au brigand du Pont de Cendre (prologue) sont dépensées exactement 7 unités plus tard (ch06) pour l'achat de douze pointes de flèche perforantes par Thoren. C'est la première fermeture de boucle matérielle à l'échelle du roman. Le brouillon prologue note consciemment : « Les douze couronnes du brigand réapparaissent au ch06 (achat des pointes de flèche). Fil matériel tissé entre les chapitres. » Le brouillon ch06 confirme : « Les douze couronnes du brigand du Pont de Cendre sont dépensées ici — boucle fermée. » Cette fermeture consciente, documentée dans les deux brouillons, démontre que le système de preuves matérielles fonctionne à l'échelle du livre, pas seulement du chapitre. Elle ancre le monde dans une économie crédible : l'argent gagné (ou volé) est dépensé, les objets suivent une trajectoire. C'est une application concrète du principe « low-fantasy : l'économie compte » — un héros n'empoche pas de l'argent sans que cela ait une conséquence matérielle.
+**Lien avec échantillons** : n/a
+**Sévérité** : [MAJEUR] — première fermeture de boucle matérielle à l'échelle du roman (7 unités). Démontre la maîtrise du système de preuves matérielles.
+
+---
+
+### #021 — Couture narrative du sel : de la route à la mer
+**Type** : motif
+**Contexte** : Prologue L179 (« La route sentait le sel »), ch01 L1 (écho implicite : « La route sentait le sel et la pierre chaude »), ch06 L55 (« une langue commune, faite de cordages et de marée, de goudron et de sel »), ch06 L67 (« l'odeur de la marée basse montait du bassin, lourde et saumâtre »)
+**Description** : Le sel est posé comme motif en dernière ligne du prologue, repris en première ligne du ch01 (couture narrative documentée dans le brouillon prologue), puis filé dans le ch06 à trois reprises. Le sel passe de la sensation géographique (prologue : le sel de la mer annoncé depuis le col) à la caractérisation sociale (ch06 : le sel comme langue commune des ports, trait d'union entre Thoren et les marins). L'éditeur du prologue suggérait de développer ce motif (« sel de la mer, sel des larmes, sel du sang »). Le ch06 ne force pas cette piste — il l'enrichit discrètement en associant le sel au langage des ports plutôt qu'à une symbolique larmoyante. C'est une variation sobre et efficace.
+**Lien avec échantillons** : n/a
+**Sévérité** : [MINEUR] — motif filé sur 3 unités, pas de saturation. Variation réussie (du géographique au social).
+
+---
+
+### #022 — L'homme en gris : de l'apparition physique (ch05) à la présence fantôme (ch06)
+**Type** : personnage
+**Contexte** : ch05 L153-207 (apparition physique dans le couloir du bastion), ch06 L9, L413, L487-489 (4 mentions mentales, aucune apparition physique)
+**Description** : L'antagoniste évolue de façon consciente entre ch05 et ch06. En ch05, il apparaît physiquement (veste grise, gants fins, sourire, « Je ne suis pas votre ennemi. Pas encore. »). En ch06, il est absent mais omniprésent dans les pensées de Thoren (4 occurrences). Le brouillon ch06 documente : « L'homme en gris comme présence fantôme. [...] Cette absence est plus inquiétante qu'une présence. » Plus important encore : Thoren commence à inférer — il relie l'homme en gris à Severin Kael, au Conseil restreint, au système qui protège le trafic des pierres (ch06 L413-415). L'antagoniste n'est plus seulement une silhouette inquiétante : il devient une pièce d'un puzzle plus vaste. Cette technique de « présence par l'absence » est une extension naturelle de la technique « présence par le silence » déjà appliquée à Thoren (#003) — ici, elle est appliquée à un personnage qu'on ne voit pas. Le lecteur le craint plus parce qu'il est imaginé que parce qu'il est montré.
+**Lien avec échantillons** : n/a
+**Sévérité** : [MAJEUR] — évolution significative du traitement de l'antagoniste. Technique consciente, documentée, qui étend le principe « présence par le silence » à un personnage absent.
+
+---
+
+### #023 — Conseil restreint : info-dump politique en dialogue
+**Type** : narration
+**Contexte** : ch06 L391-405 (Aldric nomme les 5 membres du Conseil restreint)
+**Description** : Le ch06 délivre la concentration d'exposition politique la plus dense du roman : 5 noms, 5 fonctions, 5 profils en 15 lignes de dialogue. L'info-dump est assumé et placé dans la bouche d'Aldric — un personnage crédible (greffier, bureaucrate, ami de Thoren) qui récite ce qu'il connaît par métier. Le brouillon ch06 documente : « info-dump assumé, placé en dialogue — Aldric parle comme un bureaucrate qui récite son répertoire. » L'éditeur valide : « C'est la forme la plus naturelle pour ce type d'information. » La réussite tient à quatre facteurs : (1) le locuteur a une raison professionnelle de connaître ces noms, (2) la liste est scandée par un rythme ternaire (chaque nom présenté avec fonction + trait distinctif), (3) Severin Kael arrive en chute de la liste avec une note de suspicion, (4) l'information sert immédiatement l'enquête de Thoren (elle ne flotte pas — elle est utile dans les 30 lignes suivantes). C'est une technique d'exposition politique reproductible.
+**Lien avec échantillons** : n/a
+**Sévérité** : [MINEUR] — technique d'exposition réussie, 1 occurrence. À documenter pour réutilisation.
+
+---
+
+### #024 — Maethra en filigrane : couche théologique optionnelle
+**Type** : découverte
+**Contexte** : ch06 L465-466 (« Kellan, le vieux chasseur du Nord, qui s'étirait face au soleil chaque matin sans jamais dire pourquoi. Un geste de Maethra — le Premier, le dieu des serments. Un geste que Thoren avait appris sans en connaître le sens, et qu'il répétait sans y penser, comme on répète une prière dont on a oublié les mots. »)
+**Description** : Pour la première fois, le lien entre les étirements matinaux de Thoren et le dieu ancien Maethra est rendu explicite — mais seulement pour le lecteur. Thoren ne le comprend pas (« un geste qu'il avait appris sans en connaître le sens »). Le brouillon ch06 note : « Maethra en filigrane. Une seule mention [...] Thoren ne le sait pas. Le lecteur, s'il a lu la bible (ou s'il est attentif), le saura. Cette couche de sens est optionnelle — elle enrichit sans être nécessaire à la compréhension. » Cette technique de worldbuilding discret est particulièrement sophistiquée : elle récompense les lecteurs attentifs sans punir les autres. La phrase « comme on répète une prière dont on a oublié les mots » fonctionne à deux niveaux — comme description poétique d'une habitude, et comme indice théologique pour ceux qui connaissent le panthéon. C'est une utilisation exemplaire du principe « montrer sans expliquer ».
+**Lien avec échantillons** : n/a
+**Sévérité** : [MINEUR] — 1 occurrence. Technique de worldbuilding discret, reproductible.
+
+---
+
+### #025 — Dent de Brume : révélation par témoignage différé
+**Type** : style
+**Contexte** : ch06 L197-205 (Eldrin décrit la Dent de Brume), vs application du principe « montrer, pas décrire » (bible L164, skill roman-fantasy)
+**Description** : La Dent de Brume — piton rocheux au centre de la Faille sous-marine — est décrite entièrement à travers le témoignage d'Eldrin, pas par observation directe de Thoren. Le brouillon ch06 documente le choix : « Décrire la Dent maintenant volerait l'impact du ch07 où Thoren la verra de ses propres yeux. [...] Tout passer par le témoignage d'Eldrin. [...] La première vision réelle sera au ch07. » Cette technique étend le principe « montrer, pas décrire » (jusqu'ici appliqué aux créatures : cf. bestiaire bible L164) aux **lieux** eux-mêmes. Le lecteur imagine la Dent (chaude, brillante la nuit, noire) avant de la voir — la première vision directe sera un événement en ch07. C'est une extension cohérente et inventive des règles du bestiaire naturaliste : si les créatures sont révélées par fragments, pourquoi pas les lieux de faille ?
+**Lien avec échantillons** : n/a
+**Sévérité** : [MINEUR] — 1 occurrence. Extension réussie du principe « montrer, pas décrire » aux lieux. Technique reproductible.
+
+---
+
+### #026 — Scène de forge : modularité à triple fonction
+**Type** : narration
+**Contexte** : ch06 L265-305 (scène de la forge, ~40 lignes)
+**Description** : La scène de la forge, placée entre les deux scènes d'information (Eldrin et Aldric), remplit trois fonctions simultanées documentées dans le brouillon ch06 : (1) **respiration** : scène courte, concrète, sensorielle, qui évite la saturation d'information après le pavé d'Eldrin ; (2) **fermeture narrative** : les douze couronnes du brigand sont dépensées, la boucle #020 se ferme ; (3) **atmosphère** : le forgeron sait qui est Thoren (« Tout le monde le sait, chasseur. T'as signé le contrat. »), renforçant la sensation de surveillance qui pèse sur le héros. Chaque fonction est remplie sans que la scène paraisse chargée. C'est un modèle de modularité : une scène brève qui sert simultanément le rythme, l'intrigue et l'atmosphère. La triple fonction est rendue possible par le fait que chaque fonction est **implicite** — aucune n'est expliquée au lecteur.
+**Lien avec échantillons** : n/a
+**Sévérité** : [MINEUR] — 1 occurrence. Technique de construction de chapitre reproductible.
+
+---
+
+### #027 — Absence récurrente de brouillon : pattern système (prologue + ch06)
+**Type** : artefact-pipeline
+**Contexte** : Avis éditeur prologue (Anomalie 1 : « Aucun fichier brouillon-prologue.md n'a été produit ») ; avis éditeur ch06 (Anomalie 3 : « Le fichier brouillon-06.md n'existe pas »)
+**Description** : Deux unités consécutives (prologue et ch06) ont été soumises sans brouillon. Les deux absences ont été détectées comme ANOMALIE par l'éditeur, et les deux brouillons ont été créés a posteriori. La récurrence (2/2 unités du cycle prologue+ch06) suggère un angle mort systématique dans le workflow de l'agent écrivain — le brouillon est systématiquement oublié. Ce n'est pas un problème de qualité (les brouillons produits a posteriori sont complets et honnêtes), mais un problème de process : le brouillon est pensé comme optionnel alors qu'il est obligatoire (ecriture-romanesque SKILL.md, Étape 2, point 5 : « Un brouillon vide ou insuffisant est refusé »). Les chapitres 01-05 avaient leurs brouillons — le pattern semble avoir commencé au prologue. Cause possible : le prologue a été traité comme un cas spécial (hors numérotation), et le ch06 a suivi la même logique dérogatoire.
+**Lien avec échantillons** : n/a — phénomène pipeline
+**Sévérité** : [MINEUR] — 2 occurrences consécutives. Pattern à surveiller (si 3e occurrence, passer à [MAJEUR]).
+
+---
+
 ## Résumé des scores et alertes
+
+### Score cumulé avant ch05 : 14 points (2×MAJEUR + 10×MINEUR)
+### Ajouts ch05 : 1×MAJEUR (#013) + 6×MINEUR (#014-#019) = 2 + 6 = 8 points
+### Score total après ch05 : 22 points
+### Ajouts prologue + ch06 : 2×MAJEUR (#020, #022) + 6×MINEUR (#021, #023-#027) = 4 + 6 = 10 points
+### Score total après prologue + ch06 : 32 points (5×MAJEUR + 22×MINEUR = 10 + 22 = 32)
+### Nouveaux SEUIL : aucun
 
 | Score | Occurrence |
 |---|---|
-| [SEUIL] | Motif du « neveu sur le Hatherly » — 3 occurrences (seuil critique atteint) |
-| [SCORE: 6] | 1×MAJEUR + 4×MINEUR = 2 + 4 = 6 — déclenchement précoce atteint |
+| [SEUIL] (levé) | Motif du « neveu sur le Hatherly » — 3 occurrences (ch02-04), non répété depuis ch04. Alerte maintenue levée. |
+| [SCORE: 32] | 5×MAJEUR + 22×MINEUR = 10 + 22 = 32 — seuil de déclenchement précoce largement dépassé |
 
-### Synthèse des points d'attention pour l'orchestrateur
+### Synthèse des points d'attention pour l'orchestrateur — Mise à jour prologue + ch06
 
-1. **Motif du neveu** — ne pas répéter une 4e fois. Le thème du deuil collectif peut s'exprimer autrement.
-2. **Kellan** — ajouter dans bible.md et bd-connaissances.md (personnage secondaire, mentor mort).
-3. **Compteur de flèches** — 15 perforantes, 2 empoisonnées, 3 explosives. Tenir le compteur dans la bd-connaissances.
-4. **Lian** — décider si personnage secondaire ou figurant. Sa boucle (oncle sur le Hatherly) est ouverte.
-5. **Clichés ch04** — deux corrections à appliquer avant le ch05.
-6. **Règle POV** — formaliser les échappées ponctuelles autorisées (cf. proposition éditeur ch01).
+1. ✅ **Motif du neveu** — non répété en prologue ni ch06. Alerte maintenue levée.
+2. ✅ **Kellan** — apparition en ch06 L465 (réflexion nocturne). Cohérent avec bible. Résolu.
+3. ⚠️ **Compteur de flèches** — ch06 mentionne 12 perforantes neuves (L271-283) + les anciennes perforantes, empoisonnées et explosives (L451). Le compteur existe mais n'est pas tenu dans la bd-connaissances. Toujours une lacune.
+4. ⚠️ **Lian** — mentionné en ch06 L325 (« Il voudra venir ») mais n'apparaît pas. Sa boucle (oncle sur le Hatherly) reste ouverte. À refermer ou à laisser intentionnellement ouverte.
+5. ✅ **Clichés ch04** — corrigés. Confirmé.
+6. ✅ **Règle POV** — prologue et ch06 tiennent le POV strict. Confirmé.
+7. ✅ **Longueur chapitre** — ch06 : 499 lignes. Dans la fourchette 400-500 confirmée. L'éditeur du ch06 recommande une révision de cible à 400-550 (notation 7). Proposition précédente (#12) à prendre en compte.
+8. ✅ **Homme en gris** — évolution réussie vers la présence fantôme (voir #022). Prochaine apparition physique recommandée : ch09 (brouillon ch06, fil ouvert #4).
+9. ✅ **Valdric** — mentionné en ch06, pas apparu. Maintenu en arrière-plan.
+10. 🔥 **12 couronnes → 12 pointes** — boucle fermée. Fil matériel exemplaire. Voir #020.
+11. 🔥 **Severin Kael** — nommé pour la première fois. Suspect principal. Prochaine apparition : à doser (cf. bible, révélation progressive).
+12. 🔥 **Eldrin + carte** — personnage et objet bien établis. La carte sera utilisée en ch07 (expédition). Cohérence matérielle à maintenir (tube de cuivre, ch06 L429).
+13. 🔴 **Brouillon absent récurrent** — 2 unités consécutives (prologue, ch06) sans brouillon initial. Voir #027. L'orchestrateur doit s'assurer que le point 5 de l'Étape 2 (`ecriture-romanesque`) est systématiquement appliqué. Si 3e occurrence : passer en [CRITIQUE].
+
+---
+
+## [JOURNAL] Chapitre 07 — La faille sous-marine — 23/06/2026 — Skills : ecriture-romanesque + voix-neutre + ecriture-epique + roman-fantasy
+
+---
+
+### #028 — Lian : premier monologue long (seuil de personnage)
+
+**Type** : personnage
+**Contexte** : ch07 L421-453 (creux du retour après le combat, Lian s'assied près de Thoren et raconte son oncle)
+**Description** : Pour la première fois depuis son introduction (ch04, 7 unités de silence relatif), Lian parle longuement — un monologue de ~30 lignes où il révèle que son oncle (marin du Hatherly, mort au ch01) l'a élevé après la mort de sa mère, lui a appris à nager, pêcher, reconnaître les étoiles. Le placement dans le creux émotionnel après l'adrénaline du combat est le bon : la parole émerge de la fatigue, pas d'une exposition forcée. La voix de Lian est juste — phrases courtes, pas de pathos. Thoren écoute sans ajouter rien. Le brouillon documente le choix : « Le pari était que Lian parle plus que d'habitude ici, et que ce soit justifié par ce qu'il vient de vivre. » L'éditeur confirme : « C'est un seuil pour le personnage — il ne peut plus retourner à son silence. »
+**Lien avec échantillons** : n/a
+**Sévérité** : [MAJEUR] — seuil narratif pour un personnage secondaire (7 unités de silence). Lian passe de « gabier taiseux » à personnage avec passé, voix, et relation.
+
+---
+
+### #029 — Preuve physique par démonstration : la forge comme extension de « montrer, pas décrire »
+
+**Type** : style
+**Contexte** : ch07 L475-537 (scène de la forge — le forgeron frappe le fragment de carapace, il se fend, révélant la cassure vitrifiée)
+**Description** : La forge est la scène la plus concrète du chapitre, placée après la séquence abstraite de la Faille (Dent, brume, lueur, combat). Sa fonction dépasse la « respiration » : elle étend le principe « montrer, pas décrire » (bible L164, skill `roman-fantasy`) vers une **démonstration physique**. Le forgeron n'explique pas la fragilité — il la prouve en frappant. Le lecteur voit la cassure avant d'entendre l'explication. Le brouillon documente : « Le forgeron n'explique pas la faiblesse de la pierre. Il la démontre — un coup de marteau, la cassure nette. » Technique reproductible : après une séquence abstraite, ancrer les propriétés-clés dans une preuve tangible avant l'explication verbale.
+**Lien avec échantillons** : n/a
+**Sévérité** : [MINEUR] — 1 occurrence. Technique reproductible.
+
+---
+
+### #030 — Rituel transformé : la 5e marche réparée
+
+**Type** : style
+**Contexte** : ch07 L607-613 (propriétaire : « Je l'ai réparée. » — « La cinquième marche ne gémit pas. Elle tenait, solide, réparée. ») vs ch01-04 (rituel d'évitement établi)
+**Description** : Le rituel de la 5e marche (geste-signature de Thoren depuis l'observation #003, ch01-ch06) est MODIFIÉ pour la première fois : le propriétaire l'a réparée. Effets narratifs : (1) Thoren le remarque — le changement est assez important pour percer son attention ; (2) le geste vient d'un secondaire qui fait quelque chose pour Thoren sans en attendre de reconnaissance — marque de soin silencieux ; (3) le rituel n'est plus seulement un geste du protagoniste (éviter), il devient le résultat d'une interaction (réparer pour). Le rituel devient **marqueur de relation**, pas seulement signature de personnage. Le brouillon documente : « un petit geste, mais il signale un changement : la marche ne grincera plus. Le rituel est modifié. »
+**Lien avec échantillons** : n/a
+**Sévérité** : [MINEUR] — 1 occurrence. Le principe « Rituel comme signature » (`voix-neutre`) gagnerait à inclure une variante « Rituel transformé » : un rituel établi modifié par des forces extérieures crée un effet narratif.
+
+---
+
+### Enrichissements d'observations existantes
+
+**#001 — Motif « mer qui respire » : résolution en ch07**
+Le motif (ch01→ch04, transformé en son contraire en ch04) trouve une résolution : (1) **transfert à la Dent** : la Dent « palpitait comme une respiration » (L211) ; (2) **retour en clôture** : L628 « la mer respirait, lente et noire » — la mer respire à nouveau, mais Thoren prépare la suite. Application complète de la variante « Transformation du motif » (`ecriture-epique`, Proposition #3). **[SEUIL LEVÉ]**.
+
+**#020 — Fil matériel : contraste avec l'anomalie du compteur d'explosives**
+L'éditeur détecte 2 explosifs (ch07 v1) vs 3 (ch02, ch04). Corrigé (rétabli à 3). Contraste avec la boucle exemplaire des 12 couronnes (#020) : ici, le brouillon partait d'une hypothèse erronée. Le système de traçage a failli — la vérification inter-unités doit remonter plus loin que le chapitre adjacent. L'éditeur a rattrapé l'erreur (bon pipeline), mais rappel que le processus n'est pas automatisé.
+
+**#008 — Clichés de brume : extension du pattern (ch04 + ch07)**
+Ch07 contenait un cliché de comparaison (« comme un rideau », L167 v1, supprimé) après celui du ch04 (« comme un linceul »). Les deux concernent la brume en mer. Le brouillon le qualifie de « cliché assumé » — l'éditeur refuse et exige la suppression. Pattern : les comparaisons de brume sont un angle mort de l'écrivain (2 occurrences sur 7 chapitres, toutes corrigées). À surveiller.
+
+---
+
+## Résumé des scores et alertes
+
+### Score cumulé avant ch07 : 32 points (5×MAJEUR + 22×MINEUR = 10 + 22 = 32)
+### Ajouts ch07 : 1×MAJEUR (#028) + 2×MINEUR (#029, #030) = 2 + 2 = 4 points
+### Score total après ch07 : 36 points (6×MAJEUR + 24×MINEUR = 12 + 24 = 36)
+### Nouveaux SEUIL : aucun
+
+| Score | Occurrence |
+|---|---|
+| [SEUIL] (levé) | Motif du « neveu sur le Hatherly » — non répété depuis ch04. Alerte maintenue levée. |
+| [SEUIL] (levé) | Motif « mer qui respire » — résolu et bouclé en ch07 (#001 enrichissement). |
+| [SCORE: 36] | 6×MAJEUR + 24×MINEUR = 12 + 24 = 36 — seuil de déclenchement précoce toujours actif |
+| [CAP: 30] | Limite d'observations atteinte (30/30). Toute nouvelle observation devrait remplacer une existante. |
+
+### Synthèse des points d'attention pour l'orchestrateur — Mise à jour ch07
+
+1. ✅ **Corrections éditeur appliquées** — les 3 anomalies (explosives 2→3, cliché « rideau » supprimé, coquilles fixées) corrigées dans la version finale. Ch07 publiable sans réserve.
+2. ✅ **Lian (#028)** — a parlé. Sa relation avec Thoren a changé. À prendre en compte dans les chapitres suivants (ch16-19).
+3. ✅ **Harpon d'Orin** — planté dans la carapace du crabe (L315). Boucle ouverte — récupéré ou perdu ? (brouillon L94)
+4. ✅ **Fragment de carapace** — brisé en quatre (L511). Boucle ouverte — à utiliser pour la pointe en acier ou comme preuve (ch15-16).
+5. ✅ **Stratégie entrevue** — chaleur = attracteur, fragilité structurale = faiblesse. Plan à assembler (ch15-16).
+6. ✅ **Dent de Brume** — lieu visité. La lueur dans le cratère (deuxième créature) posée comme mystère.
+7. ⚠️ **Limite d'observations** (30/30) atteinte. Prochaines unités : remplacer des observations ou enrichir.
+8. ⚠️ **Comparaisons de brume** — pattern récurrent (#008 enrichi). Vigilance sur les futures scènes maritimes.
+
+---
+
+## [JOURNAL] Chapitre 08 — Le réseau du Conseil — 23/06/2026 — Skills : ecriture-romanesque + voix-neutre + ecriture-epique + roman-fantasy
+
+**Jalon** : 🏆 Première validation **0 REFUS, 0 ANOMALIE** depuis le début du projet (ch01-07 : anomalies mineures corrigées, ch08 : sans réserve). L'éditeur note : « Le chapitre tient. La prose est sobre et précise, l'enquête progresse par déductions crédibles, la tension monte sans artifice. Le chapitre est publiable en l'état. »
+
+---
+
+### Enrichissements d'observations existantes
+
+**#003 — Rituels comme signature : extension « rituel retourné » (ch08)**
+La 5e marche, réparée par le propriétaire en ch07 (#030), est **délibérément brisée** par l'homme en gris en ch08. Le propriétaire l'entend craquer : « j'ai entendu la cinquième marche craquer — celle que j'avais réparée » (L311). Le brouillon ch08 documente : « L'homme en gris brise intentionnellement ce que le propriétaire avait réparé, comme un message : rien n'est protégé, pas même les petits gestes du quotidien. » Le rituel n'est plus seulement modifié par un allié (ch07) — il est **retourné** par l'antagoniste comme acte de violation : ce qui était un geste d'évitement (Thoren) ou de soin (propriétaire) devient un geste d'intrusion. Cette variante (« Rituel retourné ») n'est pas documentée dans le principe « Rituel comme signature » actuel (voix-neutre).
+
+**#013 — L'homme en gris : de la présence fantôme (ch06-07) à l'action directe (ch08)**
+L'homme en gris effectue sa transition la plus significative depuis son introduction. Après l'apparition physique furtive (ch05) et la présence fantôme (ch06-07, 4 mentions mentales sans apparition), le ch08 le montre en **action directe** : (1) visite à la forge — questions sur « l'acier au carbone », message transmis ; (2) fouille de la chambre au Havre du Marin ; (3) mot « Drevon » laissé sur l'oreiller avec une barre oblique ; (4) apparition physique silencieuse au bout de la rue en clôture. La progression (apparition → fantôme → action → démonstration) constitue un arc antagoniste calibré sur 4 chapitres. Le brouillon documente : « C'est une escalade en trois temps, chacun plus inquiétant que le précédent. L'homme en gris est un adversaire intelligent. Il ne menace pas — il démontre sa supériorité. »
+
+**#019 — Administration du secret : extension au chantage bureaucratique (ch08)**
+Le motif d'administration du secret (ch03 : pages arrachées → ch05 : ordre verbal) s'étend à un **troisième mode** : la coercition directe par chantage. Drevon est forcé de signer un ordre de démantèlement sous la menace (dettes, liaison, renvoi). Trois éléments nouveaux : (1) la corruption est **active** — falsification, pas omission ; (2) le nom de signature est **inventé** sur-le-champ (« un nom qui n'existait pas ») ; (3) le sceau d'Ordan Veyne (finances) apparaît sur le document original, reliant deux conseillers sans preuve de complicité. Le motif montre désormais le **coût humain** de la corruption : Drevon vit caché, terrorisé, les mains tremblantes. **3 occurrences du motif, extension à un nouveau mode.** Le brouillon documente : « Drevon sert deux fonctions : (1) il fournit l'information sur le sceau de Veyne, (2) il incarne l'échelle humaine de la corruption. »
+
+**#022 — L'homme en gris : cycle complet (fantôme → action → réapparition physique)**
+L'observation #022 (présence fantôme établie en ch06) trouve sa résolution : l'homme en gris réapparaît physiquement en ch08 selon un cycle complet. Présence physique (ch05) → absence mentale (ch06, 4 mentions) → hors-champ (ch07, aucune mention) → action directe + réapparition physique (ch08). Le brouillon ch08 confirme le cycle intentionnel : « Le chapitre entier monte la tension paranoïaque. La silhouette dans la rue est l'aboutissement logique : Thoren sait qu'il est suivi, et l'homme en gris confirme en se montrant délibérément. » Le principe « Présence fantôme » (Proposition #11, `voix-neutre`) gagnerait à intégrer ce cycle comme rythme recommandé.
+
+---
+
+### Observations remplacées (30/30 — remplacement pour entrées ch08)
+
+Les observations suivantes sont **marquées comme remplacées**. Elles restent visibles pour la trace mais sont retirées du score actif.
+
+**#005 — Kellan : résolu et documenté** → **REMPLACÉE par #031**
+Lacune documentaire corrigée (bible.md + bd-connaissances). Plus d'observation active nécessaire.
+
+**#018 — Maturité du refus de motif : confirmé, clos** → **REMPLACÉE par #032**
+Le refus conscient des motifs saturés est une pratique acquise sur l'ensemble du projet. Observation ayant rempli sa fonction de documentation d'une pratique désormais stable.
+
+**#027 — Brouillon absent (pattern système) : alerte levée** → **REMPLACÉE par #033**
+Deux occurrences consécutives (prologue, ch06) sans brouillon initial. Le ch08 a un brouillon complet et exemplaire (« brouillon exemplaire : 8 hésitations documentées, chaque choix justifié », selon l'éditeur). L'alerte est levée — le pattern n'a pas persisté.
+
+---
+
+### #031 — L'homme en gris : escalade antagoniste en trois temps (forge → chambre → rue)
+
+**Type** : personnage / style
+**Contexte** : ch08 L267-288 (forge), L301-339 (chambre fouillée, mot « Drevon »), L427-441 (apparition dans la rue)
+**Description** : La contre-attaque de l'homme en gris suit une **escalade en trois temps calibrée**, chaque étape plus intrusive que la précédente :
+
+1. **Démonstration (forge)** : visite discrète, questions sur « l'acier au carbone », message transmis par l'apprenti (« Dis au chasseur que je sais ce qu'il prépare »). L'antagoniste prouve qu'il connaît les préparatifs — pas d'intrusion physique, juste un signal.
+2. **Violation (chambre)** : fouille subtile — objets déplacés sans être volés, carte déroulée, fragment de carapace posé au sol. Puis le mot « Drevon » laissé sur l'oreiller avec une barre oblique. L'antagoniste pénètre dans l'espace intime de Thoren et prouve qu'il peut y entrer sans être arrêté.
+3. **Apparition (rue)** : silhouette au bout de la rue, regard soutenu sans action ni menace verbale, puis disparition. La simple présence visible suffit à confirmer la supériorité.
+
+Le brouillon documente le choix : « L'homme en gris ne menace pas — il démontre sa supériorité. Laisser le nom de Drevon sur l'oreiller est plus terrifiant qu'une menace de mort. » La 5e marche brisée (cf. enrichissement #003) constitue un **4e temps « fantôme »** qui traverse l'escalade : l'antagoniste brise le rituel en passant, signal muet de sa présence au propriétaire. Technique reproductible : démonstration → violation → apparition.
+**Lien avec échantillons** : n/a
+**Sévérité** : [MAJEUR] — structure antagoniste calibrée consciemment, technique reproductible.
+
+---
+
+### #032 — Signature administrée : chantage bureaucratique comme nouveau mode de corruption
+
+**Type** : narration
+**Contexte** : ch08 L185-233 (scène Drevon dans sa chambre)
+**Description** : La scène Drevon étend le motif d'administration du secret (#019) vers un nouveau mode — **la coercition directe par chantage bureaucratique**. Le mécanisme complet : (1) l'homme en gris possède un dossier compromettant sur Drevon (dettes, liaison, sommes non déclarées — « pas de quoi mériter la prison, mais assez pour le détruire dans cette ville ») ; (2) il force Drevon à signer un ordre de démantèlement pré-rédigé et à apposer le sceau de Kael via un duplicateur ; (3) Drevon invente un nom de secrétaire sur-le-champ (« un nom qui n'existait pas ») comme signature fictive ; (4) le document original porte un second sceau — celui d'Ordan Veyne, conseiller aux finances.
+
+Quatre éléments inédits par rapport aux occurrences précédentes (ch03 : pages arrachées ; ch05 : ordre verbal) : (a) la corruption est **active** — falsification délibérée, pas omission ; (b) le sceau est **usurpé** par un tiers qui a accès aux duplicateurs du bastion ; (c) la signature est **fictive** — nom inventé sur un document réel ; (d) le chantage crée une **victime visible** — Drevon vit caché, tremblant, les mains moites, le regard humide. Le motif passe de l'indice objectif (trou dans l'archive) à la tragédie individuelle (une vie brisée). **[SEUIL] : 3 occurrences du motif #019** (ch03 + ch05 + ch08), avec extension à un nouveau mode.
+**Lien avec échantillons** : n/a
+**Sévérité** : [MAJEUR] — 3e occurrence, nouveau mode, extension qualitative significative.
+
+---
+
+### #033 — Structure d'enquête en entonnoir : progression des témoins par profondeur décroissante
+
+**Type** : narration
+**Contexte** : ch08 entier — Merrick (capitaine de la garde, L1-96) → Henric (barbier informateur, L105-136) → Drevon (clerc source directe, L183-233)
+**Description** : Le chapitre organise trois entretiens selon une **structure en entonnoir** : chaque témoin est plus proche du secret que le précédent, chaque entretien va plus profond. Merrick (garde portuaire) donne un nom (Tomas Drevon) et un signalement (l'homme en gris) — niveau officiel. Henric (barbier du port) donne une adresse (rue des Écorcheurs) — niveau de la rue. Drevon (clerc caché) donne la preuve (sceau de Veyne, aveu complet) — niveau de la source directe. Entre chaque entretien, un intermède de déplacement sert de respiration et de digestion de l'information. La logique est une **profondeur décroissante** : de l'institution à la rue, de la rue au clapier. Le brouillon documente le choix : « Merrick d'abord, puis barbier, puis Drevon. Progression logique : Thoren ne peut pas trouver Drevon directement — il a besoin d'un indicateur. »
+
+Technique reproductible : (1) commencer par le témoin le plus accessible (fonctionnaire, garde) → donne un nom ; (2) l'informateur de rue (barbier, tavernier, artisan) → donne une adresse ; (3) la source directe (témoin caché, victime) → donne la preuve. Fréquence : 1 à 2 occurrences par arc d'enquête politique.
+**Lien avec échantillons** : n/a
+**Sévérité** : [MINEUR] — structure narrative reproductible, 1 occurrence.
+
+---
+
+## Résumé des scores et alertes
+
+### Score cumulé avant ch08 : 36 points (6×MAJEUR + 24×MINEUR = 12 + 24 = 36)
+### Remplacements : #005 (-1), #018 (-1), #027 (-1) = -3 points (MINEUR×3)
+### Ajouts ch08 : 2×MAJEUR (#031, #032) + 1×MINEUR (#033) = 4 + 1 = +5 points
+### Score total après ch08 : 38 points (8×MAJEUR + 22×MINEUR = 16 + 22 = 38)
+### Nouveaux SEUIL : #019 — 3 occurrences (ch03, ch05, ch08) — extension au mode chantage
+
+| Score | Occurrence |
+|---|---|
+| [SEUIL] (levé) | Motif du « neveu sur le Hatherly » — non répété depuis ch04. Alerte maintenue levée. |
+| [SEUIL] (levé) | Motif « mer qui respire » — résolu et bouclé en ch07. |
+| [SEUIL] | Motif **#019 (Administration du secret)** — 3 occurrences (ch03, ch05, ch08), extension au chantage bureaucratique. |
+| [SCORE: 38] | 8×MAJEUR + 22×MINEUR = 16 + 22 = 38 — seuil de déclenchement précoce toujours actif |
+| [CAP: 30] | Limite d'observations maintenue (30/30). Remplacements effectués. |
+
+### Synthèse des points d'attention pour l'orchestrateur — Mise à jour ch08
+
+1. 🏆 **Validation 0R/0A** — première du projet. Jalon de maturité du pipeline (écrivain + éditeur + scribe alignés).
+2. ✅ **Drevon** — identifié comme victime (chantage, sceau de Veyne, sceau de Kael). Son sort est suspendu (message « Drevon » + barre oblique). À confirmer ou infirmer dans un chapitre ultérieur.
+3. ✅ **Ordan Veyne** — nommé comme complice possible. Sceau sur le document original. Lien Kael/Veyne posé mais non résolu.
+4. ✅ **L'homme en gris** — escalade en trois temps documentée (#031). Prochaine apparition physique : ch09 (bible, confirmation brouillon).
+5. ✅ **5e marche** — réparée (ch07) → brisée délibérément (ch08). Rituel retourné. Continuité maintenue.
+6. ✅ **Pointe en acier au carbone** — l'homme en gris sait. Compte à rebours de 3 jours posé en ch07, maintenu en ch08 (« Il avait trois jours. Il les utiliserait. »). Chronologie cohérente.
+7. ✅ **Compteur de temps** — ch08 se déroule sur une seule journée (matin → nuit). Pas d'ellipse temporelle sauf mention implicite de « le lendemain ou le surlendemain du retour de la Faille » (brouillon ch08).
+8. ✅ **Brouillon exemplaire** — 8 hésitations documentées, vérification style complète, fils ouverts listés. Standard de qualité à maintenir.
+9. ⚠️ **Convention typographique** — l'éditeur signale un cas non couvert par la bible (dialogues enchaînés sans narration : `— ` sans `« ` après `»`). À trancher — soit (a) ajouter une micro-narration entre répliques, soit (b) rouvrir systématiquement par `« —`, soit (c) considérer l'enchaînement direct comme cas valable de `—` sans `«`. Décision à uniformiser pour la suite.
+10. ⚠️ **Piste Veyne** — le sceau de Veyne sur le document original ajoute un degré de complexité. Le brouillon le confirme : « Thoren a maintenant deux noms (Veyne et Kael), et l'homme en gris est entre les deux. » Veiller à ne pas perdre ce fil dans les chapitres d'action (ch09-10).
+11. 🔥 **Structure entonnoir (#033)** — première occurrence documentée. Technique à réutiliser pour d'autres arcs d'enquête.
+12. 🔴 **Motif #019 à 3 occurrences** — nouveau SEUIL. L'administration du secret a maintenant trois modes (pages arrachées, ordre verbal, chantage bureaucratique). La variété des modes compense la répétition, mais la vigilance reste de mise : si un 4e mode apparaît avant la résolution de l'arc (ch15+), vérifier qu'il n'est pas redondant.
+
+---
+
+## [JOURNAL] Chapitre 10 — Le chasseur rival — 23/06/2026 — Skills : ecriture-romanesque + voix-neutre + ecriture-epique + roman-fantasy
+
+**Contexte** : Worldbuilding majeur des guildes de chasseurs. Identification du rival (Dorian Merault, Ligue d'Acier). Révélation du vrai nom de l'homme en gris (Caelan Dorent). Nouveau rituel : la Chandelle de Maethra. **Validation 0R/2A corrigé** — les deux anomalies liées (disparité des trois chasseurs) ont été corrigées par Option A (réaction de Thoren).
+
+**Nouvelle limite** : 60 observations (au lieu de 30). Passé de [CAP: 30] à [CAP: 60].
+
+---
+
+### #034 — Dorian Merault : antagoniste professionnel non-violent
+
+**Type** : personnage
+**Contexte** : ch10 L227-361 (confrontation dans l'entrepôt)
+**Description** : Merault est le premier antagoniste humain du roman qui n'est ni menaçant ni mystérieux — il est **professionnel**. Il accueille Thoren avec un constat (« Vous êtes plus petit que je ne l'imaginais ») sans moquerie. Il déclare pouvoir le tuer sans emphase (« Je pourrais vous tuer. Mais je ne suis pas venu pour ça. »). Il donne des informations (Dorent, Kael) sans y être contraint. Il offre une chance de partir sans combat. Chaque geste est économique (« Rien de ce qu'il faisait n'était superflu »). Le brouillon documente le choix consciemment (hésitation #6) : « Un professionnel qui respecte son homologue tout en restant dangereux crée une tension plus intéressante. » C'est une rupture avec le registre de l'homme en gris (mystère, silence, apparitions furtives) et une expansion du registre moral du roman — Merault n'est pas un méchant, c'est un concurrent compétent qui fait son travail. Cette figure d'« antagoniste professionnel non-violent » n'est pas documentée dans les skills actifs.
+**Lien avec échantillons** : n/a
+**Sévérité** : [MAJEUR] — nouveau type d'antagoniste pour le projet. Élargit la palette morale.
+
+---
+
+### #035 — Motif de la chandelle : de l'extinction à la promesse (transformation majeure)
+
+**Type** : motif
+**Contexte** : ch01-04 (Thoren souffle une bougie qu'il n'a pas allumée — extinction rituelle vide) → ch10 L401-419 (Thoren garde une chandelle qu'il n'a pas allumée — attente, préparation)
+**Description** : Le motif de la bougie/chandelle effectue sa transformation la plus significative depuis le début du roman. En ch01-04, Thoren soufflait une bougie qu'il n'avait pas allumée — geste rituel vide, machinal, presque absurde dont il sourit lui-même (ch04). En ch10, il pose une chandelle de suif sur le banc de quart, la regarde, ne l'allume pas — faute d'allumette. Le brouillon documente : « Le motif évolue de l'absence à la présence, de l'extinction à la promesse d'allumage. » La transformation suit la variante « Transformation du motif » (Proposition #3, ecriture-epique) : le même objet, le même geste (ne pas allumer) mais le sens est inversé — avant c'était un geste d'épuisement, maintenant c'est un geste de préparation. La scène avec Orin (chandelle posée entre eux, « inutile et parfaite », aucun des deux n'a d'allumette) ajoute une dimension de légèreté grave qui tempère la tension sans la dissiper.
+**Lien avec échantillons** : n/a
+**Sévérité** : [MAJEUR] — transformation complète d'un motif filé sur 10 chapitres (première occurrence ch01). Application exemplaire de la variante « Transformation ».
+**[SEUIL]** : 4+ occurrences du motif bougie/chandelle à travers le roman (ch01, ch02, ch04, ch10).
+
+---
+
+### #036 — Guildes de chasseurs : worldbuilding par exposition dialoguée dense
+
+**Type** : narration
+**Contexte** : ch10 L49-113 (dialogue Aldric-Thoren, ~65 lignes d'exposition sur l'histoire des guildes)
+**Description** : Le chapitre délivre l'exposition la plus dense sur les guildes du roman. Aldric couvre en un seul bloc dialogué : (1) l'origine des guildes (pré-Faille : chasseurs individuels → post-Faille : nécessité d'organisation), (2) la création de la Grande Guilde par le Concile de la Rectitude (~50 ans), (3) le serment des chasseurs (devant Justia, temple, parchemin), (4) les corporations locales (exemple : Vasthaven fondée par Harren Vell, 42 ans, adaptée au milieu marin), (5) les rivalités entre guildes (cour d'arbitrage lointaine, rabais, rumeurs, changements rares), (6) le Trait Gris comme anomalie (fondé ~15 ans à la capitale, bras armé de quelqu'un, chasse les hommes pas les créatures), (7) le sigle (trait brisé, déjà vu sur un rapport de douane), (8) la révélation que le Trait Gris « était là avant la Faille ». L'exposition est structurée en trois temps (pré-Faille → création de la Grande Guilde → état actuel) avec des micro-pauses (thé, silences) qui l'aèrent. L'éditeur note que le passage est crédible (Aldric = greffier) mais concentré (~65 lignes d'affilée).
+**Lien avec échantillons** : n/a
+**Sévérité** : [MAJEUR] — worldbuilding le plus dense depuis la théologie (bible). Confirme la technique d'exposition politique par dialogue crédible (Proposition #14, roman-fantasy).
+
+---
+
+### #037 — Caelan Dorent : révélation dédramatisée du nom de l'antagoniste
+
+**Type** : narration
+**Contexte** : ch10 L353-361 (Merault, sur le seuil de l'entrepôt, livre le nom en partant)
+**Description** : Après 9 chapitres de mystère, le nom de l'homme en gris est révélé — mais pas comme un climax. Merault le livre en partant, presque en passant : « L'homme en gris — vous le connaissez sous ce nom, mais il en a un vrai. Il s'appelle Caelan Dorent. » Le brouillon documente le choix (hésitation #5) : « Je l'ai fait révéler en passant, presque comme un détail — Merault le livre comme une information secondaire, ce qui le rend d'autant plus crédible. » La technique est une **dédramatisation délibérée** de la révélation : le nom est donné par un personnage qui n'est pas directement concerné (Merault travaille pour le Conseil, pas pour le Trait Gris), en fin de scène, sans emphase. L'effet paradoxal : la banalité du geste rend l'information plus vraie. Contraste avec l'homme en gris lui-même (apparitions soigneusement chorégraphiées — ch05, ch08) : le mystère est levé sans cérémonie.
+**Lien avec échantillons** : n/a
+**Sévérité** : [MINEUR] — technique narrative reproductible (révélation par personnage tiers, en passant).
+
+---
+
+### #038 — « Cathédrale d'ombre et de poussière » : l'entrepôt comme espace sacré vide
+
+**Type** : style
+**Contexte** : ch10 L235-239 (« L'intérieur de l'entrepôt était une cathédrale d'ombre et de poussière. La lumière du jour filtrait par les interstices des planches clouées, traçant des rayons obliques dans l'air chargé de particules qui dansaient lentement. »)
+**Description** : La description de l'entrepôt abandonné utilise un lexique religieux (« cathédrale », « rayons obliques », « particules qui dansaient ») pour transformer un lieu fonctionnel (entrepôt désaffecté) en espace quasi-sacré. Le choix est cohérent avec la technique de katabasis inversée (l'entrepôt comme antichambre) et crée un contraste avec la scène d'exposition chez Aldric (guilde bruyante, bondée → entrepôt vide, silencieux). La lampe tempête au centre, projetant « un cercle de lumière jaune qui découpait les ténèbres », renforce l'imagerie religieuse (autel, lumière dans les ténèbres). C'est une application réussie de la technique « Grandeur par la métaphore » — un lieu banal élevé par l'image.
+**Lien avec échantillons** : n/a
+**Sévérité** : [MINEUR] — 1 occurrence. Technique reproductible pour les scènes de confrontation.
+
+---
+
+### #039 — Rythme ternaire de l'exposition : confirmation d'une technique stable (avec enrichissement temporel)
+
+**Type** : style
+**Contexte** : ch10 L49-113 (Aldric : pré-Faille → création de la Grande Guilde → état actuel), ch06 L391-405 (liste des 5 conseillers en rythme ternaire)
+**Description** : Le brouillon documente un « rythme ternaire de l'exposition » pour le discours d'Aldric : avant la Faille (chaos, chasseurs seuls) → création de la Grande Guilde (Concile, organisation, serment) → état actuel (corporations, rivalités, Trait Gris). Ce n'est pas la première occurrence — le ch06 utilisait un rythme ternaire pour la liste des conseillers (nom + fonction + trait distinctif, répété 5 fois avec Severin Kael en chute). La structure ternaire comme technique d'exposition orale (Aldric parle comme il lit ses registres — « par chapitres, par rubriques ») est désormais confirmée sur 2 occurrences (ch06, ch10). C'est un tic d'écriture émergent : l'exposition par séquences de 3.
+
+**Enrichissement — Structure temporelle triptyque du chapitre** : Le ternaire ne se limite pas au dialogue d'Aldric — il structure l'ensemble du chapitre en trois parties aux temporalités distinctes : (1) **Corporation/Aldric** → temps du passé (histoire des guildes, héritage de Kellan, mémoire du serment) ; (2) **Entrepôt/Merault** → temps du présent immédiat (confrontation, menace actuelle, choix immédiat) ; (3) **La Mouette/Orin** → temps du futur imminent (compte à rebours de 2 jours, promesse de la chandelle, décision déjà prise). Chaque partie a sa propre qualité lumineuse (guilde = jour tamisé, entrepôt = pénombre sacralisée, quai = plein soleil), son registre sonore (brouhaha vs silence absolu vs clapotis du port) et son tempo (dialogue posé → confrontation tendue → respiration calme). Cette triple temporalité (passé/présent/futur) fait du ch10 un chapitre-charnière entre la phase d'enquête et la phase d'action du roman.
+**Lien avec échantillons** : n/a
+**Sévérité** : [MINEUR] — 2 occurrences. Technique stable. Enrichissement : la structure ternaire est la clé de composition du chapitre entier, pas seulement du dialogue d'exposition.
+
+---
+
+### #040 — Aldric : du greffier au confident (évolution sur 10 chapitres)
+
+**Type** : personnage
+**Contexte** : ch10 L23-33 (Aldric reconnaît la fatigue de Thoren, utilise le silence comme outil), ch10 L202-209 (question sur la chandelle — « Si tu en avais une, tu l'allumerais ? »), vs ch01 (première rencontre, fonctionnaire efficace)
+**Description** : Aldric a parcouru un arc silencieux depuis le ch01. D'abord greffier compétent mais distant (ch01), il devient fournisseur d'information (ch02, ch06), puis confident qui connaît Thoren « assez pour savoir que les silences portaient plus que les paroles » (ch10 L33). La question finale — « Si tu en avais une, tu l'allumerais ? » — montre une intimité émotionnelle que Thoren n'a avec personne d'autre dans Vasthaven (sauf peut-être Orin). Aldric ne demande pas de réponse — il sait que Thoren ne répondra pas. La relation s'est construite par accumulation de scènes brèves (ch01, ch02, ch06, ch10) sans jamais être explicitée. C'est une application du principe « Présence par le silence » appliqué à une relation : l'amitié se montre par ce qui n'est pas dit.
+**Lien avec échantillons** : n/a
+**Sévérité** : [MINEUR] — arc secondaire réussi, construit sur 10 chapitres par accumulation discrète.
+
+---
+
+### #041 — Chandelle inutile : l'absurde comme respiration dramatique
+
+**Type** : style
+**Contexte** : ch10 L401-419 (Thoren sort une chandelle, Orin demande une allumette, personne n'en a — « Ils restèrent silencieux un long moment, assis côte à côte sur le plat-bord, la chandelle posée entre eux, inutile et parfaite. »)
+**Description** : La scène finale de La Mouette introduit un moment d'absurdité légère après la tension de l'entrepôt. Thoren a la chandelle, Orin demande une allumette, personne n'en a — la chandelle reste posée, inutile. Le mot « parfaite » qualifie cette inutilité. C'est une respiration dramatique qui fait écho à la fois : (1) au rituel de la bougie (ch01-04) — Thoren a maintenant la chandelle mais ne peut pas l'allumer, (2) à la relation Orin/Thoren — la camaraderie silencieuse qui n'a pas besoin de gestes accomplis. Le brouillon documente : « La chandelle posée entre eux, inutile faute d'allumette, crée un moment de légèreté grave. » Technique reproductible : placer un objet rituel dans une situation pratique absurde pour créer un effet de contraste tonal.
+**Lien avec échantillons** : n/a
+**Sévérité** : [MINEUR] — 1 occurrence. Technique de variation tonale.
+
+---
+
+### #042 — Refrain épique en clôture : « Il ne rendait jamais un contrat signé »
+
+**Type** : style
+**Contexte** : ch10 L431-433 (« Il ne rendait jamais un contrat signé. »), ch04 LXX (première occurrence implicite : acceptation du contrat), ch02 (pose des 3 conditions)
+**Description** : La dernière ligne du chapitre — « Il ne rendait jamais un contrat signé » — fonctionne comme un **refrain épique** qui traverse le roman. La phrase apparaît pour la première fois en fin de chapitre comme une déclaration d'identité. Elle fait écho à la signature du contrat (ch02) et à la décision de Thoren de continuer malgré tout. Le brouillon note : « La dernière ligne boucle sur l'identité de Thoren tout en ouvrant sur la suite. » C'est une application de la technique « Refrain épique » (skill ecriture-epique) : une ligne qui revient à des moments-clés pour ancrer le personnage dans sa nature fondamentale. Contrairement aux listes-accumulations et grandes phrases-mondes, le refrain épique est utilisé avec parcimonie ici — peut-être trop : c'est la première occurrence explicite du refrain, et l'éditeur note que les techniques épiques sont globalement sous-utilisées dans ce chapitre de worldbuilding majeur.
+**Lien avec échantillons** : n/a
+**Sévérité** : [MINEUR] — 1 occurrence explicite. Technique épique identifiée mais sous-utilisée dans ce chapitre.
+
+---
+
+### #043 — Severin Kael : deuxième mention, piste non résolue
+
+**Type** : narration
+**Contexte** : ch10 L359 (« Severin Kael est un nom. Mais il y en a d'autres. Et certains sont plus proches que vous ne le croyez. »), ch06 L404 (première mention comme membre du Conseil restreint)
+**Description** : Severin Kael reçoit sa deuxième mention du roman, toujours comme un nom sans visage ni fonction précise. Merault le cite comme un nom connu — mais en ajoutant qu'il n'est pas le seul (« il y en a d'autres ») et que certains sont plus proches que Thoren ne le croit. Le brouillon note : « Severin Kael est glissé presque trop discrètement (l. 359) pour un nom qui semble important. » L'éditeur partage la vigilance : c'est un nom parmi trois nouveaux en un chapitre. À 2 mentions (ch06, ch10) sans développement, le seuil d'attention du lecteur est sollicité — Severin Kael risque d'être oublié s'il ne réapparaît pas dans les 2-3 prochains chapitres avec une fonction concrète (apparition, lettre, confrontation indirecte).
+
+**Enrichissement — Lien étymologique Caelan/Kael** : Le brouillon (hésitation #5) note que « Caelan » sonne comme « Kael » (Severin Kael) — un lien subtil que le lecteur attentif peut saisir. Les deux noms partagent la même racine « Kael/Ka-el », suggérant une parenté ou une appartenance commune (famille, ordre, organisation). C'est un indice nominal discret qui récompense la relecture : le nom de l'homme en gris contient le nom du commanditaire présumé. Ce niveau de détail onomastique mérite d'être documenté pour les chapitres suivants.
+**Lien avec échantillons** : n/a
+**Sévérité** : [MINEUR] — 2 mentions. Vigilance : risque de perdre le lecteur si pas de développement dans les chapitres suivants. Enrichissement : lien étymologique Caelan/Kael à confirmer ou infirmer.
+
+---
+
+### #044 — « Je pourrais vous tuer » : one-liner comme signature de personnage
+
+**Type** : style
+**Contexte** : ch10 L271-275 (« Je pourrais vous tuer, dit-il. Ici, maintenant. Vous n'auriez pas le temps de dégainer votre dague. […] Mais je ne suis pas venu pour ça. »)
+**Description** : Merault est défini par une seule réplique de 20 mots — « Je pourrais vous tuer. Ici, maintenant. Vous n'auriez pas le temps de dégainer votre dague. Mais je ne suis pas venu pour ça. » La structure de la réplique est remarquable : (1) affirmation de capacité (sans menace — « déclaration de fait, comme un marchand qui annonce le prix d'une marchandise »), (2) précision spatiale et temporelle (« Ici, maintenant »), (3) détail technique (« dégainer votre dague » — Merault a observé Thoren, il connaît son équipement), (4) retournement (« Mais je ne suis pas venu pour ça »). La réplique condense tout le personnage en quatre segments. L'éditeur note : « Pas de méchant de carton. » C'est une technique de caractérisation par one-liner : une ligne qui dit tout sur un personnage, économiquement.
+**Lien avec échantillons** : n/a
+**Sévérité** : [MINEUR] — 1 occurrence. Technique reproductible.
+
+---
+
+### #045 — Anomalie corrigée : disparité des trois chasseurs (cohérence interne rétablie)
+
+**Type** : correction
+**Contexte** : ch10 L297-311 (Merault donne sa version des trois chasseurs) + correction appliquée (réaction de Thoren signalant l'écart avec la version du ch01)
+**Description** : L'éditeur a identifié une incohérence factuelle entre la version de Merault (1 chasseur parti en mer, 2 « convaincus » de partir) et le fait établi en ch01 (3 chasseurs « disparus en mer »). La correction (Option A) ajoute une réaction de Thoren : « La version qu'il donnait ne correspondait pas à ce que le veilleur avait raconté au ch01 — trois chasseurs partis en mer, jamais rentrés. Merault mentait-il sur les deux premiers ? Ou la rumeur avait-elle enflé d'elle-même, comme les rumeurs enflent dans les ports ? » (L309-311). Cette correction transforme l'incohérence en **indice narratif** : le doute est délibérément maintenu — le lecteur ne sait pas si Merault ment ou si la rumeur a enflé. C'est un exemple de résolution de boucle par ajout de perspective : au lieu d'harmoniser les faits, on ajoute un personnage qui doute. Bonne pratique pipeline.
+**Lien avec échantillons** : n/a
+**Sévérité** : [MINEUR] — correction appliquée. Transformation d'une anomalie en indice.
+
+---
+
+### #046 — Merault vu par Aldric : « présence fantôme » du rival avant l'apparition
+
+**Type** : style
+**Contexte** : ch10 L155-189 (Aldric décrit Merault comme une légende avant qu'il n'apparaisse) vs ch10 L227-361 (apparition réelle de Merault)
+**Description** : Avant la confrontation, Aldric construit Merault comme une figure presque mythique — « une légende qu'on raconte pour faire réfléchir à deux fois avant d'accepter un contrat ». La description par Aldric (vouivre des gorges de Thorn, six semaines seul, rat-garous des égouts en une nuit, contrats qui n'existent pas sur le papier) précède et prépare l'apparition réelle. Quand Merault apparaît, il est à la fois moins impressionnant (un homme, pas une légende) et plus dangereux (professionnel calme, pas un vantard). Le brouillon documente la technique : « Avant la confrontation, Merault est présenté par Aldric comme une légende — le lecteur l'imagine plus dangereux qu'il ne se révélera. La technique 'présence fantôme' crée une tension qui précède l'apparition. » C'est une variante de « Présence fantôme » (Proposition #13, voix-neutre) appliquée non pas à l'absence d'un personnage (l'homme en gris, ch06) mais à son anticipation par le récit d'un tiers.
+**Lien avec échantillons** : n/a
+**Sévérité** : [MINEUR] — extension de la technique « Présence fantôme » à l'anticipation (pas seulement l'absence).
+
+---
+
+### #047 — Orin sans pipe : variation sur l'objet-signature (pipe éteinte mais calme)
+
+**Type** : style
+**Contexte** : ch10 L409-417 (Orin « tira sur sa pipe éteinte, souffla une bouffée de rien ») vs ch02-ch06 (pipe allumée = calme, pipe éteinte = inquiétude)
+**Description** : Orin apparaît en fin de chapitre avec sa pipe éteinte, mais il est calme — il demande à Thoren s'il a trouvé ce qu'il cherchait sans anxiété visible. C'est une variation sur le motif établi (#011) : jusqu'ici, pipe éteinte = inquiétude (ch04, après l'ombre). Ici, la pipe est éteinte parce qu'Orin n'a pas de feu, pas parce qu'il a peur. Le geste (« souffla une bouffée de rien ») est presque comique — il imite le geste de fumer sans la fumée. Le motif ne signale donc plus un état émotionnel univoque : il peut être mécanique (l'habitude de tirer sur une pipe éteinte) aussi bien qu'émotionnel. C'est un assouplissement du motif qui lui donne plus de profondeur.
+**Lien avec échantillons** : n/a
+**Sévérité** : [MINEUR] — variation sur un motif établi (#011). Le motif gagne en complexité.
+
+---
+
+### #048 — Vanité des noms : trois antagonistes nommés en un chapitre
+
+**Type** : narration
+**Contexte** : ch10 entier — Dorian Merault (introduit), Caelan Dorent (nommé par Merault), Severin Kael (mentionné par Merault)
+**Description** : Le chapitre introduit ou nomme trois personnages antagonistes : Merault (rival direct, face-à-face), Dorent (homme en gris, nom révélé après 9 chapitres de mystère), Kael (nom déjà mentionné en ch06, confirmé comme pièce du puzzle). L'éditeur note que c'est « cohérent avec le plan mais demande de la vigilance pour la suite (le lecteur doit retenir qui est qui) ». La répartition est inégale : Merault est incarné (visage, voix, gestes), Dorent est un nom sur un visage déjà connu (le lecteur peut l'associer à l'homme en gris des ch05, ch08), Kael reste un nom flottant sans visage. La hiérarchie de menace est claire (Merault = menace immédiate, Dorent = menace à moyen terme, Kael = menace lointaine/systémique), mais le risque de confusion pour le lecteur est réel si les trois noms ne sont pas réactivés régulièrement.
+**Lien avec échantillons** : n/a
+**Sévérité** : [MINEUR] — vigilance. Charge cognitive élevée pour le lecteur (3 noms × 1 chapitre).
+
+---
+
+### #049 — Écriture épique sous-utilisée : absence de liste-accumulation et de grande phrase-monde
+
+**Type** : style
+**Contexte** : ch10 entier — worldbuilding majeur (guildes, serment, Trait Gris, rituel de la Chandelle) mais aucune technique épique marquée hormis le motif filé (chandelle) et la katabasis inversée (structure guilde)
+**Description** : L'éditeur note que le skill `ecriture-epique` est actif mais peu visible dans le texte final. Le brouillon mentionne la katabasis inversée (structure de la scène chez Aldric) et le motif cosmique filé (chandelle), mais on ne trouve ni « grande phrase-monde », ni « liste-accumulation » (pourtant appropriée pour décrire les guildes rivales ou l'histoire du Trait Gris), ni « refrain épique » marqué. L'éditeur précise : « Pour un chapitre de worldbuilding majeur — origine des guildes, serment, rivalités — l'absence d'au moins une technique épique est une occasion manquée. » C'est un pattern qui s'observe depuis le début du projet : l'écrivain utilise les techniques épiques avec retenue (observation #012), mais dans un chapitre d'exposition aussi dense, leur absence prive le texte d'une solennité qui aurait renforcé le poids historique des guildes.
+
+**Enrichissement — Évolution du regard (#012 positif → #049 critique)** : L'observation #012 (ch01-04) saluait la retenue des techniques épiques comme un « choix conscient et cohérent » — l'écrivain évitait l'emphase pour rester dans le registre low-fantasy. L'observation #049 (ch10) critique cette même retenue comme une « occasion manquée » dans un chapitre de worldbuilding majeur. Ce changement de regard reflète un déplacement du curseur narratif du roman : en début de tome (ch01-04), la priorité était d'établir le ton sobre et le personnage ; à mi-parcours (ch10), le récit réclame davantage de solennité pour les révélations historiques. Ce n'est pas une incohérence — c'est un ajustement de registre en fonction de l'avancement du récit. Proposition : intégrer cette « gradation du registre épique » comme principe dans le skill ecriture-epique : plus le récit avance, plus les techniques épiques peuvent être utilisées sans risque de forçage.
+**Lien avec échantillons** : n/a
+**Sévérité** : [MINEUR] — motif récurrent (retenue des techniques épiques déjà notée #012). Vigilance : dans les chapitres de worldbuilding, forcer au moins une technique épique par chapitre. Enrichissement : le regard a évolué de positif à critique — le récit réclame plus de solennité à mi-parcours.
+
+---
+
+### #050 — Clôture ouverte : deux jours avant le départ (compte à rebours posé)
+
+**Type** : narration
+**Contexte** : ch10 L429-431 (« Thoren avait deux jours avant que La Mouette soit prête. Deux jours pour décider s'il continuait à creuser, ou s'il se contentait de tuer le Léviathan et de partir. »)
+**Description** : Le chapitre pose un compte à rebours explicite : deux jours avant que La Mouette soit prête. C'est la première fois qu'un délai aussi précis est donné pour la suite des événements. Jusqu'ici, le temps était flottant (quelques jours entre chaque chapitre, implicite). Le compte à rebours structure la fin du tome : il reste ~6-7 chapitres avant l'assaut final (ch16-18), chaque jour peut contenir 1 à 3 chapitres. Ce resserrement temporel est un signal de passage à la deuxième moitié du roman — les enquêtes cèdent la place à l'action imminente. Le brouillon note : « Le chapitre fixe un compte à rebours de deux jours, qui ancre le tempo de la fin du tome. »
+**Lien avec échantillons** : n/a
+**Sévérité** : [MINEUR] — jalon temporel. Marque la transition vers la phase d'action du roman.
+
+---
+
+### Enrichissements d'observations existantes — Ch10
+
+**#039 — Rythme ternaire de l'exposition : enrichissement avec la structure temporelle triptyque du chapitre**
+(Voir enrichissement intégré directement dans #039 ci-dessus.)
+
+**#043 — Severin Kael : enrichissement avec le lien étymologique Caelan/Kael**
+(Voir enrichissement intégré directement dans #043 ci-dessus.)
+
+**#049 — Écriture épique sous-utilisée : enrichissement avec l'évolution du regard (#012 → #049)**
+(Voir enrichissement intégré directement dans #049 ci-dessus.)
+
+---
+
+### Nouvelles observations — Ch10
+
+### #051 — Saturation d'exposition dialoguée : 4e occurrence d'un bloc majeur
+
+**Type** : narration
+**Contexte** : ch10 L49-113 (Aldric, guildes) — cumulé avec ch03 (Aldric, contrat), ch05 (Valdric, bastion), ch06 (Eldrin + Aldric, faille et Conseil restreint)
+**Description** : Le ch10 est le 4e chapitre du roman à organiser un bloc d'exposition dense sous forme de dialogue avec un personnage-expert. L'éditeur du ch10 note explicitement le risque : « Après les longues séquences d'exposition des chapitres précédents (ch03, ch05, ch06), le risque d'essoufflement guette. » Le pattern est stable : (1) Thoren rencontre un personnage compétent, (2) le personnage livre un exposé structuré, (3) Thoren écoute et pose des questions d'orientation, (4) l'exposition est ponctuée de micro-pauses (thé, silences, déplacements) pour l'aérer. La variété des locuteurs (Aldric × 3, Valdric × 1, Eldrin × 1) compense partiellement la répétition structurelle. L'éditeur recommande explicitement de minimiser l'exposition dans les prochains chapitres au profit de l'action pure.
+**Lien avec échantillons** : n/a
+**Sévérité** : [MAJEUR] — 4 occurrences. Pattern de construction stable, risque de saturation si un 5e bloc apparaît avant la fin de l'arc d'enquête (ch15).
+**[SEUIL]** — 4 occurrences (ch03, ch05, ch06, ch10).
+
+---
+
+### #052 — Jalon structurel : transition du mode enquête au mode action
+
+**Type** : narration
+**Contexte** : ch10 L429-433 (compte à rebours de 2 jours, décision de continuer, refrain « Il ne rendait jamais un contrat signé ») — ch10 entier comme pivot narratif
+**Description** : Le ch10 marque le pivot structurel du roman à mi-parcours (ch10/20). Jusqu'ici (ch01-09), le récit était dominé par le mode enquête : indices cumulatifs, entretiens, recoupements, monde qui se révèle par strates politiques (Conseil, guildes, faille). À partir du ch10, les pièces du puzzle sont en place : (1) Merault identifié et confronté (rival direct) ; (2) Dorent nommé (l'homme en gris a un visage et un nom) ; (3) Kael confirmé comme nom central (commanditaire présumé). Le compte à rebours (« deux jours ») resserre le temps narratif. Les prochains chapitres (ch11-14) annoncent escarmouches, pièges et confrontations physiques selon le plan de la bible. Cette transition du mode enquête au mode action est le jalon le plus important du milieu du roman : elle répond au contrat narratif posé en ch01 (trouver qui sabote les chasseurs) et ouvre la phase de résolution (affronter et survivre).
+**Lien avec échantillons** : n/a
+**Sévérité** : [MAJEUR] — jalon structurel du roman (milieu exact, transition de phase narrative). À documenter comme point de repère pour la suite du projet.
+
+---
+
+### #053 — Artefact pipeline : réécriture post-corruption, vérification nominale exemplaire
+
+**Type** : artefact-pipeline
+**Contexte** : ch10 entier (réécrit suite à corruption d'encodage), avis éditeur ch10 section « État du fichier » — vérification nominale exhaustive
+**Description** : Le fichier chapitre-10.md a été entièrement réécrit suite à une corruption d'encodage. L'éditeur a procédé à une vérification nominale exhaustive de tous les noms propres (Dorian Merault, Caelan Dorent, Severin Kael, Aldric, Orin, Lian, Harren Vell) et confirme qu'aucun nom n'a été corrompu. Cette vérification post-corruption est un exemple de bonne pratique pipeline en quatre temps : (1) détection de l'anomalie technique, (2) réécriture complète, (3) vérification inter-unités ciblée (noms), (4) validation. Le brouillon du ch10 a été préservé (il existait avant la corruption), contrairement au pattern d'absence de brouillon observé au prologue+ch06 (#027). Cela suggère que brouillon et texte final sont stockés séparément — bonne pratique de résilience. Noter toutefois qu'aucune vérification n'a été faite sur les nombres (compteur de flèches, montants) — uniquement les noms.
+**Lien avec échantillons** : n/a — phénomène pipeline
+**Sévérité** : [MINEUR] — bonne pratique partielle. À noter comme procédure de reprise après sinistre.
+
+---
+
+### #054 — Variation sur le motif de la « présence fantôme » : Merault anticipé par Aldric, Dorent anticipé par Garrick
+
+**Type** : style
+**Contexte** : ch10 L155-189 (Aldric décrit Merault comme une légende) + ch05 L280-305 (Garrick décrit l'homme en gris comme une silhouette inquiétante) — parallèle structurel
+**Description** : Deux antagonistes du roman sont introduits selon le même schéma : d'abord décrits par un tiers comme une figure inquiétante ou légendaire, puis apparaissant physiquement dans un chapitre ultérieur. L'homme en gris (Dorent) : décrit par Garrick en ch05 (silhouette dans le couloir, pas de bruit de pas, sourire), apparition physique complète en ch05. Merault : décrit par Aldric en ch10 (légende, vouivre, rat-garous, contrats inexistants), apparition physique dans le même chapitre (entrepôt). La différence est le délai : pour Dorent, l'anticipation est immédiate (même chapitre) ; pour Merault, l'anticipation par Aldric précède la confrontation de ~70 lignes (même chapitre). Les deux utilisent la technique « Présence fantôme » (Proposition #13, voix-neutre) mais à des échelles différentes : inter-chapitre (Dorent : ch05, mention → ch05, apparition) vs intra-chapitre (Merault : ch10 Aldric → ch10 entrepôt). Cette variation de la technique mérite d'être documentée.
+**Lien avec échantillons** : n/a
+**Sévérité** : [MINEUR] — 2 occurrences (Dorent, Merault). Variation de la technique « Présence fantôme ».
+
+---
+
+## Résumé des scores et alertes — Mise à jour ch10 enrichie
+
+### Score avant ch10 : 57 points (10×MAJEUR + 37×MINEUR = 20 + 37 = 57)
+### Ajouts (4 nouvelles) : 2×MAJEUR (#051, #052) + 2×MINEUR (#053, #054) = 4 + 2 = +6 points
+### Score total après ch10 (enrichi) : 63 points (12×MAJEUR + 39×MINEUR = 24 + 39 = 63)
+
+| Score | Occurrence |
+|---|---|
+| [SEUIL] (levé) | Motif du « neveu sur le Hatherly » — 3 occurrences (ch02-04), non répété depuis ch04. |
+| [SEUIL] (levé) | Motif « mer qui respire » — résolu et bouclé en ch07. |
+| [SEUIL] | Motif **#019 (Administration du secret)** — 3 occurrences (ch03, ch05, ch08). |
+| [SEUIL] | Motif **#035 (Chandelle)** — 4+ occurrences (ch01, ch02, ch04, ch10). |
+| [SEUIL] (nouveau) | **#051 (Saturation d'exposition dialoguée)** — 4 occurrences (ch03, ch05, ch06, ch10). |
+| [SCORE: 63] | 12×MAJEUR + 39×MINEUR — seuil de déclenchement précoce toujours actif |
+| [CAP: 60] | Actif : 54/60 (30 antérieures + 20 originales ch10 + 4 nouvelles). 6 slots disponibles. |
+
+### Synthèse des points d'attention pour l'orchestrateur — Mise à jour enrichie ch10
+
+1. **[NOUVEAU] Saturation d'exposition dialoguée** (#051) — 4 occurrences. L'éditeur recommande de minimiser l'exposition dans les chapitres 11-14 au profit de l'action pure. Si 5e occurrence avant ch15, alerte critique.
+2. **[NOUVEAU] Jalon transition enquête → action** (#052) — milieu du roman atteint (ch10/20). Phase d'action imminente. Le compte à rebours de 2 jours structure la fin du tome.
+3. **[ENRICH] Lien étymologique Caelan/Kael** (#043) — indice onomastique discret (racine « Kael » commune). À confirmer ou infirmer dans les chapitres suivants.
+4. **[ENRICH] Écriture épique sous-utilisée** (#049) — évolution du regard (positif #012 → critique #049). Proposition : gradation du registre épique selon l'avancement du récit. À intégrer dans la règle de worldbuilding épique (Proposition #29).
+5. **[MAINTENU] Severin Kael (2e mention)** (#043) — nom glissé, pas développé. Réactiver dans ch11-12.
+6. **[MAINTENU] Trois antagonistes nommés en un chapitre** (#048) — charge cognitive élevée.
+7. **[NOUVEAU] Corruption d'encodage** (#053) — réécriture réussie, vérification nominale effectuée. Bonne pratique pipeline documentée.
+8. **[NOUVEAU] Variation « Présence fantôme »** (#054) — parallèle Merault/Dorent documenté. Extension intra-chapitre de la technique.
+9. **[ENRICH] Structure ternaire temporelle** (#039) — le ch10 fonctionne comme un triptyque passé/présent/futur. Confirmation que la structure ternaire est la clé de composition du chapitre.

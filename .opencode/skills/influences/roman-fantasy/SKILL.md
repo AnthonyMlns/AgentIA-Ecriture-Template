@@ -1,13 +1,13 @@
 ---
 name: roman-fantasy
 description: Roman de fantasy mature — low magic, bestiaire naturaliste, guildes, politique par le monde, chasse aux monstres concrète.
-maturité: spéculatif
+maturité: ancré
 ---
 
 # Skill — Roman de fantasy mature
 
 > Fantasy low-magic, bestiaire naturaliste, chasse concrète, guildes rivales, politique par le monde.
-> Créé le 22/06/2026 pour le projet « Chroniques de Thalmoor — Tome 1 : Vasthaven ». Spéculatif — jamais éprouvé en projet pipeline complet.
+> Créé le 22/06/2026 pour le projet « Chroniques de Thalmoor — Tome 1 : Vasthaven ». Ancré — enrichi par les observations réelles de 11 chapitres et amendé par agent-style.
 
 ---
 
@@ -31,7 +31,7 @@ maturité: spéculatif
 
 Techniques disponibles, jamais obligatoires. L'écrivain pioche selon les besoins du chapitre. La rareté fait la puissance.
 
-- **Description de créature par l'observation** : plutôt qu'une fiche technique, montrer la créature à travers les traces qu'elle laisse, les témoignages, les conséquences de son passage. Le lecteur découvre la bête progressivement — empreintes, odeurs, carcasses, récits des témoins. La première apparition complète est un événement. Fréquence : une description complète par créature majeure, jamais au premier chapitre où elle est mentionnée.
+- **Description par l'observation (créatures et lieux)** : plutôt qu'une fiche technique, montrer ce qui mérite d'être découvert (créature, lieu de faille, phénomène anormal) à travers les traces, les témoignages, les conséquences. Le lecteur découvre progressivement — empreintes, odeurs, récits de témoins, cartes annotées, croquis. La première apparition complète (vision directe) est un événement. Applicable aux créatures (règle standard) ET aux lieux anormaux (extension) : un lieu de faille, un récif luminescent, un cratère sous-marin gagne à être annoncé par témoignage avant d'être vu. Fréquence : une description complète par créature majeure ou lieu anormal ; jamais au premier chapitre où l'élément est mentionné.
 
 - **Craft comme progression** : le personnage prélève des matériaux sur les créatures (peau, os, venin, écailles) et les transforme en équipement (flèches, armures, pièges). Chaque amélioration d'équipement raconte une chasse passée. Le craft n'est pas une mécanique de jeu — c'est un marqueur narratif de l'expérience du personnage. Fréquence : 1 à 2 mentions par chapitre de préparation ; ne pas alourdir les scènes d'action.
 
@@ -39,11 +39,23 @@ Techniques disponibles, jamais obligatoires. L'écrivain pioche selon les besoin
 
 - **Témoignages en mosaïque** : la vérité sur un événement (une attaque de créature, un complot) se reconstruit par fragments, à travers plusieurs témoins qui donnent chacun une pièce du puzzle. Aucun témoin ne détient la vérité complète. Le chasseur assemble. Fréquence : 2 à 4 témoins par mystère central ; ne pas dépasser 3 témoins au sein d'un même chapitre.
 
+- **Exposition politique par dialogue crédible** : quand une information politique dense (liste de noms, structure de pouvoir, allégeances) doit être transmise au lecteur, la placer dans la bouche d'un personnage qui a une raison professionnelle de la connaître (greffier, secrétaire, archiviste, conseiller). Le dialogue doit respecter 4 règles : (1) le locuteur récite son domaine de compétence — pas une leçon au lecteur, (2) la liste est rythmée par une structure ternaire (nom + fonction + trait distinctif), (3) l'information-clé arrive en chute de la liste, (4) l'information est immédiatement utilisée par le protagoniste dans les 30 lignes suivantes. Fréquence : 1 à 2 occurrences par roman d'enquête politique ; ne pas exposer tout le système en une fois.
+
+- **Révélation politique par strates** : la corruption politique ne se révèle pas d'un coup mais par strates progressives. Chaque strate est découverte dans une unité différente, espacée d'au moins un chapitre :
+  1. **Symptôme visible** : une anomalie que le héros remarque (document mutilé, objet perdu, témoin qui se rétracte). Le héros ne sait pas encore si c'est un accident ou un crime.
+  2. **Procédure contestable** : une anomalie administrative qui suggère une complicité (ordre verbal, signature absente, privilège invoqué). Le héros comprend que ce n'est pas un accident.
+  3. **Système corrompu** : la structure qui permet la procédure (conseil, faction, comité). Le héros découvre le cadre, pas encore les individus.
+  4. **Source individuelle** : celui qui tire les ficelles (nom, visage, motif). La révélation finale de l'arc d'enquête.
+  À chaque strate, le héros gagne en compétence politique et le lecteur en compréhension. Fréquence : les 4 strates réparties sur l'ensemble du roman ; ne pas brûler plus d'une strate par chapitre.
+
 - **Rumeur comme anticipation** : avant qu'une menace n'apparaisse, elle est annoncée par la rumeur — conversations de comptoir, peurs des villageois, avertissements des anciens. La rumeur crée une tension qui précède la confrontation. Elle peut être partiellement vraie, exagérée, ou complètement fausse — l'écart entre la rumeur et la réalité est un ressort dramatique. Fréquence : 1 à 2 scènes de rumeur avant chaque confrontation majeure.
 
 - **Corruption visible-invisible** : une organisation corrompue se trahit par des détails que le personnage remarque — un contrat sans tampon, des pages arrachées, un fonctionnaire qui hésite trop longtemps. La corruption n'est jamais annoncée frontalement ; elle se déduit des anomalies de procédure. Fréquence : 1 à 2 indices par chapitre d'enquête ; ne pas révéler l'étendue de la corruption avant le dernier tiers du récit.
+  - *Variante — Absence de trace comme indice systémique* : un indice de corruption plus fort que les anomalies documentaires : l'absence de papier, de signature, de registre. L'ordre verbal, la mention « non applicable », le trou dans l'archive — ces absences signalent une pratique organisée, pas une erreur individuelle. Fréquence : 1 à 2 occurrences par arc d'enquête, espacées d'au moins 2 chapitres. La seconde occurrence confirme que le motif n'est pas un accident.
 
 - **La Faille comme exception** : si le monde comporte une anomalie magique (Faille, corruption, zone interdite), elle doit être traitée comme une rupture dans l'ordre naturel — pas comme une extension du normal. Ce qui vient de la Faille est radicalement différent de l'écologie ordinaire. Moins on en montre, plus elle inquiète. Fréquence : 1 à 2 évocations par tome ; la Faille elle-même n'est peut-être jamais complètement montrée.
+
+- **Couche théologique (ou historique) optionnelle** : un détail du monde (geste, rituel, nom de lieu, objet) peut avoir une signification que le personnage ne comprend pas mais que le lecteur attentif peut décoder grâce à sa connaissance du monde. La couche doit fonctionner à deux niveaux : (1) pour le lecteur non-initié : une description poétique ou évocatrice qui n'a pas besoin de sens caché, (2) pour le lecteur initié : un indice qui révèle la profondeur du monde sans être nécessaire à l'intrigue. Fréquence : 1 à 2 occurrences par tome. Ne pas multiplier les couches optionnelles — leur force est leur rareté.
 
 - **Compagnon de tome** : dans une saga à plusieurs cités, un allié local par tome crée de la variété sans alourdir la continuité. Cet allié a son propre arc narratif, qui se referme à la fin du tome. Il n'accompagne pas le héros dans le tome suivant. Cela permet de renouveler les dynamiques et thèmes.
 
@@ -73,5 +85,7 @@ Techniques disponibles, jamais obligatoires. L'écrivain pioche selon les besoin
 
 ---
 
-<!-- REX — Skill créé le 22/06/2026 pour Chroniques de Thalmoor — Tome 1 : Vasthaven. Maturité spéculatif. -->
+<!-- REX — Skill créé le 22/06/2026 pour Chroniques de Thalmoor — Tome 1 : Vasthaven. Maturité ancré (promu le 23/06/2026, checkpoint ch07-10). -->
 <!-- Audité le 22/06/2026 par skill-manager : conforme au template, 0 anomalie critique, 2 mineures corrigées (REX block, _INDEX.md). -->
+<!-- Amendé le 23/06/2026 (mi-parcours Chroniques de Thalmoor) : ajout variante « Absence de trace comme indice systémique » (Corruption visible-invisible), ajout « Exposition politique par dialogue crédible », ajout « Révélation politique par strates », ajout « Couche théologique optionnelle », extension « Description par l'observation » aux lieux de faille. -->
+<!-- Amendé le 23/06/2026 (checkpoint ch07-10 Chroniques de Thalmoor) : promotion maturité spéculatif → ancré (11 chapitres, enrichi par observations réelles et amendements agent-style). -->

@@ -23,7 +23,11 @@
 | 11 | 22/06/2026 | Relecture éditeur ch03 | editeur-roman | avis-editeur-ch03.md | ✅ | 0R/1A. Méta. Corrigé. |
 | 12 | 22/06/2026 | Relecture éditeur ch04 | editeur-roman | avis-editeur-ch04.md | ✅ | 0R/2A. Facilité/cliché. Corrigé. |
 | 13 | 22/06/2026 | Scribe consolidé | scribe | notes/observations.md + propositions-skills.md | ✅ | 12 obs, 5 prop. Score: 6. |
-| 7 | | Agent-style (mi-parcours) | agent-style | notes/analyse-style.md | ⏳ | |
+| 14 | 22/06/2026 | Réécriture CH05 (prose/syntaxe) | orchestrateur | chapitre-05.md | ✅ | DeepSeek V4 Pro. Amélioration ciblée. |
+| 15 | 22/06/2026 | Alignement dialogues ch01-05 | orchestrateur | chapitres/* | ✅ | Convention documentée dans bible.md. 2 corrections (ch01:421, ch02:239). |
+| 16 | 22/06/2026 | Relecture éditeur ch05 | editeur-roman | avis-editeur-ch05.md | ✅ | 0R/2A. Virginie + lustres. Corrigé. |
+| 17 | 22/06/2026 | Scribe ch05 | scribe | notes/observations.md + propositions-skills.md | ✅ | 7 nouvelles obs (#013-019), 4 prop. Score: 22. |
+| 18 | | Agent-style (mi-parcours) | agent-style | notes/analyse-style.md | ⏳ | |
 
 ---
 
