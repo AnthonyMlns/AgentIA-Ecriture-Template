@@ -212,7 +212,7 @@ Le silence s'installa sur le bateau, ponctué seulement par le clapotis de l'eau
 
 Thoren se prépara.
 
-Il défit le carquois, aligna les flèches sur le pont, dans l'ordre où il les utiliserait. D'abord les perforantes — quinze flèches à pointe d'acier trempé, longues et fines, conçues pour traverser les chairs épaisses. Ensuite les empoisonnées — deux seulement, enduites de venin de serpent des marais, enveloppées séparément dans un chiffon. Enfin les explosives — trois flèches à capsule de cire, les plus fragiles, les plus puissantes.
+Il défit le carquois, aligna les flèches sur le pont, dans l'ordre où il les utiliserait. D'abord les perforantes — quinze flèches à pointe d'acier trempé, longues et fines, conçues pour traverser les chairs épaisses. Ensuite les empoisonnées — deux seulement, enduites de venin de Basilic, enveloppées séparément dans un chiffon. Enfin les explosives — trois flèches à capsule de cire, les plus fragiles, les plus puissantes.
 
 Il vérifia chaque pointe du bout du pouce. Chaque hampe en la faisant rouler sur le pont pour détecter la moindre courbure. Chaque empennage, plume par plume.
 

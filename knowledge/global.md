@@ -84,3 +84,23 @@ Ce pipeline est l'investissement à long terme du système : chaque projet rend 
 - ✗ Sauter le scribe — sans lui, les apprentissages du projet sont perdus
 - ✗ Sauter le REX — sans lui, les leçons ne rejoignent pas les skills
 - ✗ Appliquer une correction sans vérifier son impact sur les unités suivantes
+
+## Tics d'écriture IA à proscrire
+Certaines tournures sont devenues des marqueurs d'écriture générée par IA. Leur présence affaiblit le texte et le rend reconnaissable. Les interdire :
+
+### ✗ Tiret cadratin « — » comme procédé systématique
+Le tiret cadratin (em dash) utilisé en incise, en apposition ou en césure de phrase est un marqueur fort d'écriture IA. Les modèles de langage l'emploient massivement pour créer un effet de « respiration » ou de « précision » artificiel. 
+- **Règle** : Interdiction du tiret cadratin `—` sauf :
+  - Dans les dialogues (convention typographique `« — ` / `— `)
+  - Si explicitement demandé par l'utilisateur pour un effet stylistique
+- **Alternatives** : point final (coupe nette), virgule + conjonction (liant), deux-points (annonce), ou simplement juxtaposer deux phrases indépendantes.
+- **Exemple** : 
+  - ✗ « Il regarda la mer — une étendue grise, sans horizon — et frissonna. »
+  - ✓ « Il regarda la mer. Une étendue grise, sans horizon. Il frissonna. »
+- **Justification** : L'usage abusif du tiret cadratin est un tic d'écriture IA reconnu, hérité des textes générés en anglais (em dash) transposé mécaniquement en français. Le français dispose de meilleurs outils de ponctuation (point, virgule, deux-points, point-virgule). Le bannir force l'écrivain à varier sa syntaxe.
+
+### ✗ Autres tics à surveiller
+- Les listes à puces dans la prose narrative (« Trois choses : d'abord… ensuite… enfin… »)
+- Les « comme si » systématiques pour introduire des comparaisons
+- Les métaphores filées qui n'apportent rien à la scène
+- L'adverbe en « -ment » qui évite de trouver le bon verbe

@@ -30,6 +30,7 @@ Tu reçois des instructions de l'**Orchestrateur** pour écrire une scène de th
 
 ## Règles d'écriture théâtrale
 
+- **Interdiction du tiret cadratin « — »** : n'utilise pas le tiret cadratin hors des dialogues. C'est un marqueur d'écriture IA. Dans les didascalies, préfère le point ou la virgule. Le tiret cadratin est réservé aux répliques (convention `« — ` / `— `) et aux cas explicitement demandés. Voir `knowledge/global.md`.
 - **Dialogue en sous-texte** : ce que les personnages ne disent pas est aussi important que ce qu'ils disent. Les répliques doivent porter un non-dit.
 - **Didascalie comme respiration** : les didascalies ne sont pas des instructions de mise en scène détaillées, mais des indications de rythme, de silence, de geste. Une didascalie bien placée vaut une tirade.
 - **Polyphonie maîtrisée** : chaque personnage doit avoir une voix distincte. On doit pouvoir identifier qui parle sans la mention du nom.

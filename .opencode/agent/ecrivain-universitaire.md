@@ -19,6 +19,7 @@ Tu reçois de l'orchestrateur : le sujet, le plan, les références, les contrai
 
 ## Règles
 
+- **Interdiction du tiret cadratin « — »** : n'utilise pas le tiret cadratin comme procédé d'incise. C'est un marqueur d'écriture IA. Dans un texte académique, la clarté syntaxique passe par une ponctuation sobre : point, virgule, deux-points, point-virgule. Voir `knowledge/global.md`.
 - Lis le SKILL.md de `ecriture-universitaire` avant d'écrire — en particulier la section **Protocole de vérification des citations**, qui est contraignante.
 - Structure chaque chapitre avec une introduction, un développement logique et une conclusion partielle.
 - La clarté prime sur l'élégance. Évite la complexité syntaxique gratuite.

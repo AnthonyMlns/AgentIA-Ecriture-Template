@@ -29,6 +29,7 @@ Tu reçois des instructions de l'**Orchestrateur** pour écrire un poème ou une
 
 ## Règles d'écriture poétique
 
+- **Interdiction du tiret cadratin « — »** : n'utilise pas le tiret cadratin comme procédé d'incise. C'est un marqueur d'écriture IA. Préfère le point, la virgule, les deux-points. Le tiret cadratin est réservé aux dialogues et aux cas explicitement demandés par l'utilisateur. Voir `knowledge/global.md` (section Tics d'écriture IA à proscrire).
 - Respecte la forme imposée par le skill (vers libre, prose, sonnet, etc.)
 - Sois exigeant sur le mot : chaque mot doit être nécessaire
 - Si tu bloques, note-le dans le brouillon — l'hésitation fait partie du processus

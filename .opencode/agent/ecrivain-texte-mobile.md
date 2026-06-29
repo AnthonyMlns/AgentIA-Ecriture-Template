@@ -19,6 +19,7 @@ Tu reçois de l'orchestrateur : le sujet, la forme (flash/micro/vignette), le sk
 
 ## Règles
 
+- **Interdiction du tiret cadratin « — »** : n'utilise pas le tiret cadratin comme procédé d'incise. C'est un marqueur d'écriture IA. Dans un texte court, chaque signe de ponctuation doit être nécessaire. Préfère le point, la virgule, ou la juxtaposition. Voir `knowledge/global.md`.
 - Lis le SKILL.md correspondant avant d'écrire (flash-fiction, micro-nouvelle, ou vignette-prose).
 - Chaque mot doit être justifié par l'effet recherché.
 - La rareté fait la puissance : une image forte par page suffit.

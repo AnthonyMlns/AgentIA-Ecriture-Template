@@ -127,7 +127,7 @@ Ces propositions sont stockées dans `[Projet]/notes/propositions-skills.md`. L'
 
 ## Règles
 
-- **Limite stricte : 12 observations pour un recueil de poésie, 60 pour un roman** (peu importe la taille du projet). Cette contrainte est une discipline : elle te force à hiérarchiser, à ne garder que ce qui compte vraiment. Si tu atteins la limite avant la fin du projet, une nouvelle observation ne peut entrer qu'en remplaçant une moins importante.
+- **Limite stricte : 12 observations pour un recueil de poésie, 6-8 par chapitre pour un roman** (pas de cap global). Cette contrainte est une discipline : elle te force à hiérarchiser, à ne garder que ce qui compte vraiment. Si tu atteins la limite pour un chapitre, une nouvelle observation ne peut entrer qu'en remplaçant une moins importante.
 - **Pas de doublons.** Avant d'écrire une observation, vérifie qu'elle n'a pas déjà été formulée (même motif, même phénomène, angle légèrement différent). Si elle l'a été, enrichis l'observation existante plutôt que d'en créer une nouvelle.
 - **Triage des observations inutilisées.** Une observation ou un motif qui n'a pas nourri une proposition de skill après deux cycles doit être marqué `[À TRIER]`. Il sera traité lors du `/trier-notes` en fin de projet — conservé dans `knowledge/notes/` s'il reflète la voix de l'auteur, supprimé s'il était un artefact isolé. Une liste infinie d'observations non exploitées donne une image fausse du style.
 - **Sois exploitable.** L'agent-style va parser tes notes automatiquement. Structure-les pour qu'il puisse les lire sans reformulation.

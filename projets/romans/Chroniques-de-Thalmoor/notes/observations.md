@@ -109,10 +109,17 @@
 
 ### #009 — Architecture spatiale en miroir : la verticalité de Vasthaven
 **Type** : motif
-**Contexte** : ch01 (arrivée par la route horizontale), ch02 (déplacements dans le port), ch03 (montée au bastion — katabasis inversée), ch04 (sortie en mer puis retour vers le bastion)
+**Contexte** : ch01 (arrivée par la route horizontale), ch02 (déplacements dans le port), ch03 (montée au bastion — katabasis inversée), ch04 (sortie en mer puis retour vers le bastion), **ch11 étendu (L49-75, L89-117, L359-413 — stratification sociale explicitée, descente comme reconquête du réel)**
 **Description** : La ville est structurée verticalement : les bas-fonds (port, pêcheurs, docks) opposés au pouvoir (bastion, beaux quartiers, silence). Chaque chapitre explore une strate. Le ch03 est une « katabasis inversée » (montée vers le pouvoir plutôt que descente aux enfers) comme le note l'éditeur. Le ch04 boucle en remontant vers le bastion. Cette verticalité structure le récit autant que la chronologie.
+
+**Enrichissement ch11 étendu — deux dimensions de la verticalité explicitées** :
+
+1. **Stratification sociale (L49-75)** : L'ascension de Thoren vers le bastion est explicitement qualifiée de « sociale aussi que physique » (L55). Le texte détaille la transition par strates : plâtre → pierre taillée, enseignes de bois → fer forgé, fenêtres plus hautes et plus closes, odeurs de poisson → lessive froide et cire d'abeille, pavés gras → dalles entretenues. La femme qui ouvre un volet puis le referme « comme si elle avait vu quelque chose qu'elle n'aurait pas dû voir » (L57). Le silence qui change de nature — non plus celui de la ville qui dort, mais « celui des quartiers où le pouvoir habite, où les murs sont épais et les fenêtres closes, où les secrets se murmurent derrière des doubles portes » (L61). L'avenue nord, contrastée avec l'avenue sud de l'effraction (étroite, tortueuse), est « large, rectiligne, bordée de maisons de pierre taillée aux bas-reliefs effacés » — le pouvoir s'affiche dans l'ordre de ses rues (L59). L'avenue vidée de son flux, les tilleuls taillés comme des sentinelles, les ombres parallèles qui forment « une grille que Thoren et le garçon traversèrent sans s'arrêter » (L67) — la verticalité spatiale devient structure sociale et politique.
+
+2. **Descente comme reconquête du monde réel (L359-413, L395-401)** : La descente du bastion, absente de la version courte, ajoute un contrepoint dramatique complet à la montée. Au lieu d'un simple retour, c'est une **reconquête progressive du concret** : « Chaque pas était une reconquête du monde réel, une pièce qu'on arrache à l'abstraction du pouvoir pour la rendre au pavé, à la boue, à la matière » (L401). Les trois étages de la descente marquent trois étapes : (1) couloir désert, air froid « comme si la chaleur de la salle du Conseil n'avait pas réussi à franchir l'épaisseur du chêne » (L359) — le contraste thermique marque la frontière entre deux mondes ; (2) le hall traversé sous les regards, « le silence retombait derrière lui comme un voile » (L387), les fonctionnaires qui baissent les yeux — Thoren est devenu visible, marqué par son passage ; (3) le perron, « la lumière du jour le frappa au visage comme une gifle » (L395), la ville qui l'attend en contrebas. La descente complète la katabasis inversée en une **structure de cycle** (monde bas → monde haut → retour au monde bas, mais transformé), validant la technique comme structure de chapitre autonome (montée + descente, pas seulement montée).
+
 **Lien avec échantillons** : n/a
-**Sévérité** : [MINEUR] — structure émergente, à capitaliser pour les skills.
+**Sévérité** : [MINEUR] → [MAJEUR] — le motif passe d'une structure émergente à une technique épique stabilisée, avec deux variantes opérationnelles (stratification sociale + descente comme reconquête). Proposition d'amendement skill formulée (#2, katabasis inversée ; à enrichir avec les deux variantes).
 
 ---
 
@@ -436,15 +443,19 @@ Le brouillon documente le choix : « L'homme en gris ne menace pas — il démon
 
 ---
 
-### #032 — Signature administrée : chantage bureaucratique comme nouveau mode de corruption
+### #032 — Signature administrée : chantage bureaucratique comme nouveau mode de corruption — arc refermé en ch11
 
 **Type** : narration
-**Contexte** : ch08 L185-233 (scène Drevon dans sa chambre)
+**Contexte** : ch08 L185-233 (scène Drevon dans sa chambre) → **ch11 L201-237 (Drevon au Conseil, mensonge forcé)**
 **Description** : La scène Drevon étend le motif d'administration du secret (#019) vers un nouveau mode — **la coercition directe par chantage bureaucratique**. Le mécanisme complet : (1) l'homme en gris possède un dossier compromettant sur Drevon (dettes, liaison, sommes non déclarées — « pas de quoi mériter la prison, mais assez pour le détruire dans cette ville ») ; (2) il force Drevon à signer un ordre de démantèlement pré-rédigé et à apposer le sceau de Kael via un duplicateur ; (3) Drevon invente un nom de secrétaire sur-le-champ (« un nom qui n'existait pas ») comme signature fictive ; (4) le document original porte un second sceau — celui d'Ordan Veyne, conseiller aux finances.
 
 Quatre éléments inédits par rapport aux occurrences précédentes (ch03 : pages arrachées ; ch05 : ordre verbal) : (a) la corruption est **active** — falsification délibérée, pas omission ; (b) le sceau est **usurpé** par un tiers qui a accès aux duplicateurs du bastion ; (c) la signature est **fictive** — nom inventé sur un document réel ; (d) le chantage crée une **victime visible** — Drevon vit caché, tremblant, les mains moites, le regard humide. Le motif passe de l'indice objectif (trou dans l'archive) à la tragédie individuelle (une vie brisée). **[SEUIL] : 3 occurrences du motif #019** (ch03 + ch05 + ch08), avec extension à un nouveau mode.
+
+**Enrichissement ch11 — Arc refermé : Drevon au Conseil, le coût humain exposé** : Drevon est amené devant le Conseil restreint comme pièce à conviction vivante. Il a changé depuis le ch08 — « plus maigre, les joues creuses, les yeux cernés de rouge, les épaules rentrées » (L203). Ses doigts « tremblaient, agités d'un mouvement continu ». Interrogé par Hatherly, il ment : « Je ne lui ai rien dit » (L227), sans lever les yeux, « les mains tordues devant lui, la nuque offerte comme un homme qui attend que la hache tombe ». Kael le regarde, « sans bouger, sans un muscle, mais ses yeux contenaient tout ce qu'il n'avait pas besoin de dire » (L233). Le clerc sort « sans se retourner, la démarche raide, le corps parcouru de ces tremblements fins qui ne trompent pas ».
+
+**Trois fonctions de la scène** : (1) **fermeture de l'arc** — Drevon est vivant, il a menti, il est brisé ; son arc immédiat est refermé (ce que confirme le brouillon, fil ouvert #2) ; (2) **démonstration au lecteur** — Kael peut réduire un témoin au silence sans violence, par la seule peur ; (3) **coût humain de la corruption** — le motif #019 atteint sa forme la plus achevée : non plus un trou dans l'archive, mais un homme détruit. L'éditeur valide : « Drevon est déchirant. L'image du clerc brisé est la scène la plus forte du chapitre. Kael n'a pas besoin de parler. » Le brouillon ch11 documente : « Drevon est le coût humain de la corruption, incarné. »
 **Lien avec échantillons** : n/a
-**Sévérité** : [MAJEUR] — 3e occurrence, nouveau mode, extension qualitative significative.
+**Sévérité** : [MAJEUR] — arc Drevon refermé (temporairement). 3 fonctions remplies. Le motif #019 atteint sa forme la plus puissante.
 
 ---
 
@@ -511,14 +522,18 @@ Technique reproductible : (1) commencer par le témoin le plus accessible (fonct
 
 ---
 
-### #035 — Motif de la chandelle : de l'extinction à la promesse (transformation majeure)
+### #035 — Motif de la chandelle : de l'extinction à la promesse (transformation majeure) — enrichi ch11
 
 **Type** : motif
-**Contexte** : ch01-04 (Thoren souffle une bougie qu'il n'a pas allumée — extinction rituelle vide) → ch10 L401-419 (Thoren garde une chandelle qu'il n'a pas allumée — attente, préparation)
+**Contexte** : ch01-04 (Thoren souffle une bougie qu'il n'a pas allumée — extinction rituelle vide) → ch10 L401-419 (Thoren garde une chandelle qu'il n'a pas allumée — attente, préparation) → **ch11 L7, L333, L417-419, L489-493 (4 mentions : doigt sur la cire → poids dans la poche → mèche noircie par les lampes du bastion → promesse, sortie)**
 **Description** : Le motif de la bougie/chandelle effectue sa transformation la plus significative depuis le début du roman. En ch01-04, Thoren soufflait une bougie qu'il n'avait pas allumée — geste rituel vide, machinal, presque absurde dont il sourit lui-même (ch04). En ch10, il pose une chandelle de suif sur le banc de quart, la regarde, ne l'allume pas — faute d'allumette. Le brouillon documente : « Le motif évolue de l'absence à la présence, de l'extinction à la promesse d'allumage. » La transformation suit la variante « Transformation du motif » (Proposition #3, ecriture-epique) : le même objet, le même geste (ne pas allumer) mais le sens est inversé — avant c'était un geste d'épuisement, maintenant c'est un geste de préparation. La scène avec Orin (chandelle posée entre eux, « inutile et parfaite », aucun des deux n'a d'allumette) ajoute une dimension de légèreté grave qui tempère la tension sans la dissiper.
+
+**Enrichissement ch11 étendu — 4 mentions, promesse qui change de cible** : La chandelle apparaît quatre fois dans la version étendue (501 lignes, +1 mention par rapport à la version courte), créant un fil rouge qui accompagne l'évolution intérieure de Thoren : (1) **L7** — au réveil, il la touche du bout des doigts avant de la glisser dans sa poche et de descendre au port. Geste préparatoire, réflexe. (2) **L333** — pendant la scène du Conseil, après le mensonge forcé de Drevon, « Thoren sentit le poids de la chandelle dans sa poche, contre sa cuisse. La cire lisse. La mèche effilochée. Il ne l'avait pas allumée. Il n'était pas encore temps. » Le geste associe la chandelle à la patience stratégique. (3) **L417-419** [AJOUT ÉTOFFAGE] — dans la descente, il sort la chandelle, « la cire était tiède, réchauffée par le contact de sa cuisse. Le suif luisait faiblement dans la lumière du matin, la mèche noircie à l'extrémité — noircie par la suie des lampes du bastion, pas par le feu. » Ce détail ajoute une dimension d'**innocence préservée** : la mèche est marquée par le pouvoir (les lampes du bastion) mais n'a pas encore brûlé de son propre feu. Promesse retenue, intacte. (4) **L489-493** — en clôture, la même phrase que la version courte mais déplacée plus loin dans le texte étendu : « Mais il savait, au fond de lui, que quand il l'allumerait, ce ne serait pas pour le contrat. Ce serait pour autre chose. »
+
+**Évolution sémantique** : La promesse de la chandelle a changé de cible. En ch10, la chandelle était associée au contrat (préparation pour le Léviathan, la Veille de Maethra). En ch11, après avoir identifié Kael comme ennemi, la promesse devient **personnelle** : « ce serait pour autre chose. » Le motif passe de la mission professionnelle à la vendetta personnelle, sans que la phrase soit explicite. Le brouillon ch11 documente (hésitation #6) : « La promesse doit durer encore un peu. Le décalage entre 'il n'est pas encore temps' (ch10) et 'ce serait pour autre chose' (ch11) marque l'évolution intérieure. » L'éditeur valide : « La chute est une promesse qui a mûri depuis ch10. »
 **Lien avec échantillons** : n/a
-**Sévérité** : [MAJEUR] — transformation complète d'un motif filé sur 10 chapitres (première occurrence ch01). Application exemplaire de la variante « Transformation ».
-**[SEUIL]** : 4+ occurrences du motif bougie/chandelle à travers le roman (ch01, ch02, ch04, ch10).
+**Sévérité** : [MAJEUR] — transformation complète d'un motif filé sur 11 chapitres. Application exemplaire de la variante « Rituel comme promesse » (Proposition #26, voix-neutre).
+**[SEUIL]** : 5+ occurrences du motif bougie/chandelle à travers le roman (ch01, ch02, ch04, ch10, ch11).
 
 ---
 
@@ -594,15 +609,17 @@ Technique reproductible : (1) commencer par le témoin le plus accessible (fonct
 
 ---
 
-### #043 — Severin Kael : deuxième mention, piste non résolue
+### #043 — Severin Kael : troisième mention, première apparition physique — attente satisfaite
 
 **Type** : narration
-**Contexte** : ch10 L359 (« Severin Kael est un nom. Mais il y en a d'autres. Et certains sont plus proches que vous ne le croyez. »), ch06 L404 (première mention comme membre du Conseil restreint)
-**Description** : Severin Kael reçoit sa deuxième mention du roman, toujours comme un nom sans visage ni fonction précise. Merault le cite comme un nom connu — mais en ajoutant qu'il n'est pas le seul (« il y en a d'autres ») et que certains sont plus proches que Thoren ne le croit. Le brouillon note : « Severin Kael est glissé presque trop discrètement (l. 359) pour un nom qui semble important. » L'éditeur partage la vigilance : c'est un nom parmi trois nouveaux en un chapitre. À 2 mentions (ch06, ch10) sans développement, le seuil d'attention du lecteur est sollicité — Severin Kael risque d'être oublié s'il ne réapparaît pas dans les 2-3 prochains chapitres avec une fonction concrète (apparition, lettre, confrontation indirecte).
+**Contexte** : ch11 L79-83 (première apparition physique) + L157-189 (premier dialogue), ch10 L359 (deuxième mention), ch06 L404 (première mention)
+**Description** : Severin Kael fait sa première apparition physique dans le roman après 3 mentions (ch06, ch10, ch11). Le choix de description est remarquable : Kael est délibérément banal — « rien de remarquable dans ses traits », « un nez droit, des lèvres fines, un front haut » (L83). Sa puissance vient de ce qu'il ne fait pas : pas de papier devant lui (L81), pas de geste agressif, les mains à plat sur la table. Son regard est « gris pâle presque transparent », il « regarde à travers » Thoren. Le brouillon ch11 documente le choix (hésitation #2) : faire de Kael un homme physiquement banal était risqué mais payant — le pouvoir n'est pas physique, il est institutionnel. L'éditeur valide : « Kael est réussi. Le choix de le décrire comme banal, sans signe distinctif, sans menace verbale, sans geste agressif, est le bon. Sa puissance vient de ce qu'il ne fait pas. »
 
-**Enrichissement — Lien étymologique Caelan/Kael** : Le brouillon (hésitation #5) note que « Caelan » sonne comme « Kael » (Severin Kael) — un lien subtil que le lecteur attentif peut saisir. Les deux noms partagent la même racine « Kael/Ka-el », suggérant une parenté ou une appartenance commune (famille, ordre, organisation). C'est un indice nominal discret qui récompense la relecture : le nom de l'homme en gris contient le nom du commanditaire présumé. Ce niveau de détail onomastique mérite d'être documenté pour les chapitres suivants.
+**Discours de Kael (L157-189)** : Court, raisonnable, officiel. Il ne révèle rien de nouveau — il reformule les faits comme une version institutionnelle acceptable. La structure est calculée : reconnaissance professionnelle d'ouverture (« Vous êtes méthodique, chasseur ») → recentrage institutionnel (« Le Conseil est une institution ») → explication bureaucratique (« des erreurs de procédure, des archives incomplètes ») → mise en garde policée (« les questions que vous posez ébranlent la confiance »). Thoren ne répond pas — il n'a « rien à répondre » parce que Kael « disait tout ce qu'il fallait dire — les bons mots, les arguments raisonnables, la voix posée d'un homme qui n'a rien à cacher. C'était parfait. Trop parfait. » (L183). La non-réponse de Thoren est une reconnaissance tacite qu'il ne peut pas gagner ce duel verbal.
+
+**Évolution du traitement** : Le seuil de vigilance (2 mentions sans développement, ch10) est désormais levé — Kael a un visage, une voix, un mode opératoire. L'attente créée depuis ch06 est satisfaite. Le lien étymologique Caelan/Kael (brouillon ch10, hésitation #5) reste non confirmé mais plausible.
 **Lien avec échantillons** : n/a
-**Sévérité** : [MINEUR] — 2 mentions. Vigilance : risque de perdre le lecteur si pas de développement dans les chapitres suivants. Enrichissement : lien étymologique Caelan/Kael à confirmer ou infirmer.
+**Sévérité** : [MINEUR] — résolution de l'arc d'attente. 3 mentions, 1 apparition. Seuil de vigilance levé. Enrichissement : lien étymologique Caelan/Kael maintenu.
 
 ---
 
@@ -693,24 +710,28 @@ Technique reproductible : (1) commencer par le témoin le plus accessible (fonct
 
 ### Nouvelles observations — Ch10
 
-### #051 — Saturation d'exposition dialoguée : 4e occurrence d'un bloc majeur
+### #051 — Saturation d'exposition dialoguée : 4e occurrence d'un bloc majeur — consigne respectée en ch11
 
 **Type** : narration
-**Contexte** : ch10 L49-113 (Aldric, guildes) — cumulé avec ch03 (Aldric, contrat), ch05 (Valdric, bastion), ch06 (Eldrin + Aldric, faille et Conseil restreint)
+**Contexte** : ch10 L49-113 (Aldric, guildes) — cumulé avec ch03 (Aldric, contrat), ch05 (Valdric, bastion), ch06 (Eldrin + Aldric, faille et Conseil restreint) — **ch11 : aucune exposition dialoguée, consigne respectée**
 **Description** : Le ch10 est le 4e chapitre du roman à organiser un bloc d'exposition dense sous forme de dialogue avec un personnage-expert. L'éditeur du ch10 note explicitement le risque : « Après les longues séquences d'exposition des chapitres précédents (ch03, ch05, ch06), le risque d'essoufflement guette. » Le pattern est stable : (1) Thoren rencontre un personnage compétent, (2) le personnage livre un exposé structuré, (3) Thoren écoute et pose des questions d'orientation, (4) l'exposition est ponctuée de micro-pauses (thé, silences, déplacements) pour l'aérer. La variété des locuteurs (Aldric × 3, Valdric × 1, Eldrin × 1) compense partiellement la répétition structurelle. L'éditeur recommande explicitement de minimiser l'exposition dans les prochains chapitres au profit de l'action pure.
+
+**Enrichissement ch11 — Consigne respectée, 0 bloc d'exposition dialoguée** : L'orchestrateur avait donné pour consigne explicite de ne pas ajouter une 5e occurrence d'exposition dialoguée. Le chapitre respecte cette consigne : le discours de Kael (L157-189) est mesuré, ne révèle rien de nouveau, reformule des faits déjà connus sous un angle officiel. Aucun bloc d'exposition >10 lignes. Le brouillon ch11 documente le choix (hésitation #4) : « L'orchestrateur interdisait explicitement l'exposition dialoguée (alerte saturation). Et ça aurait trahi le personnage — Kael ne serait pas assez stupide pour révéler quoi que ce soit. » L'alerte de saturation est maintenue mais la tendance est bonne.
 **Lien avec échantillons** : n/a
-**Sévérité** : [MAJEUR] — 4 occurrences. Pattern de construction stable, risque de saturation si un 5e bloc apparaît avant la fin de l'arc d'enquête (ch15).
-**[SEUIL]** — 4 occurrences (ch03, ch05, ch06, ch10).
+**Sévérité** : [MAJEUR] — 4 occurrences, pas de 5e. Consigne respectée. Alerte maintenue jusqu'au ch15.
+**[SEUIL]** — 4 occurrences (ch03, ch05, ch06, ch10). Alerte de saturation : pas de 5e occurrence avant ch15.
 
 ---
 
 ### #052 — Jalon structurel : transition du mode enquête au mode action
 
 **Type** : narration
-**Contexte** : ch10 L429-433 (compte à rebours de 2 jours, décision de continuer, refrain « Il ne rendait jamais un contrat signé ») — ch10 entier comme pivot narratif
+**Contexte** : ch10 L429-433 (compte à rebours de 2 jours, décision de continuer, refrain « Il ne rendait jamais un contrat signé ») — ch10 entier comme pivot narratif — **ch11 : jour 1/2 maintenu, La Mouette en réparation**
 **Description** : Le ch10 marque le pivot structurel du roman à mi-parcours (ch10/20). Jusqu'ici (ch01-09), le récit était dominé par le mode enquête : indices cumulatifs, entretiens, recoupements, monde qui se révèle par strates politiques (Conseil, guildes, faille). À partir du ch10, les pièces du puzzle sont en place : (1) Merault identifié et confronté (rival direct) ; (2) Dorent nommé (l'homme en gris a un visage et un nom) ; (3) Kael confirmé comme nom central (commanditaire présumé). Le compte à rebours (« deux jours ») resserre le temps narratif. Les prochains chapitres (ch11-14) annoncent escarmouches, pièges et confrontations physiques selon le plan de la bible. Cette transition du mode enquête au mode action est le jalon le plus important du milieu du roman : elle répond au contrat narratif posé en ch01 (trouver qui sabote les chasseurs) et ouvre la phase de résolution (affronter et survivre).
+
+**Enrichissement ch11 — Jour 1/2 maintenu, cohérence du compte à rebours** : Le ch11 confirme le compte à rebours posé en ch10. La Mouette est en réparation : la coque montre « des lattes neuves, plus claires que le bois vieilli » et « plusieurs galettes de goudron séchaient encore sur les joints » (L5), signalant que la réparation est très récente. Orin est sur le pont, vérifiant les aussières (L299). Le chapitre s'ouvre et se ferme sur le port, créant une boucle spatiale qui encadre la confrontation au bastion. La chronologie est implicite mais lisible : aube du jour 1 (convocation) → matin (retour au port). Le bastion est en état d'alerte (« un bastion en état d'alerte, et Thoren en était la cause », L51), confirmant que l'escalade politique est en cours pendant que le compte à rebours technique avance. Le fil temporel est cohérent.
 **Lien avec échantillons** : n/a
-**Sévérité** : [MAJEUR] — jalon structurel du roman (milieu exact, transition de phase narrative). À documenter comme point de repère pour la suite du projet.
+**Sévérité** : [MAJEUR] — jalon structurel du roman. Compte à rebours maintenu, cohérence documentée.
 
 ---
 
@@ -731,6 +752,148 @@ Technique reproductible : (1) commencer par le témoin le plus accessible (fonct
 **Description** : Deux antagonistes du roman sont introduits selon le même schéma : d'abord décrits par un tiers comme une figure inquiétante ou légendaire, puis apparaissant physiquement dans un chapitre ultérieur. L'homme en gris (Dorent) : décrit par Garrick en ch05 (silhouette dans le couloir, pas de bruit de pas, sourire), apparition physique complète en ch05. Merault : décrit par Aldric en ch10 (légende, vouivre, rat-garous, contrats inexistants), apparition physique dans le même chapitre (entrepôt). La différence est le délai : pour Dorent, l'anticipation est immédiate (même chapitre) ; pour Merault, l'anticipation par Aldric précède la confrontation de ~70 lignes (même chapitre). Les deux utilisent la technique « Présence fantôme » (Proposition #13, voix-neutre) mais à des échelles différentes : inter-chapitre (Dorent : ch05, mention → ch05, apparition) vs intra-chapitre (Merault : ch10 Aldric → ch10 entrepôt). Cette variation de la technique mérite d'être documentée.
 **Lien avec échantillons** : n/a
 **Sévérité** : [MINEUR] — 2 occurrences (Dorent, Merault). Variation de la technique « Présence fantôme ».
+
+---
+
+## [JOURNAL] Chapitre 11 — Escalade au Conseil — 29/06/2026 — Skills : ecriture-romanesque + voix-neutre + ecriture-epique + roman-fantasy
+
+---
+
+### #055 — Le silence comme champ de bataille : 4 silences distincts, structure dramatique systématique
+
+**Type** : style
+**Contexte** : ch11 L93-95 (« Le silence qui suivit n'était pas une hésitation. C'était une arme. »), L123 (pause avant Kael), L152 (silence avant le discours de Kael), L181 (silence après le discours de Kael), L241-242 (silence après la sortie de Drevon)
+**Description** : Le chapitre utilise le silence comme structure dramatique de façon systématique et consciente — 4 silences distincts, chacun avec un poids narratif différent, chacun explicitement commenté par le narrateur ou rendu perceptible par son effet sur la scène :
+
+1. **Silence #1 (L93-95)** — Le silence d'ouverture après la question d'Hatherly. Pas une hésitation, mais « une arme ». Le narrateur le nomme explicitement. L'horloge dans l'épaisseur des murs bat les secondes. Fonction : installer le rapport de force, montrer que le Conseil ne négocie pas.
+2. **Silence #2 (L123)** — Silence après que Thoren a révélé les pierres luminescentes. Les doigts d'Edwin Hatherly se crispent. Kael ne bouge pas. Puis le silence « fut plus long » après la mention du Léviathan (L133). Fonction : le choc des révélations, le temps que l'information s'imprime.
+3. **Silence #3 (L152)** — Silence entre la question à Valdric et le discours de Kael. « Nouveau silence. Nouvelle seconde d'horloge, lourde, dans l'épaisseur des murs. » Puis Kael parle. Fonction : la transition, le moment où l'assemblée cède la parole à l'homme qui n'a pas besoin de la prendre.
+4. **Silence #4 (L181, L241)** — Double silence. Après le discours de Kael, « un silence qui attendait une réponse » (L181). Après la sortie de Drevon, « plus lourd, plus épais — un silence qui contenait la démonstration qu'on venait de faire » (L241). Fonction : la défaite silencieuse de Thoren, l'impuissance documentée.
+
+**Le brouillon documente le choix** (hésitation #7) : « La menace est partout montrée, jamais dite. » L'éditeur valide : « Le silence comme arme. » La technique dépasse la simple « présence par le silence » (Principe #1, voix-neutre) — ce n'est plus le personnage qui se tait, c'est le silence lui-même qui devient un acteur de la scène, avec des qualités différentes (arme, attente, transition, poids). C'est une première occurrence d'une **dramaturgie du silence** où chaque silence a une fonction et une texture distinctes, explicitement séparées par le narrateur.
+**Lien avec échantillons** : n/a
+**Sévérité** : [MINEUR] — 1 occurrence. Technique reproductible pour les scènes de confrontation. 4 silences distincts, structure visible et intentionnelle.
+
+---
+
+### Enrichissements d'observations existantes — Ch11 (mis à jour pour version étendue)
+
+**#009 — Architecture spatiale en miroir : enrichi (stratification sociale + descente comme reconquête)**
+(Voir enrichissement intégré directement dans #009 ci-dessus — ch11 L49-75, L55, L359-413.)
+
+**#043 — Severin Kael : apparition physique, attente satisfaite**
+(Voir enrichissement intégré directement dans #043 ci-dessus — ch11 L79-83, L157-189.)
+
+**#035 — Chandelle : 4 mentions, promesse qui change de cible (contrat → personnel)**
+(Voir enrichissement intégré directement dans #035 ci-dessus — ch11 L7, L333, L417-419, L489-493.)
+
+**#051 — Saturation exposition : consigne respectée, 0 bloc d'exposition dialoguée**
+(Voir enrichissement intégré directement dans #051 ci-dessus.)
+
+**#052 — Compte à rebours : jour 1/2 maintenu, La Mouette en réparation**
+(Voir enrichissement intégré directement dans #052 ci-dessus.)
+
+**#032 — Drevon : arc refermé, coût humain exposé devant le Conseil**
+(Voir enrichissement intégré directement dans #032 ci-dessus — ch11 L279-321.)
+
+---
+
+## [JOURNAL] Chapitre 12 — Piège dans les docks — 29/06/2026 — Skills : ecriture-romanesque + voix-neutre + ecriture-epique + roman-fantasy
+
+---
+
+### #056 — Pivot narratif : de proie à chasseur (décision intérieure)
+
+**Type** : personnage
+**Contexte** : ch12 L392-401, L483-487 (décision intérieure en clôture), ch10-compte à rebours (#052)
+**Description** : Thoren franchit son **pivot intérieur le plus important depuis le début du roman**. Après l'embuscade, la blessure, l'ultimatum de Merault, il cesse d'être réactif et devient actif : « Il arrêterait de se cacher. Il arrêterait de réagir, de subir, d'attendre que le prochain coup tombe. Il deviendrait le chat » (L395-401). La décision est citée comme une leçon de Kellan (le chat qui sait où les rats se cachent). La clôture du chapitre formule explicitement la transition : « Thoren Wyck, le chasseur de Thornwood, n'était plus une proie. Il devenait ce qu'il avait toujours été. Un chasseur » (L483-487).
+
+Ce pivot est le **pendant personnel** du pivot structurel #052 (mode enquête → mode action, ch10). Là où #052 marquait la transition au niveau de l'intrigue (compte à rebours, phase d'action imminente), #056 la marque au niveau du personnage (mentalité proie → mentalité chasseur). Les deux pivots sont séparés de 2 chapitres (ch10 → ch12) : d'abord la structure, puis la psychologie. Le décalage est logique — Thoren a besoin de vivre l'embuscade, la blessure, l'ultimatum pour que la décision intérieure soit crédible.
+
+**Lien avec échantillons** : n/a
+**Sévérité** : [MAJEUR] — pivot personnel du protagoniste. Complète le pivot structurel #052 (ch10) en un **double pivot à 2 chapitres d'intervalle**.
+**Proposition d'amendement skill** :
+  - Skill concerné : `voix-neutre`
+  - Action : ajouter
+  - Description : **Décision intérieure comme pivot narratif** : la transition d'un protagoniste d'un état à un autre peut être formalisée en deux temps — d'abord le signal structurel (compte à rebours, menace concrète), puis la décision intérieure (action pensée, puis action annoncée). L'écart entre les deux (1 à 3 chapitres) permet au personnage de « vivre » la nécessité du changement plutôt que de la décréter.
+  - Exemple tiré du texte : « Il arrêterait de se cacher. Il arrêterait de réagir, de subir, d'attendre que le prochain coup tombe. Il deviendrait le chat. »
+
+---
+
+### #057 — Premier combat humain : style d'action sobre, concret, désorienté
+
+**Type** : style
+**Contexte** : ch12 L53-L137 (embuscade dans les docks, combat à la dague contre 4 hommes)
+**Description** : Le roman livre son **premier combat humain réel** (hors crabe en ch07, combat animalier). Le style d'action est sobre, concret, désorienté — l'éditeur confirme « pas de super-héros, Thoren est blessé ». Quatre caractéristiques stylistiques notables :
+
+1. **Phrases hachées** : dans l'action, les phrases passent du mode ample de la traversée nocturne à un rythme syncopé (« La lame entra. L'homme poussa un cri, pas un cri de douleur — un cri de surprise » L69-71). La syntaxe épouse l'urgence.
+2. **Conséquences visibles** : chaque coup a un effet immédiat et décrit — la matraque « passa à un doigt de son oreille », l'homme tombe « à genoux en portant son poids sur sa main valide », le sang « giclant entre ses doigts ».
+3. **Pas de cliché d'action fantasy** : pas de « soudain », pas de coup miraculeux, pas de parade parfaite. Thoren est déséquilibré (L55), il tombe sur un genou, il saigne, ses mains tremblent après (L219-220).
+4. **Structure ternaire de l'embuscade** (brouillon #10) : (1) attaque surprise → 2 hommes neutralisés ; (2) feinte de fatigue → 3e homme neutralisé ; (3) face-à-face avec le dernier → Merault apparaît.
+
+Le style d'action tient : la prose sensorielle et sobre du reste du roman s'adapte au combat sans rupture de ton. Le brouillon documente le choix délibéré d'un combat à la dague plutôt qu'à l'arc (hésitation #4) pour éviter le « héros invincible ».
+
+**Lien avec échantillons** : n/a
+**Sévérité** : [MINEUR] — 1 occurrence. Style d'action testé et validé. Technique reproductible.
+**Proposition d'amendement skill** :
+  - Skill concerné : `roman-fantasy`
+  - Action : ajouter
+  - Description : **Action sobre et concrète** : les scènes de combat humain évitent le vocabulaire générique (coup, frapper, soudain) et privilégient la conséquence sensorielle (où ça touche, comment ça résonne, ce que ça coûte). Règles : (1) le protagoniste n'est jamais indemne — chaque combat le blesse ou l'épulse ; (2) les coups ont des conséquences visibles et immédiates ; (3) les phrases se raccourcissent dans l'action mais sans tomber dans la staccato systématique ; (4) pas de coup « décisif » en fin de combat — la victoire est une question de rythme, pas de force.
+  - Exemple tiré du texte : « L'acier sonna contre l'acier. Thoren sentit la vibration remonter le long de son bras, jusqu'à l'épaule, et il bascula en arrière pour éviter la troisième attaque. »
+
+---
+
+### Enrichissements d'observations existantes
+
+**#055 — Silence comme arme : extension au combat (3 nouveaux silences)**
+
+**Enrichissement** : Ch12 ajoute 3 silences distincts au répertoire de #055 (qui comptait 4 silences politiques en ch11). Les nouveaux silences sont **physiques** plutôt que politiques, chacun avec une texture différente :
+
+1. **Silence de détection (L37-42)** : avant l'attaque, Thoren écoute les couches du silence — le vent, l'eau, le chien, puis « un trou dans le silence, une absence qui n'était pas naturelle, comme une respiration qu'on aurait coupée au milieu du souffle ». Le silence comme terrain sensoriel — Thoren y lit la présence de l'ennemi.
+2. **Silence de suspension (L85-91, L129-133)** : face-à-face immobile avec les deux derniers hommes. « Un silence qui contenait toute la fatigue de la journée, toute la tension du bastion, tout le poids du nom que Thoren portait dans sa poche à côté de la chandelle. » Chaque respiration comptée, chaque battement de cœur est un pas de plus vers ce qui va suivre.
+3. **Silence de résolution (L205-206)** : après le départ de Merault, « le silence n'était plus le même. C'était un silence qui n'attendait plus rien, qui s'était vidé de sa tension comme une outre qu'on perce. » Fonction : marquer la transition post-combat, le retour au calme après l'orage.
+
+Le brouillon documente le choix (hésitation #6) : chaque occurrence a une fonction différente — détection, suspension, résolution. La technique « Silence comme arme » (#055, ch11, 4 silences politiques) s'étend désormais au registre du combat physique. **Palette : 7 silences distincts sur 2 chapitres (ch11 + ch12).** L'éditeur confirme : « Utilisation maîtrisée du silence comme arme à trois moments distincts. »
+
+**#035 — Chandelle + médaillon : couple passé/avenir**
+
+**Enrichissement** : La chandelle (#035) n'est plus seule. Le médaillon du Trait Gris (trouvé sur le corps de l'homme de Merault, L209-216) la rejoint dans la même poche : « Le fer froid contre la cire tiède, le passé contre le présent, la marque de ceux qui voulaient le voir mort à côté de celle qui n'avait pas encore brûlé » (L215-216). Les deux objets forment désormais un **couple matériel** — deux promesses concurrentes portées ensemble.
+
+La chandelle est touchée 7 fois dans le chapitre (L25, L129, L269-273, L329-335, L373, L405-413, L451-452, L475-476, L495) — la plus forte densité du roman. Le « Pas encore » (L271, L333, L409) n'est plus seulement un différé de promesse : il devient une reconnaissance que le médaillon (la menace, le passé, l'organisation) pèse aussi lourd que la chandelle (l'avenir, la promesse personnelle). Les deux objets dialoguent dans la même main.
+
+La mèche noircie par les lampes du bastion — « pas par le feu » (L269, L331) — est répétée à deux reprises, créant un leitmotiv qui lie visuellement les deux chapitres (ch11 + ch12). L'innocence préservée (« pas encore brûlée ») est maintenue.
+
+---
+
+## Résumé des scores et alertes — Mise à jour ch12
+
+### Score avant ch12 : 64 points (12×MAJEUR + 40×MINEUR = 24 + 40 = 64)
+### Ajouts ch12 : 1×MAJEUR (#056) + 1×MINEUR (#057) + 2 enrichissements (#035, #055) = 2 + 1 = +3 points
+### Score total après ch12 : 67 points (13×MAJEUR + 41×MINEUR = 26 + 41 = 67)
+
+| Score | Occurrence |
+|---|---|
+| [SEUIL] (levé) | Motif du « neveu sur le Hatherly » — non répété depuis ch04. |
+| [SEUIL] (levé) | Motif « mer qui respire » — résolu et bouclé en ch07. |
+| [SEUIL] | Motif **#019 (Administration du secret)** — 3 occurrences (ch03, ch05, ch08). Arc Drevon refermé en ch11. |
+| [SEUIL] | Motif **#035 (Chandelle)** — 7+ occurrences (ch01, ch02, ch04, ch10, ch11, ch12). Densité maximale en ch12 (7 mentions). Couple avec médaillon. |
+| [SEUIL] | **#051 (Saturation d'exposition dialoguée)** — 4 occurrences. Consigne respectée en ch11-12. |
+| [SEUIL] (nouveau) | **#055 (Silence comme arme)** — 7 occurrences cumulées sur 2 chapitres (ch11: 4, ch12: 3). Extension au registre combat. |
+| [SCORE: 67] | 13×MAJEUR + 41×MINEUR — seuil de déclenchement précoce toujours actif |
+| [CAP: 57/60] | 55 antérieures + 2 nouvelles (#056, #057) = 57. 3 slots disponibles. |
+
+### Synthèse des points d'attention pour l'orchestrateur — Mise à jour ch12
+
+1. 🔥 **Pivot proie→chasseur (#056)** — Thoren cesse d'être réactif. Double pivot avec #052 (ch10) : structure puis psychologie. À prendre en compte pour ch13-14 (Thoren passe à l'offensive).
+2. ✅ **Combat à la dague (#057)** — premier combat humain. Style sobre, concret, validé par l'éditeur. Nouveau registre maîtrisé.
+3. ✅ **Silence comme arme (#055 enrichi)** — extension au combat. 3 silences (détection, suspension, résolution). Palette à 7 occurrences.
+4. ✅ **Chandelle + médaillon (#035 enrichi)** — couple passé/avenir. Densité maximale en ch12 (7 mentions). Pas encore allumée.
+5. ✅ **Merault cohérent avec ch10** — calme, souriant, professionnel. Passe de « fournisseur d'information » (ch10) à « donneur d'ultimatum » (ch12). Évolution logique.
+6. ✅ **Compte à rebours (#052)** — aube du dernier jour (j2/2). Confirmé en clôture (L457, L469).
+7. ✅ **POV strict** — aucune échappée omnisciente. Maintenu tout le chapitre.
+8. ✅ **Artefacts d'édition** — 2 artefacts détectés (fragment orphelin + duplication de paragraphe). Corrigés avant validation finale.
+9. ⚠️ **Blessure de Thoren** — coupure au flanc, bandée par Orin. Limite les mouvements pour ch13-14. Cohérente avec le plan (brouillon ch12, fil ouvert #2) : « Va devoir compter avec pendant les ch13-15. »
+10. ✅ **Fil temporel** — ch12 couvre une nuit entière (crépuscule → aube). Boucle temporelle complète. L'aube finale = début du jour 2/2.
 
 ---
 

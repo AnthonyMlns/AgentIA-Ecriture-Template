@@ -72,4 +72,5 @@ Descente ternaire. Promotion spéculatif → testé (projet complet en empilage 
 Amendé le 21/06/2026 (post-projet *Sanguinius — La Mort Retardée*) — ajout : Katabasis/Descente aux enfers.
 Amendé le 22/06/2026 (post-ch04 *Chroniques de Thalmoor*) — ajout : Katabasis inversée / Ascension vers le pouvoir (variante symétrique). Enrichi : Motif cosmique filé — variante Transformation du motif (retournement en son contraire).
 Amendé le 23/06/2026 (mi-parcours *Chroniques de Thalmoor*) — ajout : Katabasis à double fond (variante avec exemple concret ch05).
-Amendé le 23/06/2026 (checkpoint ch07-10 *Chroniques de Thalmoor*) — ajout : Règle de worldbuilding épique (≥1 technique par chapitre d'exposition). Enrichi : Refrain épique — exemple concret ch10. -->
+Amendé le 23/06/2026 (checkpoint ch07-10 *Chroniques de Thalmoor*) — ajout : Règle de worldbuilding épique (≥1 technique par chapitre d'exposition). Enrichi : Refrain épique — exemple concret ch10.
+Amendé le 29/06/2026 (second passage agent-style) — confirmation : tous les amendements checkpoint ch07-10 sont appliqués (règle worldbuilding, refrain épique). Aucun nouvel amendement nécessaire. -->
